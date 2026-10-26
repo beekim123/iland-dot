@@ -11,3 +11,6 @@ exports/
 
 # Private user reference images are never public assets
 art/references/
+
+# Generated Web exports and staging
+build/

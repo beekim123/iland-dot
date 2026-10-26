@@ -218,7 +218,8 @@ func _build_hud() -> void:
 	AudioServer.set_bus_volume_db(0, linear_to_db(0.65))
 
 func _build_audio() -> void:
-	var files := DirAccess.get_files_at("res://resources/audio")
+	# Imported resources may be listed as .import in exported PCKs.
+	var files := ["sunny_shell_island_loop.wav", "ocean_ambience_loop.wav"]
 	for file in files:
 		if not file.ends_with("_loop.wav"): continue
 		var stream := load("res://resources/audio/"+file) as AudioStreamWAV
