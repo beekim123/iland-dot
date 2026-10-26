@@ -1,0 +1,3 @@
+island_hud.gd + island_icon.gd: original project UI implementation, 2026-10-26.
+island-hud-font.otf: subset of NotoSansCJK-Bold.ttc face 2 (Simplified Chinese). SIL Open Font License; see OFL.txt.
+No third-party game artwork included.

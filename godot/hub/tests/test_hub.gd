@@ -1,0 +1,53 @@
+extends SceneTree
+var entries := 0
+func _initialize() -> void:
+	call_deferred("run")
+func run() -> void:
+	var world := Node3D.new(); root.add_child(world)
+	var camera := Camera3D.new(); world.add_child(camera); camera.position = Vector3(0,8,15); camera.look_at(Vector3(0,2,0)); camera.current = true
+	var mesh := MeshInstance3D.new(); mesh.name = "ClickFlower"; mesh.mesh = SphereMesh.new(); world.add_child(mesh)
+	var hub = load("res://hub/hub_interactions.gd").new(); world.add_child(hub); hub.session_seed = 42; hub.setup(world,camera)
+	hub.portal_requested.connect(func(_id): entries += 1)
+	assert(hub.portals.size() == 3,"Expected three safe portals")
+	for portal in hub.portals:
+		var energy_count := 0
+		var shadow_count := 0
+		for part in portal.effect.get_children():
+			if part is MeshInstance3D and part.material_override is ShaderMaterial:
+				var shader_path: String = part.material_override.shader.resource_path
+				if shader_path.ends_with("energy.gdshader"):
+					assert(part.mesh is QuadMesh, "Energy was deformed into ground mesh")
+					assert(part.mesh.size.y >= 3.9, "Energy height collapsed")
+					energy_count += 1
+				elif shader_path.ends_with("soft_shadow.gdshader"):
+					assert(part.mesh is ArrayMesh, "Shadow not terrain-conformed")
+					shadow_count += 1
+		assert(energy_count == 3 and shadow_count == 1,"Energy/shadow surface count incorrect")
+	assert(hub.pickables.has(mesh),"Mesh registered")
+	hub._activate(hub.portals[1]); assert(entries == 0,"Disabled portal entered")
+	hub._activate(hub.portals[0]); assert(entries == 1,"Enabled portal not entered")
+	var click := InputEventMouseButton.new(); click.button_index = MOUSE_BUTTON_LEFT; click.pressed = true; click.position = Vector2(100,100); hub._unhandled_input(click)
+	var drag := InputEventMouseMotion.new(); drag.position = Vector2(125,100); hub._unhandled_input(drag)
+	assert(hub.dragged,"Drag threshold failed")
+	click.pressed = false; click.position = Vector2(100,100); hub._unhandled_input(click)
+	assert(entries == 1,"Drag generated entry")
+	for p in hub.portals:
+		for other in hub.portals: other.visible = other == p
+		var screen: Vector2 = camera.unproject_position(p.global_position + Vector3.UP)
+		assert(hub._pick(screen) == p,"Portal pick failed")
+	for p in hub.portals: p.show()
+	for i in range(30): hub._play("click")
+	assert(hub.voices.size() == 8,"Voice pool unbounded")
+	hub.pressed = true; hub.dragged = true
+	hub.suspend()
+	assert(hub.suspended and not hub.visible and not hub.pressed and not hub.dragged, "Suspend did not clear interaction state")
+	hub._activate(hub.portals[0]); assert(entries == 1, "Suspended portal entered")
+	for voice in hub.voices: assert(not voice.playing, "Suspended SFX still playing")
+	hub.suspend(); hub.resume(); hub.resume()
+	assert(not hub.suspended and hub.visible, "Resume did not restore visibility")
+	hub._activate(hub.portals[0]); assert(entries == 2, "Resumed portal failed")
+	await process_frame
+	world.queue_free(); await process_frame; await process_frame
+	await create_timer(.2).timeout
+	print("HUB_TEST_PASS: 3 portals, disabled/active routing, mesh picking, drag rejection, 8 bounded voices, teardown")
+	quit()

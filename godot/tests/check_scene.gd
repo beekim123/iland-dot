@@ -21,7 +21,7 @@ func run() -> void:
 	root.add_child(scene)
 	await process_frame
 	check(scene.initialized, "Scene initialization")
-	for species in ["environment", "turtle", "crab", "seagull"]:
+	for species in ["environment", "turtle", "crab", "seagull", "tern", "dolphin"]:
 		var actor := scene.get_node_or_null(species.capitalize()) as Node3D
 		check(actor != null, "Required model "+species)
 		if actor:
@@ -48,22 +48,27 @@ func run() -> void:
 	var turtle_start: Vector3 = scene.actors[0].global_position
 	var crab_start: Vector3 = scene.actors[1].global_position
 	var gull_start: Vector3 = scene.actors[2].global_position
+	var tern_start: Vector3 = scene.actors[3].global_position
+	var dolphin_start: Vector3 = scene.actors[4].global_position
 	scene.elapsed = 4.0
 	scene._apply_motion()
 	check(scene.actors[0].global_position.distance_to(turtle_start) > 0.5, "Turtle genuinely swims along route")
 	check(scene.actors[1].global_position.distance_to(crab_start) > 0.25, "Crab genuinely scuttles")
 	check(scene.actors[2].global_position.distance_to(gull_start) > 2.0, "Gull genuinely flies along route")
 	check(scene.actors[2].global_position.y > 5.0, "Gull airborne")
+	check(scene.actors[3].global_position.distance_to(tern_start) > 2.0 and scene.actors[3].position.y > 5, "Second bird airborne and moving")
+	check(scene.actors[4].global_position.distance_to(dolphin_start) > 1.0 and scene.actors[4].position.y < -0.1, "Dolphin swimming offshore")
+	check(scene.actors[0].scale.x < 1.2 and scene.actors[1].scale.x < 1.201, "Turtle and crab reduced about 30 percent")
 	check(scene.fish_school.fish[0].body.global_position.distance_to(fish_start) > 0.5, "Fish actually swim")
 	check(scene.fish_school.fish[0].body.global_position.y < -0.1, "Fish below sea surface")
 	check(is_equal_approx(scene.living_water.surface_material.get_shader_parameter("water_time"),4.0), "Water shader deterministic clock")
 	check(scene.living_water.surface.mesh.get_surface_count() > 0, "Wave surface exists")
-	check(scene.wildlife.rigs.size() == 3, "Three real wildlife armatures")
+	check(scene.wildlife.rigs.size() == 5, "Five real wildlife armatures")
 	for rig in scene.wildlife.rigs:
 		check(rig.skeleton.get_bone_count() >= 10, "Real skeleton "+rig.actor.name)
 		check(rig.player.get_animation_list().size() > 0, "Authored clips "+rig.actor.name)
 	check(scene.fish_school.fish[0].rig.skeleton.get_bone_count() == 11, "Fish actual11bone rig")
-	check(scene.find_children("*","Skeleton3D",true,false).size() == 19, "All19actors use real Skeleton3D")
+	check(scene.find_children("*","Skeleton3D",true,false).size() == 21, "All21actors use real Skeleton3D")
 	check(scene.find_children("*MotionJoint*","Node3D",true,false).is_empty(), "No obsolete synthetic mesh joints")
 	report["v4_fish"] = {"count":scene.fish_school.fish.size(),"first_start":str(fish_start),"first_at_4s":str(scene.fish_school.fish[0].body.global_position)}
 	report["v4_motion_samples"] = {"turtle_start":str(turtle_start),"turtle_at_4s":str(scene.actors[0].global_position),

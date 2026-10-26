@@ -1,12 +1,41 @@
 {
- "revision":"approved-v3-art-true-armature-v4",
- "files":[
-  {"source":"art/v3/environment_v3.glb","destination":"godot/resources/models/environment.glb"},
-  {"source":"art/rigged/turtle/turtle_rigged.glb","destination":"godot/resources/models/turtle.glb"},
-  {"source":"art/rigged/crab/crab_rigged.glb","destination":"godot/resources/models/crab.glb"},
-  {"source":"art/rigged/seagull/seagull_rigged.glb","destination":"godot/resources/models/seagull.glb"},
-  {"source":"art/rigged/fish/fish_rigged.glb","destination":"godot/resources/models/fish.glb"},
-  {"source":"audio/export/sunny_shell_island_loop.wav","destination":"godot/resources/audio/sunny_shell_island_loop.wav"},
-  {"source":"audio/export/ocean_ambience_loop.wav","destination":"godot/resources/audio/ocean_ambience_loop.wav"}
- ]
+  "revision": "v5-modular-hub-birds-dolphin",
+  "files": [
+    {
+      "source": "art/v3/environment_v3.glb",
+      "destination": "godot/resources/models/environment.glb"
+    },
+    {
+      "source": "art/rigged/turtle/turtle_rigged.glb",
+      "destination": "godot/resources/models/turtle.glb"
+    },
+    {
+      "source": "art/rigged/crab/crab_rigged.glb",
+      "destination": "godot/resources/models/crab.glb"
+    },
+    {
+      "source": "art/v5/birds/gull/bird_rigged.glb",
+      "destination": "godot/resources/models/seagull.glb"
+    },
+    {
+      "source": "art/rigged/fish/fish_rigged.glb",
+      "destination": "godot/resources/models/fish.glb"
+    },
+    {
+      "source": "audio/export/sunny_shell_island_loop.wav",
+      "destination": "godot/resources/audio/sunny_shell_island_loop.wav"
+    },
+    {
+      "source": "audio/export/ocean_ambience_loop.wav",
+      "destination": "godot/resources/audio/ocean_ambience_loop.wav"
+    },
+    {
+      "source": "art/v5/birds/tern/bird_rigged.glb",
+      "destination": "godot/resources/models/tern.glb"
+    },
+    {
+      "source": "art/v5/dolphin/dolphin_rigged.glb",
+      "destination": "godot/resources/models/dolphin.glb"
+    }
+  ]
 }

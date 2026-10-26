@@ -18,8 +18,6 @@ var living_water: Node
 var fish_school: Node
 var audio_players: Array[AudioStreamPlayer] = []
 var hud: CanvasLayer
-var mute_button: Button
-var status: Label
 var initialized := false
 var shots := false
 
@@ -62,9 +60,11 @@ func _build_world() -> void:
 	add_child(fill)
 	var landscape := _model("environment", Vector3.ZERO, 1.0, 0.0)
 	# Source Blender (x,y,z) becomes Godot (x,z,-y).
-	actors.append(_model("turtle", Vector3(-4.3, 0.495, 3.0), 1.65, -0.40))
-	actors.append(_model("crab", Vector3(-1.6, 0.395, 3.0), 1.72, 0.15))
-	actors.append(_model("seagull", Vector3(4.8, 0.435, 2.7), 1.70, -0.65))
+	actors.append(_model("turtle", Vector3(-4.3, 0.495, 3.0), 1.15, -0.40))
+	actors.append(_model("crab", Vector3(-1.6, 0.395, 3.0), 1.20, 0.15))
+	actors.append(_model("seagull", Vector3(4.8, 0.435, 2.7), 0.78, -0.65))
+	actors.append(_model("tern", Vector3(-5, 7, 2), 0.67, 0.0))
+	actors.append(_model("dolphin", Vector3(7, -0.55, 9), 1.0, 0.0))
 	wildlife = load("res://scripts/wildlife_motion.gd").new()
 	wildlife.name = "WildlifeMotion"
 	add_child(wildlife)
@@ -206,91 +206,15 @@ func _apply_motion() -> void:
 	if living_water: living_water.apply_motion(elapsed)
 	if fish_school: fish_school.apply_motion(elapsed)
 
-func _panel_style() -> StyleBoxFlat:
-	var style := StyleBoxFlat.new()
-	style.bg_color = Color(0.035, 0.16, 0.19, 0.88)
-	style.corner_radius_top_left = 16
-	style.corner_radius_top_right = 16
-	style.corner_radius_bottom_left = 16
-	style.corner_radius_bottom_right = 16
-	style.content_margin_left = 22
-	style.content_margin_right = 22
-	style.content_margin_top = 14
-	style.content_margin_bottom = 14
-	return style
-
 func _build_hud() -> void:
-	hud = CanvasLayer.new()
+	hud = preload("res://hub/ui/island_hud.gd").new()
 	hud.name = "IslandHUD"
 	add_child(hud)
-	var ui := Control.new()
-	ui.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
-	ui.mouse_filter = Control.MOUSE_FILTER_IGNORE
-	hud.add_child(ui)
-	var theme := Theme.new()
-	theme.default_font = load("res://resources/fonts/island-ui.otf")
-	theme.default_font_size = 16
-	ui.theme = theme
-	var panel := PanelContainer.new()
-	panel.position = Vector2(28, 26)
-	panel.add_theme_stylebox_override("panel", _panel_style())
-	panel.mouse_filter = Control.MOUSE_FILTER_IGNORE
-	ui.add_child(panel)
-	var box := VBoxContainer.new()
-	box.add_theme_constant_override("separation", 5)
-	panel.add_child(box)
-	var title := Label.new()
-	title.text = "晴贝小岛  /  SUNNY SHELL"
-	title.add_theme_font_size_override("font_size", 27)
-	title.add_theme_color_override("font_color", Color("#fff0cb"))
-	box.add_child(title)
-	var subtitle := Label.new()
-	subtitle.text = "海风慢慢来  ·  A little pause by the sea"
-	subtitle.add_theme_color_override("font_color", Color("#c0dfdb"))
-	box.add_child(subtitle)
-	var bottom := PanelContainer.new()
-	bottom.set_anchors_and_offsets_preset(Control.PRESET_BOTTOM_WIDE)
-	bottom.offset_left = 28
-	bottom.offset_right = -28
-	bottom.offset_top = -110
-	bottom.offset_bottom = -24
-	bottom.add_theme_stylebox_override("panel", _panel_style())
-	ui.add_child(bottom)
-	var row := HBoxContainer.new()
-	row.add_theme_constant_override("separation", 18)
-	bottom.add_child(row)
-	var help := VBoxContainer.new()
-	help.size_flags_horizontal = Control.SIZE_EXPAND_FILL
-	row.add_child(help)
-	var hint := Label.new()
-	hint.text = "拖动旋转 · 滚轮缩放   /   Drag to orbit · Scroll to zoom"
-	help.add_child(hint)
-	status = Label.new()
-	status.text = "R 复位  ·  M 静音  ·  SPACE 暂停动画  ·  H 隐藏帮助"
-	status.add_theme_font_size_override("font_size", 13)
-	status.add_theme_color_override("font_color", Color("#b8d6cf"))
-	help.add_child(status)
-	var reset := Button.new()
-	reset.text = "观景 / View"
-	reset.pressed.connect(reset_view)
-	row.add_child(reset)
-	var close := Button.new()
-	close.text = "沙滩 / Beach"
-	close.pressed.connect(beach_view)
-	row.add_child(close)
-	mute_button = Button.new()
-	mute_button.text = "静音 / Mute"
-	mute_button.pressed.connect(_toggle_mute)
-	row.add_child(mute_button)
-	var slider := HSlider.new()
-	slider.custom_minimum_size = Vector2(110, 0)
-	slider.min_value = 0.0
-	slider.max_value = 1.0
-	slider.step = 0.01
-	slider.value = 0.65
-	slider.tooltip_text = "音乐 + 海浪 / Master volume"
-	slider.value_changed.connect(func(v:float): AudioServer.set_bus_volume_db(0, linear_to_db(maxf(v, 0.001))))
-	row.add_child(slider)
+	hud.reset_requested.connect(reset_view)
+	hud.beach_requested.connect(beach_view)
+	hud.mute_requested.connect(_toggle_mute)
+	hud.volume_changed.connect(func(v: float): AudioServer.set_bus_volume_db(0, linear_to_db(maxf(v, 0.001))))
+	hud.set_muted(muted)
 	AudioServer.set_bus_volume_db(0, linear_to_db(0.65))
 
 func _build_audio() -> void:
@@ -313,7 +237,7 @@ func _build_audio() -> void:
 func _toggle_mute() -> void:
 	muted = not muted
 	AudioServer.set_bus_mute(0, muted)
-	mute_button.text = "音乐 / Sound" if muted else "静音 / Mute"
+	hud.set_muted(muted)
 
 func _capture_sequence() -> void:
 	# Only use on a graphical instance; headless has no rendered viewport.

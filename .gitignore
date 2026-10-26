@@ -8,3 +8,6 @@ art/previews/runtime/
 backups/
 exports/
 *.log
+
+# Private user reference images are never public assets
+art/references/

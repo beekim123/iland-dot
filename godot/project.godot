@@ -1,7 +1,7 @@
 config_version=5
 [application]
 config/name="晴贝小岛 · Sunny Shell"
-run/main_scene="res://scenes/island.tscn"
+run/main_scene="res://app/main.tscn"
 config/features=PackedStringArray("4.7", "GL Compatibility")
 [display]
 window/size/viewport_width=1280

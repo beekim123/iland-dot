@@ -1,0 +1,26 @@
+{
+  "passed": true,
+  "comparison": [
+    {
+      "path": "/workspace/scratch/e3e9ec015b32/chibi-island/art/v3/sunny_shell_island_v3.blend",
+      "objects": 433,
+      "meshes": 294,
+      "materials": 56,
+      "libraries": [],
+      "images": [
+        ""
+      ],
+      "geometry_transform_sha256": "5a74b3010a93d07d45f3f2dcd66c0705bbc66c70d3be9b8bbc9366a0cfc429c6"
+    },
+    {
+      "path": "/workspace/scratch/e3e9ec015b32/iland-dot/art/v3/sunny_shell_island_v3.blend",
+      "objects": 433,
+      "meshes": 294,
+      "materials": 56,
+      "libraries": [],
+      "images": [],
+      "geometry_transform_sha256": "5a74b3010a93d07d45f3f2dcd66c0705bbc66c70d3be9b8bbc9366a0cfc429c6"
+    }
+  ],
+  "note": "Blender compress=True keeps all 433 objects,294 meshes,56 materials and exact mesh/topology/world-transform digest. No external libraries. Only the unsaved empty-path Render Result image datablock is omitted by Blender save; no texture asset lost."
+}

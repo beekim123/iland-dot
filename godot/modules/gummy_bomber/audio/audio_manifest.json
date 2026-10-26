@@ -1,0 +1,41 @@
+{
+  "sample_rate": 44100,
+  "license": "Original project-owned synthesized audio",
+  "music_bpm": 120,
+  "music_bars": 16,
+  "loop_seconds": 32,
+  "files": {
+    "place": {
+      "seconds": 0.12,
+      "peak": 0.2999
+    },
+    "pop": {
+      "seconds": 0.22,
+      "peak": 0.4382
+    },
+    "chain": {
+      "seconds": 0.485,
+      "peak": 0.1902
+    },
+    "hit": {
+      "seconds": 0.605,
+      "peak": 0.1573
+    },
+    "pickup": {
+      "seconds": 0.545,
+      "peak": 0.1707
+    },
+    "wave": {
+      "seconds": 0.85,
+      "peak": 0.1498
+    },
+    "ui": {
+      "seconds": 0.1,
+      "peak": 0.078
+    },
+    "music_loop": {
+      "seconds": 32.0,
+      "peak": 0.1489
+    }
+  }
+}

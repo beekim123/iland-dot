@@ -1,0 +1,33 @@
+{
+  "unweighted": 0,
+  "max_weight_sum_error": 3.725290298461914e-08,
+  "source": "Original dolphin v5, researched Q stylization",
+  "bones": 10,
+  "rest_bounds": {
+    "min": [
+      -0.6635793447494507,
+      -1.119412899017334,
+      -0.3381229341030121
+    ],
+    "max": [
+      0.6635793447494507,
+      1.186236023902893,
+      0.6733652949333191
+    ]
+  },
+  "duration": 4.0,
+  "clip": "Swim",
+  "forward": "-Y Blender / +Z glTF",
+  "meshes": 23,
+  "max_pose_displacement_m": 0.6998217835335653,
+  "loop_max_vertex_error_m": 0.0,
+  "finite_vertices": true,
+  "glb": {
+    "skins": 1,
+    "joints": 10,
+    "animation_channels": 30,
+    "all_primitives_skinned": true,
+    "time_start": 0.041666666666666664,
+    "time_end": 4.041666666666667
+  }
+}

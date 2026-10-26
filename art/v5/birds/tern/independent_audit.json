@@ -1,0 +1,2226 @@
+{
+  "blend": "/workspace/scratch/e3e9ec015b32/chibi-island/art/v5/birds/tern/bird_rigged.blend",
+  "armatures": [
+    {
+      "name": "Seagull_Rig",
+      "bones": 17,
+      "bone_names": [
+        "body",
+        "elbow.L",
+        "elbow.R",
+        "feather.L",
+        "feather.R",
+        "foot.L",
+        "foot.R",
+        "head",
+        "leg.L",
+        "leg.R",
+        "neck",
+        "root",
+        "shoulder.L",
+        "shoulder.R",
+        "tail",
+        "wrist.L",
+        "wrist.R"
+      ],
+      "active_action": "Fly"
+    }
+  ],
+  "meshes": [
+    {
+      "name": "Gull_HeadNeckBody",
+      "vertices": 4866,
+      "armature": "Seagull_Rig",
+      "unweighted": 0,
+      "max_weight_sum_error": 3.207242116332054e-08,
+      "blended_vertices": 1280,
+      "weighted_bones": [
+        "body",
+        "head",
+        "neck"
+      ],
+      "deformation": [
+        {
+          "action": "Fly",
+          "frames": [
+            1.0,
+            23.080000000000002,
+            49.96,
+            74.92,
+            97.0
+          ],
+          "max_local_vertex_change": 0.08884430111810954,
+          "max_pair_distance_change": 0.015587685406427576,
+          "nonrigid_deformation_detected": true
+        },
+        {
+          "action": "Glide",
+          "frames": [
+            1.0,
+            23.080000000000002,
+            49.96,
+            74.92,
+            97.0
+          ],
+          "max_local_vertex_change": 0.05253417897971215,
+          "max_pair_distance_change": 0.015587575026990652,
+          "nonrigid_deformation_detected": true
+        }
+      ]
+    },
+    {
+      "name": "Gull_Eye_-1_Socket",
+      "vertices": 362,
+      "armature": "Seagull_Rig",
+      "unweighted": 0,
+      "max_weight_sum_error": 0.0,
+      "blended_vertices": 0,
+      "weighted_bones": [
+        "head"
+      ],
+      "deformation": [
+        {
+          "action": "Fly",
+          "frames": [
+            1.0,
+            23.080000000000002,
+            49.96,
+            74.92,
+            97.0
+          ],
+          "max_local_vertex_change": 0.07719898934870818,
+          "max_pair_distance_change": 1.2104618979380533e-07,
+          "nonrigid_deformation_detected": false
+        },
+        {
+          "action": "Glide",
+          "frames": [
+            1.0,
+            23.080000000000002,
+            49.96,
+            74.92,
+            97.0
+          ],
+          "max_local_vertex_change": 0.046105458356873824,
+          "max_pair_distance_change": 1.4205249718179935e-07,
+          "nonrigid_deformation_detected": false
+        }
+      ]
+    },
+    {
+      "name": "Gull_Eye_-1_Eye",
+      "vertices": 362,
+      "armature": "Seagull_Rig",
+      "unweighted": 0,
+      "max_weight_sum_error": 0.0,
+      "blended_vertices": 0,
+      "weighted_bones": [
+        "head"
+      ],
+      "deformation": [
+        {
+          "action": "Fly",
+          "frames": [
+            1.0,
+            23.080000000000002,
+            49.96,
+            74.92,
+            97.0
+          ],
+          "max_local_vertex_change": 0.07670078408283434,
+          "max_pair_distance_change": 1.232897585828896e-07,
+          "nonrigid_deformation_detected": false
+        },
+        {
+          "action": "Glide",
+          "frames": [
+            1.0,
+            23.080000000000002,
+            49.96,
+            74.92,
+            97.0
+          ],
+          "max_local_vertex_change": 0.04554282313116718,
+          "max_pair_distance_change": 1.6370076775379383e-07,
+          "nonrigid_deformation_detected": false
+        }
+      ]
+    },
+    {
+      "name": "Gull_Eye_-1_Iris",
+      "vertices": 362,
+      "armature": "Seagull_Rig",
+      "unweighted": 0,
+      "max_weight_sum_error": 0.0,
+      "blended_vertices": 0,
+      "weighted_bones": [
+        "head"
+      ],
+      "deformation": [
+        {
+          "action": "Fly",
+          "frames": [
+            1.0,
+            23.080000000000002,
+            49.96,
+            74.92,
+            97.0
+          ],
+          "max_local_vertex_change": 0.0759209599378271,
+          "max_pair_distance_change": 1.3760669523299462e-07,
+          "nonrigid_deformation_detected": false
+        },
+        {
+          "action": "Glide",
+          "frames": [
+            1.0,
+            23.080000000000002,
+            49.96,
+            74.92,
+            97.0
+          ],
+          "max_local_vertex_change": 0.04469662114685759,
+          "max_pair_distance_change": 1.5472803389926515e-07,
+          "nonrigid_deformation_detected": false
+        }
+      ]
+    },
+    {
+      "name": "Gull_Eye_-1_Pupil",
+      "vertices": 362,
+      "armature": "Seagull_Rig",
+      "unweighted": 0,
+      "max_weight_sum_error": 0.0,
+      "blended_vertices": 0,
+      "weighted_bones": [
+        "head"
+      ],
+      "deformation": [
+        {
+          "action": "Fly",
+          "frames": [
+            1.0,
+            23.080000000000002,
+            49.96,
+            74.92,
+            97.0
+          ],
+          "max_local_vertex_change": 0.07555915712493781,
+          "max_pair_distance_change": 1.2615289646245031e-07,
+          "nonrigid_deformation_detected": false
+        },
+        {
+          "action": "Glide",
+          "frames": [
+            1.0,
+            23.080000000000002,
+            49.96,
+            74.92,
+            97.0
+          ],
+          "max_local_vertex_change": 0.044338990203019325,
+          "max_pair_distance_change": 1.4952704532888994e-07,
+          "nonrigid_deformation_detected": false
+        }
+      ]
+    },
+    {
+      "name": "Gull_Eye_-1_Catchlight",
+      "vertices": 362,
+      "armature": "Seagull_Rig",
+      "unweighted": 0,
+      "max_weight_sum_error": 0.0,
+      "blended_vertices": 0,
+      "weighted_bones": [
+        "head"
+      ],
+      "deformation": [
+        {
+          "action": "Fly",
+          "frames": [
+            1.0,
+            23.080000000000002,
+            49.96,
+            74.92,
+            97.0
+          ],
+          "max_local_vertex_change": 0.07606668327083783,
+          "max_pair_distance_change": 1.4090996408241963e-07,
+          "nonrigid_deformation_detected": false
+        },
+        {
+          "action": "Glide",
+          "frames": [
+            1.0,
+            23.080000000000002,
+            49.96,
+            74.92,
+            97.0
+          ],
+          "max_local_vertex_change": 0.044698817393595304,
+          "max_pair_distance_change": 1.4718141919459193e-07,
+          "nonrigid_deformation_detected": false
+        }
+      ]
+    },
+    {
+      "name": "Gull_Eye_-1_UpperLid",
+      "vertices": 1610,
+      "armature": "Seagull_Rig",
+      "unweighted": 0,
+      "max_weight_sum_error": 0.0,
+      "blended_vertices": 0,
+      "weighted_bones": [
+        "head"
+      ],
+      "deformation": [
+        {
+          "action": "Fly",
+          "frames": [
+            1.0,
+            23.080000000000002,
+            49.96,
+            74.92,
+            97.0
+          ],
+          "max_local_vertex_change": 0.07751525321108767,
+          "max_pair_distance_change": 1.1709126867404107e-07,
+          "nonrigid_deformation_detected": false
+        },
+        {
+          "action": "Glide",
+          "frames": [
+            1.0,
+            23.080000000000002,
+            49.96,
+            74.92,
+            97.0
+          ],
+          "max_local_vertex_change": 0.046307364618791605,
+          "max_pair_distance_change": 1.2848838033124865e-07,
+          "nonrigid_deformation_detected": false
+        }
+      ]
+    },
+    {
+      "name": "Gull_Leg-1",
+      "vertices": 402,
+      "armature": "Seagull_Rig",
+      "unweighted": 0,
+      "max_weight_sum_error": 0.0,
+      "blended_vertices": 0,
+      "weighted_bones": [
+        "leg.L"
+      ],
+      "deformation": [
+        {
+          "action": "Fly",
+          "frames": [
+            1.0,
+            23.080000000000002,
+            49.96,
+            74.92,
+            97.0
+          ],
+          "max_local_vertex_change": 0.02283340343859993,
+          "max_pair_distance_change": 3.2540516770734884e-08,
+          "nonrigid_deformation_detected": false
+        },
+        {
+          "action": "Glide",
+          "frames": [
+            1.0,
+            23.080000000000002,
+            49.96,
+            74.92,
+            97.0
+          ],
+          "max_local_vertex_change": 0.0215240537770603,
+          "max_pair_distance_change": 3.3282758021835335e-08,
+          "nonrigid_deformation_detected": false
+        }
+      ]
+    },
+    {
+      "name": "Gull_WebbedFoot-1",
+      "vertices": 650,
+      "armature": "Seagull_Rig",
+      "unweighted": 0,
+      "max_weight_sum_error": 0.0,
+      "blended_vertices": 0,
+      "weighted_bones": [
+        "foot.L"
+      ],
+      "deformation": [
+        {
+          "action": "Fly",
+          "frames": [
+            1.0,
+            23.080000000000002,
+            49.96,
+            74.92,
+            97.0
+          ],
+          "max_local_vertex_change": 0.020071070536095418,
+          "max_pair_distance_change": 3.123837288843134e-08,
+          "nonrigid_deformation_detected": false
+        },
+        {
+          "action": "Glide",
+          "frames": [
+            1.0,
+            23.080000000000002,
+            49.96,
+            74.92,
+            97.0
+          ],
+          "max_local_vertex_change": 0.021130467588663285,
+          "max_pair_distance_change": 3.540986530381485e-08,
+          "nonrigid_deformation_detected": false
+        }
+      ]
+    },
+    {
+      "name": "Gull_ToeSeam",
+      "vertices": 410,
+      "armature": "Seagull_Rig",
+      "unweighted": 0,
+      "max_weight_sum_error": 0.0,
+      "blended_vertices": 0,
+      "weighted_bones": [
+        "foot.L"
+      ],
+      "deformation": [
+        {
+          "action": "Fly",
+          "frames": [
+            1.0,
+            23.080000000000002,
+            49.96,
+            74.92,
+            97.0
+          ],
+          "max_local_vertex_change": 0.017242729872259607,
+          "max_pair_distance_change": 3.5083254548012865e-08,
+          "nonrigid_deformation_detected": false
+        },
+        {
+          "action": "Glide",
+          "frames": [
+            1.0,
+            23.080000000000002,
+            49.96,
+            74.92,
+            97.0
+          ],
+          "max_local_vertex_change": 0.020816984052641246,
+          "max_pair_distance_change": 3.266993521544581e-08,
+          "nonrigid_deformation_detected": false
+        }
+      ]
+    },
+    {
+      "name": "Gull_ToeSeam.001",
+      "vertices": 410,
+      "armature": "Seagull_Rig",
+      "unweighted": 0,
+      "max_weight_sum_error": 0.0,
+      "blended_vertices": 0,
+      "weighted_bones": [
+        "foot.L"
+      ],
+      "deformation": [
+        {
+          "action": "Fly",
+          "frames": [
+            1.0,
+            23.080000000000002,
+            49.96,
+            74.92,
+            97.0
+          ],
+          "max_local_vertex_change": 0.017269022869392116,
+          "max_pair_distance_change": 3.3922174798306504e-08,
+          "nonrigid_deformation_detected": false
+        },
+        {
+          "action": "Glide",
+          "frames": [
+            1.0,
+            23.080000000000002,
+            49.96,
+            74.92,
+            97.0
+          ],
+          "max_local_vertex_change": 0.020806906123799377,
+          "max_pair_distance_change": 3.7151592024997626e-08,
+          "nonrigid_deformation_detected": false
+        }
+      ]
+    },
+    {
+      "name": "Gull_Eye_1_Socket",
+      "vertices": 362,
+      "armature": "Seagull_Rig",
+      "unweighted": 0,
+      "max_weight_sum_error": 0.0,
+      "blended_vertices": 0,
+      "weighted_bones": [
+        "head"
+      ],
+      "deformation": [
+        {
+          "action": "Fly",
+          "frames": [
+            1.0,
+            23.080000000000002,
+            49.96,
+            74.92,
+            97.0
+          ],
+          "max_local_vertex_change": 0.08383898336159953,
+          "max_pair_distance_change": 1.3067489636198193e-07,
+          "nonrigid_deformation_detected": false
+        },
+        {
+          "action": "Glide",
+          "frames": [
+            1.0,
+            23.080000000000002,
+            49.96,
+            74.92,
+            97.0
+          ],
+          "max_local_vertex_change": 0.05106573016083083,
+          "max_pair_distance_change": 1.4353619635920634e-07,
+          "nonrigid_deformation_detected": false
+        }
+      ]
+    },
+    {
+      "name": "Gull_Eye_1_Eye",
+      "vertices": 362,
+      "armature": "Seagull_Rig",
+      "unweighted": 0,
+      "max_weight_sum_error": 0.0,
+      "blended_vertices": 0,
+      "weighted_bones": [
+        "head"
+      ],
+      "deformation": [
+        {
+          "action": "Fly",
+          "frames": [
+            1.0,
+            23.080000000000002,
+            49.96,
+            74.92,
+            97.0
+          ],
+          "max_local_vertex_change": 0.08414701348837929,
+          "max_pair_distance_change": 1.5111962402281076e-07,
+          "nonrigid_deformation_detected": false
+        },
+        {
+          "action": "Glide",
+          "frames": [
+            1.0,
+            23.080000000000002,
+            49.96,
+            74.92,
+            97.0
+          ],
+          "max_local_vertex_change": 0.051093382600980286,
+          "max_pair_distance_change": 1.508237620490016e-07,
+          "nonrigid_deformation_detected": false
+        }
+      ]
+    },
+    {
+      "name": "Gull_Eye_1_Iris",
+      "vertices": 362,
+      "armature": "Seagull_Rig",
+      "unweighted": 0,
+      "max_weight_sum_error": 0.0,
+      "blended_vertices": 0,
+      "weighted_bones": [
+        "head"
+      ],
+      "deformation": [
+        {
+          "action": "Fly",
+          "frames": [
+            1.0,
+            23.080000000000002,
+            49.96,
+            74.92,
+            97.0
+          ],
+          "max_local_vertex_change": 0.08374312289138552,
+          "max_pair_distance_change": 1.5571403055858468e-07,
+          "nonrigid_deformation_detected": false
+        },
+        {
+          "action": "Glide",
+          "frames": [
+            1.0,
+            23.080000000000002,
+            49.96,
+            74.92,
+            97.0
+          ],
+          "max_local_vertex_change": 0.05056022090237977,
+          "max_pair_distance_change": 1.7423590870091488e-07,
+          "nonrigid_deformation_detected": false
+        }
+      ]
+    },
+    {
+      "name": "Gull_Eye_1_Pupil",
+      "vertices": 362,
+      "armature": "Seagull_Rig",
+      "unweighted": 0,
+      "max_weight_sum_error": 0.0,
+      "blended_vertices": 0,
+      "weighted_bones": [
+        "head"
+      ],
+      "deformation": [
+        {
+          "action": "Fly",
+          "frames": [
+            1.0,
+            23.080000000000002,
+            49.96,
+            74.92,
+            97.0
+          ],
+          "max_local_vertex_change": 0.0836852577180973,
+          "max_pair_distance_change": 1.4032881785058793e-07,
+          "nonrigid_deformation_detected": false
+        },
+        {
+          "action": "Glide",
+          "frames": [
+            1.0,
+            23.080000000000002,
+            49.96,
+            74.92,
+            97.0
+          ],
+          "max_local_vertex_change": 0.05040523841353758,
+          "max_pair_distance_change": 1.6791682043437728e-07,
+          "nonrigid_deformation_detected": false
+        }
+      ]
+    },
+    {
+      "name": "Gull_Eye_1_Catchlight",
+      "vertices": 362,
+      "armature": "Seagull_Rig",
+      "unweighted": 0,
+      "max_weight_sum_error": 0.0,
+      "blended_vertices": 0,
+      "weighted_bones": [
+        "head"
+      ],
+      "deformation": [
+        {
+          "action": "Fly",
+          "frames": [
+            1.0,
+            23.080000000000002,
+            49.96,
+            74.92,
+            97.0
+          ],
+          "max_local_vertex_change": 0.0838934193073341,
+          "max_pair_distance_change": 1.3469937441140667e-07,
+          "nonrigid_deformation_detected": false
+        },
+        {
+          "action": "Glide",
+          "frames": [
+            1.0,
+            23.080000000000002,
+            49.96,
+            74.92,
+            97.0
+          ],
+          "max_local_vertex_change": 0.050632541903331295,
+          "max_pair_distance_change": 1.5694981505068317e-07,
+          "nonrigid_deformation_detected": false
+        }
+      ]
+    },
+    {
+      "name": "Gull_Eye_1_UpperLid",
+      "vertices": 1610,
+      "armature": "Seagull_Rig",
+      "unweighted": 0,
+      "max_weight_sum_error": 0.0,
+      "blended_vertices": 0,
+      "weighted_bones": [
+        "head"
+      ],
+      "deformation": [
+        {
+          "action": "Fly",
+          "frames": [
+            1.0,
+            23.080000000000002,
+            49.96,
+            74.92,
+            97.0
+          ],
+          "max_local_vertex_change": 0.08464062130075434,
+          "max_pair_distance_change": 1.110083477778856e-07,
+          "nonrigid_deformation_detected": false
+        },
+        {
+          "action": "Glide",
+          "frames": [
+            1.0,
+            23.080000000000002,
+            49.96,
+            74.92,
+            97.0
+          ],
+          "max_local_vertex_change": 0.051745798801727784,
+          "max_pair_distance_change": 1.293642360039593e-07,
+          "nonrigid_deformation_detected": false
+        }
+      ]
+    },
+    {
+      "name": "Gull_Leg1",
+      "vertices": 402,
+      "armature": "Seagull_Rig",
+      "unweighted": 0,
+      "max_weight_sum_error": 0.0,
+      "blended_vertices": 0,
+      "weighted_bones": [
+        "leg.R"
+      ],
+      "deformation": [
+        {
+          "action": "Fly",
+          "frames": [
+            1.0,
+            23.080000000000002,
+            49.96,
+            74.92,
+            97.0
+          ],
+          "max_local_vertex_change": 0.02994371658649132,
+          "max_pair_distance_change": 3.8134826546576406e-08,
+          "nonrigid_deformation_detected": false
+        },
+        {
+          "action": "Glide",
+          "frames": [
+            1.0,
+            23.080000000000002,
+            49.96,
+            74.92,
+            97.0
+          ],
+          "max_local_vertex_change": 0.02359855223645299,
+          "max_pair_distance_change": 4.036553499786599e-08,
+          "nonrigid_deformation_detected": false
+        }
+      ]
+    },
+    {
+      "name": "Gull_WebbedFoot1",
+      "vertices": 650,
+      "armature": "Seagull_Rig",
+      "unweighted": 0,
+      "max_weight_sum_error": 0.0,
+      "blended_vertices": 0,
+      "weighted_bones": [
+        "foot.R"
+      ],
+      "deformation": [
+        {
+          "action": "Fly",
+          "frames": [
+            1.0,
+            23.080000000000002,
+            49.96,
+            74.92,
+            97.0
+          ],
+          "max_local_vertex_change": 0.026248308891461746,
+          "max_pair_distance_change": 3.3603397814330194e-08,
+          "nonrigid_deformation_detected": false
+        },
+        {
+          "action": "Glide",
+          "frames": [
+            1.0,
+            23.080000000000002,
+            49.96,
+            74.92,
+            97.0
+          ],
+          "max_local_vertex_change": 0.022455024848037655,
+          "max_pair_distance_change": 3.353398994598855e-08,
+          "nonrigid_deformation_detected": false
+        }
+      ]
+    },
+    {
+      "name": "Gull_ToeSeam.002",
+      "vertices": 410,
+      "armature": "Seagull_Rig",
+      "unweighted": 0,
+      "max_weight_sum_error": 0.0,
+      "blended_vertices": 0,
+      "weighted_bones": [
+        "foot.R"
+      ],
+      "deformation": [
+        {
+          "action": "Fly",
+          "frames": [
+            1.0,
+            23.080000000000002,
+            49.96,
+            74.92,
+            97.0
+          ],
+          "max_local_vertex_change": 0.021946336294301688,
+          "max_pair_distance_change": 2.8732461847258417e-08,
+          "nonrigid_deformation_detected": false
+        },
+        {
+          "action": "Glide",
+          "frames": [
+            1.0,
+            23.080000000000002,
+            49.96,
+            74.92,
+            97.0
+          ],
+          "max_local_vertex_change": 0.02160460675089607,
+          "max_pair_distance_change": 2.9137693119407615e-08,
+          "nonrigid_deformation_detected": false
+        }
+      ]
+    },
+    {
+      "name": "Gull_ToeSeam.003",
+      "vertices": 410,
+      "armature": "Seagull_Rig",
+      "unweighted": 0,
+      "max_weight_sum_error": 0.0,
+      "blended_vertices": 0,
+      "weighted_bones": [
+        "foot.R"
+      ],
+      "deformation": [
+        {
+          "action": "Fly",
+          "frames": [
+            1.0,
+            23.080000000000002,
+            49.96,
+            74.92,
+            97.0
+          ],
+          "max_local_vertex_change": 0.023861247303775014,
+          "max_pair_distance_change": 3.583291706237002e-08,
+          "nonrigid_deformation_detected": false
+        },
+        {
+          "action": "Glide",
+          "frames": [
+            1.0,
+            23.080000000000002,
+            49.96,
+            74.92,
+            97.0
+          ],
+          "max_local_vertex_change": 0.0221733494380127,
+          "max_pair_distance_change": 3.109577829951693e-08,
+          "nonrigid_deformation_detected": false
+        }
+      ]
+    },
+    {
+      "name": "Gull_UpperBeak",
+      "vertices": 1154,
+      "armature": "Seagull_Rig",
+      "unweighted": 0,
+      "max_weight_sum_error": 0.0,
+      "blended_vertices": 0,
+      "weighted_bones": [
+        "head"
+      ],
+      "deformation": [
+        {
+          "action": "Fly",
+          "frames": [
+            1.0,
+            23.080000000000002,
+            49.96,
+            74.92,
+            97.0
+          ],
+          "max_local_vertex_change": 0.08635217698163951,
+          "max_pair_distance_change": 1.8809950627640681e-07,
+          "nonrigid_deformation_detected": false
+        },
+        {
+          "action": "Glide",
+          "frames": [
+            1.0,
+            23.080000000000002,
+            49.96,
+            74.92,
+            97.0
+          ],
+          "max_local_vertex_change": 0.050514053891217034,
+          "max_pair_distance_change": 1.7392283505057726e-07,
+          "nonrigid_deformation_detected": false
+        }
+      ]
+    },
+    {
+      "name": "Gull_LowerBeak",
+      "vertices": 898,
+      "armature": "Seagull_Rig",
+      "unweighted": 0,
+      "max_weight_sum_error": 0.0,
+      "blended_vertices": 0,
+      "weighted_bones": [
+        "head"
+      ],
+      "deformation": [
+        {
+          "action": "Fly",
+          "frames": [
+            1.0,
+            23.080000000000002,
+            49.96,
+            74.92,
+            97.0
+          ],
+          "max_local_vertex_change": 0.08480421463205487,
+          "max_pair_distance_change": 2.147154238574256e-07,
+          "nonrigid_deformation_detected": false
+        },
+        {
+          "action": "Glide",
+          "frames": [
+            1.0,
+            23.080000000000002,
+            49.96,
+            74.92,
+            97.0
+          ],
+          "max_local_vertex_change": 0.048943496763634686,
+          "max_pair_distance_change": 1.7952926062436703e-07,
+          "nonrigid_deformation_detected": false
+        }
+      ]
+    },
+    {
+      "name": "Gull_BeakSmile-1",
+      "vertices": 410,
+      "armature": "Seagull_Rig",
+      "unweighted": 0,
+      "max_weight_sum_error": 0.0,
+      "blended_vertices": 0,
+      "weighted_bones": [
+        "head"
+      ],
+      "deformation": [
+        {
+          "action": "Fly",
+          "frames": [
+            1.0,
+            23.080000000000002,
+            49.96,
+            74.92,
+            97.0
+          ],
+          "max_local_vertex_change": 0.08236046079550091,
+          "max_pair_distance_change": 1.7991093740135633e-07,
+          "nonrigid_deformation_detected": false
+        },
+        {
+          "action": "Glide",
+          "frames": [
+            1.0,
+            23.080000000000002,
+            49.96,
+            74.92,
+            97.0
+          ],
+          "max_local_vertex_change": 0.04695105544864356,
+          "max_pair_distance_change": 2.469060243620591e-07,
+          "nonrigid_deformation_detected": false
+        }
+      ]
+    },
+    {
+      "name": "Gull_BeakSmile1",
+      "vertices": 410,
+      "armature": "Seagull_Rig",
+      "unweighted": 0,
+      "max_weight_sum_error": 0.0,
+      "blended_vertices": 0,
+      "weighted_bones": [
+        "head"
+      ],
+      "deformation": [
+        {
+          "action": "Fly",
+          "frames": [
+            1.0,
+            23.080000000000002,
+            49.96,
+            74.92,
+            97.0
+          ],
+          "max_local_vertex_change": 0.08423046480390596,
+          "max_pair_distance_change": 2.0831084725225768e-07,
+          "nonrigid_deformation_detected": false
+        },
+        {
+          "action": "Glide",
+          "frames": [
+            1.0,
+            23.080000000000002,
+            49.96,
+            74.92,
+            97.0
+          ],
+          "max_local_vertex_change": 0.048667984708398296,
+          "max_pair_distance_change": 2.1842889192172366e-07,
+          "nonrigid_deformation_detected": false
+        }
+      ]
+    },
+    {
+      "name": "Gull_TailFeather-1",
+      "vertices": 674,
+      "armature": "Seagull_Rig",
+      "unweighted": 0,
+      "max_weight_sum_error": 0.0,
+      "blended_vertices": 0,
+      "weighted_bones": [
+        "tail"
+      ],
+      "deformation": [
+        {
+          "action": "Fly",
+          "frames": [
+            1.0,
+            23.080000000000002,
+            49.96,
+            74.92,
+            97.0
+          ],
+          "max_local_vertex_change": 0.13299094909577466,
+          "max_pair_distance_change": 2.5493702093815074e-07,
+          "nonrigid_deformation_detected": false
+        },
+        {
+          "action": "Glide",
+          "frames": [
+            1.0,
+            23.080000000000002,
+            49.96,
+            74.92,
+            97.0
+          ],
+          "max_local_vertex_change": 0.06508271739299401,
+          "max_pair_distance_change": 2.1715525022614202e-07,
+          "nonrigid_deformation_detected": false
+        }
+      ]
+    },
+    {
+      "name": "Gull_TailFeather0",
+      "vertices": 674,
+      "armature": "Seagull_Rig",
+      "unweighted": 0,
+      "max_weight_sum_error": 0.0,
+      "blended_vertices": 0,
+      "weighted_bones": [
+        "tail"
+      ],
+      "deformation": [
+        {
+          "action": "Fly",
+          "frames": [
+            1.0,
+            23.080000000000002,
+            49.96,
+            74.92,
+            97.0
+          ],
+          "max_local_vertex_change": 0.09803655356054977,
+          "max_pair_distance_change": 1.371767741620289e-07,
+          "nonrigid_deformation_detected": false
+        },
+        {
+          "action": "Glide",
+          "frames": [
+            1.0,
+            23.080000000000002,
+            49.96,
+            74.92,
+            97.0
+          ],
+          "max_local_vertex_change": 0.048165175801483905,
+          "max_pair_distance_change": 1.835461722055065e-07,
+          "nonrigid_deformation_detected": false
+        }
+      ]
+    },
+    {
+      "name": "Gull_TailFeather1",
+      "vertices": 674,
+      "armature": "Seagull_Rig",
+      "unweighted": 0,
+      "max_weight_sum_error": 0.0,
+      "blended_vertices": 0,
+      "weighted_bones": [
+        "tail"
+      ],
+      "deformation": [
+        {
+          "action": "Fly",
+          "frames": [
+            1.0,
+            23.080000000000002,
+            49.96,
+            74.92,
+            97.0
+          ],
+          "max_local_vertex_change": 0.12816493027958786,
+          "max_pair_distance_change": 2.1748012790645532e-07,
+          "nonrigid_deformation_detected": false
+        },
+        {
+          "action": "Glide",
+          "frames": [
+            1.0,
+            23.080000000000002,
+            49.96,
+            74.92,
+            97.0
+          ],
+          "max_local_vertex_change": 0.06058419488782575,
+          "max_pair_distance_change": 2.6891544113727406e-07,
+          "nonrigid_deformation_detected": false
+        }
+      ]
+    },
+    {
+      "name": "WingAirfoil.L",
+      "vertices": 418,
+      "armature": "Seagull_Rig",
+      "unweighted": 0,
+      "max_weight_sum_error": 2.9802322387695312e-08,
+      "blended_vertices": 336,
+      "weighted_bones": [
+        "elbow.L",
+        "feather.L",
+        "shoulder.L",
+        "wrist.L"
+      ],
+      "deformation": [
+        {
+          "action": "Fly",
+          "frames": [
+            1.0,
+            23.080000000000002,
+            49.96,
+            74.92,
+            97.0
+          ],
+          "max_local_vertex_change": 0.5999362787155562,
+          "max_pair_distance_change": 0.023798317980599393,
+          "nonrigid_deformation_detected": true
+        },
+        {
+          "action": "Glide",
+          "frames": [
+            1.0,
+            23.080000000000002,
+            49.96,
+            74.92,
+            97.0
+          ],
+          "max_local_vertex_change": 0.04631163157190086,
+          "max_pair_distance_change": 0.0005288145964337243,
+          "nonrigid_deformation_detected": true
+        }
+      ]
+    },
+    {
+      "name": "WingFeather.L.0",
+      "vertices": 226,
+      "armature": "Seagull_Rig",
+      "unweighted": 0,
+      "max_weight_sum_error": 2.9802322387695312e-08,
+      "blended_vertices": 161,
+      "weighted_bones": [
+        "elbow.L",
+        "shoulder.L"
+      ],
+      "deformation": [
+        {
+          "action": "Fly",
+          "frames": [
+            1.0,
+            23.080000000000002,
+            49.96,
+            74.92,
+            97.0
+          ],
+          "max_local_vertex_change": 0.1979895167227198,
+          "max_pair_distance_change": 0.022442210018619402,
+          "nonrigid_deformation_detected": true
+        },
+        {
+          "action": "Glide",
+          "frames": [
+            1.0,
+            23.080000000000002,
+            49.96,
+            74.92,
+            97.0
+          ],
+          "max_local_vertex_change": 0.03423811025819579,
+          "max_pair_distance_change": 1.6769247390691078e-07,
+          "nonrigid_deformation_detected": false
+        }
+      ]
+    },
+    {
+      "name": "WingFeather.L.1",
+      "vertices": 226,
+      "armature": "Seagull_Rig",
+      "unweighted": 0,
+      "max_weight_sum_error": 2.9802322387695312e-08,
+      "blended_vertices": 226,
+      "weighted_bones": [
+        "elbow.L",
+        "shoulder.L"
+      ],
+      "deformation": [
+        {
+          "action": "Fly",
+          "frames": [
+            1.0,
+            23.080000000000002,
+            49.96,
+            74.92,
+            97.0
+          ],
+          "max_local_vertex_change": 0.2800705559303105,
+          "max_pair_distance_change": 0.027571925123347052,
+          "nonrigid_deformation_detected": true
+        },
+        {
+          "action": "Glide",
+          "frames": [
+            1.0,
+            23.080000000000002,
+            49.96,
+            74.92,
+            97.0
+          ],
+          "max_local_vertex_change": 0.03562378376500703,
+          "max_pair_distance_change": 2.30821214086685e-07,
+          "nonrigid_deformation_detected": false
+        }
+      ]
+    },
+    {
+      "name": "WingFeather.L.2",
+      "vertices": 226,
+      "armature": "Seagull_Rig",
+      "unweighted": 0,
+      "max_weight_sum_error": 2.9802322387695312e-08,
+      "blended_vertices": 226,
+      "weighted_bones": [
+        "elbow.L",
+        "shoulder.L",
+        "wrist.L"
+      ],
+      "deformation": [
+        {
+          "action": "Fly",
+          "frames": [
+            1.0,
+            23.080000000000002,
+            49.96,
+            74.92,
+            97.0
+          ],
+          "max_local_vertex_change": 0.35507999369413606,
+          "max_pair_distance_change": 0.008184952948543989,
+          "nonrigid_deformation_detected": true
+        },
+        {
+          "action": "Glide",
+          "frames": [
+            1.0,
+            23.080000000000002,
+            49.96,
+            74.92,
+            97.0
+          ],
+          "max_local_vertex_change": 0.038268724790798805,
+          "max_pair_distance_change": 0.00037964814919895506,
+          "nonrigid_deformation_detected": true
+        }
+      ]
+    },
+    {
+      "name": "WingFeather.L.3",
+      "vertices": 226,
+      "armature": "Seagull_Rig",
+      "unweighted": 0,
+      "max_weight_sum_error": 2.9802322387695312e-08,
+      "blended_vertices": 226,
+      "weighted_bones": [
+        "elbow.L",
+        "shoulder.L",
+        "wrist.L"
+      ],
+      "deformation": [
+        {
+          "action": "Fly",
+          "frames": [
+            1.0,
+            23.080000000000002,
+            49.96,
+            74.92,
+            97.0
+          ],
+          "max_local_vertex_change": 0.47792638668714,
+          "max_pair_distance_change": 0.00733455338186767,
+          "nonrigid_deformation_detected": true
+        },
+        {
+          "action": "Glide",
+          "frames": [
+            1.0,
+            23.080000000000002,
+            49.96,
+            74.92,
+            97.0
+          ],
+          "max_local_vertex_change": 0.044118093533291415,
+          "max_pair_distance_change": 0.000718572420156216,
+          "nonrigid_deformation_detected": true
+        }
+      ]
+    },
+    {
+      "name": "WingFeather.L.4",
+      "vertices": 226,
+      "armature": "Seagull_Rig",
+      "unweighted": 0,
+      "max_weight_sum_error": 2.9802322387695312e-08,
+      "blended_vertices": 226,
+      "weighted_bones": [
+        "elbow.L",
+        "feather.L",
+        "wrist.L"
+      ],
+      "deformation": [
+        {
+          "action": "Fly",
+          "frames": [
+            1.0,
+            23.080000000000002,
+            49.96,
+            74.92,
+            97.0
+          ],
+          "max_local_vertex_change": 0.5583121608690718,
+          "max_pair_distance_change": 0.007073943585682099,
+          "nonrigid_deformation_detected": true
+        },
+        {
+          "action": "Glide",
+          "frames": [
+            1.0,
+            23.080000000000002,
+            49.96,
+            74.92,
+            97.0
+          ],
+          "max_local_vertex_change": 0.05070636132726939,
+          "max_pair_distance_change": 0.0006580138180885958,
+          "nonrigid_deformation_detected": true
+        }
+      ]
+    },
+    {
+      "name": "WingFeather.L.5",
+      "vertices": 226,
+      "armature": "Seagull_Rig",
+      "unweighted": 0,
+      "max_weight_sum_error": 2.9802322387695312e-08,
+      "blended_vertices": 161,
+      "weighted_bones": [
+        "elbow.L",
+        "feather.L",
+        "wrist.L"
+      ],
+      "deformation": [
+        {
+          "action": "Fly",
+          "frames": [
+            1.0,
+            23.080000000000002,
+            49.96,
+            74.92,
+            97.0
+          ],
+          "max_local_vertex_change": 0.642445226958958,
+          "max_pair_distance_change": 0.006012634155701163,
+          "nonrigid_deformation_detected": true
+        },
+        {
+          "action": "Glide",
+          "frames": [
+            1.0,
+            23.080000000000002,
+            49.96,
+            74.92,
+            97.0
+          ],
+          "max_local_vertex_change": 0.05870143245440628,
+          "max_pair_distance_change": 0.0007468837264157924,
+          "nonrigid_deformation_detected": true
+        }
+      ]
+    },
+    {
+      "name": "WingAirfoil.R",
+      "vertices": 418,
+      "armature": "Seagull_Rig",
+      "unweighted": 0,
+      "max_weight_sum_error": 2.9802322387695312e-08,
+      "blended_vertices": 336,
+      "weighted_bones": [
+        "elbow.R",
+        "feather.R",
+        "shoulder.R",
+        "wrist.R"
+      ],
+      "deformation": [
+        {
+          "action": "Fly",
+          "frames": [
+            1.0,
+            23.080000000000002,
+            49.96,
+            74.92,
+            97.0
+          ],
+          "max_local_vertex_change": 0.4938702896929375,
+          "max_pair_distance_change": 0.02379838537425827,
+          "nonrigid_deformation_detected": true
+        },
+        {
+          "action": "Glide",
+          "frames": [
+            1.0,
+            23.080000000000002,
+            49.96,
+            74.92,
+            97.0
+          ],
+          "max_local_vertex_change": 0.0915474904465912,
+          "max_pair_distance_change": 0.0005288865592116831,
+          "nonrigid_deformation_detected": true
+        }
+      ]
+    },
+    {
+      "name": "WingFeather.R.0",
+      "vertices": 226,
+      "armature": "Seagull_Rig",
+      "unweighted": 0,
+      "max_weight_sum_error": 2.9802322387695312e-08,
+      "blended_vertices": 161,
+      "weighted_bones": [
+        "elbow.R",
+        "shoulder.R"
+      ],
+      "deformation": [
+        {
+          "action": "Fly",
+          "frames": [
+            1.0,
+            23.080000000000002,
+            49.96,
+            74.92,
+            97.0
+          ],
+          "max_local_vertex_change": 0.15664710966904014,
+          "max_pair_distance_change": 0.02244218086617189,
+          "nonrigid_deformation_detected": true
+        },
+        {
+          "action": "Glide",
+          "frames": [
+            1.0,
+            23.080000000000002,
+            49.96,
+            74.92,
+            97.0
+          ],
+          "max_local_vertex_change": 0.04318147976830916,
+          "max_pair_distance_change": 1.6795301728891876e-07,
+          "nonrigid_deformation_detected": false
+        }
+      ]
+    },
+    {
+      "name": "WingFeather.R.1",
+      "vertices": 226,
+      "armature": "Seagull_Rig",
+      "unweighted": 0,
+      "max_weight_sum_error": 2.9802322387695312e-08,
+      "blended_vertices": 226,
+      "weighted_bones": [
+        "elbow.R",
+        "shoulder.R"
+      ],
+      "deformation": [
+        {
+          "action": "Fly",
+          "frames": [
+            1.0,
+            23.080000000000002,
+            49.96,
+            74.92,
+            97.0
+          ],
+          "max_local_vertex_change": 0.2266551256314924,
+          "max_pair_distance_change": 0.027571897722216077,
+          "nonrigid_deformation_detected": true
+        },
+        {
+          "action": "Glide",
+          "frames": [
+            1.0,
+            23.080000000000002,
+            49.96,
+            74.92,
+            97.0
+          ],
+          "max_local_vertex_change": 0.05287959231257033,
+          "max_pair_distance_change": 1.852367610966077e-07,
+          "nonrigid_deformation_detected": false
+        }
+      ]
+    },
+    {
+      "name": "WingFeather.R.2",
+      "vertices": 226,
+      "armature": "Seagull_Rig",
+      "unweighted": 0,
+      "max_weight_sum_error": 2.9802322387695312e-08,
+      "blended_vertices": 226,
+      "weighted_bones": [
+        "elbow.R",
+        "shoulder.R",
+        "wrist.R"
+      ],
+      "deformation": [
+        {
+          "action": "Fly",
+          "frames": [
+            1.0,
+            23.080000000000002,
+            49.96,
+            74.92,
+            97.0
+          ],
+          "max_local_vertex_change": 0.28785542113039503,
+          "max_pair_distance_change": 0.008184947439635715,
+          "nonrigid_deformation_detected": true
+        },
+        {
+          "action": "Glide",
+          "frames": [
+            1.0,
+            23.080000000000002,
+            49.96,
+            74.92,
+            97.0
+          ],
+          "max_local_vertex_change": 0.06222634258559921,
+          "max_pair_distance_change": 0.00037993439439952537,
+          "nonrigid_deformation_detected": true
+        }
+      ]
+    },
+    {
+      "name": "WingFeather.R.3",
+      "vertices": 226,
+      "armature": "Seagull_Rig",
+      "unweighted": 0,
+      "max_weight_sum_error": 2.9802322387695312e-08,
+      "blended_vertices": 226,
+      "weighted_bones": [
+        "elbow.R",
+        "shoulder.R",
+        "wrist.R"
+      ],
+      "deformation": [
+        {
+          "action": "Fly",
+          "frames": [
+            1.0,
+            23.080000000000002,
+            49.96,
+            74.92,
+            97.0
+          ],
+          "max_local_vertex_change": 0.39717267900147246,
+          "max_pair_distance_change": 0.007334450958103644,
+          "nonrigid_deformation_detected": true
+        },
+        {
+          "action": "Glide",
+          "frames": [
+            1.0,
+            23.080000000000002,
+            49.96,
+            74.92,
+            97.0
+          ],
+          "max_local_vertex_change": 0.06825309180113429,
+          "max_pair_distance_change": 0.0007185020908488382,
+          "nonrigid_deformation_detected": true
+        }
+      ]
+    },
+    {
+      "name": "WingFeather.R.4",
+      "vertices": 226,
+      "armature": "Seagull_Rig",
+      "unweighted": 0,
+      "max_weight_sum_error": 2.9802322387695312e-08,
+      "blended_vertices": 226,
+      "weighted_bones": [
+        "elbow.R",
+        "feather.R",
+        "wrist.R"
+      ],
+      "deformation": [
+        {
+          "action": "Fly",
+          "frames": [
+            1.0,
+            23.080000000000002,
+            49.96,
+            74.92,
+            97.0
+          ],
+          "max_local_vertex_change": 0.464373398496343,
+          "max_pair_distance_change": 0.007074059453876805,
+          "nonrigid_deformation_detected": true
+        },
+        {
+          "action": "Glide",
+          "frames": [
+            1.0,
+            23.080000000000002,
+            49.96,
+            74.92,
+            97.0
+          ],
+          "max_local_vertex_change": 0.07516566718226912,
+          "max_pair_distance_change": 0.0006580430707760487,
+          "nonrigid_deformation_detected": true
+        }
+      ]
+    },
+    {
+      "name": "WingFeather.R.5",
+      "vertices": 226,
+      "armature": "Seagull_Rig",
+      "unweighted": 0,
+      "max_weight_sum_error": 2.9802322387695312e-08,
+      "blended_vertices": 161,
+      "weighted_bones": [
+        "elbow.R",
+        "feather.R",
+        "wrist.R"
+      ],
+      "deformation": [
+        {
+          "action": "Fly",
+          "frames": [
+            1.0,
+            23.080000000000002,
+            49.96,
+            74.92,
+            97.0
+          ],
+          "max_local_vertex_change": 0.5352387367933349,
+          "max_pair_distance_change": 0.0060126958177674494,
+          "nonrigid_deformation_detected": true
+        },
+        {
+          "action": "Glide",
+          "frames": [
+            1.0,
+            23.080000000000002,
+            49.96,
+            74.92,
+            97.0
+          ],
+          "max_local_vertex_change": 0.0803917790382839,
+          "max_pair_distance_change": 0.0007471238353552456,
+          "nonrigid_deformation_detected": true
+        }
+      ]
+    },
+    {
+      "name": "Tern_HeadCap",
+      "vertices": 266,
+      "armature": "Seagull_Rig",
+      "unweighted": 0,
+      "max_weight_sum_error": 0.0,
+      "blended_vertices": 0,
+      "weighted_bones": [
+        "head"
+      ],
+      "deformation": [
+        {
+          "action": "Fly",
+          "frames": [
+            1.0,
+            23.080000000000002,
+            49.96,
+            74.92,
+            97.0
+          ],
+          "max_local_vertex_change": 0.08619443998307498,
+          "max_pair_distance_change": 1.0362664795704468e-07,
+          "nonrigid_deformation_detected": false
+        },
+        {
+          "action": "Glide",
+          "frames": [
+            1.0,
+            23.080000000000002,
+            49.96,
+            74.92,
+            97.0
+          ],
+          "max_local_vertex_change": 0.054484811855373426,
+          "max_pair_distance_change": 1.0370362751865869e-07,
+          "nonrigid_deformation_detected": false
+        }
+      ]
+    }
+  ],
+  "actions": [
+    {
+      "name": "Fly",
+      "frame_range": [
+        1.0,
+        97.0
+      ],
+      "fcurves": 119,
+      "keyframes": 5831,
+      "animated_bones": [
+        "body",
+        "elbow.L",
+        "elbow.R",
+        "feather.L",
+        "feather.R",
+        "foot.L",
+        "foot.R",
+        "head",
+        "leg.L",
+        "leg.R",
+        "neck",
+        "root",
+        "shoulder.L",
+        "shoulder.R",
+        "tail",
+        "wrist.L",
+        "wrist.R"
+      ]
+    },
+    {
+      "name": "Glide",
+      "frame_range": [
+        1.0,
+        97.0
+      ],
+      "fcurves": 119,
+      "keyframes": 5831,
+      "animated_bones": [
+        "body",
+        "elbow.L",
+        "elbow.R",
+        "feather.L",
+        "feather.R",
+        "foot.L",
+        "foot.R",
+        "head",
+        "leg.L",
+        "leg.R",
+        "neck",
+        "root",
+        "shoulder.L",
+        "shoulder.R",
+        "tail",
+        "wrist.L",
+        "wrist.R"
+      ]
+    }
+  ],
+  "failures": [],
+  "notes": [],
+  "summary": {
+    "armatures": 1,
+    "skinned_meshes": 43,
+    "vertices": 24158,
+    "blended_vertices": 4404,
+    "nonrigid_meshes": [
+      "Gull_HeadNeckBody",
+      "WingAirfoil.L",
+      "WingFeather.L.0",
+      "WingFeather.L.1",
+      "WingFeather.L.2",
+      "WingFeather.L.3",
+      "WingFeather.L.4",
+      "WingFeather.L.5",
+      "WingAirfoil.R",
+      "WingFeather.R.0",
+      "WingFeather.R.1",
+      "WingFeather.R.2",
+      "WingFeather.R.3",
+      "WingFeather.R.4",
+      "WingFeather.R.5"
+    ]
+  },
+  "glb": {
+    "path": "chibi-island/art/v5/birds/tern/bird_rigged.glb",
+    "bytes": 1568472,
+    "skins": 1,
+    "joint_nodes": 17,
+    "animations": [
+      {
+        "name": "Fly",
+        "channels": 51,
+        "animated_joint_nodes": 17,
+        "varying_joint_channels": [
+          {
+            "node": 16,
+            "path": "translation",
+            "span": 0.03838198632001877
+          },
+          {
+            "node": 15,
+            "path": "rotation",
+            "span": 0.05399024486541748
+          },
+          {
+            "node": 1,
+            "path": "rotation",
+            "span": 0.023641467094421387
+          },
+          {
+            "node": 0,
+            "path": "rotation",
+            "span": 0.014390647411346436
+          },
+          {
+            "node": 2,
+            "path": "rotation",
+            "span": 0.04269285500049591
+          },
+          {
+            "node": 6,
+            "path": "rotation",
+            "span": 1.5664977431297302
+          },
+          {
+            "node": 5,
+            "path": "rotation",
+            "span": 0.0648331893607974
+          },
+          {
+            "node": 4,
+            "path": "rotation",
+            "span": 0.11322157084941864
+          },
+          {
+            "node": 3,
+            "path": "rotation",
+            "span": 0.07758239656686783
+          },
+          {
+            "node": 12,
+            "path": "rotation",
+            "span": 1.5664977431297302
+          },
+          {
+            "node": 11,
+            "path": "rotation",
+            "span": 0.0648331893607974
+          },
+          {
+            "node": 10,
+            "path": "rotation",
+            "span": 0.11322157084941864
+          },
+          {
+            "node": 9,
+            "path": "rotation",
+            "span": 0.07758239656686783
+          }
+        ],
+        "duration_seconds": 3.999999839812517,
+        "max_joint_loop_delta": 0.0
+      },
+      {
+        "name": "Glide",
+        "channels": 51,
+        "animated_joint_nodes": 17,
+        "varying_joint_channels": [
+          {
+            "node": 16,
+            "path": "translation",
+            "span": 0.05000000074505806
+          },
+          {
+            "node": 15,
+            "path": "rotation",
+            "span": 0.027063549496233463
+          },
+          {
+            "node": 1,
+            "path": "rotation",
+            "span": 0.02364140748977661
+          },
+          {
+            "node": 0,
+            "path": "rotation",
+            "span": 0.014390647411346436
+          },
+          {
+            "node": 2,
+            "path": "rotation",
+            "span": 0.04269285500049591
+          },
+          {
+            "node": 6,
+            "path": "rotation",
+            "span": 0.019864968955516815
+          },
+          {
+            "node": 4,
+            "path": "rotation",
+            "span": 0.019416087307035923
+          },
+          {
+            "node": 3,
+            "path": "rotation",
+            "span": 0.01786747807636857
+          },
+          {
+            "node": 12,
+            "path": "rotation",
+            "span": 0.019864968955516815
+          },
+          {
+            "node": 10,
+            "path": "rotation",
+            "span": 0.019416090101003647
+          },
+          {
+            "node": 9,
+            "path": "rotation",
+            "span": 0.01786747667938471
+          }
+        ],
+        "duration_seconds": 3.999999839812517,
+        "max_joint_loop_delta": 6.123233849335533e-18
+      }
+    ],
+    "skinned_primitives": [
+      {
+        "name": "Gull_BeakSmile-1",
+        "vertices": 451,
+        "weight_sum_max_error": 0.0,
+        "invalid_joint_vertices": 0
+      },
+      {
+        "name": "Gull_BeakSmile1",
+        "vertices": 451,
+        "weight_sum_max_error": 0.0,
+        "invalid_joint_vertices": 0
+      },
+      {
+        "name": "Gull_Eye_-1_Catchlight",
+        "vertices": 423,
+        "weight_sum_max_error": 0.0,
+        "invalid_joint_vertices": 0
+      },
+      {
+        "name": "Gull_Eye_-1_Eye",
+        "vertices": 423,
+        "weight_sum_max_error": 0.0,
+        "invalid_joint_vertices": 0
+      },
+      {
+        "name": "Gull_Eye_-1_Iris",
+        "vertices": 423,
+        "weight_sum_max_error": 0.0,
+        "invalid_joint_vertices": 0
+      },
+      {
+        "name": "Gull_Eye_-1_Pupil",
+        "vertices": 423,
+        "weight_sum_max_error": 0.0,
+        "invalid_joint_vertices": 0
+      },
+      {
+        "name": "Gull_Eye_-1_Socket",
+        "vertices": 423,
+        "weight_sum_max_error": 0.0,
+        "invalid_joint_vertices": 0
+      },
+      {
+        "name": "Gull_Eye_-1_UpperLid",
+        "vertices": 1771,
+        "weight_sum_max_error": 0.0,
+        "invalid_joint_vertices": 0
+      },
+      {
+        "name": "Gull_Eye_1_Catchlight",
+        "vertices": 423,
+        "weight_sum_max_error": 0.0,
+        "invalid_joint_vertices": 0
+      },
+      {
+        "name": "Gull_Eye_1_Eye",
+        "vertices": 423,
+        "weight_sum_max_error": 0.0,
+        "invalid_joint_vertices": 0
+      },
+      {
+        "name": "Gull_Eye_1_Iris",
+        "vertices": 423,
+        "weight_sum_max_error": 0.0,
+        "invalid_joint_vertices": 0
+      },
+      {
+        "name": "Gull_Eye_1_Pupil",
+        "vertices": 423,
+        "weight_sum_max_error": 0.0,
+        "invalid_joint_vertices": 0
+      },
+      {
+        "name": "Gull_Eye_1_Socket",
+        "vertices": 423,
+        "weight_sum_max_error": 0.0,
+        "invalid_joint_vertices": 0
+      },
+      {
+        "name": "Gull_Eye_1_UpperLid",
+        "vertices": 1771,
+        "weight_sum_max_error": 0.0,
+        "invalid_joint_vertices": 0
+      },
+      {
+        "name": "Gull_HeadNeckBody",
+        "vertices": 4866,
+        "weight_sum_max_error": 3.207242116332054e-08,
+        "invalid_joint_vertices": 0
+      },
+      {
+        "name": "Gull_Leg-1",
+        "vertices": 402,
+        "weight_sum_max_error": 0.0,
+        "invalid_joint_vertices": 0
+      },
+      {
+        "name": "Gull_Leg1",
+        "vertices": 402,
+        "weight_sum_max_error": 0.0,
+        "invalid_joint_vertices": 0
+      },
+      {
+        "name": "Gull_LowerBeak",
+        "vertices": 898,
+        "weight_sum_max_error": 0.0,
+        "invalid_joint_vertices": 0
+      },
+      {
+        "name": "Gull_TailFeather-1",
+        "vertices": 674,
+        "weight_sum_max_error": 0.0,
+        "invalid_joint_vertices": 0
+      },
+      {
+        "name": "Gull_TailFeather0",
+        "vertices": 674,
+        "weight_sum_max_error": 0.0,
+        "invalid_joint_vertices": 0
+      },
+      {
+        "name": "Gull_TailFeather1",
+        "vertices": 674,
+        "weight_sum_max_error": 0.0,
+        "invalid_joint_vertices": 0
+      },
+      {
+        "name": "Gull_ToeSeam",
+        "vertices": 451,
+        "weight_sum_max_error": 0.0,
+        "invalid_joint_vertices": 0
+      },
+      {
+        "name": "Gull_ToeSeam.001",
+        "vertices": 451,
+        "weight_sum_max_error": 0.0,
+        "invalid_joint_vertices": 0
+      },
+      {
+        "name": "Gull_ToeSeam.002",
+        "vertices": 451,
+        "weight_sum_max_error": 0.0,
+        "invalid_joint_vertices": 0
+      },
+      {
+        "name": "Gull_ToeSeam.003",
+        "vertices": 451,
+        "weight_sum_max_error": 0.0,
+        "invalid_joint_vertices": 0
+      },
+      {
+        "name": "Gull_UpperBeak",
+        "vertices": 1154,
+        "weight_sum_max_error": 0.0,
+        "invalid_joint_vertices": 0
+      },
+      {
+        "name": "Gull_WebbedFoot-1",
+        "vertices": 650,
+        "weight_sum_max_error": 0.0,
+        "invalid_joint_vertices": 0
+      },
+      {
+        "name": "Gull_WebbedFoot1",
+        "vertices": 650,
+        "weight_sum_max_error": 0.0,
+        "invalid_joint_vertices": 0
+      },
+      {
+        "name": "Tern_HeadCap",
+        "vertices": 1104,
+        "weight_sum_max_error": 0.0,
+        "invalid_joint_vertices": 0
+      },
+      {
+        "name": "WingAirfoil.L",
+        "vertices": 418,
+        "weight_sum_max_error": 2.9802322387695312e-08,
+        "invalid_joint_vertices": 0
+      },
+      {
+        "name": "WingAirfoil.R",
+        "vertices": 418,
+        "weight_sum_max_error": 2.9802322387695312e-08,
+        "invalid_joint_vertices": 0
+      },
+      {
+        "name": "WingFeather.L.0",
+        "vertices": 226,
+        "weight_sum_max_error": 2.9802322387695312e-08,
+        "invalid_joint_vertices": 0
+      },
+      {
+        "name": "WingFeather.L.1",
+        "vertices": 226,
+        "weight_sum_max_error": 2.9802322387695312e-08,
+        "invalid_joint_vertices": 0
+      },
+      {
+        "name": "WingFeather.L.2",
+        "vertices": 226,
+        "weight_sum_max_error": 2.9802322387695312e-08,
+        "invalid_joint_vertices": 0
+      },
+      {
+        "name": "WingFeather.L.3",
+        "vertices": 226,
+        "weight_sum_max_error": 2.9802322387695312e-08,
+        "invalid_joint_vertices": 0
+      },
+      {
+        "name": "WingFeather.L.4",
+        "vertices": 226,
+        "weight_sum_max_error": 2.9802322387695312e-08,
+        "invalid_joint_vertices": 0
+      },
+      {
+        "name": "WingFeather.L.5",
+        "vertices": 226,
+        "weight_sum_max_error": 2.9802322387695312e-08,
+        "invalid_joint_vertices": 0
+      },
+      {
+        "name": "WingFeather.R.0",
+        "vertices": 226,
+        "weight_sum_max_error": 2.9802322387695312e-08,
+        "invalid_joint_vertices": 0
+      },
+      {
+        "name": "WingFeather.R.1",
+        "vertices": 226,
+        "weight_sum_max_error": 2.9802322387695312e-08,
+        "invalid_joint_vertices": 0
+      },
+      {
+        "name": "WingFeather.R.2",
+        "vertices": 226,
+        "weight_sum_max_error": 2.9802322387695312e-08,
+        "invalid_joint_vertices": 0
+      },
+      {
+        "name": "WingFeather.R.3",
+        "vertices": 226,
+        "weight_sum_max_error": 2.9802322387695312e-08,
+        "invalid_joint_vertices": 0
+      },
+      {
+        "name": "WingFeather.R.4",
+        "vertices": 226,
+        "weight_sum_max_error": 2.9802322387695312e-08,
+        "invalid_joint_vertices": 0
+      },
+      {
+        "name": "WingFeather.R.5",
+        "vertices": 226,
+        "weight_sum_max_error": 2.9802322387695312e-08,
+        "invalid_joint_vertices": 0
+      }
+    ],
+    "external_uris": []
+  }
+}

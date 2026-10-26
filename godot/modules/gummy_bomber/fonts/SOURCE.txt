@@ -1,0 +1,3 @@
+Subset of NotoSansCJK-Regular.ttc face 0, installed source /usr/share/fonts/opentype/noto/NotoSansCJK-Regular.ttc.
+https://github.com/notofonts/noto-cjk — SIL Open Font License 1.1, see OFL.txt.
+Subset made 2026-10-26 with fontTools pyftsubset from all game.gd UI glyphs plus ASCII and punctuation. No glyph artwork redrawn.

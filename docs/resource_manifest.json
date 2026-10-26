@@ -1,5 +1,5 @@
 {
-  "revision": "approved-v3-art-true-armature-v4",
+  "revision": "v5-modular-hub-birds-dolphin",
   "files": [
     {
       "source": "art/v3/environment_v3.glb",
@@ -20,10 +20,10 @@
       "bytes": 1601704
     },
     {
-      "source": "art/rigged/seagull/seagull_rigged.glb",
+      "source": "art/v5/birds/gull/bird_rigged.glb",
       "destination": "godot/resources/models/seagull.glb",
-      "sha256": "013c8208aa66b9230306ddcb4d971146e6dea8b34ba0322f1eb133947bc10428",
-      "bytes": 1628668
+      "sha256": "47b6acd1e3f465a412df5dfa1c81a13c9e978a39e1c0035edfa83e6beffc6de3",
+      "bytes": 1489724
     },
     {
       "source": "art/rigged/fish/fish_rigged.glb",
@@ -42,6 +42,18 @@
       "destination": "godot/resources/audio/ocean_ambience_loop.wav",
       "sha256": "37b89f3f6da7e957031fb87a33cf15cbcd3df6bd30975e840526ff36f4ee6301",
       "bytes": 8467244
+    },
+    {
+      "source": "art/v5/birds/tern/bird_rigged.glb",
+      "destination": "godot/resources/models/tern.glb",
+      "sha256": "1235b627db0d3fcd5a62f7a8cee2dd7f2ef42f36590aedb51603dabd61793a19",
+      "bytes": 1568472
+    },
+    {
+      "source": "art/v5/dolphin/dolphin_rigged.glb",
+      "destination": "godot/resources/models/dolphin.glb",
+      "sha256": "357f302a750e787896e931a23685651567e69d24c835a9bcaa2250c35fe34af8",
+      "bytes": 1185832
     }
   ]
 }
