@@ -1,0 +1,229 @@
+{
+  "source": "art/v3/animals.blend",
+  "bones": 17,
+  "meshes": [
+    {
+      "name": "Gull_Eye_-1_Pupil",
+      "vertices": 362,
+      "blended_vertices": 0,
+      "unweighted_vertices": 0
+    },
+    {
+      "name": "Gull_Eye_1_UpperLid",
+      "vertices": 1610,
+      "blended_vertices": 0,
+      "unweighted_vertices": 0
+    },
+    {
+      "name": "Gull_ToeSeam",
+      "vertices": 410,
+      "blended_vertices": 0,
+      "unweighted_vertices": 0
+    },
+    {
+      "name": "Gull_PrimaryFeather1_0",
+      "vertices": 674,
+      "blended_vertices": 674,
+      "unweighted_vertices": 0
+    },
+    {
+      "name": "Gull_Eye_-1_Catchlight",
+      "vertices": 362,
+      "blended_vertices": 0,
+      "unweighted_vertices": 0
+    },
+    {
+      "name": "Gull_Eye_1_Iris",
+      "vertices": 362,
+      "blended_vertices": 0,
+      "unweighted_vertices": 0
+    },
+    {
+      "name": "Gull_WebbedFoot-1",
+      "vertices": 650,
+      "blended_vertices": 0,
+      "unweighted_vertices": 0
+    },
+    {
+      "name": "Gull_TailFeather-1",
+      "vertices": 674,
+      "blended_vertices": 0,
+      "unweighted_vertices": 0
+    },
+    {
+      "name": "Gull_PrimaryFeather-1_0",
+      "vertices": 674,
+      "blended_vertices": 674,
+      "unweighted_vertices": 0
+    },
+    {
+      "name": "Gull_Eye_-1_UpperLid",
+      "vertices": 1610,
+      "blended_vertices": 0,
+      "unweighted_vertices": 0
+    },
+    {
+      "name": "Gull_ToeSeam.002",
+      "vertices": 410,
+      "blended_vertices": 0,
+      "unweighted_vertices": 0
+    },
+    {
+      "name": "Gull_Leg-1",
+      "vertices": 402,
+      "blended_vertices": 0,
+      "unweighted_vertices": 0
+    },
+    {
+      "name": "Gull_PrimaryFeather1_2",
+      "vertices": 674,
+      "blended_vertices": 674,
+      "unweighted_vertices": 0
+    },
+    {
+      "name": "Gull_Eye_-1_Iris",
+      "vertices": 362,
+      "blended_vertices": 0,
+      "unweighted_vertices": 0
+    },
+    {
+      "name": "Gull_Eye_1_Socket",
+      "vertices": 362,
+      "blended_vertices": 0,
+      "unweighted_vertices": 0
+    },
+    {
+      "name": "Gull_TailFeather1",
+      "vertices": 674,
+      "blended_vertices": 0,
+      "unweighted_vertices": 0
+    },
+    {
+      "name": "Gull_PrimaryFeather-1_2",
+      "vertices": 674,
+      "blended_vertices": 674,
+      "unweighted_vertices": 0
+    },
+    {
+      "name": "Gull_BeakSmile1",
+      "vertices": 410,
+      "blended_vertices": 0,
+      "unweighted_vertices": 0
+    },
+    {
+      "name": "Gull_Eye_1_Eye",
+      "vertices": 362,
+      "blended_vertices": 0,
+      "unweighted_vertices": 0
+    },
+    {
+      "name": "Gull_LowerBeak",
+      "vertices": 898,
+      "blended_vertices": 0,
+      "unweighted_vertices": 0
+    },
+    {
+      "name": "Gull_UpperBeak",
+      "vertices": 1154,
+      "blended_vertices": 0,
+      "unweighted_vertices": 0
+    },
+    {
+      "name": "Gull_SculptedFoldedWing1",
+      "vertices": 1442,
+      "blended_vertices": 1100,
+      "unweighted_vertices": 0
+    },
+    {
+      "name": "Gull_Eye_-1_Socket",
+      "vertices": 362,
+      "blended_vertices": 0,
+      "unweighted_vertices": 0
+    },
+    {
+      "name": "Gull_HeadNeckBody",
+      "vertices": 4866,
+      "blended_vertices": 1280,
+      "unweighted_vertices": 0
+    },
+    {
+      "name": "Gull_ToeSeam.001",
+      "vertices": 410,
+      "blended_vertices": 0,
+      "unweighted_vertices": 0
+    },
+    {
+      "name": "Gull_PrimaryFeather1_1",
+      "vertices": 674,
+      "blended_vertices": 674,
+      "unweighted_vertices": 0
+    },
+    {
+      "name": "Gull_Eye_-1_Eye",
+      "vertices": 362,
+      "blended_vertices": 0,
+      "unweighted_vertices": 0
+    },
+    {
+      "name": "Gull_Eye_1_Pupil",
+      "vertices": 362,
+      "blended_vertices": 0,
+      "unweighted_vertices": 0
+    },
+    {
+      "name": "Gull_WebbedFoot1",
+      "vertices": 650,
+      "blended_vertices": 0,
+      "unweighted_vertices": 0
+    },
+    {
+      "name": "Gull_TailFeather0",
+      "vertices": 674,
+      "blended_vertices": 0,
+      "unweighted_vertices": 0
+    },
+    {
+      "name": "Gull_PrimaryFeather-1_1",
+      "vertices": 674,
+      "blended_vertices": 674,
+      "unweighted_vertices": 0
+    },
+    {
+      "name": "Gull_BeakSmile-1",
+      "vertices": 410,
+      "blended_vertices": 0,
+      "unweighted_vertices": 0
+    },
+    {
+      "name": "Gull_Eye_1_Catchlight",
+      "vertices": 362,
+      "blended_vertices": 0,
+      "unweighted_vertices": 0
+    },
+    {
+      "name": "Gull_ToeSeam.003",
+      "vertices": 410,
+      "blended_vertices": 0,
+      "unweighted_vertices": 0
+    },
+    {
+      "name": "Gull_Leg1",
+      "vertices": 402,
+      "blended_vertices": 0,
+      "unweighted_vertices": 0
+    },
+    {
+      "name": "Gull_SculptedFoldedWing-1",
+      "vertices": 1442,
+      "blended_vertices": 1100,
+      "unweighted_vertices": 0
+    }
+  ],
+  "normalized_weights": true,
+  "actions": [
+    "Fly",
+    "Glide"
+  ],
+  "weights_valid": true,
+  "blended_vertices": 7524
+}

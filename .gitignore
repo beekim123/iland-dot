@@ -1,0 +1,10 @@
+.godot/
+.runtime/
+__pycache__/
+*.blend1
+*.import
+art/**/frames/
+art/previews/runtime/
+backups/
+exports/
+*.log

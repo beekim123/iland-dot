@@ -1,0 +1,92 @@
+{
+  "TurtleRoot": {
+    "dimensions_m": [
+      1.7902401685714722,
+      1.8647034764289856,
+      0.7028399109840393
+    ],
+    "root_identity": true,
+    "mesh_objects": 42,
+    "evaluated_vertices": 60108,
+    "pivots": [
+      "TurtleRoot",
+      "FrontFlipperPivotL",
+      "FrontFlipperPivotR",
+      "HeadPivot",
+      "RearFlipperPivotL",
+      "RearFlipperPivotR",
+      "TurtleTailPivot"
+    ],
+    "front": "-Y",
+    "up": "+Z"
+  },
+  "CrabRoot": {
+    "dimensions_m": [
+      1.1504395604133606,
+      0.8900852203369141,
+      0.5614513754844666
+    ],
+    "root_identity": true,
+    "mesh_objects": 32,
+    "evaluated_vertices": 27456,
+    "pivots": [
+      "CrabRoot",
+      "ClawPivotL",
+      "PincerPivotL",
+      "ClawPivotR",
+      "PincerPivotR",
+      "EyeStalkPivotL",
+      "EyeStalkPivotR",
+      "LegPivotL1",
+      "LegPivotL2",
+      "LegPivotL3",
+      "LegPivotL4",
+      "LegPivotR1",
+      "LegPivotR2",
+      "LegPivotR3",
+      "LegPivotR4"
+    ],
+    "front": "-Y",
+    "up": "+Z"
+  },
+  "SeagullRoot": {
+    "dimensions_m": [
+      0.6182665824890137,
+      1.5013278126716614,
+      0.8943763971328735
+    ],
+    "root_identity": true,
+    "mesh_objects": 36,
+    "evaluated_vertices": 27272,
+    "pivots": [
+      "SeagullRoot",
+      "LegPivotL",
+      "LegPivotR",
+      "SeagullTailPivot",
+      "WingPivotL",
+      "WingPivotR"
+    ],
+    "front": "-Y",
+    "up": "+Z"
+  },
+  "FishRoot": {
+    "dimensions_m": [
+      0.7457950115203857,
+      1.150488018989563,
+      0.6372696757316589
+    ],
+    "root_identity": true,
+    "mesh_objects": 23,
+    "evaluated_vertices": 21246,
+    "pivots": [
+      "FishRoot",
+      "AnalFinPivot",
+      "DorsalFinPivot",
+      "FinPivotL",
+      "FinPivotR",
+      "TailPivot"
+    ],
+    "front": "-Y",
+    "up": "+Z"
+  }
+}

@@ -1,0 +1,47 @@
+{
+  "revision": "approved-v3-art-true-armature-v4",
+  "files": [
+    {
+      "source": "art/v3/environment_v3.glb",
+      "destination": "godot/resources/models/environment.glb",
+      "sha256": "786fe43ce980aed33f2b0f9deb61a28dda458ed58178c00ae8a5f26b5f0dc593",
+      "bytes": 2594652
+    },
+    {
+      "source": "art/rigged/turtle/turtle_rigged.glb",
+      "destination": "godot/resources/models/turtle.glb",
+      "sha256": "6e3e1edb42cebc9f460068293f5838b10d89bbc48102ddc7e5698f805f16358b",
+      "bytes": 3637144
+    },
+    {
+      "source": "art/rigged/crab/crab_rigged.glb",
+      "destination": "godot/resources/models/crab.glb",
+      "sha256": "5a475969583f50fad05f0a7f20a129fac89d58c9dce8a67628d0583b907c4add",
+      "bytes": 1601704
+    },
+    {
+      "source": "art/rigged/seagull/seagull_rigged.glb",
+      "destination": "godot/resources/models/seagull.glb",
+      "sha256": "013c8208aa66b9230306ddcb4d971146e6dea8b34ba0322f1eb133947bc10428",
+      "bytes": 1628668
+    },
+    {
+      "source": "art/rigged/fish/fish_rigged.glb",
+      "destination": "godot/resources/models/fish.glb",
+      "sha256": "0b40238b21a744c6286ade9d7c7cc395e39f0b8a8291b86ba1e159212a2bcf13",
+      "bytes": 1353160
+    },
+    {
+      "source": "audio/export/sunny_shell_island_loop.wav",
+      "destination": "godot/resources/audio/sunny_shell_island_loop.wav",
+      "sha256": "3ed4989d296b068bd653869eabed9a0596a8c077cb37219cf960abb71bab6854",
+      "bytes": 8467244
+    },
+    {
+      "source": "audio/export/ocean_ambience_loop.wav",
+      "destination": "godot/resources/audio/ocean_ambience_loop.wav",
+      "sha256": "37b89f3f6da7e957031fb87a33cf15cbcd3df6bd30975e840526ff36f4ee6301",
+      "bytes": 8467244
+    }
+  ]
+}

@@ -1,0 +1,464 @@
+[
+  {
+    "name": "Hero curved palm",
+    "asset": "Palm_A",
+    "position": [
+      -5.199999809265137,
+      2.5,
+      1.885013222694397
+    ],
+    "scale": 1.0,
+    "yaw": -0.55
+  },
+  {
+    "name": "Companion high palm",
+    "asset": "Palm_B",
+    "position": [
+      -2.5,
+      4.699999809265137,
+      1.7576500177383423
+    ],
+    "scale": 0.9,
+    "yaw": 0.5
+  },
+  {
+    "name": "Rear canopy palm",
+    "asset": "Palm_C",
+    "position": [
+      1.7000000476837158,
+      4.800000190734863,
+      1.6731970310211182
+    ],
+    "scale": 0.92,
+    "yaw": -0.3
+  },
+  {
+    "name": "Right sentinel palm",
+    "asset": "Palm_B",
+    "position": [
+      5.699999809265137,
+      1.899999976158142,
+      1.6787556409835815
+    ],
+    "scale": 0.8,
+    "yaw": -0.55
+  },
+  {
+    "name": "Left leaning young palm",
+    "asset": "Palm_C",
+    "position": [
+      -7.199999809265137,
+      -0.10000000149011612,
+      0.6575431823730469
+    ],
+    "scale": 0.7,
+    "yaw": 1.05
+  },
+  {
+    "name": "Right young palm",
+    "asset": "Palm_C",
+    "position": [
+      6.5,
+      -0.15000000596046448,
+      0.9853605031967163
+    ],
+    "scale": 0.59,
+    "yaw": -1.0
+  },
+  {
+    "name": "Left grove broadleaf",
+    "asset": "Foliage_Monstera",
+    "position": [
+      -5.400000095367432,
+      0.800000011920929,
+      1.6826575994491577
+    ],
+    "scale": 1.35,
+    "yaw": 0.3
+  },
+  {
+    "name": "Left grove upright",
+    "asset": "Foliage_Banana",
+    "position": [
+      -4.820000171661377,
+      1.100000023841858,
+      1.7767704725265503
+    ],
+    "scale": 1.2555,
+    "yaw": 1.5
+  },
+  {
+    "name": "Left grove fern",
+    "asset": "Fern_A",
+    "position": [
+      -5.920000076293945,
+      0.3799999952316284,
+      1.4928715229034424
+    ],
+    "scale": 1.0125000000000002,
+    "yaw": -0.39999999999999997
+  },
+  {
+    "name": "Left grove flowers",
+    "asset": "Shrub_Coral",
+    "position": [
+      -5.199999809265137,
+      0.27000001072883606,
+      1.6182019710540771
+    ],
+    "scale": 1.1475,
+    "yaw": 0.7
+  },
+  {
+    "name": "Left inner grove broadleaf",
+    "asset": "Foliage_Monstera",
+    "position": [
+      -3.799999952316284,
+      2.5999999046325684,
+      2.0958311557769775
+    ],
+    "scale": 1.3,
+    "yaw": -0.5
+  },
+  {
+    "name": "Left inner grove upright",
+    "asset": "Foliage_Banana",
+    "position": [
+      -3.2200000286102295,
+      2.9000000953674316,
+      2.1952528953552246
+    ],
+    "scale": 1.209,
+    "yaw": 0.7
+  },
+  {
+    "name": "Left inner grove fern",
+    "asset": "Fern_A",
+    "position": [
+      -4.320000171661377,
+      2.180000066757202,
+      1.981974482536316
+    ],
+    "scale": 0.9750000000000001,
+    "yaw": -1.2
+  },
+  {
+    "name": "Left inner grove flowers",
+    "asset": "Shrub_Coral",
+    "position": [
+      -3.5999999046325684,
+      2.069999933242798,
+      2.050894021987915
+    ],
+    "scale": 1.105,
+    "yaw": -0.09999999999999998
+  },
+  {
+    "name": "Rear saddle grove broadleaf",
+    "asset": "Foliage_Monstera",
+    "position": [
+      -0.800000011920929,
+      3.9000000953674316,
+      2.415372610092163
+    ],
+    "scale": 1.2,
+    "yaw": 0.8
+  },
+  {
+    "name": "Rear saddle grove upright",
+    "asset": "Foliage_Banana",
+    "position": [
+      -0.2199999988079071,
+      4.199999809265137,
+      2.3098092079162598
+    ],
+    "scale": 1.116,
+    "yaw": 2.0
+  },
+  {
+    "name": "Rear saddle grove fern",
+    "asset": "Fern_A",
+    "position": [
+      -1.3200000524520874,
+      3.4800000190734863,
+      2.4252798557281494
+    ],
+    "scale": 0.8999999999999999,
+    "yaw": 0.10000000000000009
+  },
+  {
+    "name": "Rear saddle grove flowers",
+    "asset": "Shrub_Cream",
+    "position": [
+      -0.6000000238418579,
+      3.369999885559082,
+      2.498105525970459
+    ],
+    "scale": 1.02,
+    "yaw": 1.2000000000000002
+  },
+  {
+    "name": "Right grove broadleaf",
+    "asset": "Foliage_Monstera",
+    "position": [
+      5.25,
+      0.699999988079071,
+      1.4054521322250366
+    ],
+    "scale": 1.35,
+    "yaw": -0.8
+  },
+  {
+    "name": "Right grove upright",
+    "asset": "Foliage_Banana",
+    "position": [
+      5.829999923706055,
+      1.0,
+      1.3728617429733276
+    ],
+    "scale": 1.2555,
+    "yaw": 0.3999999999999999
+  },
+  {
+    "name": "Right grove fern",
+    "asset": "Fern_A",
+    "position": [
+      4.730000019073486,
+      0.2800000011920929,
+      1.3825585842132568
+    ],
+    "scale": 1.0125000000000002,
+    "yaw": -1.5
+  },
+  {
+    "name": "Right grove flowers",
+    "asset": "Shrub_Cream",
+    "position": [
+      5.449999809265137,
+      0.17000000178813934,
+      1.250333547592163
+    ],
+    "scale": 1.1475,
+    "yaw": -0.4
+  },
+  {
+    "name": "Right back grove broadleaf",
+    "asset": "Foliage_Monstera",
+    "position": [
+      4.0,
+      3.200000047683716,
+      2.5042901039123535
+    ],
+    "scale": 1.2,
+    "yaw": 0.4
+  },
+  {
+    "name": "Right back grove upright",
+    "asset": "Foliage_Banana",
+    "position": [
+      4.579999923706055,
+      3.5,
+      2.134633779525757
+    ],
+    "scale": 1.116,
+    "yaw": 1.6
+  },
+  {
+    "name": "Right back grove fern",
+    "asset": "Fern_A",
+    "position": [
+      3.4800000190734863,
+      2.7799999713897705,
+      2.5654873847961426
+    ],
+    "scale": 0.8999999999999999,
+    "yaw": -0.29999999999999993
+  },
+  {
+    "name": "Right back grove flowers",
+    "asset": "Shrub_Cream",
+    "position": [
+      4.199999809265137,
+      2.6700000762939453,
+      2.3724467754364014
+    ],
+    "scale": 1.02,
+    "yaw": 0.8
+  },
+  {
+    "name": "Left beach edge flowers",
+    "asset": "Shrub_Cream",
+    "position": [
+      -5.550000190734863,
+      -1.5499999523162842,
+      0.5568052530288696
+    ],
+    "scale": 1.08,
+    "yaw": -0.5
+  },
+  {
+    "name": "Left beach broadleaf",
+    "asset": "Foliage_Banana",
+    "position": [
+      -6.400000095367432,
+      -1.0,
+      0.6101608872413635
+    ],
+    "scale": 1.12,
+    "yaw": 0.5
+  },
+  {
+    "name": "Cove left fern",
+    "asset": "Fern_A",
+    "position": [
+      -3.200000047683716,
+      -1.5,
+      0.7673794627189636
+    ],
+    "scale": 0.95,
+    "yaw": -0.4
+  },
+  {
+    "name": "Cove inner flowers",
+    "asset": "Shrub_Coral",
+    "position": [
+      -0.800000011920929,
+      -0.6000000238418579,
+      0.9662324786186218
+    ],
+    "scale": 1.1,
+    "yaw": 0.5
+  },
+  {
+    "name": "Cove right flowers",
+    "asset": "Shrub_Coral",
+    "position": [
+      4.5,
+      -1.149999976158142,
+      0.9008026719093323
+    ],
+    "scale": 1.0,
+    "yaw": -0.6
+  },
+  {
+    "name": "Cove right broadleaf",
+    "asset": "Foliage_Monstera",
+    "position": [
+      5.199999809265137,
+      -1.0,
+      0.9089425802230835
+    ],
+    "scale": 1.12,
+    "yaw": 0.3
+  },
+  {
+    "name": "Selected grass tuft 00",
+    "asset": "Grass_A",
+    "position": [
+      -6.599999904632568,
+      -1.2999999523162842,
+      0.45100855827331543
+    ],
+    "scale": 1.2,
+    "yaw": 0.0
+  },
+  {
+    "name": "Selected grass tuft 01",
+    "asset": "Grass_A",
+    "position": [
+      -5.099999904632568,
+      -1.7000000476837158,
+      0.42500001192092896
+    ],
+    "scale": 1.0,
+    "yaw": 0.7
+  },
+  {
+    "name": "Selected grass tuft 02",
+    "asset": "Grass_A",
+    "position": [
+      -3.5,
+      -1.7999999523162842,
+      0.42500001192092896
+    ],
+    "scale": 0.8,
+    "yaw": 1.4
+  },
+  {
+    "name": "Selected grass tuft 03",
+    "asset": "Grass_A",
+    "position": [
+      -1.899999976158142,
+      0.10000000149011612,
+      1.5967962741851807
+    ],
+    "scale": 0.9,
+    "yaw": 2.0999999999999996
+  },
+  {
+    "name": "Selected grass tuft 04",
+    "asset": "Grass_A",
+    "position": [
+      3.9000000953674316,
+      -1.100000023841858,
+      0.8799914717674255
+    ],
+    "scale": 0.9,
+    "yaw": 2.8
+  },
+  {
+    "name": "Selected grass tuft 05",
+    "asset": "Grass_A",
+    "position": [
+      5.599999904632568,
+      -0.800000011920929,
+      0.9190501570701599
+    ],
+    "scale": 1.0,
+    "yaw": 3.5
+  },
+  {
+    "name": "Selected grass tuft 06",
+    "asset": "Grass_A",
+    "position": [
+      6.599999904632568,
+      0.20000000298023224,
+      1.0568954944610596
+    ],
+    "scale": 0.8,
+    "yaw": 4.199999999999999
+  },
+  {
+    "name": "TurtleRoot",
+    "asset": "TurtleRoot",
+    "position": [
+      -4.300000190734863,
+      -3.0,
+      0.4950000047683716
+    ],
+    "scale": 1.65,
+    "yaw": -0.24
+  },
+  {
+    "name": "CrabRoot",
+    "asset": "CrabRoot",
+    "position": [
+      -1.600000023841858,
+      -3.0,
+      0.39500001072883606
+    ],
+    "scale": 1.72,
+    "yaw": 0.16
+  },
+  {
+    "name": "SeagullRoot",
+    "asset": "SeagullRoot",
+    "position": [
+      4.800000190734863,
+      -2.700000047683716,
+      0.4350000023841858
+    ],
+    "scale": 1.7,
+    "yaw": -0.58
+  }
+]

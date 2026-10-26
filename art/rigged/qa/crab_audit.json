@@ -1,0 +1,1346 @@
+{
+  "blend": "/workspace/scratch/e3e9ec015b32/chibi-island/art/rigged/crab/crab_rigged.blend",
+  "armatures": [
+    {
+      "name": "Crab_Rig",
+      "bones": 26,
+      "bone_names": [
+        "body",
+        "claw_L_arm",
+        "claw_L_hand",
+        "claw_L_pincer",
+        "claw_R_arm",
+        "claw_R_hand",
+        "claw_R_pincer",
+        "eye_L",
+        "eye_R",
+        "leg_L1_lower",
+        "leg_L1_upper",
+        "leg_L2_lower",
+        "leg_L2_upper",
+        "leg_L3_lower",
+        "leg_L3_upper",
+        "leg_L4_lower",
+        "leg_L4_upper",
+        "leg_R1_lower",
+        "leg_R1_upper",
+        "leg_R2_lower",
+        "leg_R2_upper",
+        "leg_R3_lower",
+        "leg_R3_upper",
+        "leg_R4_lower",
+        "leg_R4_upper",
+        "root"
+      ],
+      "active_action": "Crab_Scuttle_Loop"
+    }
+  ],
+  "meshes": [
+    {
+      "name": "Crab_Carapace",
+      "vertices": 2498,
+      "armature": "Crab_Rig",
+      "unweighted": 0,
+      "max_weight_sum_error": 0.0,
+      "blended_vertices": 0,
+      "weighted_bones": [
+        "body"
+      ],
+      "deformation": [
+        {
+          "action": "Crab_Scuttle_Loop",
+          "frames": [
+            1.0,
+            23.080000000000002,
+            49.96,
+            74.92,
+            97.0
+          ],
+          "max_local_vertex_change": 0.05697594713776377,
+          "max_pair_distance_change": 9.722172034098975e-08,
+          "nonrigid_deformation_detected": false
+        }
+      ]
+    },
+    {
+      "name": "Crab_Underside",
+      "vertices": 1730,
+      "armature": "Crab_Rig",
+      "unweighted": 0,
+      "max_weight_sum_error": 0.0,
+      "blended_vertices": 0,
+      "weighted_bones": [
+        "body"
+      ],
+      "deformation": [
+        {
+          "action": "Crab_Scuttle_Loop",
+          "frames": [
+            1.0,
+            23.080000000000002,
+            49.96,
+            74.92,
+            97.0
+          ],
+          "max_local_vertex_change": 0.056024549653803726,
+          "max_pair_distance_change": 8.38416570614342e-08,
+          "nonrigid_deformation_detected": false
+        }
+      ]
+    },
+    {
+      "name": "Crab_BrowRidge",
+      "vertices": 810,
+      "armature": "Crab_Rig",
+      "unweighted": 0,
+      "max_weight_sum_error": 0.0,
+      "blended_vertices": 0,
+      "weighted_bones": [
+        "body"
+      ],
+      "deformation": [
+        {
+          "action": "Crab_Scuttle_Loop",
+          "frames": [
+            1.0,
+            23.080000000000002,
+            49.96,
+            74.92,
+            97.0
+          ],
+          "max_local_vertex_change": 0.05437226799459051,
+          "max_pair_distance_change": 6.940741892336177e-08,
+          "nonrigid_deformation_detected": false
+        }
+      ]
+    },
+    {
+      "name": "Crab_OrganicEyeStalk-1",
+      "vertices": 898,
+      "armature": "Crab_Rig",
+      "unweighted": 0,
+      "max_weight_sum_error": 0.0,
+      "blended_vertices": 0,
+      "weighted_bones": [
+        "eye_L"
+      ],
+      "deformation": [
+        {
+          "action": "Crab_Scuttle_Loop",
+          "frames": [
+            1.0,
+            23.080000000000002,
+            49.96,
+            74.92,
+            97.0
+          ],
+          "max_local_vertex_change": 0.05757606507783628,
+          "max_pair_distance_change": 6.572316416098012e-08,
+          "nonrigid_deformation_detected": false
+        }
+      ]
+    },
+    {
+      "name": "Crab_Eye_-1_Socket",
+      "vertices": 362,
+      "armature": "Crab_Rig",
+      "unweighted": 0,
+      "max_weight_sum_error": 0.0,
+      "blended_vertices": 0,
+      "weighted_bones": [
+        "eye_L"
+      ],
+      "deformation": [
+        {
+          "action": "Crab_Scuttle_Loop",
+          "frames": [
+            1.0,
+            23.080000000000002,
+            49.96,
+            74.92,
+            97.0
+          ],
+          "max_local_vertex_change": 0.058669570570425475,
+          "max_pair_distance_change": 1.018306664268831e-07,
+          "nonrigid_deformation_detected": false
+        }
+      ]
+    },
+    {
+      "name": "Crab_Eye_-1_Eye",
+      "vertices": 362,
+      "armature": "Crab_Rig",
+      "unweighted": 0,
+      "max_weight_sum_error": 0.0,
+      "blended_vertices": 0,
+      "weighted_bones": [
+        "eye_L"
+      ],
+      "deformation": [
+        {
+          "action": "Crab_Scuttle_Loop",
+          "frames": [
+            1.0,
+            23.080000000000002,
+            49.96,
+            74.92,
+            97.0
+          ],
+          "max_local_vertex_change": 0.05834538463374868,
+          "max_pair_distance_change": 8.317844558958232e-08,
+          "nonrigid_deformation_detected": false
+        }
+      ]
+    },
+    {
+      "name": "Crab_Eye_-1_Iris",
+      "vertices": 362,
+      "armature": "Crab_Rig",
+      "unweighted": 0,
+      "max_weight_sum_error": 0.0,
+      "blended_vertices": 0,
+      "weighted_bones": [
+        "eye_L"
+      ],
+      "deformation": [
+        {
+          "action": "Crab_Scuttle_Loop",
+          "frames": [
+            1.0,
+            23.080000000000002,
+            49.96,
+            74.92,
+            97.0
+          ],
+          "max_local_vertex_change": 0.057939305128491346,
+          "max_pair_distance_change": 9.553099869497039e-08,
+          "nonrigid_deformation_detected": false
+        }
+      ]
+    },
+    {
+      "name": "Crab_Eye_-1_Pupil",
+      "vertices": 362,
+      "armature": "Crab_Rig",
+      "unweighted": 0,
+      "max_weight_sum_error": 0.0,
+      "blended_vertices": 0,
+      "weighted_bones": [
+        "eye_L"
+      ],
+      "deformation": [
+        {
+          "action": "Crab_Scuttle_Loop",
+          "frames": [
+            1.0,
+            23.080000000000002,
+            49.96,
+            74.92,
+            97.0
+          ],
+          "max_local_vertex_change": 0.05776613616477044,
+          "max_pair_distance_change": 7.999732774821577e-08,
+          "nonrigid_deformation_detected": false
+        }
+      ]
+    },
+    {
+      "name": "Crab_Eye_-1_Catchlight",
+      "vertices": 362,
+      "armature": "Crab_Rig",
+      "unweighted": 0,
+      "max_weight_sum_error": 0.0,
+      "blended_vertices": 0,
+      "weighted_bones": [
+        "eye_L"
+      ],
+      "deformation": [
+        {
+          "action": "Crab_Scuttle_Loop",
+          "frames": [
+            1.0,
+            23.080000000000002,
+            49.96,
+            74.92,
+            97.0
+          ],
+          "max_local_vertex_change": 0.057741843806025775,
+          "max_pair_distance_change": 1.1221638842803805e-07,
+          "nonrigid_deformation_detected": false
+        }
+      ]
+    },
+    {
+      "name": "Crab_Eye_-1_UpperLid",
+      "vertices": 1610,
+      "armature": "Crab_Rig",
+      "unweighted": 0,
+      "max_weight_sum_error": 0.0,
+      "blended_vertices": 0,
+      "weighted_bones": [
+        "eye_L"
+      ],
+      "deformation": [
+        {
+          "action": "Crab_Scuttle_Loop",
+          "frames": [
+            1.0,
+            23.080000000000002,
+            49.96,
+            74.92,
+            97.0
+          ],
+          "max_local_vertex_change": 0.05859039208572249,
+          "max_pair_distance_change": 6.659984288018284e-08,
+          "nonrigid_deformation_detected": false
+        }
+      ]
+    },
+    {
+      "name": "Crab_WalkingLeg-1_0",
+      "vertices": 882,
+      "armature": "Crab_Rig",
+      "unweighted": 0,
+      "max_weight_sum_error": 2.9802322387695312e-08,
+      "blended_vertices": 263,
+      "weighted_bones": [
+        "leg_L1_lower",
+        "leg_L1_upper"
+      ],
+      "deformation": [
+        {
+          "action": "Crab_Scuttle_Loop",
+          "frames": [
+            1.0,
+            23.080000000000002,
+            49.96,
+            74.92,
+            97.0
+          ],
+          "max_local_vertex_change": 0.060978053158171924,
+          "max_pair_distance_change": 0.013004071806736683,
+          "nonrigid_deformation_detected": true
+        }
+      ]
+    },
+    {
+      "name": "Crab_WalkingLeg-1_1",
+      "vertices": 882,
+      "armature": "Crab_Rig",
+      "unweighted": 0,
+      "max_weight_sum_error": 2.9802322387695312e-08,
+      "blended_vertices": 233,
+      "weighted_bones": [
+        "leg_L2_lower",
+        "leg_L2_upper"
+      ],
+      "deformation": [
+        {
+          "action": "Crab_Scuttle_Loop",
+          "frames": [
+            1.0,
+            23.080000000000002,
+            49.96,
+            74.92,
+            97.0
+          ],
+          "max_local_vertex_change": 0.0768888166681181,
+          "max_pair_distance_change": 0.06992265530178476,
+          "nonrigid_deformation_detected": true
+        }
+      ]
+    },
+    {
+      "name": "Crab_WalkingLeg-1_2",
+      "vertices": 882,
+      "armature": "Crab_Rig",
+      "unweighted": 0,
+      "max_weight_sum_error": 2.9802322387695312e-08,
+      "blended_vertices": 215,
+      "weighted_bones": [
+        "leg_L3_lower",
+        "leg_L3_upper"
+      ],
+      "deformation": [
+        {
+          "action": "Crab_Scuttle_Loop",
+          "frames": [
+            1.0,
+            23.080000000000002,
+            49.96,
+            74.92,
+            97.0
+          ],
+          "max_local_vertex_change": 0.06230384633749411,
+          "max_pair_distance_change": 0.006874149314485656,
+          "nonrigid_deformation_detected": true
+        }
+      ]
+    },
+    {
+      "name": "Crab_WalkingLeg-1_3",
+      "vertices": 882,
+      "armature": "Crab_Rig",
+      "unweighted": 0,
+      "max_weight_sum_error": 2.9802322387695312e-08,
+      "blended_vertices": 232,
+      "weighted_bones": [
+        "leg_L4_lower",
+        "leg_L4_upper"
+      ],
+      "deformation": [
+        {
+          "action": "Crab_Scuttle_Loop",
+          "frames": [
+            1.0,
+            23.080000000000002,
+            49.96,
+            74.92,
+            97.0
+          ],
+          "max_local_vertex_change": 0.07709015452464038,
+          "max_pair_distance_change": 0.05725528387642487,
+          "nonrigid_deformation_detected": true
+        }
+      ]
+    },
+    {
+      "name": "Crab_ClawArm-1",
+      "vertices": 786,
+      "armature": "Crab_Rig",
+      "unweighted": 0,
+      "max_weight_sum_error": 2.9802322387695312e-08,
+      "blended_vertices": 438,
+      "weighted_bones": [
+        "claw_L_arm",
+        "claw_L_hand"
+      ],
+      "deformation": [
+        {
+          "action": "Crab_Scuttle_Loop",
+          "frames": [
+            1.0,
+            23.080000000000002,
+            49.96,
+            74.92,
+            97.0
+          ],
+          "max_local_vertex_change": 0.05731964877310831,
+          "max_pair_distance_change": 0.00296053606469443,
+          "nonrigid_deformation_detected": true
+        }
+      ]
+    },
+    {
+      "name": "Crab_ClawPalm-1",
+      "vertices": 1586,
+      "armature": "Crab_Rig",
+      "unweighted": 0,
+      "max_weight_sum_error": 0.0,
+      "blended_vertices": 0,
+      "weighted_bones": [
+        "claw_L_hand"
+      ],
+      "deformation": [
+        {
+          "action": "Crab_Scuttle_Loop",
+          "frames": [
+            1.0,
+            23.080000000000002,
+            49.96,
+            74.92,
+            97.0
+          ],
+          "max_local_vertex_change": 0.05880207764564408,
+          "max_pair_distance_change": 1.468626989742372e-07,
+          "nonrigid_deformation_detected": false
+        }
+      ]
+    },
+    {
+      "name": "Crab_OpposedPincer-1",
+      "vertices": 786,
+      "armature": "Crab_Rig",
+      "unweighted": 0,
+      "max_weight_sum_error": 0.0,
+      "blended_vertices": 0,
+      "weighted_bones": [
+        "claw_L_pincer"
+      ],
+      "deformation": [
+        {
+          "action": "Crab_Scuttle_Loop",
+          "frames": [
+            1.0,
+            23.080000000000002,
+            49.96,
+            74.92,
+            97.0
+          ],
+          "max_local_vertex_change": 0.06830397515319259,
+          "max_pair_distance_change": 2.1249503506792777e-07,
+          "nonrigid_deformation_detected": false
+        }
+      ]
+    },
+    {
+      "name": "Crab_OrganicEyeStalk1",
+      "vertices": 898,
+      "armature": "Crab_Rig",
+      "unweighted": 0,
+      "max_weight_sum_error": 0.0,
+      "blended_vertices": 0,
+      "weighted_bones": [
+        "eye_R"
+      ],
+      "deformation": [
+        {
+          "action": "Crab_Scuttle_Loop",
+          "frames": [
+            1.0,
+            23.080000000000002,
+            49.96,
+            74.92,
+            97.0
+          ],
+          "max_local_vertex_change": 0.055443988429160346,
+          "max_pair_distance_change": 5.9409422992207084e-08,
+          "nonrigid_deformation_detected": false
+        }
+      ]
+    },
+    {
+      "name": "Crab_Eye_1_Socket",
+      "vertices": 362,
+      "armature": "Crab_Rig",
+      "unweighted": 0,
+      "max_weight_sum_error": 0.0,
+      "blended_vertices": 0,
+      "weighted_bones": [
+        "eye_R"
+      ],
+      "deformation": [
+        {
+          "action": "Crab_Scuttle_Loop",
+          "frames": [
+            1.0,
+            23.080000000000002,
+            49.96,
+            74.92,
+            97.0
+          ],
+          "max_local_vertex_change": 0.05541727808665037,
+          "max_pair_distance_change": 1.0000283939826105e-07,
+          "nonrigid_deformation_detected": false
+        }
+      ]
+    },
+    {
+      "name": "Crab_Eye_1_Eye",
+      "vertices": 362,
+      "armature": "Crab_Rig",
+      "unweighted": 0,
+      "max_weight_sum_error": 0.0,
+      "blended_vertices": 0,
+      "weighted_bones": [
+        "eye_R"
+      ],
+      "deformation": [
+        {
+          "action": "Crab_Scuttle_Loop",
+          "frames": [
+            1.0,
+            23.080000000000002,
+            49.96,
+            74.92,
+            97.0
+          ],
+          "max_local_vertex_change": 0.05522881932501136,
+          "max_pair_distance_change": 7.590409373259277e-08,
+          "nonrigid_deformation_detected": false
+        }
+      ]
+    },
+    {
+      "name": "Crab_Eye_1_Iris",
+      "vertices": 362,
+      "armature": "Crab_Rig",
+      "unweighted": 0,
+      "max_weight_sum_error": 0.0,
+      "blended_vertices": 0,
+      "weighted_bones": [
+        "eye_R"
+      ],
+      "deformation": [
+        {
+          "action": "Crab_Scuttle_Loop",
+          "frames": [
+            1.0,
+            23.080000000000002,
+            49.96,
+            74.92,
+            97.0
+          ],
+          "max_local_vertex_change": 0.05496646046579438,
+          "max_pair_distance_change": 8.630094423811574e-08,
+          "nonrigid_deformation_detected": false
+        }
+      ]
+    },
+    {
+      "name": "Crab_Eye_1_Pupil",
+      "vertices": 362,
+      "armature": "Crab_Rig",
+      "unweighted": 0,
+      "max_weight_sum_error": 0.0,
+      "blended_vertices": 0,
+      "weighted_bones": [
+        "eye_R"
+      ],
+      "deformation": [
+        {
+          "action": "Crab_Scuttle_Loop",
+          "frames": [
+            1.0,
+            23.080000000000002,
+            49.96,
+            74.92,
+            97.0
+          ],
+          "max_local_vertex_change": 0.054872959814140865,
+          "max_pair_distance_change": 9.88128304318936e-08,
+          "nonrigid_deformation_detected": false
+        }
+      ]
+    },
+    {
+      "name": "Crab_Eye_1_Catchlight",
+      "vertices": 362,
+      "armature": "Crab_Rig",
+      "unweighted": 0,
+      "max_weight_sum_error": 0.0,
+      "blended_vertices": 0,
+      "weighted_bones": [
+        "eye_R"
+      ],
+      "deformation": [
+        {
+          "action": "Crab_Scuttle_Loop",
+          "frames": [
+            1.0,
+            23.080000000000002,
+            49.96,
+            74.92,
+            97.0
+          ],
+          "max_local_vertex_change": 0.05486262653094525,
+          "max_pair_distance_change": 8.02976172151193e-08,
+          "nonrigid_deformation_detected": false
+        }
+      ]
+    },
+    {
+      "name": "Crab_Eye_1_UpperLid",
+      "vertices": 1610,
+      "armature": "Crab_Rig",
+      "unweighted": 0,
+      "max_weight_sum_error": 0.0,
+      "blended_vertices": 0,
+      "weighted_bones": [
+        "eye_R"
+      ],
+      "deformation": [
+        {
+          "action": "Crab_Scuttle_Loop",
+          "frames": [
+            1.0,
+            23.080000000000002,
+            49.96,
+            74.92,
+            97.0
+          ],
+          "max_local_vertex_change": 0.0552325159077924,
+          "max_pair_distance_change": 8.986756168394283e-08,
+          "nonrigid_deformation_detected": false
+        }
+      ]
+    },
+    {
+      "name": "Crab_WalkingLeg1_0",
+      "vertices": 882,
+      "armature": "Crab_Rig",
+      "unweighted": 0,
+      "max_weight_sum_error": 2.9802322387695312e-08,
+      "blended_vertices": 263,
+      "weighted_bones": [
+        "leg_R1_lower",
+        "leg_R1_upper"
+      ],
+      "deformation": [
+        {
+          "action": "Crab_Scuttle_Loop",
+          "frames": [
+            1.0,
+            23.080000000000002,
+            49.96,
+            74.92,
+            97.0
+          ],
+          "max_local_vertex_change": 0.07703634927496977,
+          "max_pair_distance_change": 0.05979553716787206,
+          "nonrigid_deformation_detected": true
+        }
+      ]
+    },
+    {
+      "name": "Crab_WalkingLeg1_1",
+      "vertices": 882,
+      "armature": "Crab_Rig",
+      "unweighted": 0,
+      "max_weight_sum_error": 2.9802322387695312e-08,
+      "blended_vertices": 233,
+      "weighted_bones": [
+        "leg_R2_lower",
+        "leg_R2_upper"
+      ],
+      "deformation": [
+        {
+          "action": "Crab_Scuttle_Loop",
+          "frames": [
+            1.0,
+            23.080000000000002,
+            49.96,
+            74.92,
+            97.0
+          ],
+          "max_local_vertex_change": 0.06919732962384119,
+          "max_pair_distance_change": 0.023041854867991873,
+          "nonrigid_deformation_detected": true
+        }
+      ]
+    },
+    {
+      "name": "Crab_WalkingLeg1_2",
+      "vertices": 882,
+      "armature": "Crab_Rig",
+      "unweighted": 0,
+      "max_weight_sum_error": 2.9802322387695312e-08,
+      "blended_vertices": 215,
+      "weighted_bones": [
+        "leg_R3_lower",
+        "leg_R3_upper"
+      ],
+      "deformation": [
+        {
+          "action": "Crab_Scuttle_Loop",
+          "frames": [
+            1.0,
+            23.080000000000002,
+            49.96,
+            74.92,
+            97.0
+          ],
+          "max_local_vertex_change": 0.0767272668501324,
+          "max_pair_distance_change": 0.0691739779749102,
+          "nonrigid_deformation_detected": true
+        }
+      ]
+    },
+    {
+      "name": "Crab_WalkingLeg1_3",
+      "vertices": 882,
+      "armature": "Crab_Rig",
+      "unweighted": 0,
+      "max_weight_sum_error": 2.9802322387695312e-08,
+      "blended_vertices": 232,
+      "weighted_bones": [
+        "leg_R4_lower",
+        "leg_R4_upper"
+      ],
+      "deformation": [
+        {
+          "action": "Crab_Scuttle_Loop",
+          "frames": [
+            1.0,
+            23.080000000000002,
+            49.96,
+            74.92,
+            97.0
+          ],
+          "max_local_vertex_change": 0.06580726853394644,
+          "max_pair_distance_change": 0.017116865185632768,
+          "nonrigid_deformation_detected": true
+        }
+      ]
+    },
+    {
+      "name": "Crab_ClawArm1",
+      "vertices": 786,
+      "armature": "Crab_Rig",
+      "unweighted": 0,
+      "max_weight_sum_error": 2.9802322387695312e-08,
+      "blended_vertices": 438,
+      "weighted_bones": [
+        "claw_R_arm",
+        "claw_R_hand"
+      ],
+      "deformation": [
+        {
+          "action": "Crab_Scuttle_Loop",
+          "frames": [
+            1.0,
+            23.080000000000002,
+            49.96,
+            74.92,
+            97.0
+          ],
+          "max_local_vertex_change": 0.054260645642786716,
+          "max_pair_distance_change": 0.0030345626802782966,
+          "nonrigid_deformation_detected": true
+        }
+      ]
+    },
+    {
+      "name": "Crab_ClawPalm1",
+      "vertices": 1586,
+      "armature": "Crab_Rig",
+      "unweighted": 0,
+      "max_weight_sum_error": 0.0,
+      "blended_vertices": 0,
+      "weighted_bones": [
+        "claw_R_hand"
+      ],
+      "deformation": [
+        {
+          "action": "Crab_Scuttle_Loop",
+          "frames": [
+            1.0,
+            23.080000000000002,
+            49.96,
+            74.92,
+            97.0
+          ],
+          "max_local_vertex_change": 0.0582000007026864,
+          "max_pair_distance_change": 1.6908023757131185e-07,
+          "nonrigid_deformation_detected": false
+        }
+      ]
+    },
+    {
+      "name": "Crab_OpposedPincer1",
+      "vertices": 786,
+      "armature": "Crab_Rig",
+      "unweighted": 0,
+      "max_weight_sum_error": 0.0,
+      "blended_vertices": 0,
+      "weighted_bones": [
+        "claw_R_pincer"
+      ],
+      "deformation": [
+        {
+          "action": "Crab_Scuttle_Loop",
+          "frames": [
+            1.0,
+            23.080000000000002,
+            49.96,
+            74.92,
+            97.0
+          ],
+          "max_local_vertex_change": 0.06934524422462705,
+          "max_pair_distance_change": 1.8191764778949238e-07,
+          "nonrigid_deformation_detected": false
+        }
+      ]
+    },
+    {
+      "name": "Crab_Smile",
+      "vertices": 410,
+      "armature": "Crab_Rig",
+      "unweighted": 0,
+      "max_weight_sum_error": 0.0,
+      "blended_vertices": 0,
+      "weighted_bones": [
+        "body"
+      ],
+      "deformation": [
+        {
+          "action": "Crab_Scuttle_Loop",
+          "frames": [
+            1.0,
+            23.080000000000002,
+            49.96,
+            74.92,
+            97.0
+          ],
+          "max_local_vertex_change": 0.05287191859318292,
+          "max_pair_distance_change": 2.9273612927802062e-08,
+          "nonrigid_deformation_detected": false
+        }
+      ]
+    }
+  ],
+  "actions": [
+    {
+      "name": "Crab_Scuttle_Loop",
+      "frame_range": [
+        1.0,
+        97.0
+      ],
+      "fcurves": 30,
+      "keyframes": 2910,
+      "animated_bones": [
+        "body",
+        "claw_L_arm",
+        "claw_L_hand",
+        "claw_L_pincer",
+        "claw_R_arm",
+        "claw_R_hand",
+        "claw_R_pincer",
+        "eye_L",
+        "eye_R"
+      ]
+    },
+    {
+      "name": "CTRL_foot_L1Action",
+      "frame_range": [
+        1.0,
+        97.0
+      ],
+      "fcurves": 3,
+      "keyframes": 291,
+      "animated_bones": []
+    },
+    {
+      "name": "CTRL_foot_L2Action",
+      "frame_range": [
+        1.0,
+        97.0
+      ],
+      "fcurves": 3,
+      "keyframes": 291,
+      "animated_bones": []
+    },
+    {
+      "name": "CTRL_foot_L3Action",
+      "frame_range": [
+        1.0,
+        97.0
+      ],
+      "fcurves": 3,
+      "keyframes": 291,
+      "animated_bones": []
+    },
+    {
+      "name": "CTRL_foot_L4Action",
+      "frame_range": [
+        1.0,
+        97.0
+      ],
+      "fcurves": 3,
+      "keyframes": 291,
+      "animated_bones": []
+    },
+    {
+      "name": "CTRL_foot_R1Action",
+      "frame_range": [
+        1.0,
+        97.0
+      ],
+      "fcurves": 3,
+      "keyframes": 291,
+      "animated_bones": []
+    },
+    {
+      "name": "CTRL_foot_R2Action",
+      "frame_range": [
+        1.0,
+        97.0
+      ],
+      "fcurves": 3,
+      "keyframes": 291,
+      "animated_bones": []
+    },
+    {
+      "name": "CTRL_foot_R3Action",
+      "frame_range": [
+        1.0,
+        97.0
+      ],
+      "fcurves": 3,
+      "keyframes": 291,
+      "animated_bones": []
+    },
+    {
+      "name": "CTRL_foot_R4Action",
+      "frame_range": [
+        1.0,
+        97.0
+      ],
+      "fcurves": 3,
+      "keyframes": 291,
+      "animated_bones": []
+    }
+  ],
+  "failures": [],
+  "notes": [],
+  "summary": {
+    "armatures": 1,
+    "skinned_meshes": 32,
+    "vertices": 27456,
+    "blended_vertices": 2762,
+    "nonrigid_meshes": [
+      "Crab_WalkingLeg-1_0",
+      "Crab_WalkingLeg-1_1",
+      "Crab_WalkingLeg-1_2",
+      "Crab_WalkingLeg-1_3",
+      "Crab_ClawArm-1",
+      "Crab_WalkingLeg1_0",
+      "Crab_WalkingLeg1_1",
+      "Crab_WalkingLeg1_2",
+      "Crab_WalkingLeg1_3",
+      "Crab_ClawArm1"
+    ]
+  },
+  "glb": {
+    "path": "chibi-island/art/rigged/crab/crab_rigged.glb",
+    "bytes": 1601704,
+    "skins": 1,
+    "joint_nodes": 26,
+    "animations": [
+      {
+        "name": "Crab_Scuttle_Loop",
+        "channels": 78,
+        "animated_joint_nodes": 26,
+        "varying_joint_channels": [
+          {
+            "node": 24,
+            "path": "translation",
+            "span": 0.10999999940395355
+          },
+          {
+            "node": 24,
+            "path": "rotation",
+            "span": 0.017999762669205666
+          },
+          {
+            "node": 1,
+            "path": "rotation",
+            "span": 0.12860101461410522
+          },
+          {
+            "node": 0,
+            "path": "rotation",
+            "span": 0.34203293919563293
+          },
+          {
+            "node": 3,
+            "path": "rotation",
+            "span": 0.11479097604751587
+          },
+          {
+            "node": 2,
+            "path": "rotation",
+            "span": 0.3659703880548477
+          },
+          {
+            "node": 5,
+            "path": "rotation",
+            "span": 0.10833513736724854
+          },
+          {
+            "node": 4,
+            "path": "rotation",
+            "span": 0.35543331503868103
+          },
+          {
+            "node": 7,
+            "path": "rotation",
+            "span": 0.13035637140274048
+          },
+          {
+            "node": 6,
+            "path": "rotation",
+            "span": 0.34827613830566406
+          },
+          {
+            "node": 10,
+            "path": "rotation",
+            "span": 0.05964016169309616
+          },
+          {
+            "node": 9,
+            "path": "rotation",
+            "span": 0.03447127342224121
+          },
+          {
+            "node": 8,
+            "path": "rotation",
+            "span": 0.09836944378912449
+          },
+          {
+            "node": 11,
+            "path": "rotation",
+            "span": 0.025922589004039764
+          },
+          {
+            "node": 13,
+            "path": "rotation",
+            "span": 0.1659836769104004
+          },
+          {
+            "node": 12,
+            "path": "rotation",
+            "span": 0.4006781280040741
+          },
+          {
+            "node": 15,
+            "path": "rotation",
+            "span": 0.1356755495071411
+          },
+          {
+            "node": 14,
+            "path": "rotation",
+            "span": 0.3540278524160385
+          },
+          {
+            "node": 17,
+            "path": "rotation",
+            "span": 0.1438477337360382
+          },
+          {
+            "node": 16,
+            "path": "rotation",
+            "span": 0.43008311092853546
+          },
+          {
+            "node": 19,
+            "path": "rotation",
+            "span": 0.14516645669937134
+          },
+          {
+            "node": 18,
+            "path": "rotation",
+            "span": 0.34000149369239807
+          },
+          {
+            "node": 22,
+            "path": "rotation",
+            "span": 0.05964023619890213
+          },
+          {
+            "node": 21,
+            "path": "rotation",
+            "span": 0.03447125852108002
+          },
+          {
+            "node": 20,
+            "path": "rotation",
+            "span": 0.09836946427822113
+          },
+          {
+            "node": 23,
+            "path": "rotation",
+            "span": 0.025922589004039764
+          }
+        ],
+        "duration_seconds": 3.999999839812517,
+        "max_joint_loop_delta": 1.3471114385820111e-17
+      }
+    ],
+    "skinned_primitives": [
+      {
+        "name": "Crab_BrowRidge",
+        "vertices": 891,
+        "weight_sum_max_error": 0.0,
+        "invalid_joint_vertices": 0
+      },
+      {
+        "name": "Crab_Carapace",
+        "vertices": 2498,
+        "weight_sum_max_error": 0.0,
+        "invalid_joint_vertices": 0
+      },
+      {
+        "name": "Crab_ClawArm-1",
+        "vertices": 786,
+        "weight_sum_max_error": 2.9802322387695312e-08,
+        "invalid_joint_vertices": 0
+      },
+      {
+        "name": "Crab_ClawArm1",
+        "vertices": 786,
+        "weight_sum_max_error": 2.9802322387695312e-08,
+        "invalid_joint_vertices": 0
+      },
+      {
+        "name": "Crab_ClawPalm-1",
+        "vertices": 1586,
+        "weight_sum_max_error": 0.0,
+        "invalid_joint_vertices": 0
+      },
+      {
+        "name": "Crab_ClawPalm1",
+        "vertices": 1586,
+        "weight_sum_max_error": 0.0,
+        "invalid_joint_vertices": 0
+      },
+      {
+        "name": "Crab_Eye_-1_Catchlight",
+        "vertices": 423,
+        "weight_sum_max_error": 0.0,
+        "invalid_joint_vertices": 0
+      },
+      {
+        "name": "Crab_Eye_-1_Eye",
+        "vertices": 423,
+        "weight_sum_max_error": 0.0,
+        "invalid_joint_vertices": 0
+      },
+      {
+        "name": "Crab_Eye_-1_Iris",
+        "vertices": 423,
+        "weight_sum_max_error": 0.0,
+        "invalid_joint_vertices": 0
+      },
+      {
+        "name": "Crab_Eye_-1_Pupil",
+        "vertices": 423,
+        "weight_sum_max_error": 0.0,
+        "invalid_joint_vertices": 0
+      },
+      {
+        "name": "Crab_Eye_-1_Socket",
+        "vertices": 423,
+        "weight_sum_max_error": 0.0,
+        "invalid_joint_vertices": 0
+      },
+      {
+        "name": "Crab_Eye_-1_UpperLid",
+        "vertices": 1771,
+        "weight_sum_max_error": 0.0,
+        "invalid_joint_vertices": 0
+      },
+      {
+        "name": "Crab_Eye_1_Catchlight",
+        "vertices": 423,
+        "weight_sum_max_error": 0.0,
+        "invalid_joint_vertices": 0
+      },
+      {
+        "name": "Crab_Eye_1_Eye",
+        "vertices": 423,
+        "weight_sum_max_error": 0.0,
+        "invalid_joint_vertices": 0
+      },
+      {
+        "name": "Crab_Eye_1_Iris",
+        "vertices": 423,
+        "weight_sum_max_error": 0.0,
+        "invalid_joint_vertices": 0
+      },
+      {
+        "name": "Crab_Eye_1_Pupil",
+        "vertices": 423,
+        "weight_sum_max_error": 0.0,
+        "invalid_joint_vertices": 0
+      },
+      {
+        "name": "Crab_Eye_1_Socket",
+        "vertices": 423,
+        "weight_sum_max_error": 0.0,
+        "invalid_joint_vertices": 0
+      },
+      {
+        "name": "Crab_Eye_1_UpperLid",
+        "vertices": 1771,
+        "weight_sum_max_error": 0.0,
+        "invalid_joint_vertices": 0
+      },
+      {
+        "name": "Crab_OpposedPincer-1",
+        "vertices": 786,
+        "weight_sum_max_error": 0.0,
+        "invalid_joint_vertices": 0
+      },
+      {
+        "name": "Crab_OpposedPincer1",
+        "vertices": 786,
+        "weight_sum_max_error": 0.0,
+        "invalid_joint_vertices": 0
+      },
+      {
+        "name": "Crab_OrganicEyeStalk-1",
+        "vertices": 898,
+        "weight_sum_max_error": 0.0,
+        "invalid_joint_vertices": 0
+      },
+      {
+        "name": "Crab_OrganicEyeStalk1",
+        "vertices": 898,
+        "weight_sum_max_error": 0.0,
+        "invalid_joint_vertices": 0
+      },
+      {
+        "name": "Crab_Smile",
+        "vertices": 451,
+        "weight_sum_max_error": 0.0,
+        "invalid_joint_vertices": 0
+      },
+      {
+        "name": "Crab_Underside",
+        "vertices": 1730,
+        "weight_sum_max_error": 0.0,
+        "invalid_joint_vertices": 0
+      },
+      {
+        "name": "Crab_WalkingLeg-1_0",
+        "vertices": 882,
+        "weight_sum_max_error": 2.9802322387695312e-08,
+        "invalid_joint_vertices": 0
+      },
+      {
+        "name": "Crab_WalkingLeg-1_1",
+        "vertices": 882,
+        "weight_sum_max_error": 2.9802322387695312e-08,
+        "invalid_joint_vertices": 0
+      },
+      {
+        "name": "Crab_WalkingLeg-1_2",
+        "vertices": 882,
+        "weight_sum_max_error": 2.9802322387695312e-08,
+        "invalid_joint_vertices": 0
+      },
+      {
+        "name": "Crab_WalkingLeg-1_3",
+        "vertices": 882,
+        "weight_sum_max_error": 2.9802322387695312e-08,
+        "invalid_joint_vertices": 0
+      },
+      {
+        "name": "Crab_WalkingLeg1_0",
+        "vertices": 882,
+        "weight_sum_max_error": 2.9802322387695312e-08,
+        "invalid_joint_vertices": 0
+      },
+      {
+        "name": "Crab_WalkingLeg1_1",
+        "vertices": 882,
+        "weight_sum_max_error": 2.9802322387695312e-08,
+        "invalid_joint_vertices": 0
+      },
+      {
+        "name": "Crab_WalkingLeg1_2",
+        "vertices": 882,
+        "weight_sum_max_error": 2.9802322387695312e-08,
+        "invalid_joint_vertices": 0
+      },
+      {
+        "name": "Crab_WalkingLeg1_3",
+        "vertices": 882,
+        "weight_sum_max_error": 2.9802322387695312e-08,
+        "invalid_joint_vertices": 0
+      }
+    ],
+    "external_uris": []
+  }
+}

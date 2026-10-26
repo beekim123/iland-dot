@@ -1,0 +1,19 @@
+{
+  "bones": 26,
+  "weighted_meshes": 32,
+  "vertices": 27456,
+  "blended_vertices": 2762,
+  "unweighted_vertices": 0,
+  "maximum_weight_sum_error": 2.9802322387695312e-08,
+  "maximum_ik_endpoint_error": 3.8743019104003906e-07,
+  "minimum_animated_leg_mesh_z": -0.0007595717906951904,
+  "action": "Crab_Scuttle_Loop",
+  "fps": 24,
+  "clip_seconds": 4.0,
+  "frames": [
+    1,
+    97
+  ],
+  "constraints": "8 two-bone IK chains; fixed world-space foot targets during stance",
+  "approved_geometry_preserved": true
+}

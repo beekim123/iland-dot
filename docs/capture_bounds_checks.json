@@ -1,0 +1,8 @@
+{
+	"frames": 120,
+	"limitation": "Mesh import bounds do not include full skeletal deformation; visual checks still required",
+	"minimum_edge_margin_px_at_1280x800": 6.26544189453125,
+	"outside_projected_mesh_bounds": [],
+	"shot_selection": "wide19; swimmer+crab+leftschool10; gull1",
+	"wide_subjects": 19
+}

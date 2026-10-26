@@ -1,0 +1,157 @@
+{
+  "turtle": {
+    "vertices_evaluated": 3078,
+    "bounds_m": [
+      [
+        -0.6981509923934937,
+        -0.8200000524520874,
+        0.0
+      ],
+      [
+        0.6981509327888489,
+        0.7204554677009583,
+        0.5868939161300659
+      ]
+    ],
+    "nodes": [
+      "turtle",
+      "flipper_front_L",
+      "flipper_front_R",
+      "flipper_rear_L",
+      "flipper_rear_R",
+      "shell_scute_00",
+      "shell_scute_01",
+      "shell_scute_02",
+      "shell_scute_03",
+      "shell_scute_04",
+      "shell_scute_05",
+      "shell_scute_06",
+      "turtle_belly",
+      "turtle_body",
+      "turtle_head",
+      "turtle_blush_-1",
+      "turtle_blush_1",
+      "turtle_eye_-1",
+      "turtle_eye_1",
+      "turtle_eye_glint_-1",
+      "turtle_eye_glint_1",
+      "turtle_smile",
+      "turtle_shell",
+      "turtle_shell_rim",
+      "turtle_tail"
+    ],
+    "materials": [
+      "cheek",
+      "cream",
+      "eye",
+      "mint",
+      "mint_light",
+      "scute",
+      "scute_gold",
+      "shell",
+      "white"
+    ]
+  },
+  "crab": {
+    "vertices_evaluated": 5160,
+    "bounds_m": [
+      [
+        -0.38346680998802185,
+        -0.3128800392150879,
+        -1.375755509513965e-09
+      ],
+      [
+        0.38346678018569946,
+        0.23197342455387115,
+        0.45874905586242676
+      ]
+    ],
+    "nodes": [
+      "crab",
+      "claw_L",
+      "pincer",
+      "pincer.001",
+      "claw_R",
+      "pincer.002",
+      "pincer.003",
+      "crab_belly",
+      "crab_body",
+      "crab_eye",
+      "crab_eye.001",
+      "crab_eye_glint",
+      "crab_eye_glint.001",
+      "crab_eye_white",
+      "crab_eye_white.001",
+      "crab_smile",
+      "eye_stalk_-1",
+      "eye_stalk_1",
+      "leg_L_0",
+      "leg_tip",
+      "leg_L_1",
+      "leg_tip.001",
+      "leg_L_2",
+      "leg_tip.002",
+      "leg_L_3",
+      "leg_tip.003",
+      "leg_R_0",
+      "leg_tip.004",
+      "leg_R_1",
+      "leg_tip.005",
+      "leg_R_2",
+      "leg_tip.006",
+      "leg_R_3",
+      "leg_tip.007"
+    ],
+    "materials": [
+      "coral",
+      "coral_light",
+      "eye",
+      "white"
+    ]
+  },
+  "seagull": {
+    "vertices_evaluated": 3256,
+    "bounds_m": [
+      [
+        -0.26274797320365906,
+        -0.3750000298023224,
+        0.0
+      ],
+      [
+        0.26274794340133667,
+        0.3799999952316284,
+        0.6679999828338623
+      ]
+    ],
+    "nodes": [
+      "seagull",
+      "foot_-1",
+      "foot_1",
+      "leg_L",
+      "leg_R",
+      "seagull_body",
+      "seagull_head",
+      "seagull_beak",
+      "seagull_eye",
+      "seagull_eye.001",
+      "seagull_eye_glint",
+      "seagull_eye_glint.001",
+      "seagull_tail",
+      "wing_L",
+      "wing_feather",
+      "wing_feather.001",
+      "wing_feather.002",
+      "wing_R",
+      "wing_feather.003",
+      "wing_feather.004",
+      "wing_feather.005"
+    ],
+    "materials": [
+      "beak",
+      "eye",
+      "feet",
+      "white",
+      "wing"
+    ]
+  }
+}

@@ -1,0 +1,113 @@
+{
+  "blender_version": "4.3.2",
+  "sources": {
+    "Landscape": "art/v3/landscape.blend",
+    "Plants": "art/v3/plants.blend",
+    "Animals": "art/v3/animals.blend"
+  },
+  "mesh_objects": 352,
+  "vertices": 173861,
+  "polygons": 158103,
+  "triangles": 318344,
+  "materials": [
+    "Coconut Gold",
+    "Coconut Green",
+    "Coral Petal",
+    "Cream Petal",
+    "Flower Eye",
+    "Flower Gold",
+    "Hand-sculpted terrain \u2022 vertex painted",
+    "Leaf Deep",
+    "Leaf Emerald",
+    "Leaf Jade",
+    "Leaf Lime",
+    "Leaf Vein",
+    "Palm Emerald",
+    "Palm Jade",
+    "Palm Sunlit",
+    "Peach Petal",
+    "Petiole",
+    "Trunk Growth",
+    "Trunk Honey",
+    "Trunk Light",
+    "V3 endgrain",
+    "V3 foam",
+    "V3 iron",
+    "V3 rope",
+    "V3 shell_coral",
+    "V3 shell_cream",
+    "V3 sign",
+    "V3 stone",
+    "V3 stone_dark",
+    "V3 stone_light",
+    "V3 wood",
+    "V3 wood_honey",
+    "V3 wood_sun",
+    "claw_tip",
+    "coral",
+    "coral_belly",
+    "coral_light",
+    "gold",
+    "gold_light",
+    "ink",
+    "iris",
+    "ivory",
+    "mint",
+    "mint_lid",
+    "mouth",
+    "pearl",
+    "seafoam",
+    "shell",
+    "shell_rim",
+    "shell_seam",
+    "white",
+    "wing",
+    "wing_dark",
+    "wing_light"
+  ],
+  "external_libraries": 0,
+  "bounds": {
+    "min": [
+      -12.199631690979004,
+      -6.121201038360596,
+      -1.350000023841858
+    ],
+    "max": [
+      11.392386436462402,
+      8.553203582763672,
+      7.5888447761535645
+    ]
+  },
+  "render": {
+    "engine": "CYCLES",
+    "device": "CPU",
+    "samples": 64,
+    "denoise": false,
+    "resolution": [
+      1600,
+      1200
+    ],
+    "view_transform": "AgX",
+    "exposure": 0.10000000149011612
+  },
+  "views": [
+    {
+      "name": "01 \u2014 Island composition",
+      "position": [
+        18.51630401611328,
+        -28.58222770690918,
+        24.12541961669922
+      ],
+      "ortho_scale": 29.301387786865234
+    },
+    {
+      "name": "02 \u2014 Sculpted friends and beach",
+      "position": [
+        5.0,
+        -20.0,
+        11.0
+      ],
+      "ortho_scale": 13.199999809265137
+    }
+  ]
+}

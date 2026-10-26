@@ -1,0 +1,9 @@
+island-ui.otf is a glyph subset of NotoSansCJK-Regular.ttc, face index 0.
+Original installed source: /usr/share/fonts/opentype/noto/NotoSansCJK-Regular.ttc
+Upstream: https://github.com/notofonts/noto-cjk
+License: SIL Open Font License 1.1, full text in OFL.txt.
+License text copied from installed /usr/share/doc/fonts-noto-cjk/copyright;
+Adobe copyright also preserved from original font name-table record 0.
+Modified on 2026-10-26: fontTools pyftsubset retained ASCII U+0020–007E,
+U+00B7, U+2014 and only Chinese glyphs needed by the island HUD.
+No font artwork redrawn. Not an endorsement by original authors.

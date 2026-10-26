@@ -1,0 +1,12 @@
+{
+  "glb_nodes": 125,
+  "glb_meshes": 125,
+  "glb_cameras": 0,
+  "color_0_primitives": 2,
+  "sha256": {
+    "art/v3/build_landscape.py": "aa67d4b32e647b62e627a6661ddc165efa8e764f4a8880ec7ce1749ba9036eb5",
+    "art/v3/landscape.blend": "978f8926a206b221ca8e51ce9464e566c1842b6cb18e13ade270957381f781e5",
+    "art/v3/landscape.glb": "cfc8e2153e802018b015430846097dbbc1e5e27f3db8d581e0f084ba91791cb5",
+    "art/v3/landscape_preview.png": "942172994cb93a90ccf912f3b86287b8db73aff9e604cf525f4db27007adf36e"
+  }
+}

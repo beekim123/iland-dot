@@ -1,0 +1,1538 @@
+{
+  "blend": "/workspace/scratch/e3e9ec015b32/chibi-island/art/rigged/turtle/turtle_rigged.blend",
+  "armatures": [
+    {
+      "name": "TurtleRig",
+      "bones": 15,
+      "bone_names": [
+        "body",
+        "fore_L_1",
+        "fore_L_2",
+        "fore_L_3",
+        "fore_R_1",
+        "fore_R_2",
+        "fore_R_3",
+        "head",
+        "hind_L_1",
+        "hind_L_2",
+        "hind_R_1",
+        "hind_R_2",
+        "neck",
+        "root",
+        "tail"
+      ],
+      "active_action": "Turtle_Swim_Loop_4s"
+    }
+  ],
+  "meshes": [
+    {
+      "name": "Turtle_Plastron",
+      "vertices": 2498,
+      "armature": "TurtleRig",
+      "unweighted": 0,
+      "max_weight_sum_error": 0.0,
+      "blended_vertices": 0,
+      "weighted_bones": [
+        "body"
+      ],
+      "deformation": [
+        {
+          "action": "Turtle_Swim_Loop_4s",
+          "frames": [
+            1.0,
+            23.080000000000002,
+            49.96,
+            74.92,
+            97.0
+          ],
+          "max_local_vertex_change": 0.03506054124239548,
+          "max_pair_distance_change": 2.410488515458553e-07,
+          "nonrigid_deformation_detected": false
+        }
+      ]
+    },
+    {
+      "name": "Turtle_SoftBody",
+      "vertices": 2114,
+      "armature": "TurtleRig",
+      "unweighted": 0,
+      "max_weight_sum_error": 0.0,
+      "blended_vertices": 0,
+      "weighted_bones": [
+        "body"
+      ],
+      "deformation": [
+        {
+          "action": "Turtle_Swim_Loop_4s",
+          "frames": [
+            1.0,
+            23.080000000000002,
+            49.96,
+            74.92,
+            97.0
+          ],
+          "max_local_vertex_change": 0.033820068759130406,
+          "max_pair_distance_change": 2.3868414156247297e-07,
+          "nonrigid_deformation_detected": false
+        }
+      ]
+    },
+    {
+      "name": "Turtle_ContinuousCarapace",
+      "vertices": 14850,
+      "armature": "TurtleRig",
+      "unweighted": 0,
+      "max_weight_sum_error": 0.0,
+      "blended_vertices": 0,
+      "weighted_bones": [
+        "body"
+      ],
+      "deformation": [
+        {
+          "action": "Turtle_Swim_Loop_4s",
+          "frames": [
+            1.0,
+            23.080000000000002,
+            49.96,
+            74.92,
+            97.0
+          ],
+          "max_local_vertex_change": 0.03849538801546463,
+          "max_pair_distance_change": 2.436111891102044e-07,
+          "nonrigid_deformation_detected": false
+        }
+      ]
+    },
+    {
+      "name": "Turtle_CentralScute_00",
+      "vertices": 6010,
+      "armature": "TurtleRig",
+      "unweighted": 0,
+      "max_weight_sum_error": 0.0,
+      "blended_vertices": 0,
+      "weighted_bones": [
+        "body"
+      ],
+      "deformation": [
+        {
+          "action": "Turtle_Swim_Loop_4s",
+          "frames": [
+            1.0,
+            23.080000000000002,
+            49.96,
+            74.92,
+            97.0
+          ],
+          "max_local_vertex_change": 0.0387915677757873,
+          "max_pair_distance_change": 1.4648954907436895e-07,
+          "nonrigid_deformation_detected": false
+        }
+      ]
+    },
+    {
+      "name": "Turtle_ScutesRadial",
+      "vertices": 410,
+      "armature": "TurtleRig",
+      "unweighted": 0,
+      "max_weight_sum_error": 0.0,
+      "blended_vertices": 0,
+      "weighted_bones": [
+        "body"
+      ],
+      "deformation": [
+        {
+          "action": "Turtle_Swim_Loop_4s",
+          "frames": [
+            1.0,
+            23.080000000000002,
+            49.96,
+            74.92,
+            97.0
+          ],
+          "max_local_vertex_change": 0.038937226973939955,
+          "max_pair_distance_change": 1.095335367823358e-07,
+          "nonrigid_deformation_detected": false
+        }
+      ]
+    },
+    {
+      "name": "Turtle_ScutesRadial.001",
+      "vertices": 410,
+      "armature": "TurtleRig",
+      "unweighted": 0,
+      "max_weight_sum_error": 0.0,
+      "blended_vertices": 0,
+      "weighted_bones": [
+        "body"
+      ],
+      "deformation": [
+        {
+          "action": "Turtle_Swim_Loop_4s",
+          "frames": [
+            1.0,
+            23.080000000000002,
+            49.96,
+            74.92,
+            97.0
+          ],
+          "max_local_vertex_change": 0.03907030593841122,
+          "max_pair_distance_change": 1.3368911166988795e-07,
+          "nonrigid_deformation_detected": false
+        }
+      ]
+    },
+    {
+      "name": "Turtle_ScutesRadial.002",
+      "vertices": 410,
+      "armature": "TurtleRig",
+      "unweighted": 0,
+      "max_weight_sum_error": 0.0,
+      "blended_vertices": 0,
+      "weighted_bones": [
+        "body"
+      ],
+      "deformation": [
+        {
+          "action": "Turtle_Swim_Loop_4s",
+          "frames": [
+            1.0,
+            23.080000000000002,
+            49.96,
+            74.92,
+            97.0
+          ],
+          "max_local_vertex_change": 0.03548673210606819,
+          "max_pair_distance_change": 1.1160510614630081e-07,
+          "nonrigid_deformation_detected": false
+        }
+      ]
+    },
+    {
+      "name": "Turtle_ScutesRadial.003",
+      "vertices": 410,
+      "armature": "TurtleRig",
+      "unweighted": 0,
+      "max_weight_sum_error": 0.0,
+      "blended_vertices": 0,
+      "weighted_bones": [
+        "body"
+      ],
+      "deformation": [
+        {
+          "action": "Turtle_Swim_Loop_4s",
+          "frames": [
+            1.0,
+            23.080000000000002,
+            49.96,
+            74.92,
+            97.0
+          ],
+          "max_local_vertex_change": 0.033708475363483884,
+          "max_pair_distance_change": 1.0830259158933764e-07,
+          "nonrigid_deformation_detected": false
+        }
+      ]
+    },
+    {
+      "name": "Turtle_CentralScute_01",
+      "vertices": 6010,
+      "armature": "TurtleRig",
+      "unweighted": 0,
+      "max_weight_sum_error": 0.0,
+      "blended_vertices": 0,
+      "weighted_bones": [
+        "body"
+      ],
+      "deformation": [
+        {
+          "action": "Turtle_Swim_Loop_4s",
+          "frames": [
+            1.0,
+            23.080000000000002,
+            49.96,
+            74.92,
+            97.0
+          ],
+          "max_local_vertex_change": 0.03863125529169658,
+          "max_pair_distance_change": 7.097804943789754e-08,
+          "nonrigid_deformation_detected": false
+        }
+      ]
+    },
+    {
+      "name": "Turtle_ScutesRadial.004",
+      "vertices": 410,
+      "armature": "TurtleRig",
+      "unweighted": 0,
+      "max_weight_sum_error": 0.0,
+      "blended_vertices": 0,
+      "weighted_bones": [
+        "body"
+      ],
+      "deformation": [
+        {
+          "action": "Turtle_Swim_Loop_4s",
+          "frames": [
+            1.0,
+            23.080000000000002,
+            49.96,
+            74.92,
+            97.0
+          ],
+          "max_local_vertex_change": 0.03867865598415457,
+          "max_pair_distance_change": 1.2960951087381822e-07,
+          "nonrigid_deformation_detected": false
+        }
+      ]
+    },
+    {
+      "name": "Turtle_ScutesRadial.005",
+      "vertices": 410,
+      "armature": "TurtleRig",
+      "unweighted": 0,
+      "max_weight_sum_error": 0.0,
+      "blended_vertices": 0,
+      "weighted_bones": [
+        "body"
+      ],
+      "deformation": [
+        {
+          "action": "Turtle_Swim_Loop_4s",
+          "frames": [
+            1.0,
+            23.080000000000002,
+            49.96,
+            74.92,
+            97.0
+          ],
+          "max_local_vertex_change": 0.037937379326266174,
+          "max_pair_distance_change": 1.279595522873933e-07,
+          "nonrigid_deformation_detected": false
+        }
+      ]
+    },
+    {
+      "name": "Turtle_ScutesRadial.006",
+      "vertices": 410,
+      "armature": "TurtleRig",
+      "unweighted": 0,
+      "max_weight_sum_error": 0.0,
+      "blended_vertices": 0,
+      "weighted_bones": [
+        "body"
+      ],
+      "deformation": [
+        {
+          "action": "Turtle_Swim_Loop_4s",
+          "frames": [
+            1.0,
+            23.080000000000002,
+            49.96,
+            74.92,
+            97.0
+          ],
+          "max_local_vertex_change": 0.03537854649062567,
+          "max_pair_distance_change": 1.1524280791805341e-07,
+          "nonrigid_deformation_detected": false
+        }
+      ]
+    },
+    {
+      "name": "Turtle_ScutesRadial.007",
+      "vertices": 410,
+      "armature": "TurtleRig",
+      "unweighted": 0,
+      "max_weight_sum_error": 0.0,
+      "blended_vertices": 0,
+      "weighted_bones": [
+        "body"
+      ],
+      "deformation": [
+        {
+          "action": "Turtle_Swim_Loop_4s",
+          "frames": [
+            1.0,
+            23.080000000000002,
+            49.96,
+            74.92,
+            97.0
+          ],
+          "max_local_vertex_change": 0.03686755542916732,
+          "max_pair_distance_change": 1.1367024941449921e-07,
+          "nonrigid_deformation_detected": false
+        }
+      ]
+    },
+    {
+      "name": "Turtle_CentralScute_02",
+      "vertices": 6010,
+      "armature": "TurtleRig",
+      "unweighted": 0,
+      "max_weight_sum_error": 0.0,
+      "blended_vertices": 0,
+      "weighted_bones": [
+        "body"
+      ],
+      "deformation": [
+        {
+          "action": "Turtle_Swim_Loop_4s",
+          "frames": [
+            1.0,
+            23.080000000000002,
+            49.96,
+            74.92,
+            97.0
+          ],
+          "max_local_vertex_change": 0.038354820493486465,
+          "max_pair_distance_change": 1.3821476568809388e-07,
+          "nonrigid_deformation_detected": false
+        }
+      ]
+    },
+    {
+      "name": "Turtle_ScutesRadial.008",
+      "vertices": 410,
+      "armature": "TurtleRig",
+      "unweighted": 0,
+      "max_weight_sum_error": 0.0,
+      "blended_vertices": 0,
+      "weighted_bones": [
+        "body"
+      ],
+      "deformation": [
+        {
+          "action": "Turtle_Swim_Loop_4s",
+          "frames": [
+            1.0,
+            23.080000000000002,
+            49.96,
+            74.92,
+            97.0
+          ],
+          "max_local_vertex_change": 0.03696127845988501,
+          "max_pair_distance_change": 1.3525433086372662e-07,
+          "nonrigid_deformation_detected": false
+        }
+      ]
+    },
+    {
+      "name": "Turtle_ScutesRadial.009",
+      "vertices": 410,
+      "armature": "TurtleRig",
+      "unweighted": 0,
+      "max_weight_sum_error": 0.0,
+      "blended_vertices": 0,
+      "weighted_bones": [
+        "body"
+      ],
+      "deformation": [
+        {
+          "action": "Turtle_Swim_Loop_4s",
+          "frames": [
+            1.0,
+            23.080000000000002,
+            49.96,
+            74.92,
+            97.0
+          ],
+          "max_local_vertex_change": 0.035179210365765726,
+          "max_pair_distance_change": 1.6719948626488235e-07,
+          "nonrigid_deformation_detected": false
+        }
+      ]
+    },
+    {
+      "name": "Turtle_ScutesRadial.010",
+      "vertices": 410,
+      "armature": "TurtleRig",
+      "unweighted": 0,
+      "max_weight_sum_error": 0.0,
+      "blended_vertices": 0,
+      "weighted_bones": [
+        "body"
+      ],
+      "deformation": [
+        {
+          "action": "Turtle_Swim_Loop_4s",
+          "frames": [
+            1.0,
+            23.080000000000002,
+            49.96,
+            74.92,
+            97.0
+          ],
+          "max_local_vertex_change": 0.03830758956703771,
+          "max_pair_distance_change": 1.2445262909804855e-07,
+          "nonrigid_deformation_detected": false
+        }
+      ]
+    },
+    {
+      "name": "Turtle_ScutesRadial.011",
+      "vertices": 410,
+      "armature": "TurtleRig",
+      "unweighted": 0,
+      "max_weight_sum_error": 0.0,
+      "blended_vertices": 0,
+      "weighted_bones": [
+        "body"
+      ],
+      "deformation": [
+        {
+          "action": "Turtle_Swim_Loop_4s",
+          "frames": [
+            1.0,
+            23.080000000000002,
+            49.96,
+            74.92,
+            97.0
+          ],
+          "max_local_vertex_change": 0.03841753340151078,
+          "max_pair_distance_change": 1.6202343327068047e-07,
+          "nonrigid_deformation_detected": false
+        }
+      ]
+    },
+    {
+      "name": "Turtle_HeadNeck",
+      "vertices": 2882,
+      "armature": "TurtleRig",
+      "unweighted": 0,
+      "max_weight_sum_error": 2.9802322387695312e-08,
+      "blended_vertices": 984,
+      "weighted_bones": [
+        "body",
+        "head",
+        "neck"
+      ],
+      "deformation": [
+        {
+          "action": "Turtle_Swim_Loop_4s",
+          "frames": [
+            1.0,
+            23.080000000000002,
+            49.96,
+            74.92,
+            97.0
+          ],
+          "max_local_vertex_change": 0.06685116852123418,
+          "max_pair_distance_change": 0.007716099375403074,
+          "nonrigid_deformation_detected": true
+        }
+      ]
+    },
+    {
+      "name": "Turtle_Eye_-1_Socket",
+      "vertices": 362,
+      "armature": "TurtleRig",
+      "unweighted": 0,
+      "max_weight_sum_error": 0.0,
+      "blended_vertices": 0,
+      "weighted_bones": [
+        "head"
+      ],
+      "deformation": [
+        {
+          "action": "Turtle_Swim_Loop_4s",
+          "frames": [
+            1.0,
+            23.080000000000002,
+            49.96,
+            74.92,
+            97.0
+          ],
+          "max_local_vertex_change": 0.06947444564552797,
+          "max_pair_distance_change": 2.2800584463522622e-07,
+          "nonrigid_deformation_detected": false
+        }
+      ]
+    },
+    {
+      "name": "Turtle_Eye_-1_Eye",
+      "vertices": 362,
+      "armature": "TurtleRig",
+      "unweighted": 0,
+      "max_weight_sum_error": 0.0,
+      "blended_vertices": 0,
+      "weighted_bones": [
+        "head"
+      ],
+      "deformation": [
+        {
+          "action": "Turtle_Swim_Loop_4s",
+          "frames": [
+            1.0,
+            23.080000000000002,
+            49.96,
+            74.92,
+            97.0
+          ],
+          "max_local_vertex_change": 0.06992817897256809,
+          "max_pair_distance_change": 2.1845295235245477e-07,
+          "nonrigid_deformation_detected": false
+        }
+      ]
+    },
+    {
+      "name": "Turtle_Eye_-1_Iris",
+      "vertices": 362,
+      "armature": "TurtleRig",
+      "unweighted": 0,
+      "max_weight_sum_error": 0.0,
+      "blended_vertices": 0,
+      "weighted_bones": [
+        "head"
+      ],
+      "deformation": [
+        {
+          "action": "Turtle_Swim_Loop_4s",
+          "frames": [
+            1.0,
+            23.080000000000002,
+            49.96,
+            74.92,
+            97.0
+          ],
+          "max_local_vertex_change": 0.06962043842298496,
+          "max_pair_distance_change": 1.8303346136644416e-07,
+          "nonrigid_deformation_detected": false
+        }
+      ]
+    },
+    {
+      "name": "Turtle_Eye_-1_Pupil",
+      "vertices": 362,
+      "armature": "TurtleRig",
+      "unweighted": 0,
+      "max_weight_sum_error": 0.0,
+      "blended_vertices": 0,
+      "weighted_bones": [
+        "head"
+      ],
+      "deformation": [
+        {
+          "action": "Turtle_Swim_Loop_4s",
+          "frames": [
+            1.0,
+            23.080000000000002,
+            49.96,
+            74.92,
+            97.0
+          ],
+          "max_local_vertex_change": 0.06962423178482906,
+          "max_pair_distance_change": 1.6652578238920968e-07,
+          "nonrigid_deformation_detected": false
+        }
+      ]
+    },
+    {
+      "name": "Turtle_Eye_-1_Catchlight",
+      "vertices": 362,
+      "armature": "TurtleRig",
+      "unweighted": 0,
+      "max_weight_sum_error": 0.0,
+      "blended_vertices": 0,
+      "weighted_bones": [
+        "head"
+      ],
+      "deformation": [
+        {
+          "action": "Turtle_Swim_Loop_4s",
+          "frames": [
+            1.0,
+            23.080000000000002,
+            49.96,
+            74.92,
+            97.0
+          ],
+          "max_local_vertex_change": 0.06967778122331612,
+          "max_pair_distance_change": 1.742271813192503e-07,
+          "nonrigid_deformation_detected": false
+        }
+      ]
+    },
+    {
+      "name": "Turtle_Eye_-1_UpperLid",
+      "vertices": 1610,
+      "armature": "TurtleRig",
+      "unweighted": 0,
+      "max_weight_sum_error": 0.0,
+      "blended_vertices": 0,
+      "weighted_bones": [
+        "head"
+      ],
+      "deformation": [
+        {
+          "action": "Turtle_Swim_Loop_4s",
+          "frames": [
+            1.0,
+            23.080000000000002,
+            49.96,
+            74.92,
+            97.0
+          ],
+          "max_local_vertex_change": 0.07040426521285742,
+          "max_pair_distance_change": 2.237824619222284e-07,
+          "nonrigid_deformation_detected": false
+        }
+      ]
+    },
+    {
+      "name": "Turtle_Nostril",
+      "vertices": 362,
+      "armature": "TurtleRig",
+      "unweighted": 0,
+      "max_weight_sum_error": 0.0,
+      "blended_vertices": 0,
+      "weighted_bones": [
+        "head"
+      ],
+      "deformation": [
+        {
+          "action": "Turtle_Swim_Loop_4s",
+          "frames": [
+            1.0,
+            23.080000000000002,
+            49.96,
+            74.92,
+            97.0
+          ],
+          "max_local_vertex_change": 0.062215892033051445,
+          "max_pair_distance_change": 2.5108589438854745e-07,
+          "nonrigid_deformation_detected": false
+        }
+      ]
+    },
+    {
+      "name": "Turtle_MouthCorner",
+      "vertices": 410,
+      "armature": "TurtleRig",
+      "unweighted": 0,
+      "max_weight_sum_error": 0.0,
+      "blended_vertices": 0,
+      "weighted_bones": [
+        "head"
+      ],
+      "deformation": [
+        {
+          "action": "Turtle_Swim_Loop_4s",
+          "frames": [
+            1.0,
+            23.080000000000002,
+            49.96,
+            74.92,
+            97.0
+          ],
+          "max_local_vertex_change": 0.0636516991347565,
+          "max_pair_distance_change": 2.855341831725644e-07,
+          "nonrigid_deformation_detected": false
+        }
+      ]
+    },
+    {
+      "name": "Turtle_Foreflipper-1",
+      "vertices": 1410,
+      "armature": "TurtleRig",
+      "unweighted": 0,
+      "max_weight_sum_error": 2.9802322387695312e-08,
+      "blended_vertices": 661,
+      "weighted_bones": [
+        "body",
+        "fore_L_1",
+        "fore_L_2",
+        "fore_L_3"
+      ],
+      "deformation": [
+        {
+          "action": "Turtle_Swim_Loop_4s",
+          "frames": [
+            1.0,
+            23.080000000000002,
+            49.96,
+            74.92,
+            97.0
+          ],
+          "max_local_vertex_change": 0.35223674095476726,
+          "max_pair_distance_change": 0.05562128333623101,
+          "nonrigid_deformation_detected": true
+        }
+      ]
+    },
+    {
+      "name": "Turtle_FlipperCrease",
+      "vertices": 410,
+      "armature": "TurtleRig",
+      "unweighted": 0,
+      "max_weight_sum_error": 2.9802322387695312e-08,
+      "blended_vertices": 252,
+      "weighted_bones": [
+        "fore_L_1",
+        "fore_L_2"
+      ],
+      "deformation": [
+        {
+          "action": "Turtle_Swim_Loop_4s",
+          "frames": [
+            1.0,
+            23.080000000000002,
+            49.96,
+            74.92,
+            97.0
+          ],
+          "max_local_vertex_change": 0.12780563153185903,
+          "max_pair_distance_change": 0.003414956399027419,
+          "nonrigid_deformation_detected": true
+        }
+      ]
+    },
+    {
+      "name": "Turtle_Hindflipper-1",
+      "vertices": 1154,
+      "armature": "TurtleRig",
+      "unweighted": 0,
+      "max_weight_sum_error": 2.9802322387695312e-08,
+      "blended_vertices": 387,
+      "weighted_bones": [
+        "body",
+        "hind_L_1",
+        "hind_L_2"
+      ],
+      "deformation": [
+        {
+          "action": "Turtle_Swim_Loop_4s",
+          "frames": [
+            1.0,
+            23.080000000000002,
+            49.96,
+            74.92,
+            97.0
+          ],
+          "max_local_vertex_change": 0.15119330528594538,
+          "max_pair_distance_change": 0.010691332497662243,
+          "nonrigid_deformation_detected": true
+        }
+      ]
+    },
+    {
+      "name": "Turtle_Eye_1_Socket",
+      "vertices": 362,
+      "armature": "TurtleRig",
+      "unweighted": 0,
+      "max_weight_sum_error": 0.0,
+      "blended_vertices": 0,
+      "weighted_bones": [
+        "head"
+      ],
+      "deformation": [
+        {
+          "action": "Turtle_Swim_Loop_4s",
+          "frames": [
+            1.0,
+            23.080000000000002,
+            49.96,
+            74.92,
+            97.0
+          ],
+          "max_local_vertex_change": 0.06724568291884034,
+          "max_pair_distance_change": 1.809537115531057e-07,
+          "nonrigid_deformation_detected": false
+        }
+      ]
+    },
+    {
+      "name": "Turtle_Eye_1_Eye",
+      "vertices": 362,
+      "armature": "TurtleRig",
+      "unweighted": 0,
+      "max_weight_sum_error": 0.0,
+      "blended_vertices": 0,
+      "weighted_bones": [
+        "head"
+      ],
+      "deformation": [
+        {
+          "action": "Turtle_Swim_Loop_4s",
+          "frames": [
+            1.0,
+            23.080000000000002,
+            49.96,
+            74.92,
+            97.0
+          ],
+          "max_local_vertex_change": 0.06801465012179697,
+          "max_pair_distance_change": 1.6187826550224937e-07,
+          "nonrigid_deformation_detected": false
+        }
+      ]
+    },
+    {
+      "name": "Turtle_Eye_1_Iris",
+      "vertices": 362,
+      "armature": "TurtleRig",
+      "unweighted": 0,
+      "max_weight_sum_error": 0.0,
+      "blended_vertices": 0,
+      "weighted_bones": [
+        "head"
+      ],
+      "deformation": [
+        {
+          "action": "Turtle_Swim_Loop_4s",
+          "frames": [
+            1.0,
+            23.080000000000002,
+            49.96,
+            74.92,
+            97.0
+          ],
+          "max_local_vertex_change": 0.06776796099893137,
+          "max_pair_distance_change": 2.092919497258261e-07,
+          "nonrigid_deformation_detected": false
+        }
+      ]
+    },
+    {
+      "name": "Turtle_Eye_1_Pupil",
+      "vertices": 362,
+      "armature": "TurtleRig",
+      "unweighted": 0,
+      "max_weight_sum_error": 0.0,
+      "blended_vertices": 0,
+      "weighted_bones": [
+        "head"
+      ],
+      "deformation": [
+        {
+          "action": "Turtle_Swim_Loop_4s",
+          "frames": [
+            1.0,
+            23.080000000000002,
+            49.96,
+            74.92,
+            97.0
+          ],
+          "max_local_vertex_change": 0.06786447784799225,
+          "max_pair_distance_change": 1.6388786351975715e-07,
+          "nonrigid_deformation_detected": false
+        }
+      ]
+    },
+    {
+      "name": "Turtle_Eye_1_Catchlight",
+      "vertices": 362,
+      "armature": "TurtleRig",
+      "unweighted": 0,
+      "max_weight_sum_error": 0.0,
+      "blended_vertices": 0,
+      "weighted_bones": [
+        "head"
+      ],
+      "deformation": [
+        {
+          "action": "Turtle_Swim_Loop_4s",
+          "frames": [
+            1.0,
+            23.080000000000002,
+            49.96,
+            74.92,
+            97.0
+          ],
+          "max_local_vertex_change": 0.06853787148945834,
+          "max_pair_distance_change": 2.3089925116608762e-07,
+          "nonrigid_deformation_detected": false
+        }
+      ]
+    },
+    {
+      "name": "Turtle_Eye_1_UpperLid",
+      "vertices": 1610,
+      "armature": "TurtleRig",
+      "unweighted": 0,
+      "max_weight_sum_error": 0.0,
+      "blended_vertices": 0,
+      "weighted_bones": [
+        "head"
+      ],
+      "deformation": [
+        {
+          "action": "Turtle_Swim_Loop_4s",
+          "frames": [
+            1.0,
+            23.080000000000002,
+            49.96,
+            74.92,
+            97.0
+          ],
+          "max_local_vertex_change": 0.06814967896660155,
+          "max_pair_distance_change": 1.6544054549927356e-07,
+          "nonrigid_deformation_detected": false
+        }
+      ]
+    },
+    {
+      "name": "Turtle_Nostril.001",
+      "vertices": 362,
+      "armature": "TurtleRig",
+      "unweighted": 0,
+      "max_weight_sum_error": 0.0,
+      "blended_vertices": 0,
+      "weighted_bones": [
+        "head"
+      ],
+      "deformation": [
+        {
+          "action": "Turtle_Swim_Loop_4s",
+          "frames": [
+            1.0,
+            23.080000000000002,
+            49.96,
+            74.92,
+            97.0
+          ],
+          "max_local_vertex_change": 0.062385496554343944,
+          "max_pair_distance_change": 2.7014014844072703e-07,
+          "nonrigid_deformation_detected": false
+        }
+      ]
+    },
+    {
+      "name": "Turtle_MouthCorner.001",
+      "vertices": 410,
+      "armature": "TurtleRig",
+      "unweighted": 0,
+      "max_weight_sum_error": 0.0,
+      "blended_vertices": 0,
+      "weighted_bones": [
+        "head"
+      ],
+      "deformation": [
+        {
+          "action": "Turtle_Swim_Loop_4s",
+          "frames": [
+            1.0,
+            23.080000000000002,
+            49.96,
+            74.92,
+            97.0
+          ],
+          "max_local_vertex_change": 0.06387517018602185,
+          "max_pair_distance_change": 3.6570884226136413e-07,
+          "nonrigid_deformation_detected": false
+        }
+      ]
+    },
+    {
+      "name": "Turtle_Foreflipper1",
+      "vertices": 1410,
+      "armature": "TurtleRig",
+      "unweighted": 0,
+      "max_weight_sum_error": 2.9802322387695312e-08,
+      "blended_vertices": 661,
+      "weighted_bones": [
+        "body",
+        "fore_R_1",
+        "fore_R_2",
+        "fore_R_3"
+      ],
+      "deformation": [
+        {
+          "action": "Turtle_Swim_Loop_4s",
+          "frames": [
+            1.0,
+            23.080000000000002,
+            49.96,
+            74.92,
+            97.0
+          ],
+          "max_local_vertex_change": 0.3260383304017987,
+          "max_pair_distance_change": 0.047590657993921814,
+          "nonrigid_deformation_detected": true
+        }
+      ]
+    },
+    {
+      "name": "Turtle_FlipperCrease.001",
+      "vertices": 410,
+      "armature": "TurtleRig",
+      "unweighted": 0,
+      "max_weight_sum_error": 2.9802322387695312e-08,
+      "blended_vertices": 252,
+      "weighted_bones": [
+        "fore_R_1",
+        "fore_R_2"
+      ],
+      "deformation": [
+        {
+          "action": "Turtle_Swim_Loop_4s",
+          "frames": [
+            1.0,
+            23.080000000000002,
+            49.96,
+            74.92,
+            97.0
+          ],
+          "max_local_vertex_change": 0.11866913095877851,
+          "max_pair_distance_change": 0.007824550996926638,
+          "nonrigid_deformation_detected": true
+        }
+      ]
+    },
+    {
+      "name": "Turtle_Hindflipper1",
+      "vertices": 1154,
+      "armature": "TurtleRig",
+      "unweighted": 0,
+      "max_weight_sum_error": 2.9802322387695312e-08,
+      "blended_vertices": 387,
+      "weighted_bones": [
+        "body",
+        "hind_R_1",
+        "hind_R_2"
+      ],
+      "deformation": [
+        {
+          "action": "Turtle_Swim_Loop_4s",
+          "frames": [
+            1.0,
+            23.080000000000002,
+            49.96,
+            74.92,
+            97.0
+          ],
+          "max_local_vertex_change": 0.20147572138653827,
+          "max_pair_distance_change": 0.013598292868338913,
+          "nonrigid_deformation_detected": true
+        }
+      ]
+    },
+    {
+      "name": "Turtle_TaperedTail",
+      "vertices": 482,
+      "armature": "TurtleRig",
+      "unweighted": 0,
+      "max_weight_sum_error": 0.0,
+      "blended_vertices": 0,
+      "weighted_bones": [
+        "tail"
+      ],
+      "deformation": [
+        {
+          "action": "Turtle_Swim_Loop_4s",
+          "frames": [
+            1.0,
+            23.080000000000002,
+            49.96,
+            74.92,
+            97.0
+          ],
+          "max_local_vertex_change": 0.04753861567329678,
+          "max_pair_distance_change": 1.8672267775021734e-07,
+          "nonrigid_deformation_detected": false
+        }
+      ]
+    }
+  ],
+  "actions": [
+    {
+      "name": "Turtle_Swim_Loop_4s",
+      "frame_range": [
+        1.0,
+        97.0
+      ],
+      "fcurves": 48,
+      "keyframes": 4656,
+      "animated_bones": [
+        "body",
+        "fore_L_1",
+        "fore_L_2",
+        "fore_L_3",
+        "fore_R_1",
+        "fore_R_2",
+        "fore_R_3",
+        "head",
+        "hind_L_1",
+        "hind_L_2",
+        "hind_R_1",
+        "hind_R_2",
+        "neck",
+        "root",
+        "tail"
+      ]
+    }
+  ],
+  "failures": [],
+  "notes": [],
+  "summary": {
+    "armatures": 1,
+    "skinned_meshes": 42,
+    "vertices": 60108,
+    "blended_vertices": 3584,
+    "nonrigid_meshes": [
+      "Turtle_HeadNeck",
+      "Turtle_Foreflipper-1",
+      "Turtle_FlipperCrease",
+      "Turtle_Hindflipper-1",
+      "Turtle_Foreflipper1",
+      "Turtle_FlipperCrease.001",
+      "Turtle_Hindflipper1"
+    ]
+  },
+  "glb": {
+    "path": "chibi-island/art/rigged/turtle/turtle_rigged.glb",
+    "bytes": 3637144,
+    "skins": 1,
+    "joint_nodes": 15,
+    "animations": [
+      {
+        "name": "Turtle_Swim_Loop_4s",
+        "channels": 45,
+        "animated_joint_nodes": 15,
+        "varying_joint_channels": [
+          {
+            "node": 14,
+            "path": "translation",
+            "span": 0.050000011920928955
+          },
+          {
+            "node": 14,
+            "path": "rotation",
+            "span": 0.025123728439211845
+          },
+          {
+            "node": 13,
+            "path": "rotation",
+            "span": 1.4317609071731567
+          },
+          {
+            "node": 1,
+            "path": "rotation",
+            "span": 1.9862942695617676
+          },
+          {
+            "node": 0,
+            "path": "rotation",
+            "span": 1.987400770187378
+          },
+          {
+            "node": 4,
+            "path": "rotation",
+            "span": 0.22123762965202332
+          },
+          {
+            "node": 3,
+            "path": "rotation",
+            "span": 0.16134533286094666
+          },
+          {
+            "node": 2,
+            "path": "rotation",
+            "span": 0.17041628062725067
+          },
+          {
+            "node": 6,
+            "path": "rotation",
+            "span": 0.10403235256671906
+          },
+          {
+            "node": 5,
+            "path": "rotation",
+            "span": 0.1168213365599513
+          },
+          {
+            "node": 9,
+            "path": "rotation",
+            "span": 0.235495924949646
+          },
+          {
+            "node": 8,
+            "path": "rotation",
+            "span": 0.16241419315338135
+          },
+          {
+            "node": 7,
+            "path": "rotation",
+            "span": 0.14529070258140564
+          },
+          {
+            "node": 11,
+            "path": "rotation",
+            "span": 0.10403850674629211
+          },
+          {
+            "node": 10,
+            "path": "rotation",
+            "span": 0.11774423625320196
+          },
+          {
+            "node": 12,
+            "path": "rotation",
+            "span": 1.9942907094955444
+          }
+        ],
+        "duration_seconds": 3.999999839812517,
+        "max_joint_loop_delta": 4.426997432899593e-18
+      }
+    ],
+    "skinned_primitives": [
+      {
+        "name": "Turtle_CentralScute_00",
+        "vertices": 6611,
+        "weight_sum_max_error": 0.0,
+        "invalid_joint_vertices": 0
+      },
+      {
+        "name": "Turtle_CentralScute_01",
+        "vertices": 6611,
+        "weight_sum_max_error": 0.0,
+        "invalid_joint_vertices": 0
+      },
+      {
+        "name": "Turtle_CentralScute_02",
+        "vertices": 6611,
+        "weight_sum_max_error": 0.0,
+        "invalid_joint_vertices": 0
+      },
+      {
+        "name": "Turtle_ContinuousCarapace",
+        "vertices": 11649,
+        "weight_sum_max_error": 0.0,
+        "invalid_joint_vertices": 0
+      },
+      {
+        "name": "Turtle_ContinuousCarapace",
+        "vertices": 3457,
+        "weight_sum_max_error": 0.0,
+        "invalid_joint_vertices": 0
+      },
+      {
+        "name": "Turtle_Eye_-1_Catchlight",
+        "vertices": 423,
+        "weight_sum_max_error": 0.0,
+        "invalid_joint_vertices": 0
+      },
+      {
+        "name": "Turtle_Eye_-1_Eye",
+        "vertices": 423,
+        "weight_sum_max_error": 0.0,
+        "invalid_joint_vertices": 0
+      },
+      {
+        "name": "Turtle_Eye_-1_Iris",
+        "vertices": 423,
+        "weight_sum_max_error": 0.0,
+        "invalid_joint_vertices": 0
+      },
+      {
+        "name": "Turtle_Eye_-1_Pupil",
+        "vertices": 423,
+        "weight_sum_max_error": 0.0,
+        "invalid_joint_vertices": 0
+      },
+      {
+        "name": "Turtle_Eye_-1_Socket",
+        "vertices": 423,
+        "weight_sum_max_error": 0.0,
+        "invalid_joint_vertices": 0
+      },
+      {
+        "name": "Turtle_Eye_-1_UpperLid",
+        "vertices": 1771,
+        "weight_sum_max_error": 0.0,
+        "invalid_joint_vertices": 0
+      },
+      {
+        "name": "Turtle_Eye_1_Catchlight",
+        "vertices": 423,
+        "weight_sum_max_error": 0.0,
+        "invalid_joint_vertices": 0
+      },
+      {
+        "name": "Turtle_Eye_1_Eye",
+        "vertices": 423,
+        "weight_sum_max_error": 0.0,
+        "invalid_joint_vertices": 0
+      },
+      {
+        "name": "Turtle_Eye_1_Iris",
+        "vertices": 423,
+        "weight_sum_max_error": 0.0,
+        "invalid_joint_vertices": 0
+      },
+      {
+        "name": "Turtle_Eye_1_Pupil",
+        "vertices": 423,
+        "weight_sum_max_error": 0.0,
+        "invalid_joint_vertices": 0
+      },
+      {
+        "name": "Turtle_Eye_1_Socket",
+        "vertices": 423,
+        "weight_sum_max_error": 0.0,
+        "invalid_joint_vertices": 0
+      },
+      {
+        "name": "Turtle_Eye_1_UpperLid",
+        "vertices": 1771,
+        "weight_sum_max_error": 0.0,
+        "invalid_joint_vertices": 0
+      },
+      {
+        "name": "Turtle_FlipperCrease",
+        "vertices": 451,
+        "weight_sum_max_error": 2.9802322387695312e-08,
+        "invalid_joint_vertices": 0
+      },
+      {
+        "name": "Turtle_FlipperCrease.001",
+        "vertices": 451,
+        "weight_sum_max_error": 2.9802322387695312e-08,
+        "invalid_joint_vertices": 0
+      },
+      {
+        "name": "Turtle_Foreflipper-1",
+        "vertices": 1410,
+        "weight_sum_max_error": 2.9802322387695312e-08,
+        "invalid_joint_vertices": 0
+      },
+      {
+        "name": "Turtle_Foreflipper1",
+        "vertices": 1410,
+        "weight_sum_max_error": 2.9802322387695312e-08,
+        "invalid_joint_vertices": 0
+      },
+      {
+        "name": "Turtle_HeadNeck",
+        "vertices": 2882,
+        "weight_sum_max_error": 2.9802322387695312e-08,
+        "invalid_joint_vertices": 0
+      },
+      {
+        "name": "Turtle_Hindflipper-1",
+        "vertices": 1154,
+        "weight_sum_max_error": 2.9802322387695312e-08,
+        "invalid_joint_vertices": 0
+      },
+      {
+        "name": "Turtle_Hindflipper1",
+        "vertices": 1154,
+        "weight_sum_max_error": 2.9802322387695312e-08,
+        "invalid_joint_vertices": 0
+      },
+      {
+        "name": "Turtle_MouthCorner",
+        "vertices": 451,
+        "weight_sum_max_error": 0.0,
+        "invalid_joint_vertices": 0
+      },
+      {
+        "name": "Turtle_MouthCorner.001",
+        "vertices": 451,
+        "weight_sum_max_error": 0.0,
+        "invalid_joint_vertices": 0
+      },
+      {
+        "name": "Turtle_Nostril",
+        "vertices": 423,
+        "weight_sum_max_error": 0.0,
+        "invalid_joint_vertices": 0
+      },
+      {
+        "name": "Turtle_Nostril.001",
+        "vertices": 423,
+        "weight_sum_max_error": 0.0,
+        "invalid_joint_vertices": 0
+      },
+      {
+        "name": "Turtle_Plastron",
+        "vertices": 2498,
+        "weight_sum_max_error": 0.0,
+        "invalid_joint_vertices": 0
+      },
+      {
+        "name": "Turtle_ScutesRadial",
+        "vertices": 451,
+        "weight_sum_max_error": 0.0,
+        "invalid_joint_vertices": 0
+      },
+      {
+        "name": "Turtle_ScutesRadial.001",
+        "vertices": 451,
+        "weight_sum_max_error": 0.0,
+        "invalid_joint_vertices": 0
+      },
+      {
+        "name": "Turtle_ScutesRadial.002",
+        "vertices": 451,
+        "weight_sum_max_error": 0.0,
+        "invalid_joint_vertices": 0
+      },
+      {
+        "name": "Turtle_ScutesRadial.003",
+        "vertices": 451,
+        "weight_sum_max_error": 0.0,
+        "invalid_joint_vertices": 0
+      },
+      {
+        "name": "Turtle_ScutesRadial.004",
+        "vertices": 451,
+        "weight_sum_max_error": 0.0,
+        "invalid_joint_vertices": 0
+      },
+      {
+        "name": "Turtle_ScutesRadial.005",
+        "vertices": 451,
+        "weight_sum_max_error": 0.0,
+        "invalid_joint_vertices": 0
+      },
+      {
+        "name": "Turtle_ScutesRadial.006",
+        "vertices": 451,
+        "weight_sum_max_error": 0.0,
+        "invalid_joint_vertices": 0
+      },
+      {
+        "name": "Turtle_ScutesRadial.007",
+        "vertices": 451,
+        "weight_sum_max_error": 0.0,
+        "invalid_joint_vertices": 0
+      },
+      {
+        "name": "Turtle_ScutesRadial.008",
+        "vertices": 451,
+        "weight_sum_max_error": 0.0,
+        "invalid_joint_vertices": 0
+      },
+      {
+        "name": "Turtle_ScutesRadial.009",
+        "vertices": 451,
+        "weight_sum_max_error": 0.0,
+        "invalid_joint_vertices": 0
+      },
+      {
+        "name": "Turtle_ScutesRadial.010",
+        "vertices": 451,
+        "weight_sum_max_error": 0.0,
+        "invalid_joint_vertices": 0
+      },
+      {
+        "name": "Turtle_ScutesRadial.011",
+        "vertices": 451,
+        "weight_sum_max_error": 0.0,
+        "invalid_joint_vertices": 0
+      },
+      {
+        "name": "Turtle_SoftBody",
+        "vertices": 2114,
+        "weight_sum_max_error": 0.0,
+        "invalid_joint_vertices": 0
+      },
+      {
+        "name": "Turtle_TaperedTail",
+        "vertices": 482,
+        "weight_sum_max_error": 0.0,
+        "invalid_joint_vertices": 0
+      }
+    ],
+    "external_uris": []
+  }
+}
