@@ -1,0 +1,549 @@
+{
+  "status": "PASS",
+  "assets": [
+    {
+      "file": "models/animals/rigged/fox/fox_blue_rigged.glb",
+      "sha256": "1944fa44a7f3e02c3c54147b1f2a120d0f5f78bf79078cae1f1212afaa64a736",
+      "status": "PASS",
+      "bytes": 1557308,
+      "joint_count": 24,
+      "weighted_vertices": 17337,
+      "multi_bone_vertices_over_1_percent": 5040,
+      "influential_joint_count": 23,
+      "max_weight_sum_error": 2.9802322387695312e-08,
+      "clips": {
+        "celebration": {
+          "duration": 1.600000023841858,
+          "joint_channels": 72,
+          "varying_joint_channels": 32,
+          "max_endpoint_difference": 9.797174324372975e-18
+        },
+        "dash": {
+          "duration": 0.5,
+          "joint_channels": 72,
+          "varying_joint_channels": 29,
+          "max_endpoint_difference": 0.0
+        },
+        "defeat": {
+          "duration": 1.2000000476837158,
+          "joint_channels": 72,
+          "varying_joint_channels": 31,
+          "max_endpoint_difference": 0.4052579551935196
+        },
+        "hit": {
+          "duration": 0.5,
+          "joint_channels": 72,
+          "varying_joint_channels": 30,
+          "max_endpoint_difference": 1.1601654768586992e-18
+        },
+        "idle": {
+          "duration": 2.0,
+          "joint_channels": 72,
+          "varying_joint_channels": 25,
+          "max_endpoint_difference": 1.224646790546622e-18
+        },
+        "pod": {
+          "duration": 0.800000011920929,
+          "joint_channels": 72,
+          "varying_joint_channels": 30,
+          "max_endpoint_difference": 1.4695761072969157e-18
+        },
+        "respawn": {
+          "duration": 1.0,
+          "joint_channels": 72,
+          "varying_joint_channels": 31,
+          "max_endpoint_difference": 1.980585753917694
+        },
+        "run": {
+          "duration": 0.6000000238418579,
+          "joint_channels": 72,
+          "varying_joint_channels": 33,
+          "max_endpoint_difference": 2.9391522145938313e-18
+        },
+        "spray": {
+          "duration": 0.800000011920929,
+          "joint_channels": 72,
+          "varying_joint_channels": 25,
+          "max_endpoint_difference": 9.797174737963282e-19
+        }
+      },
+      "embedded_only": true
+    },
+    {
+      "file": "models/animals/rigged/fox/fox_orange_rigged.glb",
+      "sha256": "4812fa45ae83c5a0f2d545e1c1cf3e7ab55038bcefd715096d063e5d3c7c95e6",
+      "status": "PASS",
+      "bytes": 1557292,
+      "joint_count": 24,
+      "weighted_vertices": 17337,
+      "multi_bone_vertices_over_1_percent": 5040,
+      "influential_joint_count": 23,
+      "max_weight_sum_error": 2.9802322387695312e-08,
+      "clips": {
+        "celebration": {
+          "duration": 1.600000023841858,
+          "joint_channels": 72,
+          "varying_joint_channels": 32,
+          "max_endpoint_difference": 9.797174324372975e-18
+        },
+        "dash": {
+          "duration": 0.5,
+          "joint_channels": 72,
+          "varying_joint_channels": 29,
+          "max_endpoint_difference": 0.0
+        },
+        "defeat": {
+          "duration": 1.2000000476837158,
+          "joint_channels": 72,
+          "varying_joint_channels": 31,
+          "max_endpoint_difference": 0.4052579551935196
+        },
+        "hit": {
+          "duration": 0.5,
+          "joint_channels": 72,
+          "varying_joint_channels": 30,
+          "max_endpoint_difference": 1.1601654768586992e-18
+        },
+        "idle": {
+          "duration": 2.0,
+          "joint_channels": 72,
+          "varying_joint_channels": 25,
+          "max_endpoint_difference": 1.224646790546622e-18
+        },
+        "pod": {
+          "duration": 0.800000011920929,
+          "joint_channels": 72,
+          "varying_joint_channels": 30,
+          "max_endpoint_difference": 1.4695761072969157e-18
+        },
+        "respawn": {
+          "duration": 1.0,
+          "joint_channels": 72,
+          "varying_joint_channels": 31,
+          "max_endpoint_difference": 1.980585753917694
+        },
+        "run": {
+          "duration": 0.6000000238418579,
+          "joint_channels": 72,
+          "varying_joint_channels": 33,
+          "max_endpoint_difference": 2.9391522145938313e-18
+        },
+        "spray": {
+          "duration": 0.800000011920929,
+          "joint_channels": 72,
+          "varying_joint_channels": 25,
+          "max_endpoint_difference": 9.797174737963282e-19
+        }
+      },
+      "embedded_only": true
+    },
+    {
+      "file": "models/animals/rigged/otter/otter_blue_rigged.glb",
+      "sha256": "e5ce863e4f833bebcc4128cb36f6ced74e38f3b1676aa430ab1b093b69849eeb",
+      "status": "PASS",
+      "bytes": 1699788,
+      "joint_count": 24,
+      "weighted_vertices": 19383,
+      "multi_bone_vertices_over_1_percent": 3859,
+      "influential_joint_count": 23,
+      "max_weight_sum_error": 2.9802322387695312e-08,
+      "clips": {
+        "celebration": {
+          "duration": 1.600000023841858,
+          "joint_channels": 72,
+          "varying_joint_channels": 25,
+          "max_endpoint_difference": 9.797174324372975e-18
+        },
+        "dash": {
+          "duration": 0.5,
+          "joint_channels": 72,
+          "varying_joint_channels": 22,
+          "max_endpoint_difference": 0.0
+        },
+        "defeat": {
+          "duration": 1.2000000476837158,
+          "joint_channels": 72,
+          "varying_joint_channels": 25,
+          "max_endpoint_difference": 0.5060253767296672
+        },
+        "hit": {
+          "duration": 0.5,
+          "joint_channels": 72,
+          "varying_joint_channels": 24,
+          "max_endpoint_difference": 1.1601654768586992e-18
+        },
+        "idle": {
+          "duration": 2.0,
+          "joint_channels": 72,
+          "varying_joint_channels": 25,
+          "max_endpoint_difference": 1.224646790546622e-18
+        },
+        "pod": {
+          "duration": 0.800000011920929,
+          "joint_channels": 72,
+          "varying_joint_channels": 24,
+          "max_endpoint_difference": 1.4695761072969157e-18
+        },
+        "respawn": {
+          "duration": 1.0,
+          "joint_channels": 72,
+          "varying_joint_channels": 25,
+          "max_endpoint_difference": 0.6281940368935466
+        },
+        "run": {
+          "duration": 0.6000000238418579,
+          "joint_channels": 72,
+          "varying_joint_channels": 25,
+          "max_endpoint_difference": 2.9391522145938313e-18
+        },
+        "spray": {
+          "duration": 0.800000011920929,
+          "joint_channels": 72,
+          "varying_joint_channels": 25,
+          "max_endpoint_difference": 9.797174737963282e-19
+        }
+      },
+      "embedded_only": true
+    },
+    {
+      "file": "models/animals/rigged/otter/otter_orange_rigged.glb",
+      "sha256": "48535e03ec87c5eb5ab7f41587d882178941b6abb7c2311f3932b47dfc75ef15",
+      "status": "PASS",
+      "bytes": 1699828,
+      "joint_count": 24,
+      "weighted_vertices": 19383,
+      "multi_bone_vertices_over_1_percent": 3859,
+      "influential_joint_count": 23,
+      "max_weight_sum_error": 2.9802322387695312e-08,
+      "clips": {
+        "celebration": {
+          "duration": 1.600000023841858,
+          "joint_channels": 72,
+          "varying_joint_channels": 25,
+          "max_endpoint_difference": 9.797174324372975e-18
+        },
+        "dash": {
+          "duration": 0.5,
+          "joint_channels": 72,
+          "varying_joint_channels": 22,
+          "max_endpoint_difference": 0.0
+        },
+        "defeat": {
+          "duration": 1.2000000476837158,
+          "joint_channels": 72,
+          "varying_joint_channels": 25,
+          "max_endpoint_difference": 0.5060253767296672
+        },
+        "hit": {
+          "duration": 0.5,
+          "joint_channels": 72,
+          "varying_joint_channels": 24,
+          "max_endpoint_difference": 1.1601654768586992e-18
+        },
+        "idle": {
+          "duration": 2.0,
+          "joint_channels": 72,
+          "varying_joint_channels": 25,
+          "max_endpoint_difference": 1.224646790546622e-18
+        },
+        "pod": {
+          "duration": 0.800000011920929,
+          "joint_channels": 72,
+          "varying_joint_channels": 24,
+          "max_endpoint_difference": 1.4695761072969157e-18
+        },
+        "respawn": {
+          "duration": 1.0,
+          "joint_channels": 72,
+          "varying_joint_channels": 25,
+          "max_endpoint_difference": 0.6281940368935466
+        },
+        "run": {
+          "duration": 0.6000000238418579,
+          "joint_channels": 72,
+          "varying_joint_channels": 25,
+          "max_endpoint_difference": 2.9391522145938313e-18
+        },
+        "spray": {
+          "duration": 0.800000011920929,
+          "joint_channels": 72,
+          "varying_joint_channels": 25,
+          "max_endpoint_difference": 9.797174737963282e-19
+        }
+      },
+      "embedded_only": true
+    },
+    {
+      "file": "models/animals/rigged/rabbit/rabbit_blue_rigged.glb",
+      "sha256": "0340a10ea7cc78fb115f61ac66de97c02677b9ac3949ae635b65fb38df359a31",
+      "status": "PASS",
+      "bytes": 1612320,
+      "joint_count": 23,
+      "weighted_vertices": 18091,
+      "multi_bone_vertices_over_1_percent": 3933,
+      "influential_joint_count": 22,
+      "max_weight_sum_error": 2.9802322387695312e-08,
+      "clips": {
+        "celebration": {
+          "duration": 1.600000023841858,
+          "joint_channels": 69,
+          "varying_joint_channels": 24,
+          "max_endpoint_difference": 9.797206584416865e-18
+        },
+        "dash": {
+          "duration": 0.5,
+          "joint_channels": 69,
+          "varying_joint_channels": 21,
+          "max_endpoint_difference": 0.0
+        },
+        "defeat": {
+          "duration": 1.2000000476837158,
+          "joint_channels": 69,
+          "varying_joint_channels": 24,
+          "max_endpoint_difference": 0.5094695966690779
+        },
+        "hit": {
+          "duration": 0.5,
+          "joint_channels": 69,
+          "varying_joint_channels": 23,
+          "max_endpoint_difference": 1.1601704399423745e-18
+        },
+        "idle": {
+          "duration": 2.0,
+          "joint_channels": 69,
+          "varying_joint_channels": 24,
+          "max_endpoint_difference": 1.224646790546622e-18
+        },
+        "pod": {
+          "duration": 0.800000011920929,
+          "joint_channels": 69,
+          "varying_joint_channels": 23,
+          "max_endpoint_difference": 1.469602163486211e-18
+        },
+        "respawn": {
+          "duration": 1.0,
+          "joint_channels": 69,
+          "varying_joint_channels": 24,
+          "max_endpoint_difference": 0.6359001081436872
+        },
+        "run": {
+          "duration": 0.6000000238418579,
+          "joint_channels": 69,
+          "varying_joint_channels": 24,
+          "max_endpoint_difference": 2.939204326972422e-18
+        },
+        "spray": {
+          "duration": 0.800000011920929,
+          "joint_channels": 69,
+          "varying_joint_channels": 24,
+          "max_endpoint_difference": 9.800171199732255e-19
+        }
+      },
+      "embedded_only": true
+    },
+    {
+      "file": "models/animals/rigged/rabbit/rabbit_orange_rigged.glb",
+      "sha256": "3e5e743d3f5d66266c5b2162c6940cafd410f63e874208e4b224ce93fd244260",
+      "status": "PASS",
+      "bytes": 1612360,
+      "joint_count": 23,
+      "weighted_vertices": 18091,
+      "multi_bone_vertices_over_1_percent": 3933,
+      "influential_joint_count": 22,
+      "max_weight_sum_error": 2.9802322387695312e-08,
+      "clips": {
+        "celebration": {
+          "duration": 1.600000023841858,
+          "joint_channels": 69,
+          "varying_joint_channels": 24,
+          "max_endpoint_difference": 9.797206584416865e-18
+        },
+        "dash": {
+          "duration": 0.5,
+          "joint_channels": 69,
+          "varying_joint_channels": 21,
+          "max_endpoint_difference": 0.0
+        },
+        "defeat": {
+          "duration": 1.2000000476837158,
+          "joint_channels": 69,
+          "varying_joint_channels": 24,
+          "max_endpoint_difference": 0.5094695966690779
+        },
+        "hit": {
+          "duration": 0.5,
+          "joint_channels": 69,
+          "varying_joint_channels": 23,
+          "max_endpoint_difference": 1.1601704399423745e-18
+        },
+        "idle": {
+          "duration": 2.0,
+          "joint_channels": 69,
+          "varying_joint_channels": 24,
+          "max_endpoint_difference": 1.224646790546622e-18
+        },
+        "pod": {
+          "duration": 0.800000011920929,
+          "joint_channels": 69,
+          "varying_joint_channels": 23,
+          "max_endpoint_difference": 1.469602163486211e-18
+        },
+        "respawn": {
+          "duration": 1.0,
+          "joint_channels": 69,
+          "varying_joint_channels": 24,
+          "max_endpoint_difference": 0.6359001081436872
+        },
+        "run": {
+          "duration": 0.6000000238418579,
+          "joint_channels": 69,
+          "varying_joint_channels": 24,
+          "max_endpoint_difference": 2.939204326972422e-18
+        },
+        "spray": {
+          "duration": 0.800000011920929,
+          "joint_channels": 69,
+          "varying_joint_channels": 24,
+          "max_endpoint_difference": 9.800171199732255e-19
+        }
+      },
+      "embedded_only": true
+    },
+    {
+      "file": "models/animals/rigged/raccoon/raccoon_blue_rigged.glb",
+      "sha256": "6b66205b9747c1a5ae1e098f705342776067a8e0b196a0af2ebf7147b11898f5",
+      "status": "PASS",
+      "bytes": 1615944,
+      "joint_count": 24,
+      "weighted_vertices": 18270,
+      "multi_bone_vertices_over_1_percent": 4312,
+      "influential_joint_count": 23,
+      "max_weight_sum_error": 5.727633833885193e-08,
+      "clips": {
+        "celebration": {
+          "duration": 1.600000023841858,
+          "joint_channels": 72,
+          "varying_joint_channels": 28,
+          "max_endpoint_difference": 9.797174324372975e-18
+        },
+        "dash": {
+          "duration": 0.5,
+          "joint_channels": 72,
+          "varying_joint_channels": 27,
+          "max_endpoint_difference": 0.0
+        },
+        "defeat": {
+          "duration": 1.2000000476837158,
+          "joint_channels": 72,
+          "varying_joint_channels": 31,
+          "max_endpoint_difference": 0.4222553074359894
+        },
+        "hit": {
+          "duration": 0.5,
+          "joint_channels": 72,
+          "varying_joint_channels": 30,
+          "max_endpoint_difference": 1.1601654768586992e-18
+        },
+        "idle": {
+          "duration": 2.0,
+          "joint_channels": 72,
+          "varying_joint_channels": 25,
+          "max_endpoint_difference": 1.224646790546622e-18
+        },
+        "pod": {
+          "duration": 0.800000011920929,
+          "joint_channels": 72,
+          "varying_joint_channels": 30,
+          "max_endpoint_difference": 1.4695761072969157e-18
+        },
+        "respawn": {
+          "duration": 1.0,
+          "joint_channels": 72,
+          "varying_joint_channels": 31,
+          "max_endpoint_difference": 1.9854371547698975
+        },
+        "run": {
+          "duration": 0.6000000238418579,
+          "joint_channels": 72,
+          "varying_joint_channels": 31,
+          "max_endpoint_difference": 2.9391522145938313e-18
+        },
+        "spray": {
+          "duration": 0.800000011920929,
+          "joint_channels": 72,
+          "varying_joint_channels": 25,
+          "max_endpoint_difference": 9.797174737963282e-19
+        }
+      },
+      "embedded_only": true
+    },
+    {
+      "file": "models/animals/rigged/raccoon/raccoon_orange_rigged.glb",
+      "sha256": "ec52c08e0c1e91b0a89a28b07f8ee3003979fb66f19d09817bd128aefaf42ab6",
+      "status": "PASS",
+      "bytes": 1615976,
+      "joint_count": 24,
+      "weighted_vertices": 18270,
+      "multi_bone_vertices_over_1_percent": 4312,
+      "influential_joint_count": 23,
+      "max_weight_sum_error": 5.727633833885193e-08,
+      "clips": {
+        "celebration": {
+          "duration": 1.600000023841858,
+          "joint_channels": 72,
+          "varying_joint_channels": 28,
+          "max_endpoint_difference": 9.797174324372975e-18
+        },
+        "dash": {
+          "duration": 0.5,
+          "joint_channels": 72,
+          "varying_joint_channels": 27,
+          "max_endpoint_difference": 0.0
+        },
+        "defeat": {
+          "duration": 1.2000000476837158,
+          "joint_channels": 72,
+          "varying_joint_channels": 31,
+          "max_endpoint_difference": 0.4222553074359894
+        },
+        "hit": {
+          "duration": 0.5,
+          "joint_channels": 72,
+          "varying_joint_channels": 30,
+          "max_endpoint_difference": 1.1601654768586992e-18
+        },
+        "idle": {
+          "duration": 2.0,
+          "joint_channels": 72,
+          "varying_joint_channels": 25,
+          "max_endpoint_difference": 1.224646790546622e-18
+        },
+        "pod": {
+          "duration": 0.800000011920929,
+          "joint_channels": 72,
+          "varying_joint_channels": 30,
+          "max_endpoint_difference": 1.4695761072969157e-18
+        },
+        "respawn": {
+          "duration": 1.0,
+          "joint_channels": 72,
+          "varying_joint_channels": 31,
+          "max_endpoint_difference": 1.9854371547698975
+        },
+        "run": {
+          "duration": 0.6000000238418579,
+          "joint_channels": 72,
+          "varying_joint_channels": 31,
+          "max_endpoint_difference": 2.9391522145938313e-18
+        },
+        "spray": {
+          "duration": 0.800000011920929,
+          "joint_channels": 72,
+          "varying_joint_channels": 25,
+          "max_endpoint_difference": 9.797174737963282e-19
+        }
+      },
+      "embedded_only": true
+    }
+  ]
+}

@@ -8,11 +8,12 @@ func run() -> void:
 	root.add_child(app)
 	await process_frame
 	check(app.hub.portals.size() == 3, "Three magic portals placed")
+	check(app.hub.portals[1].game_id == "bloom_skirmish", "Second slot routes to bloom, not retired snake")
 	var expected_colors := [Color("ff439c"), Color("23dcca"), Color("9864ff")]
 	for i in app.hub.portals.size():
 		var portal = app.hub.portals[i]
 		check(portal.tint.is_equal_approx(expected_colors[i]), "Approved magic-rift palette")
-		check(portal.enabled == (i == 0), "Only candy portal enabled")
+		check(portal.enabled == (i < 2), "Only candy and bloom portals enabled")
 		check(is_instance_valid(portal.effect) and portal.effect.surfaces.size() == 3, "Magic rift layers instantiated")
 		var energy_count := 0
 		var shadow_count := 0
@@ -58,8 +59,16 @@ func run() -> void:
 		var expected_audio_pause := cycle % 3 == 1
 		for player in app.island.audio_players: player.stream_paused = expected_audio_pause
 		app.island.dragging = true
-		check(app.launch_game("gummy_bomber"), "Launch " + str(cycle))
-		check(not app.launch_game("gummy_bomber"), "Duplicate launch rejected")
+		var game_id: String = "gummy_bomber" if cycle % 2 == 0 else "bloom_skirmish"
+		if game_id == "bloom_skirmish":
+			app.hub._activate(app.hub.portals[1])
+			check(is_instance_valid(app.active_game), "Second teal portal launches bloom " + str(cycle))
+		else:
+			check(app.launch_game(game_id), "Launch " + game_id + " " + str(cycle))
+		if not is_instance_valid(app.active_game): continue
+		check(app.active_game.get_script().resource_path.begins_with("res://modules/" + game_id + "/"), "Requested module scene actually loaded")
+		check(not app.launch_game("gummy_bomber"), "Duplicate or cross-game candy launch rejected")
+		check(not app.launch_game("bloom_skirmish"), "Duplicate or cross-game bloom launch rejected")
 		await process_frame
 		check(not app.island.visible and not app.island.hud.visible, "Island and CanvasLayer hidden")
 		check(app.hub.suspended and not app.hub.pressed and not app.island.dragging, "Hub gestures suspended")
@@ -85,5 +94,5 @@ func run() -> void:
 	app.queue_free()
 	await process_frame
 	await process_frame
-	print("APP_LIFECYCLE_20: ", "PASS" if failures.is_empty() else JSON.stringify(failures))
+	print("APP_LIFECYCLE_20_BOTH_GAMES: ", "PASS" if failures.is_empty() else JSON.stringify(failures))
 	quit(0 if failures.is_empty() else 1)

@@ -1,0 +1,73 @@
+{
+  "status": "PASS: narrowly scoped publication-tool adaptation; not a repeated full gameplay aggregate",
+  "recorded_utc": "2026-10-27T08:59:00Z",
+  "complete_aggregate_baseline": "tools/qa/bloom_skirmish/evidence/2026-10-27-animal-final-source.sha256",
+  "publication_source_snapshot": "tools/qa/bloom_skirmish/evidence/2026-10-27-animal-publication-source.sha256",
+  "baseline_entries": 86,
+  "unchanged_entries": 84,
+  "changed_entries": [
+    {
+      "path": "godot/modules/bloom_skirmish/art/art_manifest.json",
+      "full_aggregate_sha256": "d79ab18eebd136f36c3caa855c856a9a17f0052af05c1ea1e7650439bd4383b0",
+      "publication_source_sha256": "bf4f0d5be9292d81433b67f2f31591d5d8e56f6aacd93233456a98afc99edaf0"
+    },
+    {
+      "path": "godot/modules/bloom_skirmish/art/measure_art.gd",
+      "full_aggregate_sha256": "1d44b130df5da3ddc387dcb9999e249fdc767be59457867dee61a416046acb96",
+      "publication_source_sha256": "e45679e5b572baf3030b9162c3add6790fd5699607c1792aa76799d96393d5c1"
+    }
+  ],
+  "approved_scope": "Optional legacy asset measurement only; historical manifest entries local_only=true and published=false. No gameplay, camera, skin, HUD, audio, storage or lifecycle code changed.",
+  "candidate_tree": "build/publication/animal-candidate-tree",
+  "candidate_exclusions_verified": [
+    "source/legacy_human directory absent",
+    "animal source PNG files absent"
+  ],
+  "candidate_measurement": {
+    "all_eight_geometry_entries_identical_to_publication_source": true,
+    "historical_non_runtime_assets": [],
+    "regenerated_manifest_sha256": "a8f11e36888150a973bc419f1b600cb70738565c20186b964f9a904cd60da5fc",
+    "publication_source_manifest_sha256": "bf4f0d5be9292d81433b67f2f31591d5d8e56f6aacd93233456a98afc99edaf0",
+    "note": "Running measure rewrites the candidate manifest with an empty historical list. The publication source retains explicit non-shipped historical metadata; these two manifest files are not claimed byte-identical."
+  },
+  "focused_results": {
+    "assets_checks": 260,
+    "skinned_variants": 8,
+    "bone_clips_per_variant": 9,
+    "bound_meshes": 82,
+    "surfaces": 374,
+    "catalog_triangles": 346504,
+    "no_gameplay_rerun": true
+  },
+  "logs": {
+    "import": {
+      "path": "build/publication/animal-candidate-qa/import.log",
+      "sha256": "e67479275450be53ab8190e18fe716ee58488bacbcd97f5831f461d093b87951",
+      "exit_code_reported_by_publisher": 0,
+      "independent_log_error_or_leak_scan": "PASS"
+    },
+    "measure": {
+      "path": "build/publication/animal-candidate-qa/measure.log",
+      "sha256": "2ebe9b403c88af93d178117f23ddb1a12f57618fd6eb4f37c23730bca703b752",
+      "exit_code_reported_by_publisher": 0,
+      "independent_log_error_or_leak_scan": "PASS"
+    },
+    "assets": {
+      "path": "build/publication/animal-candidate-qa/assets.log",
+      "sha256": "2c97677e044e78b2b7de3f67eb7e37440a40919453377421f08126e6ccbd53dc",
+      "exit_code_reported_by_publisher": 0,
+      "independent_log_error_or_leak_scan": "PASS"
+    },
+    "art": {
+      "path": "build/publication/animal-candidate-qa/art.log",
+      "sha256": "654813b611e3e53d72ba9def5c1f460092da976d2deccbee713106a6790fb16d",
+      "exit_code_reported_by_publisher": 0,
+      "independent_log_error_or_leak_scan": "PASS"
+    }
+  },
+  "limits": [
+    "Not a new full 86-file aggregate run",
+    "No WebGL2, user hardware performance or subjective audio acceptance",
+    "Final commit/tree identifier belongs to publisher evidence, not this pre-commit checkpoint"
+  ]
+}

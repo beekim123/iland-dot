@@ -1,0 +1,19 @@
+{
+  "team": "blue",
+  "mesh_objects": 12,
+  "triangles": 34816,
+  "blender": "4.3.2",
+  "forward": "-Z",
+  "ground_y": 0,
+  "weapon_position": [
+    0.31,
+    0.60923076923,
+    -0.29
+  ],
+  "muzzle_local": [
+    0,
+    0.04,
+    -0.51
+  ],
+  "external_assets": false
+}

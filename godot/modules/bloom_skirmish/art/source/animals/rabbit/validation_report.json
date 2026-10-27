@@ -1,0 +1,91 @@
+{
+  "status": "PASS",
+  "teams": [
+    {
+      "bounds_min_godot": [
+        -0.375,
+        1.4901161193847656e-08,
+        -0.7995000183582306
+      ],
+      "bounds_max_godot": [
+        0.40300000458955765,
+        1.939660668373108,
+        0.42200001515448093
+      ],
+      "geometry_sha256": "dba87d64084869eddca7cae494a5a39dbd138c01db30cea7351d84e90bf584e0",
+      "glb_sha256": "5f3d2dc57e383c9013647690cbd0782bb0bb1a848706c2496bb1ee52e2e0a444",
+      "file": "models/animals/rabbit/rabbit_blue.glb",
+      "bytes": 832884,
+      "mesh_count": 11,
+      "triangle_count": 35784,
+      "root_children": [
+        "ArmL",
+        "ArmR",
+        "Body",
+        "Head",
+        "LegL",
+        "LegR",
+        "Weapon"
+      ],
+      "right_grip_idle": [
+        0.2849999964237213,
+        0.7615609438201635,
+        -0.16260253764252736
+      ],
+      "physical_muzzle": [
+        0.40300000309944156,
+        0.8840000116825104,
+        -1.0399999767541885
+      ],
+      "embedded_only": true,
+      "hierarchy_pass": true
+    },
+    {
+      "bounds_min_godot": [
+        -0.375,
+        1.4901161193847656e-08,
+        -0.7995000183582306
+      ],
+      "bounds_max_godot": [
+        0.40300000458955765,
+        1.939660668373108,
+        0.42200001515448093
+      ],
+      "geometry_sha256": "dba87d64084869eddca7cae494a5a39dbd138c01db30cea7351d84e90bf584e0",
+      "glb_sha256": "8dac34631afe68db70b5c176d2db74c94f01621fd9157513159cacb4489eb3de",
+      "file": "models/animals/rabbit/rabbit_orange.glb",
+      "bytes": 832924,
+      "mesh_count": 11,
+      "triangle_count": 35784,
+      "root_children": [
+        "ArmL",
+        "ArmR",
+        "Body",
+        "Head",
+        "LegL",
+        "LegR",
+        "Weapon"
+      ],
+      "right_grip_idle": [
+        0.2849999964237213,
+        0.7615609438201635,
+        -0.16260253764252736
+      ],
+      "physical_muzzle": [
+        0.40300000309944156,
+        0.8840000116825104,
+        -1.0399999767541885
+      ],
+      "embedded_only": true,
+      "hierarchy_pass": true
+    }
+  ],
+  "team_variant_changed_materials": [
+    "Cobalt or orange team accent",
+    "Visible team liquid"
+  ],
+  "natural_fur_identical_across_teams": true,
+  "geometry_identical_across_teams": true,
+  "grip_check": "The right front paw center exactly matches the animal-specific transverse rear/top U grip in common idle pose (+0.50 arm X, +0.70 forearm X). No human hanging pistol handle; natural high short forepaws retained.",
+  "external_assets": false
+}

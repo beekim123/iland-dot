@@ -1,0 +1,54 @@
+{
+  "status": "PASS",
+  "assets": [
+    {
+      "source": "models/animals/fox/fox_blue.glb",
+      "worker_freeze_sha256": "5ba5c7adde8f189939881a0d0e86115df20d1869f400f490e7dac6e9043d68c1",
+      "current_sha256": "5ba5c7adde8f189939881a0d0e86115df20d1869f400f490e7dac6e9043d68c1",
+      "unchanged": true
+    },
+    {
+      "source": "models/animals/fox/fox_orange.glb",
+      "worker_freeze_sha256": "4a06b2e98504e847a4ce2d493b84663c3b6aae2e324de7d3231119a73cd4c427",
+      "current_sha256": "4a06b2e98504e847a4ce2d493b84663c3b6aae2e324de7d3231119a73cd4c427",
+      "unchanged": true
+    },
+    {
+      "source": "models/animals/raccoon/raccoon_blue.glb",
+      "worker_freeze_sha256": "e0dcd19029bfba9c2c686786324a3c258fee36d5d0e90a4222d126493aacedb2",
+      "current_sha256": "e0dcd19029bfba9c2c686786324a3c258fee36d5d0e90a4222d126493aacedb2",
+      "unchanged": true
+    },
+    {
+      "source": "models/animals/raccoon/raccoon_orange.glb",
+      "worker_freeze_sha256": "0a94713974c7941991fa7517990c1c824cf57884c99a5be2e3f828931f48af1a",
+      "current_sha256": "0a94713974c7941991fa7517990c1c824cf57884c99a5be2e3f828931f48af1a",
+      "unchanged": true
+    },
+    {
+      "source": "models/animals/rabbit/rabbit_blue.glb",
+      "worker_freeze_sha256": "5f3d2dc57e383c9013647690cbd0782bb0bb1a848706c2496bb1ee52e2e0a444",
+      "current_sha256": "5f3d2dc57e383c9013647690cbd0782bb0bb1a848706c2496bb1ee52e2e0a444",
+      "unchanged": true
+    },
+    {
+      "source": "models/animals/rabbit/rabbit_orange.glb",
+      "worker_freeze_sha256": "8dac34631afe68db70b5c176d2db74c94f01621fd9157513159cacb4489eb3de",
+      "current_sha256": "8dac34631afe68db70b5c176d2db74c94f01621fd9157513159cacb4489eb3de",
+      "unchanged": true
+    },
+    {
+      "source": "models/animals/otter/otter_orange.glb",
+      "worker_freeze_sha256": "27f71393301edf4145629968b8214917bdb148c096a51856620a4c3f8d799cb4",
+      "current_sha256": "27f71393301edf4145629968b8214917bdb148c096a51856620a4c3f8d799cb4",
+      "unchanged": true
+    },
+    {
+      "source": "models/animals/otter/otter_blue.glb",
+      "worker_freeze_sha256": "736b43c1d46eee07840399b71f3c3b6256284745fecfced3eea2cff0485cf4c1",
+      "current_sha256": "736b43c1d46eee07840399b71f3c3b6256284745fecfced3eea2cff0485cf4c1",
+      "unchanged": true
+    }
+  ],
+  "note": "All eight worker-frozen original GLBs and all eight pre-rig source blend hashes verified unchanged."
+}

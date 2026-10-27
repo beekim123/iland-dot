@@ -59,10 +59,10 @@ progressive_web_app/ensure_cross_origin_isolation_headers=false
  licenses=candidate/'licenses'; licenses.mkdir()
  shutil.copy(ROOT/'tools/web/GODOT-LICENSE.txt',licenses/'GODOT-LICENSE.txt')
  for p in (ROOT/'godot').rglob('*'):
-  if p.is_file() and p.name in ['OFL.txt','SOURCE.txt']:
+  if p.is_file() and p.name in ['OFL.txt','SOURCE.txt','FONT-SOURCE.txt']:
    dst=licenses/p.relative_to(ROOT/'godot'); dst.parent.mkdir(parents=True,exist_ok=True); shutil.copy(p,dst)
  (candidate/'source-manifest.json').write_text(json.dumps(sources,indent=2)+'\n')
- manifest={'engine':version,'sourceCommit':subprocess.check_output(['git','rev-parse','HEAD'],cwd=ROOT,text=True).strip(),'sourceNotes':'island audio enumeration fix included; source-manifest hashes authoritative','templateSha512':EXPECTED,'threads':False,'webPlaybackType':'Stream','browserGameplayVerified':False,'files':[{'path':str(p.relative_to(candidate)),'bytes':p.stat().st_size,'sha256':digest(p)} for p in sorted(candidate.rglob('*')) if p.is_file()]}
+ manifest={'engine':version,'sourceCommit':subprocess.check_output(['git','rev-parse','HEAD'],cwd=ROOT,text=True).strip(),'sourceNotes':'sourceCommit is the checkout baseline; source-manifest hashes identify the exact Godot project inputs before staged Web overrides','sourceWorktreeStatus':subprocess.check_output(['git','status','--porcelain','--','godot','tools/web'],cwd=ROOT,text=True).splitlines(),'engineSha256':digest(BIN),'templateSha512':EXPECTED,'threads':False,'webPlaybackType':'Stream','browserGameplayVerified':False,'files':[{'path':str(p.relative_to(candidate)),'bytes':p.stat().st_size,'sha256':digest(p)} for p in sorted(candidate.rglob('*')) if p.is_file()]}
  (candidate/'build-manifest.json').write_text(json.dumps(manifest,indent=2)+'\n')
  if PACKAGE.exists(): shutil.rmtree(PACKAGE)
  shutil.move(candidate,PACKAGE)

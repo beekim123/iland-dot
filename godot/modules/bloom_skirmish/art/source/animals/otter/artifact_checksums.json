@@ -1,0 +1,37 @@
+[
+  {
+    "file": "source/animals/otter/build_otter.py",
+    "bytes": 19514,
+    "sha256": "855e9a706ebcc59e09b10b14d7d819e4cafc2d8814da581a5930cce516ddb27a"
+  },
+  {
+    "file": "source/animals/otter/render_otter.py",
+    "bytes": 1377,
+    "sha256": "cda925b70ae29fd974a36f90f1c36c95e712885678175ced33f443bd42f68ee1"
+  },
+  {
+    "file": "source/animals/otter/validate_otter.py",
+    "bytes": 3447,
+    "sha256": "c4692fdc72242937d3cf153737a5d1829f4cd868e4980586d6a4833662dcc0e0"
+  },
+  {
+    "file": "source/animals/otter/otter_blue.blend",
+    "bytes": 447742,
+    "sha256": "3807fe36caebf4770a6fe92d1bae11de5d0bad8af702c9f99ce09be430805657"
+  },
+  {
+    "file": "source/animals/otter/otter_orange.blend",
+    "bytes": 448237,
+    "sha256": "b5ee709ea8153d80d35a1ec20b8e7c6c60429bc0061958ea829ee8287283b140"
+  },
+  {
+    "file": "models/animals/otter/otter_orange.glb",
+    "bytes": 876928,
+    "sha256": "27f71393301edf4145629968b8214917bdb148c096a51856620a4c3f8d799cb4"
+  },
+  {
+    "file": "models/animals/otter/otter_blue.glb",
+    "bytes": 876888,
+    "sha256": "736b43c1d46eee07840399b71f3c3b6256284745fecfced3eea2cff0485cf4c1"
+  }
+]

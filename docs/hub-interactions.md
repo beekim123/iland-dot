@@ -16,7 +16,7 @@ hub.setup(self, camera, registry)
 hub.portal_requested.connect(router.enter_game)
 ```
 
-`registry.list_games()` returns dictionaries containing `id`, `title`, `enabled`, and `color` (Color or HTML string). Array entries and `{games: [...]}` also work. Only `gummy_bomber` can emit an entry request. The first three entries receive portals; planned entries display **未开放** and cannot enter. The component never changes source meshes, bone poses, wildlife paths or materials. Hover uses a separate glowing pearl; click feedback uses eight transient sparkles.
+`registry.list_games()` returns dictionaries containing `id`, `title`, `enabled`, and `color` (Color or HTML string). Array entries and `{games: [...]}` also work. Only implemented `gummy_bomber` and `bloom_skirmish` can emit an entry request. The second teal portal is Bloom Skirmish; the retired `snake` ID is not an alias. The first three entries receive portals; planned entries display **未开放** and cannot enter. The component never changes source meshes, bone poses, wildlife paths or materials. Hover uses a separate glowing pearl; click feedback uses eight transient sparkles.
 
 ## Placement
 
@@ -30,7 +30,7 @@ Input uses `_unhandled_input` so GUI controls consume clicks first. Left mouse m
 
 ## Audio / lifecycle
 
-Five original mono 22.05 kHz WAV effects (click, portal, bird, plant, water) use no samples or outside assets. Eight AudioStreamPlayer voices are reused; excess simultaneous requests drop rather than allocate. All route through Master at -16 dB, respecting island mute. Sparks expire after 0.65 s and are rate limited to 90 ms. Audio stops and references clear on exit. UI font is a small Noto Sans CJK subset, under the same OFL license as `resources/fonts/OFL.txt`.
+Five original mono 22.05 kHz WAV effects (click, portal, bird, plant, water) use no samples or outside assets. Eight AudioStreamPlayer voices are reused; excess simultaneous requests drop rather than allocate. All route through Master at -16 dB, respecting island mute. Sparks expire after 0.65 s and are rate limited to 90 ms. Audio stops and references clear on exit. UI font is a small Noto Sans CJK subset, under the same OFL license as `resources/fonts/OFL.txt`. The existing font face is retained; only the four Bloom Skirmish title glyphs were added. Reproduce with `python3 godot/hub/tools/subset_font.py`; provenance and the explicit codepoint list are stored alongside it.
 
 ## Reproduction / tests
 
@@ -40,7 +40,7 @@ XDG_DATA_HOME=/tmp/hub-test-data XDG_CACHE_HOME=/tmp/hub-cache \
   --script res://hub/tests/test_hub.gd
 ```
 
-Test asserts three portals, mesh registration, enabled/locked routing, no return-to-origin drag activation, portal ray picking, bounded voice pool, and teardown. Headless tests do not establish visual or subjective audio quality; runtime screenshots and click/orbit interaction QA remain required at integration.
+Test asserts three portals, both candy and bloom entry IDs, the second portal’s teal tint, mesh registration, enabled/locked routing, no return-to-origin drag activation, portal ray picking, bounded voice pool, and teardown. Headless tests do not establish visual or subjective audio quality; runtime screenshots and click/orbit interaction QA remain required at integration.
 
 Regenerate sites and the five original synth files with `python godot/hub/tools/generate_assets.py`. A separate 10,000 shuffled-layout placement check found no layout with fewer than three mutually separated sites. Audio teardown test waits 0.2 s after freeing the scene so the audio server can release queued playback resources; final run exits without leaked-resource warnings.
 

@@ -3,6 +3,8 @@ extends Node3D
 signal portal_requested(game_id: String)
 const PORTAL = preload("res://hub/portal.gd")
 const DRAG_THRESHOLD := 7.0
+# Keep unknown/planned games locked even when preview metadata incorrectly enables them.
+const IMPLEMENTED_GAME_IDS := ["gummy_bomber", "bloom_skirmish"]
 var world: Node3D
 var camera: Camera3D
 var portals: Array[Node3D] = []
@@ -26,9 +28,9 @@ var _visible_before_suspend := true
 func setup(p_world: Node3D, p_camera: Camera3D, registry = null) -> void:
 	world = p_world; camera = p_camera
 	var entries: Array = [
-		{"id":"gummy_bomber","title":"GUMMY POP","enabled":true,"color":"ff84bb"},
-		{"id":"snake","title":"SWEET SNAKE","enabled":false,"color":"75dfad"},
-		{"id":"sky_hop","title":"CLOUD HOP","enabled":false,"color":"b29bff"}]
+		{"id":"gummy_bomber","title":"GUMMY POP","enabled":true,"color":"ff439c"},
+		{"id":"bloom_skirmish","title":"BLOOM SKIRMISH","enabled":true,"color":"23dcca"},
+		{"id":"reef_memory","title":"REEF MEMORY","enabled":false,"color":"9864ff"}]
 	if registry is Object and registry.has_method("list_games"):
 		entries = registry.list_games()
 	elif registry is Array: entries = registry
@@ -49,8 +51,8 @@ func setup(p_world: Node3D, p_camera: Camera3D, registry = null) -> void:
 				if other.position.distance_to(p) < 2.15: clear = false
 			if not clear: continue
 			var portal := PORTAL.new(); add_child(portal); portal.position = p
-			# All entries except implemented game remain locked regardless of incoming metadata.
-			var safe_entry: Dictionary = entry.duplicate(); safe_entry["enabled"] = str(entry.get("id","")) == "gummy_bomber" and bool(entry.get("enabled",true))
+			# Planned/unknown entries remain locked regardless of incoming metadata.
+			var safe_entry: Dictionary = entry.duplicate(); safe_entry["enabled"] = str(entry.get("id","")) in IMPLEMENTED_GAME_IDS and bool(entry.get("enabled",true))
 			safe_entry["ground_patch"] = site_data.get("ground_patches",{}).get("%d:%d" % [roundi(p.x*1000),roundi(p.z*1000)],[])
 			portal.configure(safe_entry); portals.append(portal); break
 	_refresh_pickables()

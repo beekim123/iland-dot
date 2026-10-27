@@ -1,0 +1,57 @@
+{
+  "species": "otter",
+  "team": "orange",
+  "mesh_count": 11,
+  "triangle_count": 38080,
+  "blender_bounds": [
+    [
+      -0.37700000405311584,
+      0.4085000157356262
+    ],
+    [
+      -0.9241333603858948,
+      0.7994999885559082
+    ],
+    [
+      0.0,
+      1.4630000591278076
+    ]
+  ],
+  "godot_height": 1.4630000591278076,
+  "direct_nodes": [
+    "ArmL",
+    "ArmR",
+    "Body",
+    "Head",
+    "LegL",
+    "LegR",
+    "Weapon"
+  ],
+  "muzzle_godot": [
+    0.31,
+    0.64923076923,
+    -0.8
+  ],
+  "physical_muzzle_godot": [
+    0.403,
+    0.884,
+    -1.04
+  ],
+  "materials": [
+    "Natural chestnut otter fur",
+    "Warm crown and brow fur",
+    "Natural pale muzzle and belly",
+    "Warm inner rounded ears",
+    "Nose mouth and paw detail",
+    "Bright deep cocoa eyes",
+    "Warm iris glint",
+    "Mineral white equipment",
+    "Eye catchlights",
+    "Graphite sport harness",
+    "Satin precision fittings",
+    "Cobalt or orange team accent",
+    "Visible team liquid",
+    "Translucent reservoir shell"
+  ],
+  "no_external_assets": true
+}

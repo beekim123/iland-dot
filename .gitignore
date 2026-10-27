@@ -14,3 +14,9 @@ art/references/
 
 # Generated Web exports and staging
 build/
+
+# Bloom authoring evidence is regenerated locally, not published as source assets.
+godot/modules/bloom_skirmish/art/source/animals/**/*.png
+# Rejected human binary drafts remain local; shared geometry helper stays tracked.
+godot/modules/bloom_skirmish/art/source/legacy_human/
+godot/modules/bloom_skirmish/art/source/athlete_*.blend

@@ -13,7 +13,7 @@ func configure(entry: Dictionary) -> void:
 	game_id = str(entry.get("id", ""))
 	enabled = bool(entry.get("enabled", false))
 	# Approved pink / teal / purple family, independent of catalog UI badges.
-	var palette := {"gummy_bomber":Color("ff439c"), "snake":Color("23dcca"), "reef_memory":Color("9864ff"), "cloud_hop":Color("9864ff")}
+	var palette := {"gummy_bomber":Color("ff439c"), "bloom_skirmish":Color("23dcca"), "reef_memory":Color("9864ff"), "cloud_hop":Color("9864ff")}
 	tint = palette.get(game_id, Color(entry.get("color", "9864ff")))
 	var visual_entry := entry.duplicate()
 	visual_entry["color"] = tint if enabled else tint.darkened(.12)
@@ -30,7 +30,7 @@ func configure(entry: Dictionary) -> void:
 	label.outline_modulate = Color("675575")
 	label.texture_filter = BaseMaterial3D.TEXTURE_FILTER_LINEAR_WITH_MIPMAPS
 	label.shaded = false
-	var short_names := {"gummy_bomber":"糖果爆爆", "snake":"贪吃蛇", "reef_memory":"珊瑚记忆", "cloud_hop":"云朵跳跳"}
+	var short_names := {"gummy_bomber":"糖果爆爆", "bloom_skirmish":"绒芽争园", "reef_memory":"珊瑚记忆", "cloud_hop":"云朵跳跳"}
 	short_title = str(short_names.get(game_id,entry.get("title",game_id)))
 	label.text = "" if enabled else "未开放"
 	label.no_depth_test = false

@@ -1,0 +1,157 @@
+{
+  "status": "PASS",
+  "assets": [
+    {
+      "species": "otter",
+      "team": "blue",
+      "status": "PASS",
+      "actual_armature_modifiers": 10,
+      "clips": {
+        "celebration": {
+          "max_right_palm_error": 1.3075715880680267e-07,
+          "max_arm_joint_gap": 2.388837865275353e-07,
+          "max_leg_joint_gap": 9.468853302056236e-08,
+          "min_hindpaw_surface_height": 1.0378657933074464e-08,
+          "max_bone_length_relative_error": 5.275747494426497e-07
+        },
+        "dash": {
+          "max_right_palm_error": 7.300048299977713e-08,
+          "max_arm_joint_gap": 1.9328477637578318e-07,
+          "max_leg_joint_gap": 9.18569267238524e-08,
+          "min_hindpaw_surface_height": -6.166286148356903e-09,
+          "max_bone_length_relative_error": 5.731218024607188e-07
+        },
+        "defeat": {
+          "max_right_palm_error": 1.3075715880680267e-07,
+          "max_arm_joint_gap": 2.086162567138672e-07,
+          "max_leg_joint_gap": 1.1354499052560457e-07,
+          "min_hindpaw_surface_height": -8.00192179184478e-09,
+          "max_bone_length_relative_error": 6.330896993311796e-07
+        },
+        "hit": {
+          "max_right_palm_error": 1.228781230931777e-07,
+          "max_arm_joint_gap": 1.902817605305036e-07,
+          "max_leg_joint_gap": 8.161702118890973e-08,
+          "min_hindpaw_surface_height": 7.20844495205597e-10,
+          "max_bone_length_relative_error": 4.584974420129839e-07
+        },
+        "idle": {
+          "max_right_palm_error": 8.940696716308594e-08,
+          "max_arm_joint_gap": 2.4191451214334697e-07,
+          "max_leg_joint_gap": 9.094592642585711e-08,
+          "min_hindpaw_surface_height": -6.912272976222766e-09,
+          "max_bone_length_relative_error": 4.584974420129839e-07
+        },
+        "pod": {
+          "max_right_palm_error": 8.940696716308594e-08,
+          "max_arm_joint_gap": 1.837138534477048e-07,
+          "max_leg_joint_gap": 7.679882693323606e-08,
+          "min_hindpaw_surface_height": -6.627290272120945e-09,
+          "max_bone_length_relative_error": 4.584974420129839e-07
+        },
+        "respawn": {
+          "max_right_palm_error": 1.9082797281243946e-07,
+          "max_arm_joint_gap": 2.086162567138672e-07,
+          "max_leg_joint_gap": 1.0242854867031813e-07,
+          "min_hindpaw_surface_height": -9.177249182812375e-09,
+          "max_bone_length_relative_error": 5.275748050648232e-07
+        },
+        "run": {
+          "max_right_palm_error": 1.4370159448672764e-07,
+          "max_arm_joint_gap": 1.850685827191803e-07,
+          "max_leg_joint_gap": 1.2198548264826046e-07,
+          "min_hindpaw_surface_height": 2.5890500854330867e-10,
+          "max_bone_length_relative_error": 7.558560215503718e-07
+        },
+        "spray": {
+          "max_right_palm_error": 8.429369702178807e-08,
+          "max_arm_joint_gap": 2.2114548205816492e-07,
+          "max_leg_joint_gap": 7.459888009168501e-08,
+          "min_hindpaw_surface_height": -9.872036521585414e-10,
+          "max_bone_length_relative_error": 4.584974420129839e-07
+        }
+      },
+      "physical_muzzle": [
+        0.40300000309944156,
+        0.8840000116825104,
+        -1.0399999380111695
+      ]
+    },
+    {
+      "species": "otter",
+      "team": "orange",
+      "status": "PASS",
+      "actual_armature_modifiers": 10,
+      "clips": {
+        "celebration": {
+          "max_right_palm_error": 1.3075715880680267e-07,
+          "max_arm_joint_gap": 2.388837865275353e-07,
+          "max_leg_joint_gap": 9.468853302056236e-08,
+          "min_hindpaw_surface_height": 1.0378657933074464e-08,
+          "max_bone_length_relative_error": 5.275747494426497e-07
+        },
+        "dash": {
+          "max_right_palm_error": 7.300048299977713e-08,
+          "max_arm_joint_gap": 1.9328477637578318e-07,
+          "max_leg_joint_gap": 9.18569267238524e-08,
+          "min_hindpaw_surface_height": -6.166286148356903e-09,
+          "max_bone_length_relative_error": 5.731218024607188e-07
+        },
+        "defeat": {
+          "max_right_palm_error": 1.3075715880680267e-07,
+          "max_arm_joint_gap": 2.086162567138672e-07,
+          "max_leg_joint_gap": 1.1354499052560457e-07,
+          "min_hindpaw_surface_height": -8.00192179184478e-09,
+          "max_bone_length_relative_error": 6.330896993311796e-07
+        },
+        "hit": {
+          "max_right_palm_error": 1.228781230931777e-07,
+          "max_arm_joint_gap": 1.902817605305036e-07,
+          "max_leg_joint_gap": 8.161702118890973e-08,
+          "min_hindpaw_surface_height": 7.20844495205597e-10,
+          "max_bone_length_relative_error": 4.584974420129839e-07
+        },
+        "idle": {
+          "max_right_palm_error": 8.940696716308594e-08,
+          "max_arm_joint_gap": 2.4191451214334697e-07,
+          "max_leg_joint_gap": 9.094592642585711e-08,
+          "min_hindpaw_surface_height": -6.912272976222766e-09,
+          "max_bone_length_relative_error": 4.584974420129839e-07
+        },
+        "pod": {
+          "max_right_palm_error": 8.940696716308594e-08,
+          "max_arm_joint_gap": 1.837138534477048e-07,
+          "max_leg_joint_gap": 7.679882693323606e-08,
+          "min_hindpaw_surface_height": -6.627290272120945e-09,
+          "max_bone_length_relative_error": 4.584974420129839e-07
+        },
+        "respawn": {
+          "max_right_palm_error": 1.9082797281243946e-07,
+          "max_arm_joint_gap": 2.086162567138672e-07,
+          "max_leg_joint_gap": 1.0242854867031813e-07,
+          "min_hindpaw_surface_height": -9.177249182812375e-09,
+          "max_bone_length_relative_error": 5.275748050648232e-07
+        },
+        "run": {
+          "max_right_palm_error": 1.4370159448672764e-07,
+          "max_arm_joint_gap": 1.850685827191803e-07,
+          "max_leg_joint_gap": 1.2198548264826046e-07,
+          "min_hindpaw_surface_height": 2.5890500854330867e-10,
+          "max_bone_length_relative_error": 7.558560215503718e-07
+        },
+        "spray": {
+          "max_right_palm_error": 8.429369702178807e-08,
+          "max_arm_joint_gap": 2.2114548205816492e-07,
+          "max_leg_joint_gap": 7.459888009168501e-08,
+          "min_hindpaw_surface_height": -9.872036521585414e-10,
+          "max_bone_length_relative_error": 4.584974420129839e-07
+        }
+      },
+      "physical_muzzle": [
+        0.40300000309944156,
+        0.8840000116825104,
+        -1.0399999380111695
+      ]
+    }
+  ]
+}

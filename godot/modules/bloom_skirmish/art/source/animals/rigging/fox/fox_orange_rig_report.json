@@ -1,0 +1,281 @@
+{
+  "species": "fox",
+  "team": "orange",
+  "source_blend_sha256": "c1459813b35c7a54d84c01c9fcb4687b6173f59e665102bc50b83bb4040390f4",
+  "source_preserved": true,
+  "rigged_glb": "models/animals/rigged/fox/fox_orange_rigged.glb",
+  "glb_sha256": "4812fa45ae83c5a0f2d545e1c1cf3e7ab55038bcefd715096d063e5d3c7c95e6",
+  "bones": [
+    "Root",
+    "Pelvis",
+    "Spine",
+    "Chest",
+    "Head",
+    "UpperArm.L",
+    "Forearm.L",
+    "Hand.L",
+    "Thigh.L",
+    "Shin.L",
+    "Foot.L",
+    "UpperArm.R",
+    "Forearm.R",
+    "Hand.R",
+    "Thigh.R",
+    "Shin.R",
+    "Foot.R",
+    "Tail.01",
+    "Tail.02",
+    "Tail.03",
+    "EarBase.L",
+    "EarTip.L",
+    "EarBase.R",
+    "EarTip.R"
+  ],
+  "weighted_meshes": {
+    "ArmL_Skinned": {
+      "vertices": 404,
+      "multi_bone_vertices": 81,
+      "tail_vertices": 0,
+      "ear_vertices": 0,
+      "weights_normalized": true
+    },
+    "Forearm_Skinned": {
+      "vertices": 1104,
+      "multi_bone_vertices": 676,
+      "tail_vertices": 0,
+      "ear_vertices": 0,
+      "weights_normalized": true
+    },
+    "ArmR_Skinned": {
+      "vertices": 404,
+      "multi_bone_vertices": 81,
+      "tail_vertices": 0,
+      "ear_vertices": 0,
+      "weights_normalized": true
+    },
+    "ForearmR_Skinned": {
+      "vertices": 1104,
+      "multi_bone_vertices": 659,
+      "tail_vertices": 0,
+      "ear_vertices": 0,
+      "weights_normalized": true
+    },
+    "Body_Skinned": {
+      "vertices": 4420,
+      "multi_bone_vertices": 2059,
+      "tail_vertices": 602,
+      "ear_vertices": 0,
+      "weights_normalized": true
+    },
+    "Body_Skinned.001": {
+      "vertices": 48,
+      "multi_bone_vertices": 0,
+      "tail_vertices": 0,
+      "ear_vertices": 0,
+      "weights_normalized": true
+    },
+    "Head_Skinned": {
+      "vertices": 6754,
+      "multi_bone_vertices": 574,
+      "tail_vertices": 0,
+      "ear_vertices": 862,
+      "weights_normalized": true
+    },
+    "LegL_Skinned": {
+      "vertices": 282,
+      "multi_bone_vertices": 81,
+      "tail_vertices": 0,
+      "ear_vertices": 0,
+      "weights_normalized": true
+    },
+    "Shin_Skinned": {
+      "vertices": 1102,
+      "multi_bone_vertices": 470,
+      "tail_vertices": 0,
+      "ear_vertices": 0,
+      "weights_normalized": true
+    },
+    "LegR_Skinned": {
+      "vertices": 282,
+      "multi_bone_vertices": 81,
+      "tail_vertices": 0,
+      "ear_vertices": 0,
+      "weights_normalized": true
+    },
+    "ShinR_Skinned": {
+      "vertices": 1102,
+      "multi_bone_vertices": 470,
+      "tail_vertices": 0,
+      "ear_vertices": 0,
+      "weights_normalized": true
+    }
+  },
+  "motion": {
+    "idle": {
+      "frames": 61,
+      "duration": 2.0,
+      "max_right_grip_error": 0.0,
+      "min_foot_height": 0,
+      "max_arm_reach_excess": 0.0,
+      "max_foot_reach_excess": 0.0,
+      "max_right_arm_reach_excess": 0.0,
+      "max_actual_right_grip_error": 1.4901161193847656e-07,
+      "max_lower_limb_joint_gap": 1.2895370968186092e-07,
+      "max_torso_attenuation": 0.0,
+      "max_requested_free_hand_reach_excess": 0.0
+    },
+    "run": {
+      "frames": 19,
+      "duration": 0.6,
+      "max_right_grip_error": 0.0,
+      "min_foot_height": 0,
+      "max_arm_reach_excess": 0.0,
+      "max_foot_reach_excess": 0.0,
+      "max_right_arm_reach_excess": 0.0,
+      "max_actual_right_grip_error": 1.519626234052415e-07,
+      "max_lower_limb_joint_gap": 1.0536712127723508e-07,
+      "max_torso_attenuation": 0.0,
+      "max_requested_free_hand_reach_excess": 0.022192872466133384
+    },
+    "spray": {
+      "frames": 25,
+      "duration": 0.8,
+      "max_right_grip_error": 0.0,
+      "min_foot_height": 0,
+      "max_arm_reach_excess": 0.0,
+      "max_foot_reach_excess": 0.0,
+      "max_right_arm_reach_excess": 0.0,
+      "max_actual_right_grip_error": 1.4901161193847656e-07,
+      "max_lower_limb_joint_gap": 9.238888928623333e-08,
+      "max_torso_attenuation": 0.0,
+      "max_requested_free_hand_reach_excess": 0.0
+    },
+    "dash": {
+      "frames": 16,
+      "duration": 0.5,
+      "max_right_grip_error": 0.0,
+      "min_foot_height": 0,
+      "max_arm_reach_excess": 0.0,
+      "max_foot_reach_excess": 0.0,
+      "max_right_arm_reach_excess": 0.0,
+      "max_actual_right_grip_error": 1.228781230931777e-07,
+      "max_lower_limb_joint_gap": 1.1615799239031124e-07,
+      "max_torso_attenuation": 0.0,
+      "max_requested_free_hand_reach_excess": 0.0
+    },
+    "hit": {
+      "frames": 16,
+      "duration": 0.5,
+      "max_right_grip_error": 0.0,
+      "min_foot_height": 0,
+      "max_arm_reach_excess": 0.0,
+      "max_foot_reach_excess": 0.0,
+      "max_right_arm_reach_excess": 0.0,
+      "max_actual_right_grip_error": 1.3657139822709083e-07,
+      "max_lower_limb_joint_gap": 1.1379298478565748e-07,
+      "max_torso_attenuation": 0.0,
+      "max_requested_free_hand_reach_excess": 0.0
+    },
+    "celebration": {
+      "frames": 49,
+      "duration": 1.6,
+      "max_right_grip_error": 0.0,
+      "min_foot_height": 0.0,
+      "max_arm_reach_excess": 0.0,
+      "max_foot_reach_excess": 0.0,
+      "max_right_arm_reach_excess": 0.0,
+      "max_actual_right_grip_error": 1.228781230931777e-07,
+      "max_lower_limb_joint_gap": 1.1542765551305228e-07,
+      "max_torso_attenuation": 0.6094980239868164,
+      "max_requested_free_hand_reach_excess": 0.0
+    },
+    "pod": {
+      "frames": 25,
+      "duration": 0.8,
+      "max_right_grip_error": 0.0,
+      "min_foot_height": 0,
+      "max_arm_reach_excess": 0.0,
+      "max_foot_reach_excess": 0.0,
+      "max_right_arm_reach_excess": 0.0,
+      "max_actual_right_grip_error": 1.3328003749250113e-07,
+      "max_lower_limb_joint_gap": 1.062891651924078e-07,
+      "max_torso_attenuation": 0.0,
+      "max_requested_free_hand_reach_excess": 0.11574923718248972
+    },
+    "respawn": {
+      "frames": 31,
+      "duration": 1.0,
+      "max_right_grip_error": 0.0,
+      "min_foot_height": 0,
+      "max_arm_reach_excess": 0.0,
+      "max_foot_reach_excess": 0.0,
+      "max_right_arm_reach_excess": 0.0,
+      "max_actual_right_grip_error": 1.519626234052415e-07,
+      "max_lower_limb_joint_gap": 1.0579840844143331e-07,
+      "max_torso_attenuation": 0.0,
+      "max_requested_free_hand_reach_excess": 0.0
+    },
+    "defeat": {
+      "frames": 37,
+      "duration": 1.2,
+      "max_right_grip_error": 0.0,
+      "min_foot_height": 0,
+      "max_arm_reach_excess": 0.0,
+      "max_foot_reach_excess": 0.0,
+      "max_right_arm_reach_excess": 0.0,
+      "max_actual_right_grip_error": 1.519626234052415e-07,
+      "max_lower_limb_joint_gap": 1.0595815370476165e-07,
+      "max_torso_attenuation": 0.0,
+      "max_requested_free_hand_reach_excess": 0.006473446687448203
+    }
+  },
+  "right_palm_bind_godot": [
+    0.3100000023841858,
+    0.5645864605903625,
+    -0.2892553508281708
+  ],
+  "right_arm": {
+    "shoulder": [
+      0.2849999964237213,
+      0.8650000095367432,
+      -0.004000000189989805
+    ],
+    "elbow": [
+      0.2849999964237213,
+      0.73336261510849,
+      -0.07591383904218674
+    ],
+    "palm": [
+      0.3100000023841858,
+      0.5645864605903625,
+      -0.2892553508281708
+    ]
+  },
+  "muzzle_physical": [
+    0.403,
+    0.884,
+    -1.04
+  ],
+  "weapon_independent": true,
+  "palette_converted_to_pbr": true,
+  "aim_nozzle": {
+    "removed_original_front_vertices": 352,
+    "pivot_godot_local": [
+      0,
+      0.04,
+      -0.51
+    ],
+    "radius": 0.083,
+    "geometry": "compact rear hemisphere + annular open mouth; fixed original barrel enters spherical envelope",
+    "weapon_and_grip_fixed": true,
+    "muzzle_fixed": true
+  },
+  "run_gait": {
+    "cycle_seconds": 0.6,
+    "half_stride": 0.136094674556213,
+    "stance_fraction": 0.3333333333333333,
+    "reference_playback_speed": 2.6,
+    "reference_world_speed": 4.6,
+    "swing_lift": 0.1
+  }
+}

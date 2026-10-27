@@ -1,0 +1,334 @@
+{
+  "status": "PASS",
+  "method": "Actual evaluated run mesh component BVH ray parity, three directions, at anatomical knee shared point. Both upper-leg and ankle closed surfaces contain the point: a nonzero overlap, not background-through joint separation.",
+  "samples": [
+    {
+      "species": "otter",
+      "frame": 5,
+      "side": "L",
+      "joint": [
+        -0.14186273515224457,
+        0.05168731138110161,
+        0.17413395643234253
+      ],
+      "surfaces": [
+        {
+          "mesh": "LegL_Skinned",
+          "closed_components_containing_joint": [
+            {
+              "component_vertices": 360,
+              "joint_inside_votes": [
+                true,
+                true,
+                true
+              ],
+              "minimum_clearance": 0.04416721686720848
+            }
+          ]
+        },
+        {
+          "mesh": "Shin_Skinned",
+          "closed_components_containing_joint": [
+            {
+              "component_vertices": 260,
+              "joint_inside_votes": [
+                true,
+                true,
+                true
+              ],
+              "minimum_clearance": 0.043878473341464996
+            }
+          ]
+        }
+      ],
+      "overlap_at_joint": true
+    },
+    {
+      "species": "otter",
+      "frame": 5,
+      "side": "R",
+      "joint": [
+        0.1452997922897339,
+        0.12548716366291046,
+        0.27611562609672546
+      ],
+      "surfaces": [
+        {
+          "mesh": "LegR_Skinned",
+          "closed_components_containing_joint": [
+            {
+              "component_vertices": 360,
+              "joint_inside_votes": [
+                true,
+                true,
+                true
+              ],
+              "minimum_clearance": 0.04416282847523689
+            }
+          ]
+        },
+        {
+          "mesh": "ShinR_Skinned",
+          "closed_components_containing_joint": [
+            {
+              "component_vertices": 260,
+              "joint_inside_votes": [
+                true,
+                true,
+                true
+              ],
+              "minimum_clearance": 0.04387836530804634
+            }
+          ]
+        }
+      ],
+      "overlap_at_joint": true
+    },
+    {
+      "species": "otter",
+      "frame": 14,
+      "side": "L",
+      "joint": [
+        -0.1452997922897339,
+        0.12548716366291046,
+        0.27611562609672546
+      ],
+      "surfaces": [
+        {
+          "mesh": "LegL_Skinned",
+          "closed_components_containing_joint": [
+            {
+              "component_vertices": 360,
+              "joint_inside_votes": [
+                true,
+                true,
+                true
+              ],
+              "minimum_clearance": 0.04415217414498329
+            }
+          ]
+        },
+        {
+          "mesh": "Shin_Skinned",
+          "closed_components_containing_joint": [
+            {
+              "component_vertices": 260,
+              "joint_inside_votes": [
+                true,
+                true,
+                true
+              ],
+              "minimum_clearance": 0.04387836158275604
+            }
+          ]
+        }
+      ],
+      "overlap_at_joint": true
+    },
+    {
+      "species": "otter",
+      "frame": 14,
+      "side": "R",
+      "joint": [
+        0.14186273515224457,
+        0.05168731138110161,
+        0.17413395643234253
+      ],
+      "surfaces": [
+        {
+          "mesh": "LegR_Skinned",
+          "closed_components_containing_joint": [
+            {
+              "component_vertices": 360,
+              "joint_inside_votes": [
+                true,
+                true,
+                true
+              ],
+              "minimum_clearance": 0.04417307674884796
+            }
+          ]
+        },
+        {
+          "mesh": "ShinR_Skinned",
+          "closed_components_containing_joint": [
+            {
+              "component_vertices": 260,
+              "joint_inside_votes": [
+                true,
+                true,
+                true
+              ],
+              "minimum_clearance": 0.043878477066755295
+            }
+          ]
+        }
+      ],
+      "overlap_at_joint": true
+    },
+    {
+      "species": "rabbit",
+      "frame": 5,
+      "side": "L",
+      "joint": [
+        -0.15883338451385498,
+        0.02741861157119274,
+        0.17075523734092712
+      ],
+      "surfaces": [
+        {
+          "mesh": "LegL_Skinned",
+          "closed_components_containing_joint": [
+            {
+              "component_vertices": 360,
+              "joint_inside_votes": [
+                true,
+                true,
+                true
+              ],
+              "minimum_clearance": 0.04052101448178291
+            }
+          ]
+        },
+        {
+          "mesh": "Shin_Skinned",
+          "closed_components_containing_joint": [
+            {
+              "component_vertices": 260,
+              "joint_inside_votes": [
+                true,
+                true,
+                true
+              ],
+              "minimum_clearance": 0.0469282865524292
+            }
+          ]
+        }
+      ],
+      "overlap_at_joint": true
+    },
+    {
+      "species": "rabbit",
+      "frame": 5,
+      "side": "R",
+      "joint": [
+        0.1599843055009842,
+        0.10664402693510056,
+        0.28791090846061707
+      ],
+      "surfaces": [
+        {
+          "mesh": "LegR_Skinned",
+          "closed_components_containing_joint": [
+            {
+              "component_vertices": 360,
+              "joint_inside_votes": [
+                true,
+                true,
+                true
+              ],
+              "minimum_clearance": 0.04044076427817345
+            }
+          ]
+        },
+        {
+          "mesh": "ShinR_Skinned",
+          "closed_components_containing_joint": [
+            {
+              "component_vertices": 260,
+              "joint_inside_votes": [
+                true,
+                true,
+                true
+              ],
+              "minimum_clearance": 0.04692825675010681
+            }
+          ]
+        }
+      ],
+      "overlap_at_joint": true
+    },
+    {
+      "species": "rabbit",
+      "frame": 14,
+      "side": "L",
+      "joint": [
+        -0.1599843055009842,
+        0.10664402693510056,
+        0.28791090846061707
+      ],
+      "surfaces": [
+        {
+          "mesh": "LegL_Skinned",
+          "closed_components_containing_joint": [
+            {
+              "component_vertices": 360,
+              "joint_inside_votes": [
+                true,
+                true,
+                true
+              ],
+              "minimum_clearance": 0.0404389463365078
+            }
+          ]
+        },
+        {
+          "mesh": "Shin_Skinned",
+          "closed_components_containing_joint": [
+            {
+              "component_vertices": 260,
+              "joint_inside_votes": [
+                true,
+                true,
+                true
+              ],
+              "minimum_clearance": 0.04692825675010681
+            }
+          ]
+        }
+      ],
+      "overlap_at_joint": true
+    },
+    {
+      "species": "rabbit",
+      "frame": 14,
+      "side": "R",
+      "joint": [
+        0.15883338451385498,
+        0.02741861157119274,
+        0.17075523734092712
+      ],
+      "surfaces": [
+        {
+          "mesh": "LegR_Skinned",
+          "closed_components_containing_joint": [
+            {
+              "component_vertices": 360,
+              "joint_inside_votes": [
+                true,
+                true,
+                true
+              ],
+              "minimum_clearance": 0.04051952436566353
+            }
+          ]
+        },
+        {
+          "mesh": "ShinR_Skinned",
+          "closed_components_containing_joint": [
+            {
+              "component_vertices": 260,
+              "joint_inside_votes": [
+                true,
+                true,
+                true
+              ],
+              "minimum_clearance": 0.0469282865524292
+            }
+          ]
+        }
+      ],
+      "overlap_at_joint": true
+    }
+  ]
+}

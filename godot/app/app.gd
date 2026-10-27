@@ -8,8 +8,12 @@ var active_game: Node
 var saved_hud_visible := true
 var saved_process_mode := Node.PROCESS_MODE_INHERIT
 var saved_audio_paused: Array[bool] = []
+var application_closing := false
+var previous_auto_accept_quit := true
 
 func _ready() -> void:
+	previous_auto_accept_quit=get_tree().auto_accept_quit
+	get_tree().auto_accept_quit=false
 	island = preload("res://scenes/island.tscn").instantiate()
 	add_child(island)
 	hub = load("res://hub/hub_interactions.gd").new()
@@ -44,7 +48,7 @@ func launch_game(id: String) -> bool:
 	island.process_mode = Node.PROCESS_MODE_DISABLED
 	island.camera.current = false
 	add_child(active_game)
-	active_game.start({"game_id":id,"save_root":"user://games/"+id+"/","schema_version":1})
+	active_game.start({"game_id":id,"save_root":"user://games/"+id+"/","schema_version":1,"quit_handler":Callable(self,"request_application_quit")})
 	return true
 
 func return_to_island() -> void:
@@ -64,3 +68,22 @@ func return_to_island() -> void:
 	for i in island.audio_players.size():
 		island.audio_players[i].stream_paused = saved_audio_paused[i]
 	hub.resume()
+
+func _notification(what:int) -> void:
+	if what==NOTIFICATION_WM_CLOSE_REQUEST: request_application_quit()
+
+func request_application_quit() -> void:
+	if application_closing: return
+	application_closing=true
+	# Paused island music is still a live audio voice. Stop every owned player,
+	# free all scenes, and allow the audio server to retire before exiting.
+	for kind in ["AudioStreamPlayer","AudioStreamPlayer2D","AudioStreamPlayer3D"]:
+		for player in find_children("*",kind,true,false): player.stop()
+	Input.mouse_mode=Input.MOUSE_MODE_VISIBLE
+	set_process(false); set_process_input(false); set_process_unhandled_input(false)
+	var tree:=get_tree()
+	tree.create_timer(.5).timeout.connect(tree.quit)
+	queue_free()
+
+func _exit_tree() -> void:
+	if get_tree(): get_tree().auto_accept_quit=previous_auto_accept_quit

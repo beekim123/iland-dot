@@ -1,0 +1,112 @@
+{
+  "status": "FROZEN",
+  "rig_version": "1.0",
+  "blender": "4.3.2",
+  "godot": "4.7.2",
+  "required_clips": [
+    "idle",
+    "run",
+    "spray",
+    "dash",
+    "hit",
+    "pod",
+    "respawn",
+    "celebration",
+    "defeat"
+  ],
+  "physical_muzzle": [
+    0.403,
+    0.884,
+    -1.04
+  ],
+  "assets": [
+    {
+      "species": "otter",
+      "team": "blue",
+      "path": "models/animals/rigged/otter/otter_blue_rigged.glb",
+      "sha256": "e5ce863e4f833bebcc4128cb36f6ced74e38f3b1676aa430ab1b093b69849eeb",
+      "bytes": 1699788,
+      "bones": 24,
+      "max_raw_godot_palm_error_240hz": 0.00120436889119446,
+      "source_blend_sha256": "3807fe36caebf4770a6fe92d1bae11de5d0bad8af702c9f99ce09be430805657",
+      "source_unchanged": true
+    },
+    {
+      "species": "otter",
+      "team": "orange",
+      "path": "models/animals/rigged/otter/otter_orange_rigged.glb",
+      "sha256": "48535e03ec87c5eb5ab7f41587d882178941b6abb7c2311f3932b47dfc75ef15",
+      "bytes": 1699828,
+      "bones": 24,
+      "max_raw_godot_palm_error_240hz": 0.00120436889119446,
+      "source_blend_sha256": "b5ee709ea8153d80d35a1ec20b8e7c6c60429bc0061958ea829ee8287283b140",
+      "source_unchanged": true
+    },
+    {
+      "species": "fox",
+      "team": "blue",
+      "path": "models/animals/rigged/fox/fox_blue_rigged.glb",
+      "sha256": "1944fa44a7f3e02c3c54147b1f2a120d0f5f78bf79078cae1f1212afaa64a736",
+      "bytes": 1557308,
+      "bones": 24,
+      "max_raw_godot_palm_error_240hz": 0.000599822320509702,
+      "source_blend_sha256": "cbc980f691a2c98ae15412326cdd1150b72d7935dd52287f7f896f254643d7ba",
+      "source_unchanged": true
+    },
+    {
+      "species": "fox",
+      "team": "orange",
+      "path": "models/animals/rigged/fox/fox_orange_rigged.glb",
+      "sha256": "4812fa45ae83c5a0f2d545e1c1cf3e7ab55038bcefd715096d063e5d3c7c95e6",
+      "bytes": 1557292,
+      "bones": 24,
+      "max_raw_godot_palm_error_240hz": 0.000599822320509702,
+      "source_blend_sha256": "c1459813b35c7a54d84c01c9fcb4687b6173f59e665102bc50b83bb4040390f4",
+      "source_unchanged": true
+    },
+    {
+      "species": "raccoon",
+      "team": "blue",
+      "path": "models/animals/rigged/raccoon/raccoon_blue_rigged.glb",
+      "sha256": "6b66205b9747c1a5ae1e098f705342776067a8e0b196a0af2ebf7147b11898f5",
+      "bytes": 1615944,
+      "bones": 24,
+      "max_raw_godot_palm_error_240hz": 0.000644068408291787,
+      "source_blend_sha256": "f06413d0c30a50a9a318f233f8747b1d5278e017702c220bd61a7d471de8c559",
+      "source_unchanged": true
+    },
+    {
+      "species": "raccoon",
+      "team": "orange",
+      "path": "models/animals/rigged/raccoon/raccoon_orange_rigged.glb",
+      "sha256": "ec52c08e0c1e91b0a89a28b07f8ee3003979fb66f19d09817bd128aefaf42ab6",
+      "bytes": 1615976,
+      "bones": 24,
+      "max_raw_godot_palm_error_240hz": 0.000644068408291787,
+      "source_blend_sha256": "e7a00609ba45d80338531da20e4243a129b62437826bbb5eebf6a468e3edf13c",
+      "source_unchanged": true
+    },
+    {
+      "species": "rabbit",
+      "team": "blue",
+      "path": "models/animals/rigged/rabbit/rabbit_blue_rigged.glb",
+      "sha256": "0340a10ea7cc78fb115f61ac66de97c02677b9ac3949ae635b65fb38df359a31",
+      "bytes": 1612320,
+      "bones": 23,
+      "max_raw_godot_palm_error_240hz": 0.00121786072850227,
+      "source_blend_sha256": "b02c86405719aa2335e6e795dbd81a95a620af69450d46c0de2366da3339d0db",
+      "source_unchanged": true
+    },
+    {
+      "species": "rabbit",
+      "team": "orange",
+      "path": "models/animals/rigged/rabbit/rabbit_orange_rigged.glb",
+      "sha256": "3e5e743d3f5d66266c5b2162c6940cafd410f63e874208e4b224ce93fd244260",
+      "bytes": 1612360,
+      "bones": 23,
+      "max_raw_godot_palm_error_240hz": 0.00121786072850227,
+      "source_blend_sha256": "8452b97ec18ed06934553f76e737fabc1c8d5f2c83f2079c58b94ba13cc35c11",
+      "source_unchanged": true
+    }
+  ]
+}

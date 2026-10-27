@@ -1,0 +1,1762 @@
+{
+  "status": "PASS",
+  "method": "Raw GLTFDocument headless dense240Hz; independent PackedScene/native rendering QA owned by parent",
+  "assets": [
+    {
+      "actual_bone_palm_grip_error": {
+        "celebration": 0.00028092140564695,
+        "dash": 0.000477023888379335,
+        "defeat": 2.08867295441451e-05,
+        "hit": 0.000396115996409208,
+        "idle": 3.76560342374432e-06,
+        "pod": 0.000194630018086173,
+        "respawn": 5.85231246077456e-05,
+        "run": 0.00120436889119446,
+        "spray": 4.00073076889385e-05
+      },
+      "animation_player_path": "/root/otter_blue_rigged/AnimationPlayer",
+      "animations": {
+        "celebration": {
+          "length": 1.60000002384186,
+          "tracks": 25
+        },
+        "dash": {
+          "length": 0.5,
+          "tracks": 22
+        },
+        "defeat": {
+          "length": 1.20000004768372,
+          "tracks": 25
+        },
+        "hit": {
+          "length": 0.5,
+          "tracks": 24
+        },
+        "idle": {
+          "length": 2.0,
+          "tracks": 25
+        },
+        "pod": {
+          "length": 0.800000011920929,
+          "tracks": 24
+        },
+        "respawn": {
+          "length": 1.0,
+          "tracks": 25
+        },
+        "run": {
+          "length": 0.600000023841858,
+          "tracks": 25
+        },
+        "spray": {
+          "length": 0.800000011920929,
+          "tracks": 25
+        }
+      },
+      "errors": [],
+      "nozzle_pitch_checks": [
+        {
+          "muzzle_or_grip_drift": 0.0,
+          "pitch": -0.75
+        },
+        {
+          "muzzle_or_grip_drift": 0.0,
+          "pitch": -0.4
+        },
+        {
+          "muzzle_or_grip_drift": 0.0,
+          "pitch": 0.0
+        },
+        {
+          "muzzle_or_grip_drift": 0.0,
+          "pitch": 0.4
+        },
+        {
+          "muzzle_or_grip_drift": 0.0,
+          "pitch": 0.7
+        }
+      ],
+      "path": "/workspace/scratch/e3e9ec015b32/iland-dot/godot/modules/bloom_skirmish/art/models/animals/rigged/otter/otter_blue_rigged.glb",
+      "run_contact_4_6_world_per_second": [
+        {
+          "clip_stance_seconds": 0.2,
+          "foot": "L",
+          "predicted_world_foot_slip_during_contact": 0.000790874182413782,
+          "world_contact_speed": 4.60000150799751,
+          "world_stance_seconds_at_2_6x": 0.0769230769230769
+        },
+        {
+          "clip_stance_seconds": 0.2,
+          "foot": "R",
+          "predicted_world_foot_slip_during_contact": 0.000790874182413782,
+          "world_contact_speed": 4.60000150799751,
+          "world_stance_seconds_at_2_6x": 0.0769230769230769
+        }
+      ],
+      "skeletons": [
+        {
+          "bone_count": 24,
+          "bones": [
+            "Root",
+            "Pelvis",
+            "Spine",
+            "Chest",
+            "Head",
+            "EarBase.L",
+            "EarTip.L",
+            "EarBase.R",
+            "EarTip.R",
+            "UpperArm.L",
+            "Forearm.L",
+            "Hand.L",
+            "UpperArm.R",
+            "Forearm.R",
+            "Hand.R",
+            "Thigh.L",
+            "Shin.L",
+            "Foot.L",
+            "Thigh.R",
+            "Shin.R",
+            "Foot.R",
+            "Tail.01",
+            "Tail.02",
+            "Tail.03"
+          ],
+          "path": "/root/otter_blue_rigged/AthleteRoot/CharacterRig/Skeleton3D"
+        }
+      ],
+      "skinned_meshes": [
+        {
+          "multi_bone_vertices": 72,
+          "name": "ArmL_Skinned",
+          "skeleton_path": "..",
+          "skin_binds": 24,
+          "vertices": 668
+        },
+        {
+          "multi_bone_vertices": 72,
+          "name": "ArmR_Skinned",
+          "skeleton_path": "..",
+          "skin_binds": 24,
+          "vertices": 668
+        },
+        {
+          "multi_bone_vertices": 2185,
+          "name": "Body_Skinned",
+          "skeleton_path": "..",
+          "skin_binds": 24,
+          "vertices": 6002
+        },
+        {
+          "multi_bone_vertices": 265,
+          "name": "Forearm_Skinned",
+          "skeleton_path": "..",
+          "skin_binds": 24,
+          "vertices": 913
+        },
+        {
+          "multi_bone_vertices": 265,
+          "name": "ForearmR_Skinned",
+          "skeleton_path": "..",
+          "skin_binds": 24,
+          "vertices": 913
+        },
+        {
+          "multi_bone_vertices": 424,
+          "name": "Head_Skinned",
+          "skeleton_path": "..",
+          "skin_binds": 24,
+          "vertices": 7221
+        },
+        {
+          "multi_bone_vertices": 88,
+          "name": "LegL_Skinned",
+          "skeleton_path": "..",
+          "skin_binds": 24,
+          "vertices": 360
+        },
+        {
+          "multi_bone_vertices": 88,
+          "name": "LegR_Skinned",
+          "skeleton_path": "..",
+          "skin_binds": 24,
+          "vertices": 360
+        },
+        {
+          "multi_bone_vertices": 200,
+          "name": "Shin_Skinned",
+          "skeleton_path": "..",
+          "skin_binds": 24,
+          "vertices": 1139
+        },
+        {
+          "multi_bone_vertices": 200,
+          "name": "ShinR_Skinned",
+          "skeleton_path": "..",
+          "skin_binds": 24,
+          "vertices": 1139
+        }
+      ],
+      "weapon": {
+        "AimNozzle": {
+          "global": "(0.31, 0.649231, -0.8)",
+          "local": "(0.0, 0.04, -0.51)",
+          "path": "/root/otter_blue_rigged/AthleteRoot/Weapon/AimNozzle"
+        },
+        "GunGrip": {
+          "global": "(0.285, 0.748561, -0.162603)",
+          "local": "(-0.025, 0.13933, 0.127397)",
+          "path": "/root/otter_blue_rigged/AthleteRoot/Weapon/GunGrip"
+        },
+        "Muzzle": {
+          "global": "(0.31, 0.649231, -0.8)",
+          "local": "(0.0, 0.04, -0.51)",
+          "path": "/root/otter_blue_rigged/AthleteRoot/Weapon/Muzzle"
+        },
+        "Weapon": {
+          "global": "(0.31, 0.609231, -0.29)",
+          "local": "(0.31, 0.609231, -0.29)",
+          "path": "/root/otter_blue_rigged/AthleteRoot/Weapon"
+        }
+      }
+    },
+    {
+      "actual_bone_palm_grip_error": {
+        "celebration": 0.00028092140564695,
+        "dash": 0.000477023888379335,
+        "defeat": 2.08867295441451e-05,
+        "hit": 0.000396115996409208,
+        "idle": 3.76560342374432e-06,
+        "pod": 0.000194630018086173,
+        "respawn": 5.85231246077456e-05,
+        "run": 0.00120436889119446,
+        "spray": 4.00073076889385e-05
+      },
+      "animation_player_path": "/root/otter_orange_rigged/AnimationPlayer",
+      "animations": {
+        "celebration": {
+          "length": 1.60000002384186,
+          "tracks": 25
+        },
+        "dash": {
+          "length": 0.5,
+          "tracks": 22
+        },
+        "defeat": {
+          "length": 1.20000004768372,
+          "tracks": 25
+        },
+        "hit": {
+          "length": 0.5,
+          "tracks": 24
+        },
+        "idle": {
+          "length": 2.0,
+          "tracks": 25
+        },
+        "pod": {
+          "length": 0.800000011920929,
+          "tracks": 24
+        },
+        "respawn": {
+          "length": 1.0,
+          "tracks": 25
+        },
+        "run": {
+          "length": 0.600000023841858,
+          "tracks": 25
+        },
+        "spray": {
+          "length": 0.800000011920929,
+          "tracks": 25
+        }
+      },
+      "errors": [],
+      "nozzle_pitch_checks": [
+        {
+          "muzzle_or_grip_drift": 0.0,
+          "pitch": -0.75
+        },
+        {
+          "muzzle_or_grip_drift": 0.0,
+          "pitch": -0.4
+        },
+        {
+          "muzzle_or_grip_drift": 0.0,
+          "pitch": 0.0
+        },
+        {
+          "muzzle_or_grip_drift": 0.0,
+          "pitch": 0.4
+        },
+        {
+          "muzzle_or_grip_drift": 0.0,
+          "pitch": 0.7
+        }
+      ],
+      "path": "/workspace/scratch/e3e9ec015b32/iland-dot/godot/modules/bloom_skirmish/art/models/animals/rigged/otter/otter_orange_rigged.glb",
+      "run_contact_4_6_world_per_second": [
+        {
+          "clip_stance_seconds": 0.2,
+          "foot": "L",
+          "predicted_world_foot_slip_during_contact": 0.000790874182413782,
+          "world_contact_speed": 4.60000150799751,
+          "world_stance_seconds_at_2_6x": 0.0769230769230769
+        },
+        {
+          "clip_stance_seconds": 0.2,
+          "foot": "R",
+          "predicted_world_foot_slip_during_contact": 0.000790874182413782,
+          "world_contact_speed": 4.60000150799751,
+          "world_stance_seconds_at_2_6x": 0.0769230769230769
+        }
+      ],
+      "skeletons": [
+        {
+          "bone_count": 24,
+          "bones": [
+            "Root",
+            "Pelvis",
+            "Spine",
+            "Chest",
+            "Head",
+            "EarBase.L",
+            "EarTip.L",
+            "EarBase.R",
+            "EarTip.R",
+            "UpperArm.L",
+            "Forearm.L",
+            "Hand.L",
+            "UpperArm.R",
+            "Forearm.R",
+            "Hand.R",
+            "Thigh.L",
+            "Shin.L",
+            "Foot.L",
+            "Thigh.R",
+            "Shin.R",
+            "Foot.R",
+            "Tail.01",
+            "Tail.02",
+            "Tail.03"
+          ],
+          "path": "/root/otter_orange_rigged/AthleteRoot/CharacterRig/Skeleton3D"
+        }
+      ],
+      "skinned_meshes": [
+        {
+          "multi_bone_vertices": 72,
+          "name": "ArmL_Skinned",
+          "skeleton_path": "..",
+          "skin_binds": 24,
+          "vertices": 668
+        },
+        {
+          "multi_bone_vertices": 72,
+          "name": "ArmR_Skinned",
+          "skeleton_path": "..",
+          "skin_binds": 24,
+          "vertices": 668
+        },
+        {
+          "multi_bone_vertices": 2185,
+          "name": "Body_Skinned",
+          "skeleton_path": "..",
+          "skin_binds": 24,
+          "vertices": 6002
+        },
+        {
+          "multi_bone_vertices": 265,
+          "name": "Forearm_Skinned",
+          "skeleton_path": "..",
+          "skin_binds": 24,
+          "vertices": 913
+        },
+        {
+          "multi_bone_vertices": 265,
+          "name": "ForearmR_Skinned",
+          "skeleton_path": "..",
+          "skin_binds": 24,
+          "vertices": 913
+        },
+        {
+          "multi_bone_vertices": 424,
+          "name": "Head_Skinned",
+          "skeleton_path": "..",
+          "skin_binds": 24,
+          "vertices": 7221
+        },
+        {
+          "multi_bone_vertices": 88,
+          "name": "LegL_Skinned",
+          "skeleton_path": "..",
+          "skin_binds": 24,
+          "vertices": 360
+        },
+        {
+          "multi_bone_vertices": 88,
+          "name": "LegR_Skinned",
+          "skeleton_path": "..",
+          "skin_binds": 24,
+          "vertices": 360
+        },
+        {
+          "multi_bone_vertices": 200,
+          "name": "Shin_Skinned",
+          "skeleton_path": "..",
+          "skin_binds": 24,
+          "vertices": 1139
+        },
+        {
+          "multi_bone_vertices": 200,
+          "name": "ShinR_Skinned",
+          "skeleton_path": "..",
+          "skin_binds": 24,
+          "vertices": 1139
+        }
+      ],
+      "weapon": {
+        "AimNozzle": {
+          "global": "(0.31, 0.649231, -0.8)",
+          "local": "(0.0, 0.04, -0.51)",
+          "path": "/root/otter_orange_rigged/AthleteRoot/Weapon/AimNozzle"
+        },
+        "GunGrip": {
+          "global": "(0.285, 0.748561, -0.162603)",
+          "local": "(-0.025, 0.13933, 0.127397)",
+          "path": "/root/otter_orange_rigged/AthleteRoot/Weapon/GunGrip"
+        },
+        "Muzzle": {
+          "global": "(0.31, 0.649231, -0.8)",
+          "local": "(0.0, 0.04, -0.51)",
+          "path": "/root/otter_orange_rigged/AthleteRoot/Weapon/Muzzle"
+        },
+        "Weapon": {
+          "global": "(0.31, 0.609231, -0.29)",
+          "local": "(0.31, 0.609231, -0.29)",
+          "path": "/root/otter_orange_rigged/AthleteRoot/Weapon"
+        }
+      }
+    },
+    {
+      "actual_bone_palm_grip_error": {
+        "celebration": 0.000175148379639722,
+        "dash": 0.000310604926198721,
+        "defeat": 1.21296552606509e-05,
+        "hit": 0.000118854761240073,
+        "idle": 3.12356200993236e-06,
+        "pod": 0.000102213161881082,
+        "respawn": 2.55450941040181e-05,
+        "run": 0.000599822320509702,
+        "spray": 1.17376139314729e-05
+      },
+      "animation_player_path": "/root/fox_blue_rigged/AnimationPlayer",
+      "animations": {
+        "celebration": {
+          "length": 1.60000002384186,
+          "tracks": 25
+        },
+        "dash": {
+          "length": 0.5,
+          "tracks": 22
+        },
+        "defeat": {
+          "length": 1.20000004768372,
+          "tracks": 27
+        },
+        "hit": {
+          "length": 0.5,
+          "tracks": 24
+        },
+        "idle": {
+          "length": 2.0,
+          "tracks": 25
+        },
+        "pod": {
+          "length": 0.800000011920929,
+          "tracks": 24
+        },
+        "respawn": {
+          "length": 1.0,
+          "tracks": 27
+        },
+        "run": {
+          "length": 0.600000023841858,
+          "tracks": 31
+        },
+        "spray": {
+          "length": 0.800000011920929,
+          "tracks": 25
+        }
+      },
+      "errors": [],
+      "nozzle_pitch_checks": [
+        {
+          "muzzle_or_grip_drift": 0.0,
+          "pitch": -0.75
+        },
+        {
+          "muzzle_or_grip_drift": 0.0,
+          "pitch": -0.4
+        },
+        {
+          "muzzle_or_grip_drift": 0.0,
+          "pitch": 0.0
+        },
+        {
+          "muzzle_or_grip_drift": 0.0,
+          "pitch": 0.4
+        },
+        {
+          "muzzle_or_grip_drift": 0.0,
+          "pitch": 0.7
+        }
+      ],
+      "path": "/workspace/scratch/e3e9ec015b32/iland-dot/godot/modules/bloom_skirmish/art/models/animals/rigged/fox/fox_blue_rigged.glb",
+      "run_contact_4_6_world_per_second": [
+        {
+          "clip_stance_seconds": 0.2,
+          "foot": "L",
+          "predicted_world_foot_slip_during_contact": 5.32564826500326e-05,
+          "world_contact_speed": 4.5999419502914,
+          "world_stance_seconds_at_2_6x": 0.0769230769230769
+        },
+        {
+          "clip_stance_seconds": 0.2,
+          "foot": "R",
+          "predicted_world_foot_slip_during_contact": 5.32564826500326e-05,
+          "world_contact_speed": 4.5999419502914,
+          "world_stance_seconds_at_2_6x": 0.0769230769230769
+        }
+      ],
+      "skeletons": [
+        {
+          "bone_count": 24,
+          "bones": [
+            "Root",
+            "Pelvis",
+            "Spine",
+            "Chest",
+            "Head",
+            "EarBase.L",
+            "EarTip.L",
+            "EarBase.R",
+            "EarTip.R",
+            "UpperArm.L",
+            "Forearm.L",
+            "Hand.L",
+            "UpperArm.R",
+            "Forearm.R",
+            "Hand.R",
+            "Thigh.L",
+            "Shin.L",
+            "Foot.L",
+            "Thigh.R",
+            "Shin.R",
+            "Foot.R",
+            "Tail.01",
+            "Tail.02",
+            "Tail.03"
+          ],
+          "path": "/root/fox_blue_rigged/AthleteRoot/CharacterRig/Skeleton3D"
+        }
+      ],
+      "skinned_meshes": [
+        {
+          "multi_bone_vertices": 81,
+          "name": "ArmL_Skinned",
+          "skeleton_path": "..",
+          "skin_binds": 24,
+          "vertices": 404
+        },
+        {
+          "multi_bone_vertices": 81,
+          "name": "ArmR_Skinned",
+          "skeleton_path": "..",
+          "skin_binds": 24,
+          "vertices": 404
+        },
+        {
+          "multi_bone_vertices": 1970,
+          "name": "Body_Skinned",
+          "skeleton_path": "..",
+          "skin_binds": 24,
+          "vertices": 4582
+        },
+        {
+          "multi_bone_vertices": 0,
+          "name": "Body_Skinned_001",
+          "skeleton_path": "..",
+          "skin_binds": 24,
+          "vertices": 48
+        },
+        {
+          "multi_bone_vertices": 648,
+          "name": "Forearm_Skinned",
+          "skeleton_path": "..",
+          "skin_binds": 24,
+          "vertices": 1127
+        },
+        {
+          "multi_bone_vertices": 636,
+          "name": "ForearmR_Skinned",
+          "skeleton_path": "..",
+          "skin_binds": 24,
+          "vertices": 1127
+        },
+        {
+          "multi_bone_vertices": 540,
+          "name": "Head_Skinned",
+          "skeleton_path": "..",
+          "skin_binds": 24,
+          "vertices": 6831
+        },
+        {
+          "multi_bone_vertices": 81,
+          "name": "LegL_Skinned",
+          "skeleton_path": "..",
+          "skin_binds": 24,
+          "vertices": 282
+        },
+        {
+          "multi_bone_vertices": 81,
+          "name": "LegR_Skinned",
+          "skeleton_path": "..",
+          "skin_binds": 24,
+          "vertices": 282
+        },
+        {
+          "multi_bone_vertices": 461,
+          "name": "Shin_Skinned",
+          "skeleton_path": "..",
+          "skin_binds": 24,
+          "vertices": 1125
+        },
+        {
+          "multi_bone_vertices": 461,
+          "name": "ShinR_Skinned",
+          "skeleton_path": "..",
+          "skin_binds": 24,
+          "vertices": 1125
+        }
+      ],
+      "weapon": {
+        "AimNozzle": {
+          "global": "(0.31, 0.649231, -0.8)",
+          "local": "(0.0, 0.04, -0.51)",
+          "path": "/root/fox_blue_rigged/AthleteRoot/Weapon/AimNozzle"
+        },
+        "GunGrip": {
+          "global": "(0.31, 0.564586, -0.289255)",
+          "local": "(0.0, -0.044644, 0.000745)",
+          "path": "/root/fox_blue_rigged/AthleteRoot/Weapon/GunGrip"
+        },
+        "Muzzle": {
+          "global": "(0.31, 0.649231, -0.8)",
+          "local": "(0.0, 0.04, -0.51)",
+          "path": "/root/fox_blue_rigged/AthleteRoot/Weapon/Muzzle"
+        },
+        "Weapon": {
+          "global": "(0.31, 0.609231, -0.29)",
+          "local": "(0.31, 0.609231, -0.29)",
+          "path": "/root/fox_blue_rigged/AthleteRoot/Weapon"
+        }
+      }
+    },
+    {
+      "actual_bone_palm_grip_error": {
+        "celebration": 0.000175148379639722,
+        "dash": 0.000310604926198721,
+        "defeat": 1.21296552606509e-05,
+        "hit": 0.000118854761240073,
+        "idle": 3.12356200993236e-06,
+        "pod": 0.000102213161881082,
+        "respawn": 2.55450941040181e-05,
+        "run": 0.000599822320509702,
+        "spray": 1.17376139314729e-05
+      },
+      "animation_player_path": "/root/fox_orange_rigged/AnimationPlayer",
+      "animations": {
+        "celebration": {
+          "length": 1.60000002384186,
+          "tracks": 25
+        },
+        "dash": {
+          "length": 0.5,
+          "tracks": 22
+        },
+        "defeat": {
+          "length": 1.20000004768372,
+          "tracks": 27
+        },
+        "hit": {
+          "length": 0.5,
+          "tracks": 24
+        },
+        "idle": {
+          "length": 2.0,
+          "tracks": 25
+        },
+        "pod": {
+          "length": 0.800000011920929,
+          "tracks": 24
+        },
+        "respawn": {
+          "length": 1.0,
+          "tracks": 27
+        },
+        "run": {
+          "length": 0.600000023841858,
+          "tracks": 31
+        },
+        "spray": {
+          "length": 0.800000011920929,
+          "tracks": 25
+        }
+      },
+      "errors": [],
+      "nozzle_pitch_checks": [
+        {
+          "muzzle_or_grip_drift": 0.0,
+          "pitch": -0.75
+        },
+        {
+          "muzzle_or_grip_drift": 0.0,
+          "pitch": -0.4
+        },
+        {
+          "muzzle_or_grip_drift": 0.0,
+          "pitch": 0.0
+        },
+        {
+          "muzzle_or_grip_drift": 0.0,
+          "pitch": 0.4
+        },
+        {
+          "muzzle_or_grip_drift": 0.0,
+          "pitch": 0.7
+        }
+      ],
+      "path": "/workspace/scratch/e3e9ec015b32/iland-dot/godot/modules/bloom_skirmish/art/models/animals/rigged/fox/fox_orange_rigged.glb",
+      "run_contact_4_6_world_per_second": [
+        {
+          "clip_stance_seconds": 0.2,
+          "foot": "L",
+          "predicted_world_foot_slip_during_contact": 5.32564826500326e-05,
+          "world_contact_speed": 4.5999419502914,
+          "world_stance_seconds_at_2_6x": 0.0769230769230769
+        },
+        {
+          "clip_stance_seconds": 0.2,
+          "foot": "R",
+          "predicted_world_foot_slip_during_contact": 5.32564826500326e-05,
+          "world_contact_speed": 4.5999419502914,
+          "world_stance_seconds_at_2_6x": 0.0769230769230769
+        }
+      ],
+      "skeletons": [
+        {
+          "bone_count": 24,
+          "bones": [
+            "Root",
+            "Pelvis",
+            "Spine",
+            "Chest",
+            "Head",
+            "EarBase.L",
+            "EarTip.L",
+            "EarBase.R",
+            "EarTip.R",
+            "UpperArm.L",
+            "Forearm.L",
+            "Hand.L",
+            "UpperArm.R",
+            "Forearm.R",
+            "Hand.R",
+            "Thigh.L",
+            "Shin.L",
+            "Foot.L",
+            "Thigh.R",
+            "Shin.R",
+            "Foot.R",
+            "Tail.01",
+            "Tail.02",
+            "Tail.03"
+          ],
+          "path": "/root/fox_orange_rigged/AthleteRoot/CharacterRig/Skeleton3D"
+        }
+      ],
+      "skinned_meshes": [
+        {
+          "multi_bone_vertices": 81,
+          "name": "ArmL_Skinned",
+          "skeleton_path": "..",
+          "skin_binds": 24,
+          "vertices": 404
+        },
+        {
+          "multi_bone_vertices": 81,
+          "name": "ArmR_Skinned",
+          "skeleton_path": "..",
+          "skin_binds": 24,
+          "vertices": 404
+        },
+        {
+          "multi_bone_vertices": 1970,
+          "name": "Body_Skinned",
+          "skeleton_path": "..",
+          "skin_binds": 24,
+          "vertices": 4582
+        },
+        {
+          "multi_bone_vertices": 0,
+          "name": "Body_Skinned_001",
+          "skeleton_path": "..",
+          "skin_binds": 24,
+          "vertices": 48
+        },
+        {
+          "multi_bone_vertices": 648,
+          "name": "Forearm_Skinned",
+          "skeleton_path": "..",
+          "skin_binds": 24,
+          "vertices": 1127
+        },
+        {
+          "multi_bone_vertices": 636,
+          "name": "ForearmR_Skinned",
+          "skeleton_path": "..",
+          "skin_binds": 24,
+          "vertices": 1127
+        },
+        {
+          "multi_bone_vertices": 540,
+          "name": "Head_Skinned",
+          "skeleton_path": "..",
+          "skin_binds": 24,
+          "vertices": 6831
+        },
+        {
+          "multi_bone_vertices": 81,
+          "name": "LegL_Skinned",
+          "skeleton_path": "..",
+          "skin_binds": 24,
+          "vertices": 282
+        },
+        {
+          "multi_bone_vertices": 81,
+          "name": "LegR_Skinned",
+          "skeleton_path": "..",
+          "skin_binds": 24,
+          "vertices": 282
+        },
+        {
+          "multi_bone_vertices": 461,
+          "name": "Shin_Skinned",
+          "skeleton_path": "..",
+          "skin_binds": 24,
+          "vertices": 1125
+        },
+        {
+          "multi_bone_vertices": 461,
+          "name": "ShinR_Skinned",
+          "skeleton_path": "..",
+          "skin_binds": 24,
+          "vertices": 1125
+        }
+      ],
+      "weapon": {
+        "AimNozzle": {
+          "global": "(0.31, 0.649231, -0.8)",
+          "local": "(0.0, 0.04, -0.51)",
+          "path": "/root/fox_orange_rigged/AthleteRoot/Weapon/AimNozzle"
+        },
+        "GunGrip": {
+          "global": "(0.31, 0.564586, -0.289255)",
+          "local": "(0.0, -0.044644, 0.000745)",
+          "path": "/root/fox_orange_rigged/AthleteRoot/Weapon/GunGrip"
+        },
+        "Muzzle": {
+          "global": "(0.31, 0.649231, -0.8)",
+          "local": "(0.0, 0.04, -0.51)",
+          "path": "/root/fox_orange_rigged/AthleteRoot/Weapon/Muzzle"
+        },
+        "Weapon": {
+          "global": "(0.31, 0.609231, -0.29)",
+          "local": "(0.31, 0.609231, -0.29)",
+          "path": "/root/fox_orange_rigged/AthleteRoot/Weapon"
+        }
+      }
+    },
+    {
+      "actual_bone_palm_grip_error": {
+        "celebration": 0.000282812397927046,
+        "dash": 0.00035190093331039,
+        "defeat": 1.33031908262637e-05,
+        "hit": 0.000136635120725259,
+        "idle": 3.40738438353583e-06,
+        "pod": 0.000114731468784157,
+        "respawn": 3.25537548633292e-05,
+        "run": 0.000644068408291787,
+        "spray": 1.48944836837472e-05
+      },
+      "animation_player_path": "/root/raccoon_blue_rigged/AnimationPlayer",
+      "animations": {
+        "celebration": {
+          "length": 1.60000002384186,
+          "tracks": 25
+        },
+        "dash": {
+          "length": 0.5,
+          "tracks": 22
+        },
+        "defeat": {
+          "length": 1.20000004768372,
+          "tracks": 25
+        },
+        "hit": {
+          "length": 0.5,
+          "tracks": 24
+        },
+        "idle": {
+          "length": 2.0,
+          "tracks": 25
+        },
+        "pod": {
+          "length": 0.800000011920929,
+          "tracks": 24
+        },
+        "respawn": {
+          "length": 1.0,
+          "tracks": 25
+        },
+        "run": {
+          "length": 0.600000023841858,
+          "tracks": 25
+        },
+        "spray": {
+          "length": 0.800000011920929,
+          "tracks": 25
+        }
+      },
+      "errors": [],
+      "nozzle_pitch_checks": [
+        {
+          "muzzle_or_grip_drift": 0.0,
+          "pitch": -0.75
+        },
+        {
+          "muzzle_or_grip_drift": 0.0,
+          "pitch": -0.4
+        },
+        {
+          "muzzle_or_grip_drift": 0.0,
+          "pitch": 0.0
+        },
+        {
+          "muzzle_or_grip_drift": 0.0,
+          "pitch": 0.4
+        },
+        {
+          "muzzle_or_grip_drift": 0.0,
+          "pitch": 0.7
+        }
+      ],
+      "path": "/workspace/scratch/e3e9ec015b32/iland-dot/godot/modules/bloom_skirmish/art/models/animals/rigged/raccoon/raccoon_blue_rigged.glb",
+      "run_contact_4_6_world_per_second": [
+        {
+          "clip_stance_seconds": 0.2,
+          "foot": "L",
+          "predicted_world_foot_slip_during_contact": 7.65022941124349e-05,
+          "world_contact_speed": 4.60000364854932,
+          "world_stance_seconds_at_2_6x": 0.0769230769230769
+        },
+        {
+          "clip_stance_seconds": 0.2,
+          "foot": "R",
+          "predicted_world_foot_slip_during_contact": 7.65022941124349e-05,
+          "world_contact_speed": 4.60000364854932,
+          "world_stance_seconds_at_2_6x": 0.0769230769230769
+        }
+      ],
+      "skeletons": [
+        {
+          "bone_count": 24,
+          "bones": [
+            "Root",
+            "Pelvis",
+            "Spine",
+            "Chest",
+            "Head",
+            "EarBase.L",
+            "EarTip.L",
+            "EarBase.R",
+            "EarTip.R",
+            "UpperArm.L",
+            "Forearm.L",
+            "Hand.L",
+            "UpperArm.R",
+            "Forearm.R",
+            "Hand.R",
+            "Thigh.L",
+            "Shin.L",
+            "Foot.L",
+            "Thigh.R",
+            "Shin.R",
+            "Foot.R",
+            "Tail.01",
+            "Tail.02",
+            "Tail.03"
+          ],
+          "path": "/root/raccoon_blue_rigged/AthleteRoot/CharacterRig/Skeleton3D"
+        }
+      ],
+      "skinned_meshes": [
+        {
+          "multi_bone_vertices": 63,
+          "name": "ArmL_Skinned",
+          "skeleton_path": "..",
+          "skin_binds": 24,
+          "vertices": 372
+        },
+        {
+          "multi_bone_vertices": 124,
+          "name": "ArmR_Skinned",
+          "skeleton_path": "..",
+          "skin_binds": 24,
+          "vertices": 372
+        },
+        {
+          "multi_bone_vertices": 2565,
+          "name": "Body_Skinned",
+          "skeleton_path": "..",
+          "skin_binds": 24,
+          "vertices": 5654
+        },
+        {
+          "multi_bone_vertices": 174,
+          "name": "Forearm_Skinned",
+          "skeleton_path": "..",
+          "skin_binds": 24,
+          "vertices": 891
+        },
+        {
+          "multi_bone_vertices": 284,
+          "name": "ForearmR_Skinned",
+          "skeleton_path": "..",
+          "skin_binds": 24,
+          "vertices": 1031
+        },
+        {
+          "multi_bone_vertices": 260,
+          "name": "Head_Skinned",
+          "skeleton_path": "..",
+          "skin_binds": 24,
+          "vertices": 7028
+        },
+        {
+          "multi_bone_vertices": 84,
+          "name": "LegL_Skinned",
+          "skeleton_path": "..",
+          "skin_binds": 24,
+          "vertices": 273
+        },
+        {
+          "multi_bone_vertices": 84,
+          "name": "LegR_Skinned",
+          "skeleton_path": "..",
+          "skin_binds": 24,
+          "vertices": 273
+        },
+        {
+          "multi_bone_vertices": 337,
+          "name": "Shin_Skinned",
+          "skeleton_path": "..",
+          "skin_binds": 24,
+          "vertices": 1188
+        },
+        {
+          "multi_bone_vertices": 337,
+          "name": "ShinR_Skinned",
+          "skeleton_path": "..",
+          "skin_binds": 24,
+          "vertices": 1188
+        }
+      ],
+      "weapon": {
+        "AimNozzle": {
+          "global": "(0.31, 0.649231, -0.8)",
+          "local": "(0.0, 0.04, -0.51)",
+          "path": "/root/raccoon_blue_rigged/AthleteRoot/Weapon/AimNozzle"
+        },
+        "GunGrip": {
+          "global": "(0.31, 0.577, -0.288)",
+          "local": "(0.0, -0.032231, 0.002)",
+          "path": "/root/raccoon_blue_rigged/AthleteRoot/Weapon/GunGrip"
+        },
+        "Muzzle": {
+          "global": "(0.31, 0.649231, -0.8)",
+          "local": "(0.0, 0.04, -0.51)",
+          "path": "/root/raccoon_blue_rigged/AthleteRoot/Weapon/Muzzle"
+        },
+        "Weapon": {
+          "global": "(0.31, 0.609231, -0.29)",
+          "local": "(0.31, 0.609231, -0.29)",
+          "path": "/root/raccoon_blue_rigged/AthleteRoot/Weapon"
+        }
+      }
+    },
+    {
+      "actual_bone_palm_grip_error": {
+        "celebration": 0.000282812397927046,
+        "dash": 0.00035190093331039,
+        "defeat": 1.33031908262637e-05,
+        "hit": 0.000136635120725259,
+        "idle": 3.40738438353583e-06,
+        "pod": 0.000114731468784157,
+        "respawn": 3.25537548633292e-05,
+        "run": 0.000644068408291787,
+        "spray": 1.48944836837472e-05
+      },
+      "animation_player_path": "/root/raccoon_orange_rigged/AnimationPlayer",
+      "animations": {
+        "celebration": {
+          "length": 1.60000002384186,
+          "tracks": 25
+        },
+        "dash": {
+          "length": 0.5,
+          "tracks": 22
+        },
+        "defeat": {
+          "length": 1.20000004768372,
+          "tracks": 25
+        },
+        "hit": {
+          "length": 0.5,
+          "tracks": 24
+        },
+        "idle": {
+          "length": 2.0,
+          "tracks": 25
+        },
+        "pod": {
+          "length": 0.800000011920929,
+          "tracks": 24
+        },
+        "respawn": {
+          "length": 1.0,
+          "tracks": 25
+        },
+        "run": {
+          "length": 0.600000023841858,
+          "tracks": 25
+        },
+        "spray": {
+          "length": 0.800000011920929,
+          "tracks": 25
+        }
+      },
+      "errors": [],
+      "nozzle_pitch_checks": [
+        {
+          "muzzle_or_grip_drift": 0.0,
+          "pitch": -0.75
+        },
+        {
+          "muzzle_or_grip_drift": 0.0,
+          "pitch": -0.4
+        },
+        {
+          "muzzle_or_grip_drift": 0.0,
+          "pitch": 0.0
+        },
+        {
+          "muzzle_or_grip_drift": 0.0,
+          "pitch": 0.4
+        },
+        {
+          "muzzle_or_grip_drift": 0.0,
+          "pitch": 0.7
+        }
+      ],
+      "path": "/workspace/scratch/e3e9ec015b32/iland-dot/godot/modules/bloom_skirmish/art/models/animals/rigged/raccoon/raccoon_orange_rigged.glb",
+      "run_contact_4_6_world_per_second": [
+        {
+          "clip_stance_seconds": 0.2,
+          "foot": "L",
+          "predicted_world_foot_slip_during_contact": 7.65022941124349e-05,
+          "world_contact_speed": 4.60000364854932,
+          "world_stance_seconds_at_2_6x": 0.0769230769230769
+        },
+        {
+          "clip_stance_seconds": 0.2,
+          "foot": "R",
+          "predicted_world_foot_slip_during_contact": 7.65022941124349e-05,
+          "world_contact_speed": 4.60000364854932,
+          "world_stance_seconds_at_2_6x": 0.0769230769230769
+        }
+      ],
+      "skeletons": [
+        {
+          "bone_count": 24,
+          "bones": [
+            "Root",
+            "Pelvis",
+            "Spine",
+            "Chest",
+            "Head",
+            "EarBase.L",
+            "EarTip.L",
+            "EarBase.R",
+            "EarTip.R",
+            "UpperArm.L",
+            "Forearm.L",
+            "Hand.L",
+            "UpperArm.R",
+            "Forearm.R",
+            "Hand.R",
+            "Thigh.L",
+            "Shin.L",
+            "Foot.L",
+            "Thigh.R",
+            "Shin.R",
+            "Foot.R",
+            "Tail.01",
+            "Tail.02",
+            "Tail.03"
+          ],
+          "path": "/root/raccoon_orange_rigged/AthleteRoot/CharacterRig/Skeleton3D"
+        }
+      ],
+      "skinned_meshes": [
+        {
+          "multi_bone_vertices": 63,
+          "name": "ArmL_Skinned",
+          "skeleton_path": "..",
+          "skin_binds": 24,
+          "vertices": 372
+        },
+        {
+          "multi_bone_vertices": 124,
+          "name": "ArmR_Skinned",
+          "skeleton_path": "..",
+          "skin_binds": 24,
+          "vertices": 372
+        },
+        {
+          "multi_bone_vertices": 2565,
+          "name": "Body_Skinned",
+          "skeleton_path": "..",
+          "skin_binds": 24,
+          "vertices": 5654
+        },
+        {
+          "multi_bone_vertices": 174,
+          "name": "Forearm_Skinned",
+          "skeleton_path": "..",
+          "skin_binds": 24,
+          "vertices": 891
+        },
+        {
+          "multi_bone_vertices": 284,
+          "name": "ForearmR_Skinned",
+          "skeleton_path": "..",
+          "skin_binds": 24,
+          "vertices": 1031
+        },
+        {
+          "multi_bone_vertices": 260,
+          "name": "Head_Skinned",
+          "skeleton_path": "..",
+          "skin_binds": 24,
+          "vertices": 7028
+        },
+        {
+          "multi_bone_vertices": 84,
+          "name": "LegL_Skinned",
+          "skeleton_path": "..",
+          "skin_binds": 24,
+          "vertices": 273
+        },
+        {
+          "multi_bone_vertices": 84,
+          "name": "LegR_Skinned",
+          "skeleton_path": "..",
+          "skin_binds": 24,
+          "vertices": 273
+        },
+        {
+          "multi_bone_vertices": 337,
+          "name": "Shin_Skinned",
+          "skeleton_path": "..",
+          "skin_binds": 24,
+          "vertices": 1188
+        },
+        {
+          "multi_bone_vertices": 337,
+          "name": "ShinR_Skinned",
+          "skeleton_path": "..",
+          "skin_binds": 24,
+          "vertices": 1188
+        }
+      ],
+      "weapon": {
+        "AimNozzle": {
+          "global": "(0.31, 0.649231, -0.8)",
+          "local": "(0.0, 0.04, -0.51)",
+          "path": "/root/raccoon_orange_rigged/AthleteRoot/Weapon/AimNozzle"
+        },
+        "GunGrip": {
+          "global": "(0.31, 0.577, -0.288)",
+          "local": "(0.0, -0.032231, 0.002)",
+          "path": "/root/raccoon_orange_rigged/AthleteRoot/Weapon/GunGrip"
+        },
+        "Muzzle": {
+          "global": "(0.31, 0.649231, -0.8)",
+          "local": "(0.0, 0.04, -0.51)",
+          "path": "/root/raccoon_orange_rigged/AthleteRoot/Weapon/Muzzle"
+        },
+        "Weapon": {
+          "global": "(0.31, 0.609231, -0.29)",
+          "local": "(0.31, 0.609231, -0.29)",
+          "path": "/root/raccoon_orange_rigged/AthleteRoot/Weapon"
+        }
+      }
+    },
+    {
+      "actual_bone_palm_grip_error": {
+        "celebration": 0.00029817470931448,
+        "dash": 0.000489158148411661,
+        "defeat": 2.12696104426868e-05,
+        "hit": 0.000409906206186861,
+        "idle": 3.79345055989688e-06,
+        "pod": 0.000200916168978438,
+        "respawn": 5.987948316033e-05,
+        "run": 0.00121786072850227,
+        "spray": 4.24571080657188e-05
+      },
+      "animation_player_path": "/root/rabbit_blue_rigged/AnimationPlayer",
+      "animations": {
+        "celebration": {
+          "length": 1.60000002384186,
+          "tracks": 24
+        },
+        "dash": {
+          "length": 0.5,
+          "tracks": 21
+        },
+        "defeat": {
+          "length": 1.20000004768372,
+          "tracks": 24
+        },
+        "hit": {
+          "length": 0.5,
+          "tracks": 23
+        },
+        "idle": {
+          "length": 2.0,
+          "tracks": 24
+        },
+        "pod": {
+          "length": 0.800000011920929,
+          "tracks": 23
+        },
+        "respawn": {
+          "length": 1.0,
+          "tracks": 24
+        },
+        "run": {
+          "length": 0.600000023841858,
+          "tracks": 24
+        },
+        "spray": {
+          "length": 0.800000011920929,
+          "tracks": 24
+        }
+      },
+      "errors": [],
+      "nozzle_pitch_checks": [
+        {
+          "muzzle_or_grip_drift": 0.0,
+          "pitch": -0.75
+        },
+        {
+          "muzzle_or_grip_drift": 0.0,
+          "pitch": -0.4
+        },
+        {
+          "muzzle_or_grip_drift": 0.0,
+          "pitch": 0.0
+        },
+        {
+          "muzzle_or_grip_drift": 0.0,
+          "pitch": 0.4
+        },
+        {
+          "muzzle_or_grip_drift": 0.0,
+          "pitch": 0.7
+        }
+      ],
+      "path": "/workspace/scratch/e3e9ec015b32/iland-dot/godot/modules/bloom_skirmish/art/models/animals/rigged/rabbit/rabbit_blue_rigged.glb",
+      "run_contact_4_6_world_per_second": [
+        {
+          "clip_stance_seconds": 0.2,
+          "foot": "L",
+          "predicted_world_foot_slip_during_contact": 0.00110629078669425,
+          "world_contact_speed": 4.59999999701977,
+          "world_stance_seconds_at_2_6x": 0.0769230769230769
+        },
+        {
+          "clip_stance_seconds": 0.2,
+          "foot": "R",
+          "predicted_world_foot_slip_during_contact": 0.00110629078669425,
+          "world_contact_speed": 4.59999999701977,
+          "world_stance_seconds_at_2_6x": 0.0769230769230769
+        }
+      ],
+      "skeletons": [
+        {
+          "bone_count": 23,
+          "bones": [
+            "Root",
+            "Pelvis",
+            "Spine",
+            "Chest",
+            "Head",
+            "EarBase.L",
+            "EarTip.L",
+            "EarBase.R",
+            "EarTip.R",
+            "UpperArm.L",
+            "Forearm.L",
+            "Hand.L",
+            "UpperArm.R",
+            "Forearm.R",
+            "Hand.R",
+            "Thigh.L",
+            "Shin.L",
+            "Foot.L",
+            "Thigh.R",
+            "Shin.R",
+            "Foot.R",
+            "Tail.01",
+            "Tail.02"
+          ],
+          "path": "/root/rabbit_blue_rigged/AthleteRoot/CharacterRig/Skeleton3D"
+        }
+      ],
+      "skinned_meshes": [
+        {
+          "multi_bone_vertices": 66,
+          "name": "ArmL_Skinned",
+          "skeleton_path": "..",
+          "skin_binds": 23,
+          "vertices": 584
+        },
+        {
+          "multi_bone_vertices": 66,
+          "name": "ArmR_Skinned",
+          "skeleton_path": "..",
+          "skin_binds": 23,
+          "vertices": 584
+        },
+        {
+          "multi_bone_vertices": 2160,
+          "name": "Body_Skinned",
+          "skeleton_path": "..",
+          "skin_binds": 23,
+          "vertices": 5360
+        },
+        {
+          "multi_bone_vertices": 207,
+          "name": "Forearm_Skinned",
+          "skeleton_path": "..",
+          "skin_binds": 23,
+          "vertices": 665
+        },
+        {
+          "multi_bone_vertices": 207,
+          "name": "ForearmR_Skinned",
+          "skeleton_path": "..",
+          "skin_binds": 23,
+          "vertices": 665
+        },
+        {
+          "multi_bone_vertices": 661,
+          "name": "Head_Skinned",
+          "skeleton_path": "..",
+          "skin_binds": 23,
+          "vertices": 7095
+        },
+        {
+          "multi_bone_vertices": 83,
+          "name": "LegL_Skinned",
+          "skeleton_path": "..",
+          "skin_binds": 23,
+          "vertices": 360
+        },
+        {
+          "multi_bone_vertices": 83,
+          "name": "LegR_Skinned",
+          "skeleton_path": "..",
+          "skin_binds": 23,
+          "vertices": 360
+        },
+        {
+          "multi_bone_vertices": 200,
+          "name": "Shin_Skinned",
+          "skeleton_path": "..",
+          "skin_binds": 23,
+          "vertices": 1209
+        },
+        {
+          "multi_bone_vertices": 200,
+          "name": "ShinR_Skinned",
+          "skeleton_path": "..",
+          "skin_binds": 23,
+          "vertices": 1209
+        }
+      ],
+      "weapon": {
+        "AimNozzle": {
+          "global": "(0.31, 0.649231, -0.8)",
+          "local": "(0.0, 0.04, -0.51)",
+          "path": "/root/rabbit_blue_rigged/AthleteRoot/Weapon/AimNozzle"
+        },
+        "GunGrip": {
+          "global": "(0.285, 0.761561, -0.162603)",
+          "local": "(-0.025, 0.15233, 0.127397)",
+          "path": "/root/rabbit_blue_rigged/AthleteRoot/Weapon/GunGrip"
+        },
+        "Muzzle": {
+          "global": "(0.31, 0.649231, -0.8)",
+          "local": "(0.0, 0.04, -0.51)",
+          "path": "/root/rabbit_blue_rigged/AthleteRoot/Weapon/Muzzle"
+        },
+        "Weapon": {
+          "global": "(0.31, 0.609231, -0.29)",
+          "local": "(0.31, 0.609231, -0.29)",
+          "path": "/root/rabbit_blue_rigged/AthleteRoot/Weapon"
+        }
+      }
+    },
+    {
+      "actual_bone_palm_grip_error": {
+        "celebration": 0.00029817470931448,
+        "dash": 0.000489158148411661,
+        "defeat": 2.12696104426868e-05,
+        "hit": 0.000409906206186861,
+        "idle": 3.79345055989688e-06,
+        "pod": 0.000200916168978438,
+        "respawn": 5.987948316033e-05,
+        "run": 0.00121786072850227,
+        "spray": 4.24571080657188e-05
+      },
+      "animation_player_path": "/root/rabbit_orange_rigged/AnimationPlayer",
+      "animations": {
+        "celebration": {
+          "length": 1.60000002384186,
+          "tracks": 24
+        },
+        "dash": {
+          "length": 0.5,
+          "tracks": 21
+        },
+        "defeat": {
+          "length": 1.20000004768372,
+          "tracks": 24
+        },
+        "hit": {
+          "length": 0.5,
+          "tracks": 23
+        },
+        "idle": {
+          "length": 2.0,
+          "tracks": 24
+        },
+        "pod": {
+          "length": 0.800000011920929,
+          "tracks": 23
+        },
+        "respawn": {
+          "length": 1.0,
+          "tracks": 24
+        },
+        "run": {
+          "length": 0.600000023841858,
+          "tracks": 24
+        },
+        "spray": {
+          "length": 0.800000011920929,
+          "tracks": 24
+        }
+      },
+      "errors": [],
+      "nozzle_pitch_checks": [
+        {
+          "muzzle_or_grip_drift": 0.0,
+          "pitch": -0.75
+        },
+        {
+          "muzzle_or_grip_drift": 0.0,
+          "pitch": -0.4
+        },
+        {
+          "muzzle_or_grip_drift": 0.0,
+          "pitch": 0.0
+        },
+        {
+          "muzzle_or_grip_drift": 0.0,
+          "pitch": 0.4
+        },
+        {
+          "muzzle_or_grip_drift": 0.0,
+          "pitch": 0.7
+        }
+      ],
+      "path": "/workspace/scratch/e3e9ec015b32/iland-dot/godot/modules/bloom_skirmish/art/models/animals/rigged/rabbit/rabbit_orange_rigged.glb",
+      "run_contact_4_6_world_per_second": [
+        {
+          "clip_stance_seconds": 0.2,
+          "foot": "L",
+          "predicted_world_foot_slip_during_contact": 0.00110629078669425,
+          "world_contact_speed": 4.59999999701977,
+          "world_stance_seconds_at_2_6x": 0.0769230769230769
+        },
+        {
+          "clip_stance_seconds": 0.2,
+          "foot": "R",
+          "predicted_world_foot_slip_during_contact": 0.00110629078669425,
+          "world_contact_speed": 4.59999999701977,
+          "world_stance_seconds_at_2_6x": 0.0769230769230769
+        }
+      ],
+      "skeletons": [
+        {
+          "bone_count": 23,
+          "bones": [
+            "Root",
+            "Pelvis",
+            "Spine",
+            "Chest",
+            "Head",
+            "EarBase.L",
+            "EarTip.L",
+            "EarBase.R",
+            "EarTip.R",
+            "UpperArm.L",
+            "Forearm.L",
+            "Hand.L",
+            "UpperArm.R",
+            "Forearm.R",
+            "Hand.R",
+            "Thigh.L",
+            "Shin.L",
+            "Foot.L",
+            "Thigh.R",
+            "Shin.R",
+            "Foot.R",
+            "Tail.01",
+            "Tail.02"
+          ],
+          "path": "/root/rabbit_orange_rigged/AthleteRoot/CharacterRig/Skeleton3D"
+        }
+      ],
+      "skinned_meshes": [
+        {
+          "multi_bone_vertices": 66,
+          "name": "ArmL_Skinned",
+          "skeleton_path": "..",
+          "skin_binds": 23,
+          "vertices": 584
+        },
+        {
+          "multi_bone_vertices": 66,
+          "name": "ArmR_Skinned",
+          "skeleton_path": "..",
+          "skin_binds": 23,
+          "vertices": 584
+        },
+        {
+          "multi_bone_vertices": 2160,
+          "name": "Body_Skinned",
+          "skeleton_path": "..",
+          "skin_binds": 23,
+          "vertices": 5360
+        },
+        {
+          "multi_bone_vertices": 207,
+          "name": "Forearm_Skinned",
+          "skeleton_path": "..",
+          "skin_binds": 23,
+          "vertices": 665
+        },
+        {
+          "multi_bone_vertices": 207,
+          "name": "ForearmR_Skinned",
+          "skeleton_path": "..",
+          "skin_binds": 23,
+          "vertices": 665
+        },
+        {
+          "multi_bone_vertices": 661,
+          "name": "Head_Skinned",
+          "skeleton_path": "..",
+          "skin_binds": 23,
+          "vertices": 7095
+        },
+        {
+          "multi_bone_vertices": 83,
+          "name": "LegL_Skinned",
+          "skeleton_path": "..",
+          "skin_binds": 23,
+          "vertices": 360
+        },
+        {
+          "multi_bone_vertices": 83,
+          "name": "LegR_Skinned",
+          "skeleton_path": "..",
+          "skin_binds": 23,
+          "vertices": 360
+        },
+        {
+          "multi_bone_vertices": 200,
+          "name": "Shin_Skinned",
+          "skeleton_path": "..",
+          "skin_binds": 23,
+          "vertices": 1209
+        },
+        {
+          "multi_bone_vertices": 200,
+          "name": "ShinR_Skinned",
+          "skeleton_path": "..",
+          "skin_binds": 23,
+          "vertices": 1209
+        }
+      ],
+      "weapon": {
+        "AimNozzle": {
+          "global": "(0.31, 0.649231, -0.8)",
+          "local": "(0.0, 0.04, -0.51)",
+          "path": "/root/rabbit_orange_rigged/AthleteRoot/Weapon/AimNozzle"
+        },
+        "GunGrip": {
+          "global": "(0.285, 0.761561, -0.162603)",
+          "local": "(-0.025, 0.15233, 0.127397)",
+          "path": "/root/rabbit_orange_rigged/AthleteRoot/Weapon/GunGrip"
+        },
+        "Muzzle": {
+          "global": "(0.31, 0.649231, -0.8)",
+          "local": "(0.0, 0.04, -0.51)",
+          "path": "/root/rabbit_orange_rigged/AthleteRoot/Weapon/Muzzle"
+        },
+        "Weapon": {
+          "global": "(0.31, 0.609231, -0.29)",
+          "local": "(0.31, 0.609231, -0.29)",
+          "path": "/root/rabbit_orange_rigged/AthleteRoot/Weapon"
+        }
+      }
+    }
+  ]
+}

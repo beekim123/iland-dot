@@ -1,0 +1,66 @@
+{
+  "status": "PASS",
+  "teams": [
+    {
+      "file": "models/animals/otter/otter_blue.glb",
+      "bytes": 876888,
+      "mesh_count": 11,
+      "triangle_count": 38080,
+      "root_children": [
+        "ArmL",
+        "ArmR",
+        "Body",
+        "Head",
+        "LegL",
+        "LegR",
+        "Weapon"
+      ],
+      "right_grip_idle": [
+        0.2849999964237213,
+        0.7485609323760717,
+        -0.16260253764252736
+      ],
+      "physical_muzzle": [
+        0.40300000309944156,
+        0.8840000116825104,
+        -1.0399999767541885
+      ],
+      "embedded_only": true,
+      "hierarchy_pass": true
+    },
+    {
+      "file": "models/animals/otter/otter_orange.glb",
+      "bytes": 876928,
+      "mesh_count": 11,
+      "triangle_count": 38080,
+      "root_children": [
+        "ArmL",
+        "ArmR",
+        "Body",
+        "Head",
+        "LegL",
+        "LegR",
+        "Weapon"
+      ],
+      "right_grip_idle": [
+        0.2849999964237213,
+        0.7485609323760717,
+        -0.16260253764252736
+      ],
+      "physical_muzzle": [
+        0.40300000309944156,
+        0.8840000116825104,
+        -1.0399999767541885
+      ],
+      "embedded_only": true,
+      "hierarchy_pass": true
+    }
+  ],
+  "team_variant_changed_materials": [
+    "Cobalt or orange team accent",
+    "Visible team liquid"
+  ],
+  "natural_fur_identical_across_teams": true,
+  "grip_check": "The right front paw center exactly matches the animal-specific transverse rear/top U grip in common idle pose (+0.50 arm X, +0.70 forearm X). No human hanging pistol handle; natural high short forepaws retained.",
+  "external_assets": false
+}

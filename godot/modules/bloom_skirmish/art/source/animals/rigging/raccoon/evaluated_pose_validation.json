@@ -1,0 +1,157 @@
+{
+  "status": "PASS",
+  "assets": [
+    {
+      "species": "raccoon",
+      "team": "blue",
+      "status": "PASS",
+      "actual_armature_modifiers": 10,
+      "clips": {
+        "celebration": {
+          "max_right_palm_error": 8.940696716308594e-08,
+          "max_arm_joint_gap": 2.5636927089222153e-07,
+          "max_leg_joint_gap": 3.77138498753827e-07,
+          "min_hindpaw_surface_height": -1.7345026748216696e-08,
+          "max_bone_length_relative_error": 5.731247587181798e-06
+        },
+        "dash": {
+          "max_right_palm_error": 1.228781230931777e-07,
+          "max_arm_joint_gap": 2.4755668231600746e-07,
+          "max_leg_joint_gap": 5.066942613100798e-07,
+          "min_hindpaw_surface_height": -3.1948161449690815e-08,
+          "max_bone_length_relative_error": 5.731247587181798e-06
+        },
+        "defeat": {
+          "max_right_palm_error": 1.0745380149674383e-07,
+          "max_arm_joint_gap": 2.4405627480386493e-07,
+          "max_leg_joint_gap": 5.375272478290723e-07,
+          "min_hindpaw_surface_height": -3.155489736172967e-08,
+          "max_bone_length_relative_error": 5.731247587181798e-06
+        },
+        "hit": {
+          "max_right_palm_error": 1.228781230931777e-07,
+          "max_arm_joint_gap": 3.2816403427042423e-07,
+          "max_leg_joint_gap": 3.607189189466895e-07,
+          "min_hindpaw_surface_height": -3.283198424242073e-08,
+          "max_bone_length_relative_error": 5.731247587181798e-06
+        },
+        "idle": {
+          "max_right_palm_error": 8.940696716308594e-08,
+          "max_arm_joint_gap": 2.086162567138672e-07,
+          "max_leg_joint_gap": 2.906263684618289e-07,
+          "min_hindpaw_surface_height": -3.232953815768269e-08,
+          "max_bone_length_relative_error": 5.731247587181798e-06
+        },
+        "pod": {
+          "max_right_palm_error": 8.429369702178807e-08,
+          "max_arm_joint_gap": 2.421152116249788e-07,
+          "max_leg_joint_gap": 5.105686694089119e-07,
+          "min_hindpaw_surface_height": -3.1545617673600646e-08,
+          "max_bone_length_relative_error": 5.731247587181798e-06
+        },
+        "respawn": {
+          "max_right_palm_error": 8.940696716308594e-08,
+          "max_arm_joint_gap": 2.461018802046304e-07,
+          "max_leg_joint_gap": 4.931473953537021e-07,
+          "min_hindpaw_surface_height": -3.612939281083527e-08,
+          "max_bone_length_relative_error": 5.731247587181798e-06
+        },
+        "run": {
+          "max_right_palm_error": 1.2644054553268208e-07,
+          "max_arm_joint_gap": 4.948925829705488e-07,
+          "max_leg_joint_gap": 5.075699487403363e-07,
+          "min_hindpaw_surface_height": -3.318495345183692e-08,
+          "max_bone_length_relative_error": 5.845872538934316e-06
+        },
+        "spray": {
+          "max_right_palm_error": 1.1920928955078125e-07,
+          "max_arm_joint_gap": 2.5636927089222153e-07,
+          "max_leg_joint_gap": 2.917701490215986e-07,
+          "min_hindpaw_surface_height": -2.8147923103460926e-08,
+          "max_bone_length_relative_error": 5.731247587181798e-06
+        }
+      },
+      "physical_muzzle": [
+        0.40300000309944156,
+        0.8840000116825104,
+        -1.0399999380111695
+      ]
+    },
+    {
+      "species": "raccoon",
+      "team": "orange",
+      "status": "PASS",
+      "actual_armature_modifiers": 10,
+      "clips": {
+        "celebration": {
+          "max_right_palm_error": 8.940696716308594e-08,
+          "max_arm_joint_gap": 2.5636927089222153e-07,
+          "max_leg_joint_gap": 3.77138498753827e-07,
+          "min_hindpaw_surface_height": -1.7345026748216696e-08,
+          "max_bone_length_relative_error": 5.731247587181798e-06
+        },
+        "dash": {
+          "max_right_palm_error": 1.228781230931777e-07,
+          "max_arm_joint_gap": 2.4755668231600746e-07,
+          "max_leg_joint_gap": 5.066942613100798e-07,
+          "min_hindpaw_surface_height": -3.1948161449690815e-08,
+          "max_bone_length_relative_error": 5.731247587181798e-06
+        },
+        "defeat": {
+          "max_right_palm_error": 1.0745380149674383e-07,
+          "max_arm_joint_gap": 2.4405627480386493e-07,
+          "max_leg_joint_gap": 5.375272478290723e-07,
+          "min_hindpaw_surface_height": -3.155489736172967e-08,
+          "max_bone_length_relative_error": 5.731247587181798e-06
+        },
+        "hit": {
+          "max_right_palm_error": 1.228781230931777e-07,
+          "max_arm_joint_gap": 3.2816403427042423e-07,
+          "max_leg_joint_gap": 3.607189189466895e-07,
+          "min_hindpaw_surface_height": -3.283198424242073e-08,
+          "max_bone_length_relative_error": 5.731247587181798e-06
+        },
+        "idle": {
+          "max_right_palm_error": 8.940696716308594e-08,
+          "max_arm_joint_gap": 2.086162567138672e-07,
+          "max_leg_joint_gap": 2.906263684618289e-07,
+          "min_hindpaw_surface_height": -3.232953815768269e-08,
+          "max_bone_length_relative_error": 5.731247587181798e-06
+        },
+        "pod": {
+          "max_right_palm_error": 8.429369702178807e-08,
+          "max_arm_joint_gap": 2.421152116249788e-07,
+          "max_leg_joint_gap": 5.105686694089119e-07,
+          "min_hindpaw_surface_height": -3.1545617673600646e-08,
+          "max_bone_length_relative_error": 5.731247587181798e-06
+        },
+        "respawn": {
+          "max_right_palm_error": 8.940696716308594e-08,
+          "max_arm_joint_gap": 2.461018802046304e-07,
+          "max_leg_joint_gap": 4.931473953537021e-07,
+          "min_hindpaw_surface_height": -3.612939281083527e-08,
+          "max_bone_length_relative_error": 5.731247587181798e-06
+        },
+        "run": {
+          "max_right_palm_error": 1.2644054553268208e-07,
+          "max_arm_joint_gap": 4.948925829705488e-07,
+          "max_leg_joint_gap": 5.075699487403363e-07,
+          "min_hindpaw_surface_height": -3.318495345183692e-08,
+          "max_bone_length_relative_error": 5.845872538934316e-06
+        },
+        "spray": {
+          "max_right_palm_error": 1.1920928955078125e-07,
+          "max_arm_joint_gap": 2.5636927089222153e-07,
+          "max_leg_joint_gap": 2.917701490215986e-07,
+          "min_hindpaw_surface_height": -2.8147923103460926e-08,
+          "max_bone_length_relative_error": 5.731247587181798e-06
+        }
+      },
+      "physical_muzzle": [
+        0.40300000309944156,
+        0.8840000116825104,
+        -1.0399999380111695
+      ]
+    }
+  ]
+}

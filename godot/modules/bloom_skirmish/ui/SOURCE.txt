@@ -1,0 +1,4 @@
+bloom_hud.gd, bloom_icon.gd, turf.gdshader: original project implementation, 2026-10-27.
+bloom-ui.otf: subset of system NotoSansCJK-Bold.ttc, face 2 (Simplified Chinese), generated with fonttools via subset_font.py; characters in font-characters.txt. SIL Open Font License, see OFL.txt.
+Rebuild: python3 subset_font.py [--source /path/to/NotoSansCJK-Bold.ttc]. Verify: python3 subset_font.py --check. The script gathers printable codepoints from this module's GDScript sources and ASCII, then verifies the saved subset covers them. Run again after changing UI text.
+The font is copied into this module; no hub, sibling module, network, or operating-system font dependency at runtime.

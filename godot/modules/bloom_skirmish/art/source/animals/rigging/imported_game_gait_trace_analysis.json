@@ -1,0 +1,43 @@
+{
+  "trace_source": "/tmp/bloom-final-animal-game.ZaVIBg/gait-trace.json",
+  "method": "Read-only analysis of independent QA actual game trace; exact authoring stance intervals and known rigid-foot sole offset, no test threshold changes",
+  "nominal_floor_world_y": 0.04,
+  "assets": [
+    {
+      "species": "otter",
+      "nominal_foot_head_world_y": 0.12840000000000001,
+      "exact_phase_stance_consecutive_sample_count": 64,
+      "peak_horizontal_foot_slip_world_per_frame": 0.0009083755685827027,
+      "sole_y_relative_to_nominal_floor_min": -0.0032378902673720067,
+      "sole_y_relative_to_nominal_floor_max": 2.7751922981877897e-08,
+      "interpretation": "Small negative vertical interpolation residual; not an airborne stance. Independent root QA decides acceptance."
+    },
+    {
+      "species": "rabbit",
+      "nominal_foot_head_world_y": 0.1375,
+      "exact_phase_stance_consecutive_sample_count": 64,
+      "peak_horizontal_foot_slip_world_per_frame": 0.001238882609034402,
+      "sole_y_relative_to_nominal_floor_min": -0.0038885593414310082,
+      "sole_y_relative_to_nominal_floor_max": 4.7683715975743723e-08,
+      "interpretation": "Small negative vertical interpolation residual; not an airborne stance. Independent root QA decides acceptance."
+    },
+    {
+      "species": "fox",
+      "nominal_foot_head_world_y": 0.1375,
+      "exact_phase_stance_consecutive_sample_count": 64,
+      "peak_horizontal_foot_slip_world_per_frame": 0.0006036946744178787,
+      "sole_y_relative_to_nominal_floor_min": -0.0013484328985210181,
+      "sole_y_relative_to_nominal_floor_max": 4.2796134950007225e-06,
+      "interpretation": "Small negative vertical interpolation residual; not an airborne stance. Independent root QA decides acceptance."
+    },
+    {
+      "species": "raccoon",
+      "nominal_foot_head_world_y": 0.1479,
+      "exact_phase_stance_consecutive_sample_count": 64,
+      "peak_horizontal_foot_slip_world_per_frame": 0.0005504097257290998,
+      "sole_y_relative_to_nominal_floor_min": -0.0016285625934600034,
+      "sole_y_relative_to_nominal_floor_max": -1.6369819599848512e-07,
+      "interpretation": "Small negative vertical interpolation residual; not an airborne stance. Independent root QA decides acceptance."
+    }
+  ]
+}
