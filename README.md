@@ -2,7 +2,7 @@
 
 Godot **4.7.2 stable** 的独立 Q 版海岛大厅和模块化小游戏工程。仓库：<https://github.com/beekim123/iland-dot>。不改动 Valley Deck 项目。
 
-> **绒芽争园正在重新设计独立美术/UI风格，尚未完成或发布。** 第三人称与液体功能已建立测试证据，但用户再次否定当前美术/UI，要求每个新项目独立设计；当前运行画面和Web包不得当作最终交付。 用户已否定原俯视镜头；旧 VISUAL_REV3、旧 Web ZIP 和 05:56 UTC 的通过记录仅保留为历史证据，不代表当前修订完成。最新目标见[修订研究](docs/research/bloom-third-person-liquid.md)和[任务板](docs/project/TASKBOARD.md)。
+> **绒芽争园动物版源码已发布**：[cc7bed6](https://github.com/beekim123/iland-dot/commit/cc7bed614ff010737ca0761c4bd86c960330382d)，完整原生回合、宿主与真正抽离验证通过；新动物 Web 包、用户设备性能及整场环境美术改版不冒称完成。当前开发第三款「逐潮小鱼」，之后按 [开发队列](docs/project/DEVELOPMENT-QUEUE.md) 依次制作鹈鹕急送、拾光海滩、火山岛逃生。旧俯视/人类版和旧 Web 包仅作历史，不继续交付。
 
 ## 运行
 用 Godot 导入 `godot/project.godot`，资源导入完成后按 F5。运行资源已包含，不需要安装 Blender。Linux 可用 `GODOT_BIN=/path/to/godot tools/run.sh`；云端脚本默认使用同级 tools 目录内的 4.7.2。
@@ -13,18 +13,18 @@ Godot **4.7.2 stable** 的独立 Q 版海岛大厅和模块化小游戏工程。
 ```bash
 GODOT_BIN=/path/to/Godot tools/run.sh res://modules/bloom_skirmish/main.tscn
 ```
-开发目标为第三人称肩后追随、鼠标环视/中心准星、相机相对移动与粘稠花露喷射。按键与鼠标捕获正在调整，最终以模块 README 和屏幕提示为准；旧俯视操作说明不是本次最终合同。直接启动与海岛第二扇青色门使用同一模块。
+当前动物版为第三人称肩后追随、鼠标环视/中心准星、相机相对移动与粘稠花露喷射。准确按键与鼠标捕获以模块 README 和屏幕提示为准；旧俯视操作说明已失效。直接启动与海岛第二扇青色门使用同一模块。
 
 ## 项目边界
 - `godot/app/`：宿主注册表与路由。
 - `godot/hub/`：彩色传送门与交互。
 - `godot/modules/gummy_bomber/`：自包含软糖炸弹迷宫，美术/音频/规则/测试一起管理。
-- `godot/modules/bloom_skirmish/`：自包含「绒芽争园」，玩家与机器人争地；第三人称与液体表现修订中，仍须保留完整单局、结果、重开、回岛，非联网对战。
+- `godot/modules/bloom_skirmish/`：自包含「绒芽争园」，玩家与机器人争地；动物版第三人称完整单局、结果、重开、回岛已验证，非联网对战。
 - `art/`：Blender 源模型、生成器与骨骼审计。
 - `docs/project/`：架构、任务板、路线图、素材策略。
 - `docs/acceptance/`：实际验收记录，未通过项不会只凭计划标完成。
 
-当前开发版增加双鸟与海豚，保留真实骨骼/蒙皮；海龟和螃蟹缩小约30%。第二门原贪吃蛇计划由用户批准的[绒芽争园完整玩法](docs/design/bloom-skirmish.md)替代；其余未来游戏仍锁定。旧俯视实现曾通过无头套件与 Linux 原生流程检查，但用户随后否定其镜头/喷射表现；新第三人称版本必须重新验收，当前不得标完成。声音试听、浏览器和用户 Mac 等限制见[任务板](docs/project/TASKBOARD.md)。每个游戏存档隔离到 `user://games/<id>/`，海岛预留 `user://hub/`。
+当前开发版增加双鸟与海豚，保留真实骨骼/蒙皮；海龟和螃蟹缩小约30%。第二门原贪吃蛇计划由用户批准的[绒芽争园完整玩法](docs/design/bloom-skirmish.md)替代；后续四款见[开发队列](docs/project/DEVELOPMENT-QUEUE.md)，当前仅第三款在制作。最新动物版验收见[原生记录](docs/acceptance/bloom-animal-native.md)与[独立 QA](docs/acceptance/bloom-skirmish-independent.md)，旧俯视通过记录不能替代当前结果。声音试听、浏览器和用户 Mac 等限制见[任务板](docs/project/TASKBOARD.md)。每个游戏存档隔离到 `user://games/<id>/`，海岛预留 `user://hub/`。
 
 ## 独立抽离游戏
 ```bash

@@ -1,6 +1,6 @@
 # 海岛与小游戏模块架构
 
-> 当前状态：Bloom 第三人称/液体表现重做中。原俯视版测试不证明本次修订已完成；入口与模块边界保留，所有受影响功能须重新验证。
+> 当前源码基线：Bloom 最终动物版已验证并发布 [cc7bed6](https://github.com/beekim123/iland-dot/commit/cc7bed614ff010737ca0761c4bd86c960330382d)。第三款 Tide Gulp 正在实现；后续按[开发队列](DEVELOPMENT-QUEUE.md)顺序推进，本文设计安排不代表入口已经开放。
 
 ## 目录边界
 - `godot/app/`：宿主入口、注册表与场景路由。只有宿主知道游戏清单。
@@ -19,7 +19,7 @@
 
 `gummy_bomber` 固定存档位于 `user://games/gummy_bomber/`；`bloom_skirmish` 使用 `user://games/bloom_skirmish/profile.json`（schema v1）；宿主数据预留 `user://hub/`。存档格式独立带版本号，未知新版本不得删除或覆盖；模块迁移只能修改本模块数据。禁止全局 `user://save.json`。独立导出的应用具有不同应用数据目录，此为隔离而非自动同步。
 
-注册表描述 `id/title/enabled/scene_path/color/description`。前三项依次对应粉色 `gummy_bomber`、青色 `bloom_skirmish`、紫色未开放 `reef_memory`；第四个计划 `cloud_hop` 仍禁用且不增加岛上槽位。原 `snake` ID 已退役，不保留别名或跨游戏存档迁移。`enabled` 是开发中的入口开关，不等于用户验收或发布状态；Bloom 当前开放供重做与回归，不能据此宣称完成。未开放传送门只能给出锁定提示，不能载入占位游戏。路由保留岛屿镜头与实例，暂停岛屿输入/动画/音乐，进入游戏直接开始，不经过选关。
+注册表描述 `id/title/enabled/scene_path/color/description`。已发布 cc7bed6 基线的前三项依次对应粉色 `gummy_bomber`、青色 `bloom_skirmish`、紫色未开放 `reef_memory`；第四个计划 `cloud_hop` 仍禁用且不增加岛上槽位。原 `snake` ID 已退役，不保留别名或跨游戏存档迁移。`enabled` 是开发中的入口开关，不等于用户验收或发布状态；Bloom 动物版有独立验收与源码发布证据，但入口开启本身仍不是验收证明。未开放传送门只能给出锁定提示，不能载入占位游戏。路由保留岛屿镜头与实例，暂停岛屿输入/动画/音乐，进入游戏直接开始，不经过选关。
 
 ## 启动
 
@@ -45,7 +45,11 @@ python3 tools/extract_game.py bloom_skirmish /tmp/bloom-standalone
 
 `godot/tests/check_app.gd` 交替验证两种游戏共 20 次入退，第二门通过实际 hub 激活路径进入；保存岛屿实例、镜头变换、三门随机位置、HUD 可见性和每个音轨之前的暂停状态。游戏相机使用局部 `Environment`，不覆盖海岛全局环境。`godot/hub/tests/test_hub.gd` 验证两扇已开放门、第三门锁定、拖动防误触、暂停/恢复和有界声音池。抽离与实机验收单独进行，不从无头结果推断图形或浏览器成功。
 
-2026-10-27 05:56 UTC 的旧俯视源码曾通过完整 `tools/test_all.sh`、Linux 原生180秒流程与青色门往返；用户于05:59 UTC明确否定其镜头效果，现已重开验收。第三人称相机、中心准星/喷口遮挡、输入捕获、带高度弹道、权威液体覆盖与全部回归尚须针对新冻结源码重跑。旧日志不得冒充修订后的结果；主观试听、浏览器WebGL2与用户Mac亦未验证。详细证据与平台限制见[任务板](TASKBOARD.md)、[独立QA](../acceptance/bloom-skirmish-independent.md)、[原生图形QA](../acceptance/bloom-native-gui.md)。
+旧俯视测试仅作历史；最终动物版已完成新的宿主、真正抽离、规则/资源/生命周期及原生自然 180 秒、重开、回岛和关闭验证。发布时测量工具与清单的最小适配另有干净树专项，原完整聚合与发布源差异明确记录。细节见[任务板](TASKBOARD.md)、[独立 QA](../acceptance/bloom-skirmish-independent.md)、[动物原生 QA](../acceptance/bloom-animal-native.md)。主观试听、浏览器 WebGL2 和用户 Mac/GPU 不从这些结果推断。
+
+## 后续模块与入口计划
+
+`tide_gulp` → `pelican_pedal` → `beach_cleanup` → `volcano_escape` 顺序实施；各自固定 `user://games/<id>/`，保存格式独立版本化，遵守相同退出与抽离协议。Tide Gulp 计划替换第三槽 `reef_memory`；Pelican Pedal 计划替换 `cloud_hop`，实际门位在实施时处理。旧占位 ID 不保留存档别名，第五/六款也不借用其他游戏数据。**本次仅提交设计和队列，不改 registry/runtime，也不包含正在开发的鱼游戏源码。** 不允许跨模块运行依赖或把前作视觉主题当成默认模板。
 
 ## 发布规则
 小步提交；提交前跑资源导入、模块规则测试和路由生命周期测试。运行截图只取真实 Godot 视口，素材渲染不可标为实机图。远端更新必须为 fast-forward，先查最新 head，再发布；不得 force 覆盖用户提交。
