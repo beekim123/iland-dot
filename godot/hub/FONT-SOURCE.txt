@@ -9,3 +9,6 @@ License: SIL Open Font License 1.1; full text and original notice retained in
 second portal hover title. No glyph art, typeface or weight was redrawn/replaced.
 The exact glyph set is tools/font-codepoints.txt. Reproduce with fontTools:
   python3 godot/hub/tools/subset_font.py [--source /path/to/NotoSansCJK-Regular.ttc]
+
+2026-10-27: added only 逐潮小鱼 glyph coverage for the third purple portal;
+retained the same source face and all pre-existing glyphs.

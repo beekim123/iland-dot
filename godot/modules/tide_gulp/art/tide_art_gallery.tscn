@@ -1,0 +1,4 @@
+[gd_scene load_steps=2 format=3]
+[ext_resource type="Script" path="res://modules/tide_gulp/art/tide_art_gallery.gd" id="1"]
+[node name="TideWatercolorGallery" type="Node3D"]
+script = ExtResource("1")

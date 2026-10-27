@@ -3,12 +3,20 @@ extends Node3D
 signal portal_requested(game_id: String)
 const PORTAL = preload("res://hub/portal.gd")
 const DRAG_THRESHOLD := 7.0
+const PICK_TRIANGLE_BUDGET := 16384
 # Keep unknown/planned games locked even when preview metadata incorrectly enables them.
-const IMPLEMENTED_GAME_IDS := ["gummy_bomber", "bloom_skirmish"]
+const IMPLEMENTED_GAME_IDS := ["gummy_bomber", "bloom_skirmish", "tide_gulp"]
 var world: Node3D
 var camera: Camera3D
 var portals: Array[Node3D] = []
 var pickables: Array[MeshInstance3D] = []
+var pick_triangles: Dictionary = {}
+var pick_triangle_tests := 0
+var pick_budget_exhausted := false
+var visible_layout_sites: Array[Dictionary] = []
+var valid_layouts: Array = []
+var selected_layout: Array = []
+var layout_fallback_used := false
 var sounds: Dictionary = {}
 var voices: Array[AudioStreamPlayer] = []
 var hovered: Node3D
@@ -30,7 +38,7 @@ func setup(p_world: Node3D, p_camera: Camera3D, registry = null) -> void:
 	var entries: Array = [
 		{"id":"gummy_bomber","title":"GUMMY POP","enabled":true,"color":"ff439c"},
 		{"id":"bloom_skirmish","title":"BLOOM SKIRMISH","enabled":true,"color":"23dcca"},
-		{"id":"reef_memory","title":"REEF MEMORY","enabled":false,"color":"9864ff"}]
+		{"id":"tide_gulp","title":"逐潮小鱼","enabled":true,"color":"9864ff"}]
 	if registry is Object and registry.has_method("list_games"):
 		entries = registry.list_games()
 	elif registry is Array: entries = registry
@@ -39,22 +47,27 @@ func setup(p_world: Node3D, p_camera: Camera3D, registry = null) -> void:
 	var rng := RandomNumberGenerator.new(); rng.seed = session_seed
 	var site_data: Dictionary = JSON.parse_string(FileAccess.get_file_as_string("res://hub/portal_sites.json"))
 	var sites: Array = site_data.points
-	# Seeded shuffle, not global random state. Keep portal footprints separated.
-	for i in range(sites.size()-1,0,-1):
-		var j := rng.randi_range(0,i); var tmp = sites[i]; sites[i] = sites[j]; sites[j] = tmp
-	for entry in entries:
-		if portals.size() >= 3: break
-		for site in sites:
-			var p := Vector3(site[0],site[1],site[2])
-			var clear := true
-			for other in portals:
-				if other.position.distance_to(p) < 2.15: clear = false
-			if not clear: continue
-			var portal := PORTAL.new(); add_child(portal); portal.position = p
-			# Planned/unknown entries remain locked regardless of incoming metadata.
-			var safe_entry: Dictionary = entry.duplicate(); safe_entry["enabled"] = str(entry.get("id","")) in IMPLEMENTED_GAME_IDS and bool(entry.get("enabled",true))
-			safe_entry["ground_patch"] = site_data.get("ground_patches",{}).get("%d:%d" % [roundi(p.x*1000),roundi(p.z*1000)],[])
-			portal.configure(safe_entry); portals.append(portal); break
+	# Validate against the actual initial camera and imported island geometry
+	# before randomizing. World-space separation alone hides doors in trees or
+	# overlaps them on screen even when their terrain footprints are separate.
+	_refresh_pickables()
+	visible_layout_sites = _visible_sites(sites)
+	valid_layouts = _enumerate_layouts(visible_layout_sites)
+	selected_layout = _select_layout(rng.randi_range(0,valid_layouts.size()-1) if not valid_layouts.is_empty() else -1)
+	# Rotate which color occupies each visible site, still seed-reproducibly.
+	for i in range(selected_layout.size()-1,0,-1):
+		var j := rng.randi_range(0,i)
+		var swap = selected_layout[i]; selected_layout[i] = selected_layout[j]; selected_layout[j] = swap
+	for slot in mini(3,entries.size()):
+		if slot >= selected_layout.size(): break
+		var entry: Dictionary = entries[slot]
+		var site: Array = sites[int(selected_layout[slot])]
+		var p := Vector3(site[0],site[1],site[2])
+		var portal := PORTAL.new(); add_child(portal); portal.position = p
+		# Planned/unknown entries remain locked regardless of incoming metadata.
+		var safe_entry: Dictionary = entry.duplicate(); safe_entry["enabled"] = str(entry.get("id","")) in IMPLEMENTED_GAME_IDS and bool(entry.get("enabled",true))
+		safe_entry["ground_patch"] = site_data.get("ground_patches",{}).get("%d:%d" % [roundi(p.x*1000),roundi(p.z*1000)],[])
+		portal.configure(safe_entry); portals.append(portal)
 	_refresh_pickables()
 	for key in ["click","portal","bird","plant","water"]:
 		sounds[key] = load("res://hub/audio/"+key+".wav")
@@ -69,8 +82,59 @@ func setup(p_world: Node3D, p_camera: Camera3D, registry = null) -> void:
 	var img := Image.new(); img.load_svg_from_string(svg); cursor = ImageTexture.create_from_image(img)
 	Input.set_custom_mouse_cursor(cursor,Input.CURSOR_ARROW,Vector2(4,3))
 
+func _visible_sites(sites: Array) -> Array[Dictionary]:
+	var candidates: Array[Dictionary] = []
+	# A lightweight, non-rendering door proxy exercises the real picker. It has
+	# the approved door bounds but no shader, label, sounds, or scene effects.
+	var probe := PORTAL.new()
+	add_child(probe); portals.append(probe)
+	var viewport := get_viewport().get_visible_rect().grow(-16.0)
+	for index in sites.size():
+		var site: Array = sites[index]
+		var point := Vector3(site[0],site[1],site[2])
+		probe.position = point
+		var clear := true
+		for offset in [Vector3(0,1.85,0),Vector3(-.55,1,0),Vector3(.55,1,0),Vector3(-.55,2.7,0),Vector3(.55,2.7,0)]:
+			var screen := camera.unproject_position(point+offset)
+			if not viewport.has_point(screen) or camera.is_position_behind(point+offset) or _pick(screen) != probe:
+				clear = false; break
+		if not clear: continue
+		var screen_bounds := Rect2(camera.unproject_position(point),Vector2.ZERO)
+		for offset in [Vector3(-1.35,0,0),Vector3(1.35,0,0),Vector3(-1.35,3.9,0),Vector3(1.35,3.9,0)]:
+			screen_bounds = screen_bounds.expand(camera.unproject_position(point+offset))
+		if not viewport.encloses(screen_bounds): continue
+		candidates.append({"index":index,"pos":point,"screen_bounds":screen_bounds.grow(8.0)})
+	portals.erase(probe); probe.free()
+	return candidates
+
+func _layout_separated(a: Dictionary,b: Dictionary) -> bool:
+	return (a.pos as Vector3).distance_to(b.pos) >= 2.15 and not (a.screen_bounds as Rect2).intersects(b.screen_bounds)
+
+func _enumerate_layouts(candidates: Array[Dictionary]) -> Array:
+	var layouts: Array = []
+	for i in candidates.size():
+		for j in range(i+1,candidates.size()):
+			if not _layout_separated(candidates[i],candidates[j]): continue
+			for k in range(j+1,candidates.size()):
+				if _layout_separated(candidates[i],candidates[k]) and _layout_separated(candidates[j],candidates[k]):
+					layouts.append([candidates[i].index,candidates[j].index,candidates[k].index])
+	return layouts
+
+func _select_layout(index: int) -> Array:
+	layout_fallback_used = index < 0 or index >= valid_layouts.size()
+	if valid_layouts.is_empty():
+		# Never silently choose three hidden doors. A geometry/camera regression
+		# fails loudly instead of pretending the initial entrances are usable.
+		push_error("No visible non-overlapping three-portal layout in authored sites")
+		return []
+	# Deterministic safe fallback is the FIRST geometry-validated combination,
+	# not an unverified hard-coded point or freshly generated terrain.
+	return valid_layouts[0 if layout_fallback_used else index].duplicate()
+
 func _refresh_pickables() -> void:
 	pickables.clear()
+	# A bounded cache of current-world mesh faces, never retained across refresh.
+	pick_triangles.clear()
 	for n in world.find_children("*","MeshInstance3D",true,false):
 		if is_ancestor_of(n) or n.mesh == null or not n.is_visible_in_tree(): continue
 		var path := str(n.get_path()).to_lower()
@@ -90,24 +154,52 @@ func _unhandled_input(event: InputEvent) -> void:
 		if event.position.distance_to(press) > DRAG_THRESHOLD: dragged = true
 
 func _pick(screen: Vector2) -> Node3D:
+	pick_triangle_tests = 0
+	pick_budget_exhausted = false
 	if suspended or not is_instance_valid(camera) or not is_visible_in_tree(): return null
 	var from := camera.project_ray_origin(screen); var dir := camera.project_ray_normal(screen)
 	var nearest := INF; var result: Node3D = null
 	for portal in portals:
-		if not portal.is_visible_in_tree(): continue
+		if not portal.is_visible_in_tree() or is_zero_approx(portal.global_basis.determinant()): continue
 		var local := portal.global_transform.affine_inverse()
 		var hit = portal.get_pick_bounds().intersects_ray(local*from,local.basis*dir)
 		if hit != null:
 			var d: float = from.distance_to(portal.global_transform*hit)
 			if d < nearest: nearest = d; result = portal
+	# Keep generous object hit boxes for ordinary island interactions, but a
+	# visible portal must not be blocked by empty corners of foliage AABBs.
+	var portal_under_pointer := result != null
 	for n in pickables:
-		if not is_instance_valid(n) or not n.is_visible_in_tree(): continue
+		if not is_instance_valid(n) or not n.is_visible_in_tree() or is_zero_approx(n.global_basis.determinant()): continue
 		var inverse := n.global_transform.affine_inverse()
 		var hit = n.get_aabb().grow(.08).intersects_ray(inverse*from,inverse.basis*dir)
 		if hit != null:
 			var d: float = from.distance_to(n.global_transform*hit)
+			if d >= nearest: continue
+			# Skinned actors retain their established conservative hit proxy:
+			# mesh rest triangles do not describe the deformed visible bird/fish.
+			if portal_under_pointer and n.skin == null: d = _mesh_triangle_distance(n,from,dir,d)
 			if d < nearest: nearest = d; result = n
 	return result
+
+func _mesh_triangle_distance(node: MeshInstance3D, origin: Vector3, direction: Vector3, conservative_distance: float) -> float:
+	var mesh_id := node.mesh.get_instance_id()
+	if not pick_triangles.has(mesh_id): pick_triangles[mesh_id] = node.mesh.get_faces()
+	var faces: PackedVector3Array = pick_triangles[mesh_id]
+	var inverse := node.global_transform.affine_inverse()
+	var local_origin := inverse*origin
+	var local_direction := inverse.basis*direction
+	var nearest := INF
+	for i in range(0,faces.size(),3):
+		# Bound hover/click work. Extreme future geometry conservatively keeps
+		# its original proxy instead of doing an unbounded triangle scan.
+		if pick_triangle_tests >= PICK_TRIANGLE_BUDGET:
+			pick_budget_exhausted = true
+			return minf(nearest,conservative_distance)
+		pick_triangle_tests += 1
+		var point = Geometry3D.ray_intersects_triangle(local_origin,local_direction,faces[i],faces[i+1],faces[i+2])
+		if point != null: nearest = minf(nearest,origin.distance_to(node.global_transform*point))
+	return nearest
 
 func _activate(target: Node3D) -> void:
 	if suspended: return

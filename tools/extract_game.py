@@ -8,6 +8,7 @@ import shutil
 GAMES = {
     'gummy_bomber': 'Gummy Garden Standalone',
     'bloom_skirmish': 'Bloom Skirmish Standalone',
+    'tide_gulp': 'Tide Gulp Standalone',
 }
 RESOURCE_TEXT_SUFFIXES = {'.gd', '.tscn', '.tres', '.gdshader', '.gdshaderinc'}
 

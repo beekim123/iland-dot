@@ -21,12 +21,13 @@ python3 "$ROOT/tools/qa/bloom_skirmish/assets.py" 2>&1 | tee "$QA/bloom-assets.l
 python3 "$ROOT/godot/modules/bloom_skirmish/ui/subset_font.py" --check 2>&1 | tee "$QA/bloom-font.log"
 python3 "$ROOT/tools/qa/bloom_skirmish/skin_assets.py" 2>&1 | tee "$QA/bloom-animal-skin-assets.log"
 python3 "$ROOT/tools/qa/bloom_skirmish/skin_palette.py" --json "$QA/bloom-fox-palette.json" 2>&1 | tee "$QA/bloom-fox-palette.log"
+python3 "$ROOT/tools/qa/tide_gulp/assets.py" 2>&1 | tee "$QA/tide-assets.log"
 run_clean import --editor --import --quit
-for script in tests/check_scene.gd tests/check_app.gd hub/tests/test_hub.gd modules/gummy_bomber/tests/test_sim.gd modules/gummy_bomber/tests/test_runtime.gd modules/gummy_bomber/tests/test_save_schema.gd modules/bloom_skirmish/art/validate_art.gd modules/bloom_skirmish/tests/test_sim.gd modules/bloom_skirmish/tests/test_runtime.gd modules/bloom_skirmish/tests/test_storage.gd; do
+for script in tests/check_scene.gd tests/check_app.gd hub/tests/test_hub.gd hub/tests/test_portal_picking.gd hub/tests/test_portal_layout.gd modules/gummy_bomber/tests/test_sim.gd modules/gummy_bomber/tests/test_runtime.gd modules/gummy_bomber/tests/test_save_schema.gd modules/bloom_skirmish/art/validate_art.gd modules/bloom_skirmish/tests/test_sim.gd modules/bloom_skirmish/tests/test_runtime.gd modules/bloom_skirmish/tests/test_storage.gd modules/tide_gulp/tests/test_sim.gd modules/tide_gulp/tests/test_runtime.gd modules/tide_gulp/tests/test_storage.gd modules/tide_gulp/art/tide_art_contract_check.gd modules/tide_gulp/ui/test_ui_audio.gd; do
  printf '\n== %s ==\n' "$script"
  run_clean "${script//\//_}" --script "res://$script"
 done
-for module in gummy_bomber bloom_skirmish; do
+for module in gummy_bomber bloom_skirmish tide_gulp; do
  for script in independent lifecycle storage; do
   printf '\n== independent QA: %s / %s ==\n' "$module" "$script"
   run_clean "${module}_${script}" --script "$ROOT/tools/qa/$module/$script.gd"
@@ -40,4 +41,6 @@ printf '\n== ordinary application window-close regression ==\n'
 GODOT_BIN="$GODOT" "$ROOT/tools/qa/bloom_skirmish/window_close.sh" 2>&1 | tee "$QA/bloom_window_close.log"
 printf '\n== standalone bloom_skirmish extraction ==\n'
 GODOT_BIN="$GODOT" "$ROOT/tools/qa/bloom_skirmish/extraction.sh" 2>&1 | tee "$QA/bloom_extraction.log"
+printf '\n== standalone tide_gulp extraction ==\n'
+GODOT_BIN="$GODOT" "$ROOT/tools/qa/tide_gulp/extraction.sh" 2>&1 | tee "$QA/tide_extraction.log"
 printf '\nAll headless tests passed. Graphical/WebGL and performance QA are separate. QA data retained at %s\n' "$QA"

@@ -34,7 +34,7 @@ class ExtractionTests(unittest.TestCase):
     def extract(self, game_id='bloom_skirmish', destination=None):
         return extractor.extract_game(game_id, destination or self.root / 'standalone', self.repo)
 
-    def test_both_module_ids_titles_and_licenses(self):
+    def test_all_module_ids_titles_and_licenses(self):
         for game_id, title in extractor.GAMES.items():
             with self.subTest(game_id=game_id):
                 dest = self.extract(game_id, self.root / game_id)

@@ -1,0 +1,102 @@
+{
+  "title": "逐潮小鱼 · 纸海小调",
+  "author": "Original project synthesis, 2026-10-27",
+  "rights": "Original composition and synthesis; no third-party samples or music.",
+  "generator": "synthesize_audio.py",
+  "seed": 271026,
+  "sample_rate": 44100,
+  "channels": 2,
+  "music_structure": "8 bars in 3/4, 60 BPM, C major / A minor pentatonic colours; 24-second periodic loop.",
+  "playback": "Music -9 dB, sounds -5 dB, maximum 4 simultaneous SFX voices; pause silences all players.",
+  "validation_note": "Objective waveform/seam/level validation only. No claim of subjective audition in a cloud environment.",
+  "assets": {
+    "music_loop": {
+      "file": "music_loop.wav",
+      "duration_seconds": 24.0,
+      "peak": 0.143071,
+      "peak_dbfs": -16.89,
+      "rms_dbfs": -28.69,
+      "clipped_samples": 0,
+      "seam_delta": 0.0002441,
+      "sha256": "6555a9ad6465c8e96eb618063d267551d8acf04a2a584c543803208ea94df7e0",
+      "loop": true
+    },
+    "swallow": {
+      "file": "swallow.wav",
+      "duration_seconds": 0.28,
+      "peak": 0.171178,
+      "peak_dbfs": -15.33,
+      "rms_dbfs": -22.56,
+      "clipped_samples": 0,
+      "seam_delta": 0.0,
+      "sha256": "44393c34fe6d13021f545bb4150755fe59643105bdfd0f3a9e24f0364abd2bdf",
+      "loop": false
+    },
+    "growth": {
+      "file": "growth.wav",
+      "duration_seconds": 1.2,
+      "peak": 0.190497,
+      "peak_dbfs": -14.4,
+      "rms_dbfs": -26.72,
+      "clipped_samples": 0,
+      "seam_delta": 0.0,
+      "sha256": "3499720586d905f8603baa5d3c2d58dbbb7fa5798dd70b004d0a1a1e5a4d4cd6",
+      "loop": false
+    },
+    "dash": {
+      "file": "dash.wav",
+      "duration_seconds": 0.36,
+      "peak": 0.170202,
+      "peak_dbfs": -15.38,
+      "rms_dbfs": -27.83,
+      "clipped_samples": 0,
+      "seam_delta": 0.0,
+      "sha256": "828f00471a4116701d0ae0cbfd9b38cefebda673f73dff76ef07013643a56367",
+      "loop": false
+    },
+    "warning": {
+      "file": "warning.wav",
+      "duration_seconds": 0.65,
+      "peak": 0.115452,
+      "peak_dbfs": -18.75,
+      "rms_dbfs": -31.18,
+      "clipped_samples": 0,
+      "seam_delta": 0.0,
+      "sha256": "82d086967282796d3c93f0f47632cd2820039cee374d1e9bebeb85d403f07c71",
+      "loop": false
+    },
+    "tide": {
+      "file": "tide.wav",
+      "duration_seconds": 1.45,
+      "peak": 0.229163,
+      "peak_dbfs": -12.8,
+      "rms_dbfs": -23.15,
+      "clipped_samples": 0,
+      "seam_delta": 0.0,
+      "sha256": "e4ee3f258fb6b4a3938128c5cf6e94121640a97ef99a0638899b4307272bc40f",
+      "loop": false
+    },
+    "death": {
+      "file": "death.wav",
+      "duration_seconds": 1.45,
+      "peak": 0.169378,
+      "peak_dbfs": -15.42,
+      "rms_dbfs": -27.78,
+      "clipped_samples": 0,
+      "seam_delta": 0.0,
+      "sha256": "03cfff33ead4c05817739ef9fd3917e5bbde6bea59b350f9cfa6dea890c68588",
+      "loop": false
+    },
+    "button": {
+      "file": "button.wav",
+      "duration_seconds": 0.16,
+      "peak": 0.08713,
+      "peak_dbfs": -21.2,
+      "rms_dbfs": -28.77,
+      "clipped_samples": 0,
+      "seam_delta": 0.0,
+      "sha256": "c917f92c40d674dc98083f02729b1613f955f230dfd1a6f5ef21b08431bc337e",
+      "loop": false
+    }
+  }
+}
