@@ -1,0 +1,76 @@
+{
+  "results": [
+    {
+      "name": "fresh_import",
+      "exit_code": 0,
+      "seconds": 4.37,
+      "errors": [],
+      "pass_": true
+    },
+    {
+      "name": "rules",
+      "exit_code": 0,
+      "seconds": 1.3,
+      "errors": [],
+      "pass_": true
+    },
+    {
+      "name": "boundaries",
+      "exit_code": 0,
+      "seconds": 0.36,
+      "errors": [],
+      "pass_": true
+    },
+    {
+      "name": "storage",
+      "exit_code": 0,
+      "seconds": 0.17,
+      "errors": [],
+      "pass_": true
+    },
+    {
+      "name": "runtime",
+      "exit_code": 0,
+      "seconds": 0.64,
+      "errors": [],
+      "pass_": true
+    },
+    {
+      "name": "viewport_route",
+      "exit_code": 0,
+      "seconds": 1.01,
+      "errors": [],
+      "pass_": true
+    },
+    {
+      "name": "rig",
+      "exit_code": 0,
+      "seconds": 0.27,
+      "errors": [],
+      "pass_": true
+    },
+    {
+      "name": "ui_layout",
+      "exit_code": 0,
+      "seconds": 0.27,
+      "errors": [],
+      "pass_": true
+    },
+    {
+      "name": "standalone_request_exit",
+      "exit_code": 0,
+      "seconds": 0.72,
+      "errors": [],
+      "pass_": true
+    },
+    {
+      "name": "standalone_wm_close",
+      "exit_code": 0,
+      "seconds": 0.73,
+      "errors": [],
+      "pass_": true
+    }
+  ],
+  "source_files": 104,
+  "pass": true
+}

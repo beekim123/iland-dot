@@ -1,0 +1,97 @@
+{
+  "results": [
+    {
+      "name": "fresh_import",
+      "exit_code": 0,
+      "seconds": 4.19,
+      "errors": [],
+      "pass_": true
+    },
+    {
+      "name": "rules",
+      "exit_code": 0,
+      "seconds": 1.28,
+      "errors": [],
+      "pass_": true
+    },
+    {
+      "name": "boundaries",
+      "exit_code": 0,
+      "seconds": 0.25,
+      "errors": [],
+      "pass_": true
+    },
+    {
+      "name": "storage",
+      "exit_code": 0,
+      "seconds": 0.17,
+      "errors": [],
+      "pass_": true
+    },
+    {
+      "name": "runtime",
+      "exit_code": 0,
+      "seconds": 0.62,
+      "errors": [],
+      "pass_": true
+    },
+    {
+      "name": "viewport_route",
+      "exit_code": 0,
+      "seconds": 0.9,
+      "errors": [],
+      "pass_": true
+    },
+    {
+      "name": "rig",
+      "exit_code": 0,
+      "seconds": 0.15,
+      "errors": [],
+      "pass_": true
+    },
+    {
+      "name": "ui_layout",
+      "exit_code": 0,
+      "seconds": 0.24,
+      "errors": [],
+      "pass_": true
+    },
+    {
+      "name": "bonus",
+      "exit_code": 0,
+      "seconds": 0.25,
+      "errors": [],
+      "pass_": true
+    },
+    {
+      "name": "human_viewport",
+      "exit_code": 0,
+      "seconds": 0.9,
+      "errors": [],
+      "pass_": true
+    },
+    {
+      "name": "biomes",
+      "exit_code": 0,
+      "seconds": 0.34,
+      "errors": [],
+      "pass_": true
+    },
+    {
+      "name": "standalone_request_exit",
+      "exit_code": 0,
+      "seconds": 0.71,
+      "errors": [],
+      "pass_": true
+    },
+    {
+      "name": "standalone_wm_close",
+      "exit_code": 0,
+      "seconds": 0.71,
+      "errors": [],
+      "pass_": true
+    }
+  ],
+  "source_files": 120,
+  "pass": true
+}

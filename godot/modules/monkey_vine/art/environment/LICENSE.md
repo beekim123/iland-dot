@@ -1,0 +1,2 @@
+# Provenance
+Original procedural jungle meshes, UI and music created for monkey_vine with AI-assisted code/composition. No third-party models, textures or samples bundled. Godot built-in primitives are used. Chinese HUD uses a renamed Noto Sans CJK SC subset under SIL OFL 1.1; its license, provenance and rebuild script are in ui/fonts/. This third-party font is excluded from the CC0 grant below. All authored source, meshes and generated audio in these presentation directories: CC0-1.0. Private user reference is not bundled.

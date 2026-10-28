@@ -1,0 +1,50 @@
+extends SceneTree
+const Store=preload("res://modules/monkey_vine/storage.gd")
+const Rules=preload("res://modules/monkey_vine/rules/rules.gd")
+var checks=0
+var failures=[]
+func check(ok,label):
+ checks+=1
+ if not ok: failures.append(label);print("FAIL ",label)
+func write(raw):
+ DirAccess.make_dir_recursive_absolute(Store.ROOT)
+ var f=FileAccess.open(Store.PATH,FileAccess.WRITE)
+ f.store_string(raw)
+ f.close()
+func clear():
+ if FileAccess.file_exists(Store.PATH): DirAccess.remove_absolute(Store.PATH)
+func _initialize():
+ var r=Rules.new();r.configure(1)
+ clear()
+ var s=Store.new()
+ check(s.load_profile().is_empty(),"fresh empty")
+ check(s.save_profile(r.export_progress()),"fresh save")
+ var raw=FileAccess.get_file_as_string(Store.PATH)
+ var loaded=Store.new().load_profile()
+ check(loaded.progress==JSON.parse_string(JSON.stringify(r.export_progress())),"round trip")
+ for invalid in ["{broken", "[]", '{"schema":999,"progress":{}}', '{"schema":1,"progress":{},"volume":2}']:
+  write(invalid)
+  var bad=Store.new()
+  check(bad.load_profile().is_empty(),"reject bad/future")
+  check(not bad.writable and not bad.warning.is_empty(),"visible preservation warning")
+  check(not bad.save_profile(r.export_progress()),"blocked overwrite")
+  check(FileAccess.get_file_as_string(Store.PATH)==invalid,"unchanged bad/future bytes")
+ write(raw)
+ var a=Store.new();var b=Store.new()
+ a.load_profile();b.load_profile()
+ check(a.save_profile(r.export_progress(),.2),"first concurrent writer")
+ var after=FileAccess.get_file_as_string(Store.PATH)
+ check(not b.save_profile(r.export_progress(),.3),"stale writer blocked")
+ check(FileAccess.get_file_as_string(Store.PATH)==after,"concurrent bytes preserved")
+ var wrong=Store.new()
+ check(wrong.load_profile({"save_root":"user://games/other/"}).is_empty(),"reject cross namespace")
+ check(not wrong.save_profile(r.export_progress()),"cross namespace cannot write")
+ check(FileAccess.get_file_as_string(Store.PATH)==after,"own existing unchanged")
+ var exact=Store.new()
+ check(not exact.load_profile({"save_root":Store.ROOT}).is_empty(),"canonical host root works")
+ clear()
+ var fresh=Store.new();fresh.load_profile();write(raw)
+ check(not fresh.save_profile(r.export_progress()),"created since load blocked")
+ clear()
+ print(JSON.stringify({"suite":"independent_storage","checks":checks,"failures":failures}))
+ quit(0 if failures.is_empty() else 1)

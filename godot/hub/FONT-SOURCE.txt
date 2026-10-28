@@ -23,3 +23,6 @@ tools/font-codepoints.txt; same licensed upstream face and subset command.
 
 Seven-game staging: added only 海底软糖水蛇 title coverage, retaining the same
 face and all prior glyphs. Explicit set now contains 217 codepoints.
+
+Eight-game staging: added 猴子荡荡 title glyphs using the same upstream face;
+all prior required codepoints retained. Rebuild with the existing subset tool.

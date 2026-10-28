@@ -1,0 +1,12 @@
+{
+  "game_id": "monkey_vine",
+  "source": "/workspace/scratch/e3e9ec015b32/monkey-vine-development/build/native-replay/02-first-grab.png",
+  "sha256": "501ac9cad1d54b3d1771b9a1a5fa468c00089c7e904e3a287889993ebcbee28c",
+  "method": "Actual Godot native scene, normal Viewport keyboard replay first grab; HUD hidden; direct bytes copied, no pixel editing",
+  "not_claimed": [
+    "human gameplay",
+    "performance",
+    "user reference artwork"
+  ],
+  "provisional": "Module final QA pending at copy time; image records its actual capture revision"
+}

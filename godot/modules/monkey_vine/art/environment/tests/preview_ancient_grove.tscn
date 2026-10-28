@@ -1,0 +1,5 @@
+[gd_scene load_steps=2 format=3]
+[ext_resource type="Script" path="res://modules/monkey_vine/art/environment/tests/preview.gd" id="1"]
+[node name="ancient_grove" type="Node3D"]
+script = ExtResource("1")
+segment_index = 3

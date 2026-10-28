@@ -5,7 +5,7 @@ signal close_requested
 const Cover=preload("portal_cover.gd")
 const FACE=preload("catalog-sans.otf")
 const PAGE_SIZE:=6
-const COVERS:={"gummy_bomber":"res://hub/catalog/covers/gummy_bomber.png","bloom_skirmish":"res://hub/catalog/covers/bloom_skirmish.png","tide_gulp":"res://hub/catalog/covers/tide_gulp.png","beach_cleanup":"res://hub/catalog/covers/beach_cleanup.png","volcano_escape":"res://hub/catalog/covers/volcano_escape.png"}
+const COVERS:={"gummy_bomber":"res://hub/catalog/covers/gummy_bomber.png","bloom_skirmish":"res://hub/catalog/covers/bloom_skirmish.png","tide_gulp":"res://hub/catalog/covers/tide_gulp.png","beach_cleanup":"res://hub/catalog/covers/beach_cleanup.png","volcano_escape":"res://hub/catalog/covers/volcano_escape.png","monkey_vine":"res://hub/catalog/covers/monkey_vine.png"}
 var entries:Array=[]
 var portal_ids:Array=[]
 var current_filter:="all"

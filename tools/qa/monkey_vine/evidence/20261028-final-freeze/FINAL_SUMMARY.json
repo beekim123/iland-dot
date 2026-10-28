@@ -1,0 +1,9 @@
+{
+  "source_digest": "73f802225b1762e5ea410f16bce242e6d422e3f37e2be6523c85f1e398db4d50",
+  "production_files": 96,
+  "source_mismatches": [],
+  "batch_pass": true,
+  "exploration_routes": 216,
+  "exploration_failures": 96,
+  "glb_sha256": "a3b0eccefd3523b24269f649d514929dc7c417f84927bfd428834cc1839e418a"
+}

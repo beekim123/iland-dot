@@ -1,0 +1,32 @@
+{
+  "idle": {
+    "max_evaluated_vertex_motion_m": 0.12158345983807299,
+    "raw_grip_error_m": 0.6029925500430566
+  },
+  "run": {
+    "max_evaluated_vertex_motion_m": 0.18831831068845528,
+    "raw_grip_error_m": 0.5907622002857321
+  },
+  "grab": {
+    "max_evaluated_vertex_motion_m": 0.15109526822044916,
+    "raw_grip_error_m": 4.628963802814327e-08
+  },
+  "swing": {
+    "max_evaluated_vertex_motion_m": 0.09620564677269072,
+    "raw_grip_error_m": 2.0869987786076053e-08
+  },
+  "air": {
+    "max_evaluated_vertex_motion_m": 0.11279863391117556,
+    "raw_grip_error_m": 0.33999998239471585
+  },
+  "land": {
+    "max_evaluated_vertex_motion_m": 0.1659373119713729,
+    "raw_grip_error_m": 0.6029925492708064
+  },
+  "fall": {
+    "max_evaluated_vertex_motion_m": 0.13195141739228072,
+    "raw_grip_error_m": 0.33999998239471585
+  },
+  "weight_error": 2.60770320892334e-08,
+  "failures": []
+}

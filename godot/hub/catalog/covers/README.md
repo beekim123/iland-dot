@@ -9,3 +9,11 @@
 旧棚拍清单仅保存在 `model-portrait-history.json` 作为替换历史。旧 `tools/render_covers.py` 生成的是棚拍，不可再直接覆盖本目录五张实际场景图片。新的真实截图应经过同样来源记录与人工查看后替换。
 
 传送门的shader只做正常画面裁切/边缘效果，标签为“场景预览”。未有场景截图的新游戏仍显示明确“主题图标”。
+
+## 第八入口 Monkey 场景
+
+`monkey_vine.png` 直接复制自根任务已检查的
+`monkey-vine-development/build/native-replay/02-first-grab.png`。
+这是正常 Viewport 键盘输入回放的实际 Godot 原生抓藤场景，采集时隐藏 HUD；
+非真人游玩、非性能验收、非用户参考图，也没有像素修饰。
+精确原路径与 SHA 在 `monkey-capture-manifest.json`，与原五张来源记录分开。

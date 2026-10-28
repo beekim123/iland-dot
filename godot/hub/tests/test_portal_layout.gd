@@ -47,7 +47,7 @@ func run() -> void:
 		check(unique.size()==4,"all four are distinct")
 		verify_doors(app.hub,app.island.camera,"refresh %d"%seed_number)
 		await process_frame
-	check(seen.size()==7,"all seven playable games participate")
+	check(seen.size()==8,"all eight playable games participate")
 	check(app.hub._select_layout(-1)==fixed,"invalid index returns deterministic validated sites")
 	for player in app.island.audio_players: player.stop(); player.stream=null
 	app.queue_free(); await process_frame; await process_frame; await create_timer(.6).timeout
