@@ -93,7 +93,7 @@ func _validate(data: Dictionary, require_header: bool) -> String:
 		if data.has(key) and not data[key] is Dictionary:
 			return "存档字段 " + key + " 必须是字典。"
 	var flags: Dictionary = data.get("flags", {})
-	for key in ["dawn", "rescued", "completed", "seal_broken", "princess_safe", "dragon_defeated"]:
+	for key in ["dawn", "rescued", "completed", "seal_broken", "princess_safe", "dragon_defeated", "homecoming", "intro_seen"]:
 		if flags.has(key) and not flags[key] is bool:
 			return "故事标记 " + key + " 无效。"
 	if flags.has("memories"):

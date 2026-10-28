@@ -14,6 +14,8 @@ GAMES = {
     'pelican_pedal': 'Pelican Pedal Standalone',
     'fruit_gummy_snake': 'Underwater Gummy Snake Standalone',
     'monkey_vine': 'Monkey Vine Standalone',
+    'dawn_sword': 'Dawn Sword Standalone',
+    'apprentice_yokai_king': 'Apprentice Yokai King Standalone',
 }
 RESOURCE_TEXT_SUFFIXES = {'.gd', '.tscn', '.tres', '.gdshader', '.gdshaderinc'}
 

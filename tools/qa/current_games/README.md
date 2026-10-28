@@ -1,4 +1,4 @@
-# Current eight-game integration/extraction smoke
+# Current ten-game integration/extraction smoke
 
 Run `tools/test_all.sh --list` for the declared matrix, then `tools/test_all.sh`.
 Set `GODOT_BIN` if the exact `4.7.2.stable.official.ed1daf0bf` executable is not in
@@ -6,11 +6,16 @@ the default sibling tools directory. Every subprocess uses separate XDG data,
 config and cache directories; Godot imports operate on temporary copies.
 
 Coverage:
-- Registry and production extractor IDs match all eight declared modules.
-- Host lifecycle (48 actual exits, eight games, both entry routes), portal
+- Registry and production extractor IDs match all ten declared modules.
+- Host lifecycle (60 island exits plus 10 catalogue exits, ten games, both entry routes), portal
   rotation/picking/layout and catalogue tests.
 - Production extraction of every module, no sibling/host files, byte comparison,
   resource import, explicit `start(context)` and exactly one public exit signal.
+- New-game page-two keyboard navigation, held-echo suppression, hidden catalogue
+  ignoring gameplay keys, page/selection/focus restoration; propagated host WM-close
+  notification in separate processes (not native window-manager UI).
+- Static production save-path literals stay inside each module namespace; this
+  does not alone prove all dynamic writes are isolated.
 - Original `godot/` and `tools/` source hashes unchanged across the run.
 
 This is **not** full rules regression, process-level standalone autostart/quit,
@@ -26,6 +31,10 @@ run; a concurrent edit deliberately invalidates the frozen-source result.
 
 Historical `six_games`, `seven_games`, `eight_games` and portal admission runners
 remain unchanged. In particular the six-game runner removes the snake while the
-current host requires eight games: run it only with its historical source
+current host requires ten games: run it only with its historical source
 baseline, never as current acceptance. Historical acceptance documents retain
-their original scope rather than being rewritten as eight-game results.
+their original scope rather than being rewritten as ten-game results.
+
+For the separate process-level standalone autostart/normal-quit layer, run
+`python tools/qa/test_standalone_games.py --godot /absolute/path/to/godot --lifecycle-only`.
+This deliberately skips historical module-rules suites.

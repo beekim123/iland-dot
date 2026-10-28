@@ -12,6 +12,8 @@ func run() -> void:
 	await process_frame
 	assert(game.started and game.hosted and game.menu == "title")
 	assert(auto_accept_quit == previous_quit)
+	await process_frame
+	assert(root.gui_get_focus_owner() is Button)
 	game._new_game()
 	assert(game.menu == "")
 	assert(game.storage.load_profile().ok and game.storage.load_profile().exists)
@@ -28,7 +30,15 @@ func run() -> void:
 	game._resume()
 	assert(game.menu == "dead")
 	game.rules.retry()
+	game._show_menu("title")
 	game._show_menu("settings")
+	assert(game.settings_return == "title")
+	game.remap = "attack"
+	var key := InputEventKey.new()
+	key.physical_keycode = KEY_K
+	key.pressed = true
+	game._input(key)
+	assert(game.keys.attack == KEY_K and game.keys.roll == KEY_J)
 	game._show_menu("pause")
 	game._resume()
 	await game.request_exit()

@@ -26,6 +26,20 @@ func _draw() -> void:
   draw_circle(head+Vector2(4,-5)*k,3*k,Color("254a43"))
   draw_circle(c+Vector2(-43,-40)*k,12*k,Color("ff8f8f"))
   draw_line(c+Vector2(-43,-50)*k,c+Vector2(-39,-58)*k,Color("477e55"),4*k,true)
+ elif game_id == "dawn_sword":
+  # Original sunrise-and-sword theme symbol, not a gameplay screenshot.
+  draw_circle(c+Vector2(0,-15)*k,38*k,Color("f6c66d"))
+  draw_colored_polygon(PackedVector2Array([c+Vector2(0,-62)*k,c+Vector2(12,-42)*k,c+Vector2(8,21)*k,c+Vector2(-8,21)*k,c+Vector2(-12,-42)*k]),Color("e4f5ef"))
+  draw_line(c+Vector2(-26,23)*k,c+Vector2(26,23)*k,Color("b27c49"),8*k,true)
+  draw_line(c+Vector2(0,24)*k,c+Vector2(0,53)*k,Color("56546a"),9*k,true)
+ elif game_id == "apprentice_yokai_king":
+  # Original horned yokai and oversized hammer theme symbol.
+  draw_circle(c+Vector2(-13,5)*k,35*k,Color("9ad4bd"))
+  for x in [-32,6]:
+   draw_colored_polygon(PackedVector2Array([c+Vector2(x-8,-18)*k,c+Vector2(x,-48)*k,c+Vector2(x+10,-18)*k]),Color("fff0bb"))
+  for x in [-25,-2]:draw_circle(c+Vector2(x,1)*k,4*k,Color("494354"))
+  draw_line(c+Vector2(31,48)*k,c+Vector2(31,-28)*k,Color("855d60"),9*k,true)
+  draw_style_box(_box(Color("ecacba"),7),Rect2(c+Vector2(2,-48)*k,Vector2(60,34)*k))
  else:
   # Pelican and bicycle symbol, intentionally an illustration rather than an absent new model.
   for x in [-37,37]: draw_arc(c+Vector2(x,24)*k,25*k,0,TAU,40,Color("32707b"),4*k,true)

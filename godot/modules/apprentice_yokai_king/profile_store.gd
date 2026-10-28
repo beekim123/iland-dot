@@ -2,7 +2,7 @@ extends RefCounted
 
 const PATH := "user://games/apprentice_yokai_king/profile.json"
 const MODULE_ID := "apprentice_yokai_king"
-const ENEMIES := ["grunt", "shield", "spring", "bubble", "sleeper", "elite", "boss"]
+const ENEMIES := ["grunt", "shield", "spring", "bubble", "sleeper", "elite", "boss", "dart", "lobber", "warder", "caller"]
 const CORES := ["ayk_core_wind", "ayk_core_thunder", "ayk_core_quake"]
 var data: Dictionary = {}
 var blocked: bool = false

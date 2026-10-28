@@ -32,6 +32,12 @@ var saved: Dictionary = {}
 var shake_time: float = 0.0
 var last_device: String = "keyboard"
 var previous_window_mode: int = DisplayServer.WINDOW_MODE_WINDOWED
+var reviewing: bool = false
+var settings_return: String = "title"
+var first_button_set: bool = false
+var parry_visual_time: float = 0.0
+var previous_actor_states: Dictionary = {}
+var landing_visual_times: Dictionary = {}
 
 func _ready() -> void:
 	if ResourceLoader.exists(ROOT+"fonts/story.ttf"): font = load(ROOT+"fonts/story.ttf")
@@ -80,6 +86,9 @@ func _clear_input() -> void:
 func _input(event: InputEvent) -> void:
 	if not started or exiting: return
 	if remap != "" and event is InputEventKey and event.pressed and not event.echo:
+		var old_key: int = int(keys[remap])
+		for other_action in keys:
+			if other_action != remap and int(keys[other_action]) == event.physical_keycode: keys[other_action] = old_key
 		keys[remap] = event.physical_keycode
 		settings.keys = keys.duplicate()
 		remap = ""
@@ -93,8 +102,8 @@ func _input(event: InputEvent) -> void:
 		last_device = "keyboard"
 		for key in keys:
 			if int(keys[key]) == event.physical_keycode: action = key
-		if event.physical_keycode == KEY_LEFT: action = "left"
-		if event.physical_keycode == KEY_RIGHT: action = "right"
+		if action == "" and event.physical_keycode == KEY_LEFT: action = "left"
+		if action == "" and event.physical_keycode == KEY_RIGHT: action = "right"
 		down = event.pressed
 	elif event is InputEventJoypadButton:
 		last_device = "gamepad"
@@ -108,6 +117,7 @@ func _input(event: InputEvent) -> void:
 				_show_menu("dead")
 			elif menu == "": _show_menu("pause")
 			elif menu == "pause": _resume()
+			elif menu == "ending": _show_menu("title")
 			elif menu != "title": _show_menu("pause")
 			get_viewport().set_input_as_handled()
 		elif menu == "": get_viewport().set_input_as_handled()
@@ -115,6 +125,7 @@ func _input(event: InputEvent) -> void:
 func _process(delta: float) -> void:
 	if not started or exiting: return
 	shake_time = maxf(0.0,shake_time-delta)
+	if rules.mode == "dead": rules.hero.anim_time += delta
 	if menu == "":
 		accumulator += delta
 		# Never discard elapsed time or queued edge inputs on a frame without a tick.
@@ -138,24 +149,41 @@ func _process(delta: float) -> void:
 			if rules.mode == "ending":
 				_show_menu("ending")
 				break
+	if menu == "": _advance_visuals(delta)
 	camera_x = clampf(rules.hero.x-460.0,0,maxf(0,rules.level.width-1280))
 	queue_redraw()
+
+func _advance_visuals(delta: float) -> void:
+	parry_visual_time = maxf(0.0,parry_visual_time-delta)
+	for enemy in rules.enemies:
+		var id: int = int(enemy.id)
+		landing_visual_times[id] = maxf(0.0,float(landing_visual_times.get(id,0.0))-delta)
+		if previous_actor_states.get(id,"") == "flight" and enemy.state == "stagger" and enemy.y>=600: landing_visual_times[id] = 0.35
+		previous_actor_states[id] = enemy.state
 
 func _process_events() -> void:
 	for event in rules.events:
 		if event.type == "checkpoint": _save_game()
 		if event.type in ["hit","hurt"] and settings.shake: shake_time = 0.12
+		if event.type == "block" and rules.hero.guard and rules.hero.invuln>0 and rules.hero.invuln<=0.17 and rules.hero.guard_time<0.18: parry_visual_time = 0.2
 		if audio_node:
 			var cues: Dictionary = {"enemy_down":"defeat","death":"defeat","ending":"victory","dawn":"fire","chapter":"victory"}
 			audio_node.cue(cues.get(event.type,event.type))
 	rules.events.clear()
-	var level_key: String = "%d:%d" % [rules.chapter,rules.segment]
+	var level_key: String = "%d:%d:%s" % [rules.chapter,rules.segment,rules.mode]
 	if previous_level != level_key:
 		previous_level = level_key
-		if audio_node: audio_node.start("boss" if rules.segment == 3 else "theme")
+		previous_actor_states.clear()
+		landing_visual_times.clear()
+		if audio_node: audio_node.start("boss" if rules.segment == 3 and rules.mode == "play" else "theme")
 
 func _save_game() -> void:
 	var data: Dictionary = rules.profile()
+	if reviewing:
+		data = saved.duplicate(true)
+		if not data.has("flags"): data.flags = {}
+		data.flags.memories = rules.flags.memories.duplicate()
+		data.flags.shortcuts = rules.flags.shortcuts.duplicate()
 	data.settings = settings
 	if storage.save_profile(data):
 		saved = data
@@ -165,6 +193,7 @@ func _save_game() -> void:
 func _save_settings() -> void:
 	var data: Dictionary = saved.duplicate(true)
 	data.settings = settings
+	data.difficulty = settings.difficulty
 	if not storage.save_profile(data): save_status = storage.last_error
 	else: saved = data
 	_apply_settings()
@@ -185,6 +214,7 @@ func _resume() -> void:
 	if audio_node: audio_node.set_paused(false)
 
 func _new_game() -> void:
+	reviewing = false
 	rules = Rules.new()
 	rules.difficulty = settings.difficulty
 	rules.load_level(0,0)
@@ -192,7 +222,17 @@ func _new_game() -> void:
 	_save_game()
 
 func _continue_game() -> void:
+	reviewing = false
+	rules = Rules.new()
 	rules.restore(saved)
+	_resume()
+
+func _begin_review(chapter_index: int) -> void:
+	reviewing = true
+	rules = Rules.new()
+	rules.restore(saved)
+	rules.flags["homecoming"] = false
+	rules.load_level(chapter_index,0)
 	_resume()
 
 func _button(label_text: String, callback: Callable) -> void:
@@ -201,9 +241,23 @@ func _button(label_text: String, callback: Callable) -> void:
 	button.custom_minimum_size = Vector2(480,43)
 	button.add_theme_font_override("font",font)
 	button.add_theme_font_size_override("font_size",20)
+	button.add_theme_color_override("font_color",Color("3b3329"))
+	button.add_theme_color_override("font_hover_color",Color("685127"))
+	button.add_theme_color_override("font_focus_color",Color("685127"))
+	for state in ["normal","hover","pressed","focus"]:
+		var ink := StyleBoxFlat.new()
+		ink.bg_color = Color(0.5,0.35,0.13,0.17 if state != "normal" else 0.035)
+		ink.border_color = Color(0.45,0.32,0.15,0.6)
+		ink.border_width_bottom = 1
+		if state == "focus": ink.set_border_width_all(2)
+		ink.content_margin_top = 5
+		ink.content_margin_bottom = 5
+		button.add_theme_stylebox_override(state,ink)
 	button.pressed.connect(callback)
 	box.add_child(button)
-	if box.get_child_count() == 2: _focus_later.call_deferred(button)
+	if not first_button_set:
+		first_button_set = true
+		_focus_later.call_deferred(button)
 
 func _focus_later(button: Button) -> void:
 	if is_instance_valid(button) and button.is_inside_tree(): button.grab_focus()
@@ -213,13 +267,15 @@ func _label(text: String, size: int = 22) -> void:
 	label.text = text
 	label.add_theme_font_override("font",font)
 	label.add_theme_font_size_override("font_size",size)
-	label.add_theme_color_override("font_color",Color("f1dfb7"))
+	label.add_theme_color_override("font_color",Color("382e23"))
 	label.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
 	label.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
 	label.custom_minimum_size.x = 490
 	box.add_child(label)
 
 func _show_menu(which: String) -> void:
+	first_button_set = false
+	if which == "settings" and menu not in ["settings","keys","keys_move"]: settings_return = menu
 	menu = which
 	paused = true
 	_clear_input()
@@ -241,7 +297,20 @@ func _show_menu(which: String) -> void:
 	style.content_margin_right = 28
 	style.content_margin_top = 22
 	style.content_margin_bottom = 22
-	panel.add_theme_stylebox_override("panel",style)
+	var parchment: Texture2D = _texture(manifest.get("props",{}).get("parchment",{}).get("file",""))
+	if parchment:
+		var paper := StyleBoxTexture.new()
+		paper.texture = parchment
+		paper.texture_margin_left = 60
+		paper.texture_margin_right = 60
+		paper.texture_margin_top = 60
+		paper.texture_margin_bottom = 60
+		paper.content_margin_left = 38
+		paper.content_margin_right = 38
+		paper.content_margin_top = 30
+		paper.content_margin_bottom = 30
+		panel.add_theme_stylebox_override("panel",paper)
+	else: panel.add_theme_stylebox_override("panel",style)
 	ui.add_child(panel)
 	box = VBoxContainer.new()
 	box.add_theme_constant_override("separation",9)
@@ -287,7 +356,7 @@ func _show_menu(which: String) -> void:
 			_label("重访王国",30)
 			for c in range(5):
 				var index: int = c
-				_button("第%d章 · %s" % [c+1,Rules.Campaign.CHAPTERS[c][0]],func(): rules.load_level(index,0); _resume())
+				_button("第%d章 · %s" % [c+1,Rules.Campaign.CHAPTERS[c][0]],func(): _begin_review(index))
 			_button("返回",func(): _show_menu("title"))
 		"map":
 			_label("营救路线",30)
@@ -303,7 +372,7 @@ func _show_menu(which: String) -> void:
 			_button("闪光："+str(settings.flash),func(): settings.flash = 0.0 if settings.flash>0 else 0.5; _save_settings(); _show_menu("settings"))
 			_button("字幕："+str(settings.subtitles),func(): settings.subtitles = not settings.subtitles; _save_settings(); _show_menu("settings"))
 			_button("重新绑定键盘",func(): _show_menu("keys"))
-			_button("返回标题 / 暂停",func(): _show_menu("dead" if rules.mode == "dead" else ("title" if previous_level == "" else "pause")))
+			_button("返回标题 / 暂停",func(): _show_menu("dead" if rules.mode == "dead" else settings_return))
 		"keys":
 			_label("点击动作后按新键",24)
 			for action in ["jump","attack","roll","guard","dawn","heal","interact"]:
@@ -329,6 +398,33 @@ func request_exit() -> void:
 		exit_requested.emit()
 	else: get_tree().quit()
 
+func _hint(action: String) -> String:
+	if last_device == "gamepad":
+		return {"jump":"下键","attack":"左键","roll":"右键","guard":"左肩","dawn":"上键","heal":"Back","interact":"右肩","pause":"Menu"}.get(action,action)
+	return _key(action)
+
+func _enemy_visual(enemy: Dictionary) -> Dictionary:
+	var name: String = enemy.animation
+	var elapsed: float = enemy.anim_time
+	if enemy.state == "attack":
+		match enemy.kind:
+			"axe_lord":
+				if enemy.attack_count%2 == 0: name = "jump_slam"
+			"bridge_guard":
+				if enemy.attack_count%2 == 0: name = "shockwave"
+			"rock_lizard": name = "charge"
+			"ash_knight":
+				if enemy.phase == 2: name = "heavy_slash"
+			"dragon":
+				if enemy.phase == 3: name = "pounce"
+	if enemy.kind == "dragon" and landing_visual_times.get(int(enemy.id),0.0)>0:
+		name = "land"
+		elapsed = 0.35-float(landing_visual_times[int(enemy.id)])
+	if not manifest.get("actors",{}).get(enemy.kind,{}).get("animations",{}).has(name):
+		name = enemy.animation
+		elapsed = enemy.anim_time
+	return {"name":name,"elapsed":elapsed}
+
 func _key(action: String) -> String:
 	return OS.get_keycode_string(int(keys[action]))
 
@@ -338,7 +434,35 @@ func _texture(path: String) -> Texture2D:
 		else: return null
 	return textures[path]
 
-func _actor(kind: String, animation: String, pos: Vector2, facing: int, elapsed: float, fallback_size: float = 80) -> void:
+func _prop(id: String, pos: Vector2, height: float) -> bool:
+	var spec: Dictionary = manifest.get("props",{}).get(id,{})
+	if spec.is_empty(): return false
+	var tex: Texture2D = _texture(spec.file)
+	if tex == null: return false
+	var size := Vector2(float(tex.get_width())/tex.get_height()*height,height)
+	draw_texture_rect(tex,Rect2(pos-Vector2(size.x*0.5,size.y),size),false)
+	return true
+
+func _terrain(p: Dictionary, y: float) -> bool:
+	var id: String = "bridge" if p.kind == "bridge" else ("grass_platform" if rules.chapter == 0 or rules.mode == "homecoming" else ("bridge" if rules.chapter == 1 and p.kind != "ground" else "stone_platform"))
+	var spec: Dictionary = manifest.get("props",{}).get(id,{})
+	if spec.is_empty(): return false
+	var tex: Texture2D = _texture(spec.file)
+	if tex == null: return false
+	var h: float = 105.0 if p.kind == "ground" else 75.0
+	var source_x: float = tex.get_width()*0.2 if p.kind == "ground" else 0.0
+	var source_w: float = tex.get_width()*0.6 if p.kind == "ground" else float(tex.get_width())
+	var w: float = source_w/tex.get_height()*h
+	var x: float = p.x
+	while x<p.x+p.w:
+		var piece: float = minf(w,p.x+p.w-x)
+		if p.kind == "ground":
+			draw_texture_rect_region(tex,Rect2(x-camera_x,y+12,piece+1,800-y),Rect2(tex.get_width()*0.3,tex.get_height()*0.3,tex.get_width()*0.4,tex.get_height()*0.2))
+		draw_texture_rect_region(tex,Rect2(x-camera_x,y-h*float(spec.get("tile_top_ratio",float(spec.get("tile_top",0.0))/tex.get_height())),piece+1,h),Rect2(source_x,0,source_w*piece/w,tex.get_height()))
+		x += piece
+	return true
+
+func _actor(kind: String, animation: String, pos: Vector2, facing: int, elapsed: float, fallback_size: float = 80, tint: Color = Color.WHITE) -> void:
 	var actors: Dictionary = manifest.get("actors",{})
 	if not actors.has(kind):
 		# Deliberately labelled greybox; never considered production character art.
@@ -347,6 +471,7 @@ func _actor(kind: String, animation: String, pos: Vector2, facing: int, elapsed:
 		return
 	var spec: Dictionary = actors[kind]
 	var animations: Dictionary = spec.get("animations",{})
+	if animation == "death" and not animations.has("death"): return
 	var anim: Dictionary = animations.get(animation,animations.get("idle",{}))
 	var tex: Texture2D = _texture(anim.get("file",spec.file))
 	if tex == null: return
@@ -365,7 +490,7 @@ func _actor(kind: String, animation: String, pos: Vector2, facing: int, elapsed:
 	if facing<0:
 		target.position.x += size.x
 		target.size.x = -size.x
-	draw_texture_rect_region(tex,target,region)
+	draw_texture_rect_region(tex,target,region,tint)
 
 func _draw() -> void:
 	if not started: return
@@ -375,56 +500,112 @@ func _draw() -> void:
 	draw_rect(Rect2(0,0,1280,800),Color("243c48"))
 	var backgrounds: Array = manifest.get("backgrounds",[])
 	if not backgrounds.is_empty():
-		var bg = backgrounds[mini(rules.chapter,backgrounds.size()-1)]
+		var bg = backgrounds[0 if rules.mode == "homecoming" else mini(rules.chapter,backgrounds.size()-1)]
 		if bg is String:
 			var tex: Texture2D = _texture(bg)
 			if tex: draw_texture_rect(tex,Rect2(0,0,1280,800),false)
 		elif bg is Dictionary:
 			for layer in ["far","mid","near"]:
 				var tex: Texture2D = _texture(bg.get(layer,""))
-				if tex: draw_texture_rect(tex,Rect2(0,0,1280,800),false)
+				if tex: draw_texture_rect(tex,Rect2(-60,-100,1400,900),false)
+	if rules.chapter == 0 and rules.segment == 0 and not rules.flags.get("intro_seen",false):
+		var dragon_x: float = 1600.0-rules.time*230.0 if rules.time<3.0 else 910.0+(rules.time-3.0)*300.0
+		var dragon_y: float = 200.0+rules.time*140.0 if rules.time<3.0 else 620.0-(rules.time-3.0)*100.0
+		_actor("dragon","fly",Vector2(dragon_x,dragon_y),-1 if rules.time<3 else 1,rules.time,330)
+		_actor("princess","idle" if rules.time<3 else "rescued",Vector2(910,620) if rules.time<3 else Vector2(dragon_x-45,dragon_y+25),1,rules.time,105)
 	# High contrast walkable ink edges stay separate from decorative background.
 	for p in rules.level.platforms:
+		if p.kind == "crumble" and rules.crumbles.get(str(p.x),0.0)>0.65: continue
 		var y: float = p.y+sin(rules.time*1.3)*42 if p.kind == "moving" else p.y
 		if p.kind == "ground":
-			draw_rect(Rect2(p.x-camera_x,y,p.w,180),Color("303d36"))
-		else: draw_rect(Rect2(p.x-camera_x,y,p.w,18),Color("75694f"))
-		draw_line(Vector2(p.x-camera_x,y),Vector2(p.x+p.w-camera_x,y),Color("d7c495"),4)
+			var cursor: float = p.x
+			for gap in rules.level.hazards:
+				if gap.kind != "pit": continue
+				var section: Dictionary = p.duplicate()
+				section.x = cursor
+				section.w = maxf(0.0,gap.x-cursor)
+				if section.w>0: _terrain(section,y)
+				cursor = maxf(cursor,gap.x+gap.w)
+			var section: Dictionary = p.duplicate()
+			section.x = cursor
+			section.w = p.x+p.w-cursor
+			if section.w>0: _terrain(section,y)
+		else:
+			if not _terrain(p,y): draw_rect(Rect2(p.x-camera_x,y,p.w,18),Color("75694f"))
+			draw_line(Vector2(p.x-camera_x,y),Vector2(p.x+p.w-camera_x,y),Color("544c39"),2)
 	for hazard in rules.level.hazards:
 		var color := Color("101b23") if hazard.kind == "pit" else Color("f1a94f")
 		draw_rect(Rect2(hazard.x-camera_x,620 if hazard.kind == "pit" else 596,hazard.w,180 if hazard.kind == "pit" else 24),color)
+		if hazard.kind == "pendulum":
+			var swing := Vector2(hazard.x+hazard.w*0.5+sin(rules.time*1.8)*95-camera_x,570)
+			draw_line(Vector2(hazard.x+hazard.w*0.5-camera_x,330),swing,Color("b6a781"),3)
+			draw_circle(swing,21,Color("524b4b"))
+			draw_arc(swing,21,0,TAU,16,Color("e0c491"),2)
 		if hazard.kind != "pit":
 			var active: bool = fmod(rules.time,hazard.period)>1.7
 			draw_string(font,Vector2(hazard.x-camera_x,580),"▲ 危险" if active else "◇ 蓄势",HORIZONTAL_ALIGNMENT_LEFT,-1,18,Color("ffe2a1"))
 	if rules.chapter == 4 and rules.segment == 2:
 		for gate in [1200.0,2500.0]:
-			draw_circle(Vector2(gate-camera_x,555),22,Color("d7b76d"),false,3)
-			draw_string(font,Vector2(gate-camera_x-45,520),"合作 [E]",HORIZONTAL_ALIGNMENT_LEFT,-1,20,Color("ffe2a1"))
+			var gate_index: int = 0 if gate == 1200.0 else 1
+			if rules.mechanism_progress<=gate_index:
+				_prop("pillar",Vector2(gate-camera_x+60,620),175)
+			_prop("lever",Vector2(gate-camera_x+100,620),95)
+			if not _prop("plate",Vector2(gate-camera_x-80,620),26): draw_rect(Rect2(gate-camera_x-125,613,90,7),Color("d7b76d"))
+			draw_string(font,Vector2(gate-camera_x-125,590),"压力板",HORIZONTAL_ALIGNMENT_LEFT,-1,18,Color("ffe2a1"))
+			draw_string(font,Vector2(gate-camera_x-45,520),"合作 ["+_hint("interact")+"]",HORIZONTAL_ALIGNMENT_LEFT,-1,20,Color("ffe2a1"))
 	for ladder in rules.level.ladders:
+		_prop("ladder",Vector2(ladder.x-camera_x,ladder.bottom),ladder.bottom-ladder.top)
 		for y in range(int(ladder.top),int(ladder.bottom),18):
 			draw_line(Vector2(ladder.x-camera_x-14,y),Vector2(ladder.x-camera_x+14,y),Color("c0a778"),3)
+	for mechanism in rules.level.get("mechanisms",[]):
+		var pos := Vector2(mechanism.x-camera_x,mechanism.y)
+		if mechanism.kind in ["rescue","welcome"]:
+			_actor("bridge_keeper" if mechanism.id == "bridgekeeper" else "villager","idle",pos,1,rules.time,110)
+		elif not rules.activated.get(mechanism.id,false):
+			var prop_id: String = "lever" if mechanism.kind == "lever" else "signpost"
+			if mechanism.kind == "cart": prop_id = "cart"
+			if "weight" in mechanism.id or "anchor" in mechanism.id: prop_id = "counterweight"
+			if "winch" in mechanism.id: prop_id = "winch"
+			_prop(prop_id,pos,78)
+		if not rules.activated.get(mechanism.id,false):
+			draw_string(font,pos+Vector2(-70,-100),mechanism.label+" ["+_hint("interact")+"]",HORIZONTAL_ALIGNMENT_LEFT,-1,18,Color("ffedbd"))
 	var camp_x: float = rules.level.checkpoint_x-camera_x
-	draw_circle(Vector2(camp_x,605),15,Color("edac56"))
-	draw_string(font,Vector2(camp_x-45,575),"篝火 [E]",HORIZONTAL_ALIGNMENT_LEFT,-1,18,Color("fff1c7"))
+	if not _prop("campfire",Vector2(camp_x,620),66): draw_circle(Vector2(camp_x,605),15,Color("edac56"))
+	draw_string(font,Vector2(camp_x-45,575),"篝火 ["+_hint("interact")+"]",HORIZONTAL_ALIGNMENT_LEFT,-1,18,Color("fff1c7"))
 	var exit_x: float = rules.level.exit_x-camera_x
-	draw_line(Vector2(exit_x,620),Vector2(exit_x,510),Color("e7ca86"),4)
-	draw_string(font,Vector2(exit_x-85,495),"前进 / 互动 [E]",HORIZONTAL_ALIGNMENT_LEFT,-1,19,Color("fff1c7"))
+	if not _prop("signpost",Vector2(exit_x,620),105): draw_line(Vector2(exit_x,620),Vector2(exit_x,510),Color("e7ca86"),4)
+	draw_string(font,Vector2(exit_x-85,495),"前进 / 互动 ["+_hint("interact")+"]",HORIZONTAL_ALIGNMENT_LEFT,-1,19,Color("fff1c7"))
 	if not rules.flags.memories.has(rules.chapter):
 		draw_circle(rules.level.collectible-Vector2(camera_x,0),11,Color("fce7a9"))
 	for e in rules.enemies:
 		if e.hp<=0 and e.anim_time>2: continue
-		_actor(e.kind,e.animation,Vector2(e.x-camera_x,e.y),e.facing,e.anim_time,210 if e.boss else 100)
+		var visual: Dictionary = _enemy_visual(e)
+		_actor(e.kind,visual.name,Vector2(e.x-camera_x,e.y),e.facing,visual.elapsed,210 if e.boss else 100,Color(1.0+settings.flash,1.0+settings.flash,1.0+settings.flash) if e.stun>0 else Color.WHITE)
 		if e.hp>0:
 			draw_rect(Rect2(e.x-camera_x-28,e.y-125,56,5),Color("32232c"))
 			draw_rect(Rect2(e.x-camera_x-28,e.y-125,56*e.hp/e.max_hp,5),Color("d7a16a"))
-		if e.state == "windup": draw_string(font,Vector2(e.x-camera_x-10,e.y-145),"!",HORIZONTAL_ALIGNMENT_LEFT,-1,35,Color("ffcf6a"))
+		if e.state == "windup": draw_string(font,Vector2(e.x-camera_x-10,e.y-145),"!",HORIZONTAL_ALIGNMENT_LEFT,-1,35,Color("ff6654") if e.boss and e.attack_count%3 == 0 else Color("ffcf6a"))
 		if e.boss and e.hp>0 and absf(e.x-rules.hero.x)<700:
 			draw_rect(Rect2(350,120,580,13),Color("201e27"))
 			draw_rect(Rect2(350,120,580*e.hp/e.max_hp,13),Color("b75b4e"))
 			draw_string(font,Vector2(450,111),e.kind+"  ·  阶段 "+str(e.phase),HORIZONTAL_ALIGNMENT_LEFT,-1,21,Color("ffe9bd"))
-	_actor("hero",rules.hero.animation,Vector2(rules.hero.x-camera_x,rules.hero.y),rules.hero.facing,rules.hero.anim_time,112)
+	_actor("hero","parry" if parry_visual_time>0 else rules.hero.animation,Vector2(rules.hero.x-camera_x,rules.hero.y),rules.hero.facing,0.2-parry_visual_time if parry_visual_time>0 else rules.hero.anim_time,112)
+	if rules.chapter == 4 and rules.segment == 1 and not rules.flags.rescued:
+		_actor("princess","idle",Vector2(rules.level.exit_x+40-camera_x,620),-1,rules.time,105)
+		if not rules.flags.get("seal_broken",false):
+			if not _prop("seal",Vector2(rules.level.exit_x-camera_x,620),120): draw_arc(Vector2(rules.level.exit_x-camera_x,560),55,0,TAU,32,Color("b393d7"),4)
+	if rules.chapter == 4 and rules.segment == 3 and rules.mode == "play":
+		for pillar_x in [260.0,rules.level.width-260.0]:
+			if not _prop("pillar",Vector2(pillar_x-camera_x,620),180): draw_rect(Rect2(pillar_x-camera_x-20,460,40,160),Color("7d7770"))
+			draw_string(font,Vector2(pillar_x-camera_x-40,445),"掩体",HORIZONTAL_ALIGNMENT_LEFT,-1,18,Color("ffe0a8"))
 	if rules.flags.rescued and rules.chapter == 4:
-		_actor("princess","run" if rules.mode == "epilogue" else "idle",Vector2(rules.hero.x-camera_x-70 if rules.segment == 2 or rules.mode == "epilogue" else 230-camera_x,620),1,rules.time,105)
+		if rules.segment == 2:
+			_actor("princess",rules.princess.animation,Vector2(rules.princess.x-camera_x,rules.princess.y),1,rules.princess.anim_time,105)
+		else:
+			_actor("princess","run" if rules.mode in ["epilogue","homecoming"] and absf(rules.hero.vx)>5 else "idle",Vector2(rules.hero.x-camera_x-70 if rules.mode in ["epilogue","homecoming"] else 230-camera_x,620),1,rules.time,105)
+	if rules.cart_active: _prop("cart",Vector2(rules.hero.x-camera_x,rules.hero.y+10),75)
+	if rules.level.get("wind",false):
+		draw_string(font,Vector2(940,102),"风向 →" if sin(rules.time*0.8)>0 else "风向 ←",HORIZONTAL_ALIGNMENT_LEFT,-1,20,Color("fff0c7"))
 	for p in rules.projectiles: draw_circle(Vector2(p.x-camera_x,p.y),7,Color("f4a354") if p.fire else Color("d5d9d7"))
 	for fx in rules.effects:
 		draw_arc(Vector2(fx.x-camera_x,fx.y),24,0,TAU,12,Color(1,0.88,0.6,float(settings.flash)),3)
@@ -434,11 +615,12 @@ func _draw() -> void:
 	draw_string(font,Vector2(28,31),"晨曦之剑  /  第%d章 · %s" % [rules.chapter+1,rules.level.name],HORIZONTAL_ALIGNMENT_LEFT,-1,23,Color("f6e6c4"))
 	draw_rect(Rect2(28,46,210,13),Color("543a3d"))
 	draw_rect(Rect2(28,46,210*rules.hero.hp/rules.hero.max_hp,13),Color("b56154"))
-	draw_string(font,Vector2(253,60),"生命 %d  药剂 %d [H]" % [rules.hero.hp,rules.hero.heals],HORIZONTAL_ALIGNMENT_LEFT,-1,18,Color("f6e6c4"))
-	if rules.flags.dawn: draw_string(font,Vector2(490,60),"晨光 %d%% [U]" % rules.hero.charge,HORIZONTAL_ALIGNMENT_LEFT,-1,18,Color("ffe3a1"))
-	draw_string(font,Vector2(830,55),"Esc 暂停  ·  E 互动",HORIZONTAL_ALIGNMENT_LEFT,-1,19,Color("f6e6c4"))
+	draw_string(font,Vector2(253,60),"生命 %d  药剂 %d [%s]" % [rules.hero.hp,rules.hero.heals,_hint("heal")],HORIZONTAL_ALIGNMENT_LEFT,-1,18,Color("f6e6c4"))
+	if rules.flags.dawn: draw_string(font,Vector2(490,60),"晨光 %d%% [%s]" % [rules.hero.charge,_hint("dawn")],HORIZONTAL_ALIGNMENT_LEFT,-1,18,Color("ffe3a1"))
+	draw_string(font,Vector2(830,55),"%s 暂停  ·  %s 互动" % [_hint("pause"),_hint("interact")],HORIZONTAL_ALIGNMENT_LEFT,-1,19,Color("f6e6c4"))
 	draw_colored_polygon(PackedVector2Array([Vector2(0,720),Vector2(1190,720),Vector2(1240,800),Vector2(0,800)]),Color("182c36d0"))
-	var objective: String = rules.story if rules.story != "" and settings.subtitles else rules.level.objective
+	var objective: String = rules.story if rules.story != "" and settings.subtitles else rules.current_objective()
+	objective = objective.replace("U 释放",_hint("dawn")+" 释放").replace("用 U ","用 "+_hint("dawn")+" ")
 	draw_string(font,Vector2(30,748),objective,HORIZONTAL_ALIGNMENT_LEFT,1220,21,Color("f7e4bd"))
 	draw_string(font,Vector2(30,781),("摇杆 移动 · 下键 跳跃 · 左键 攻击 · 右键 翻滚 · 左肩 盾防 · 右肩 互动 · Back 治疗" if last_device == "gamepad" else "%s/%s 移动 · %s 跳跃 · %s 攻击 · %s 翻滚 · %s 盾防 · %s 治疗" % [_key("left"),_key("right"),_key("jump"),_key("attack"),_key("roll"),_key("guard"),_key("heal")]),HORIZONTAL_ALIGNMENT_LEFT,-1,17,Color("bdc6be"))
 	if menu != "": draw_rect(Rect2(0,0,1280,800),Color(0.02,0.04,0.06,0.52))

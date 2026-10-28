@@ -96,7 +96,7 @@ def main():
     parser.add_argument("--module", type=Path, default=ROOT / "godot/modules/bloom_skirmish")
     parser.add_argument("--json", type=Path)
     args = parser.parse_args()
-    baseline_path = args.module / "art/source/animals/rigging/fox/original_palette_baseline.json"
+    baseline_path = args.module / "tests/fixtures/original_palette_baseline.json"
     baseline = json.loads(baseline_path.read_text())
     require(baseline["schema"] == 1, "Unsupported original palette baseline")
     reports = []

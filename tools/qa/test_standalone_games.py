@@ -23,16 +23,18 @@ TESTS = {
     'pelican_pedal': ['test_runtime', 'test_storage', 'test_sim', 'test_standalone_exit'],
     'fruit_gummy_snake': ['test_runtime', 'test_storage', 'test_xyz', 'test_camera', 'test_interface', 'test_detach'],
     'monkey_vine': ['test_rules_route', 'test_rules_bonus', 'test_rules_invariants'],
+    'dawn_sword': ['test_runtime', 'test_storage', 'test_standalone_exit'],
+    'apprentice_yokai_king': ['test_lifecycle', 'test_inputs', 'test_window_close'],
 }
 ERRORS = re.compile(r'SCRIPT ERROR:|Parse Error:|^ERROR:|ObjectDB.*leaked|resources still in use|^FAIL', re.M)
 
 
-def check_game(game_id, output, godot):
+def check_game(game_id, output, godot, lifecycle_only=False):
     work = output / game_id
     work.mkdir()
     project = EXTRACTOR.extract_game(game_id, work / 'project', ROOT)
-    leave = 'request_exit' if game_id == 'monkey_vine' else 'leave_game'
-    started = 'started' if game_id == 'monkey_vine' else 'has_started'
+    leave = 'exit_game' if game_id == 'apprentice_yokai_king' else ('request_exit' if game_id in ('monkey_vine', 'dawn_sword') else 'leave_game')
+    started = 'started' if game_id in ('monkey_vine', 'dawn_sword', 'apprentice_yokai_king') else 'has_started'
     # This probe is test-only, written to the extracted copy, never the source module.
     (project / 'standalone_probe.gd').write_text(f'''extends SceneTree
 func _initialize() -> void: call_deferred("run")
@@ -49,15 +51,15 @@ func run() -> void:
 ''')
     commands = [('import', ['--editor', '--import', '--quit']),
                 ('startup_exit', ['--script', 'res://standalone_probe.gd'])]
-    commands += [(test, ['--script', f'res://modules/{game_id}/tests/{test}.gd']) for test in TESTS[game_id]]
-    if game_id == 'gummy_bomber':
+    commands += [(test, ['--script', f'res://modules/{game_id}/tests/{test}.gd']) for test in ([] if lifecycle_only else TESTS[game_id])]
+    if game_id == 'gummy_bomber' and not lifecycle_only:
         commands.append(('test_exit_standalone', ['--script', 'res://modules/gummy_bomber/tests/test_exit.gd', '--', 'standalone']))
     results = []
     for label, arguments in commands:
         env = os.environ.copy()
         env['GODOT_SILENCE_ROOT_WARNING'] = '1'
         for kind in ('DATA', 'CONFIG', 'CACHE'):
-            path = work / label / kind.lower()
+            path = work / ('dawn-storage-test' if game_id == 'dawn_sword' and label == 'test_storage' else label) / kind.lower()
             path.mkdir(parents=True)
             env[f'XDG_{kind}_HOME'] = str(path)
         try:
@@ -83,12 +85,18 @@ def main():
     parser.add_argument('--godot', required=True, type=Path, help='Godot 4.7.2 executable')
     parser.add_argument('--output', type=Path, help='New directory outside the source tree')
     parser.add_argument('--jobs', type=int, default=2)
+    parser.add_argument('--lifecycle-only', action='store_true', help='Only extraction/import/autostart/normal exit, not module rules')
     args = parser.parse_args()
     if args.jobs < 1:
         parser.error('--jobs must be positive')
+    version_env = os.environ.copy()
+    version_home = Path(tempfile.mkdtemp(prefix='iland-engine-version-'))
+    for kind in ('DATA', 'CONFIG', 'CACHE'):
+        folder = version_home / kind.lower(); folder.mkdir()
+        version_env[f'XDG_{kind}_HOME'] = str(folder)
     try:
         version = subprocess.run([str(args.godot.resolve()), '--version'], capture_output=True,
-                                 text=True, timeout=15, check=True).stdout.strip()
+                                 text=True, timeout=15, check=True, env=version_env).stdout.strip()
     except (OSError, subprocess.SubprocessError) as error:
         parser.error(f'Cannot verify Godot version: {error}')
     if version != '4.7.2.stable.official.ed1daf0bf':
@@ -99,7 +107,7 @@ def main():
     if args.output:
         output.mkdir(parents=True, exist_ok=False)
     with ThreadPoolExecutor(max_workers=args.jobs) as pool:
-        results = list(pool.map(lambda game: check_game(game, output, args.godot.resolve()), TESTS))
+        results = list(pool.map(lambda game: check_game(game, output, args.godot.resolve(), args.lifecycle_only), TESTS))
     (output / 'matrix.json').write_text(json.dumps(results, indent=2))
     print('Evidence:', output)
     return 0 if all(check['passed'] for result in results for check in result['checks']) else 1

@@ -19,6 +19,10 @@ var total_deaths: int = 0
 var attack_serial: int = 0
 var crumbles: Dictionary = {}
 var mechanism_progress: int = 0
+var activated: Dictionary = {}
+var cart_active: bool = false
+var princess: Dictionary = {"x":110.0,"y":620.0,"animation":"idle","anim_time":0.0}
+var cooperation: String = "waiting"
 var story_timer: float = 7.0
 
 func _init() -> void:
@@ -30,7 +34,7 @@ func load_level(c: int, s: int) -> void:
 	level = Campaign.level(chapter,segment)
 	checkpoint = {"chapter":chapter,"segment":segment}
 	events.clear()
-	hero = {"x":180.0,"y":620.0,"vx":0.0,"vy":0.0,"facing":1,"hp":100.0+flags.memories.size()*10.0,"max_hp":100.0+flags.memories.size()*10.0,"animation":"idle","anim_time":0.0,"grounded":true,"guard":false,"charge":100.0 if flags.dawn else 0.0,"heals":5 if difficulty == "story" else 3,"action":"","action_time":0.0,"invuln":0.0,"cooldown":0.0,"combo":0,"combo_window":0.0,"jump_buffer":0.0,"coyote":0.12,"safe_x":180.0,"safe_y":620.0,"guard_time":0.0,"guard_stress":0.0,"hit_ids":[],"drop":0.0}
+	hero = {"x":180.0,"y":620.0,"vx":0.0,"vy":0.0,"facing":1,"hp":100.0+flags.memories.size()*10.0,"max_hp":100.0+flags.memories.size()*10.0,"animation":"idle","anim_time":0.0,"grounded":true,"guard":false,"charge":100.0 if flags.dawn else 0.0,"heals":5 if difficulty == "story" else 3,"action":"","action_time":0.0,"invuln":0.0,"cooldown":0.0,"combo":0,"combo_window":0.0,"jump_buffer":0.0,"coyote":0.12,"safe_x":180.0,"safe_y":620.0,"guard_time":0.0,"guard_stress":0.0,"hit_ids":[],"drop":0.0,"land_timer":0.0}
 	enemies.clear()
 	for spec in level.enemies:
 		var stats: Array = Campaign.ENEMY_STATS[spec.kind]
@@ -38,36 +42,53 @@ func load_level(c: int, s: int) -> void:
 	projectiles.clear()
 	crumbles.clear()
 	mechanism_progress = 0
+	activated.clear()
+	cart_active = false
+	cooperation = "waiting"
+	princess = {"x":110.0,"y":620.0,"animation":"idle","anim_time":0.0}
+	for mechanism in level.get("mechanisms",[]):
+		if flags.shortcuts.has(mechanism.id):
+			activated[mechanism.id] = true
+			_apply_mechanism_effect(mechanism)
 	effects.clear()
 	mode = "play"
 	events.append({"type":"checkpoint"})
 
 func snapshot() -> Dictionary:
-	return {"chapter":chapter,"segment":segment,"level":level,"hero":hero,"enemies":enemies,"projectiles":projectiles,"effects":effects,"flags":flags,"story":story,"mode":mode,"time":time}
+	return {"chapter":chapter,"segment":segment,"level":level,"hero":hero,"enemies":enemies,"projectiles":projectiles,"effects":effects,"flags":flags,"princess":princess,"cooperation":cooperation,"story":story,"mode":mode,"time":time}
 
 func profile() -> Dictionary:
 	return {"chapter":checkpoint.chapter,"segment":checkpoint.segment,"flags":flags.duplicate(true),"difficulty":difficulty,"deaths":total_deaths}
 
 func restore(data: Dictionary) -> void:
 	flags.merge(data.get("flags",{}).duplicate(true),true)
+	# JSON numbers are floats in Godot; Array.has distinguishes 0 from 0.0.
+	# Canonical integer collectible IDs prevent duplicate rewards after continue.
+	var normalized_memories: Array = []
+	for value in flags.memories:
+		var index: int = int(value)
+		if not normalized_memories.has(index): normalized_memories.append(index)
+	flags.memories = normalized_memories
 	difficulty = data.get("difficulty","adventure")
 	total_deaths = int(data.get("deaths",0))
 	load_level(int(data.get("chapter",0)),int(data.get("segment",0)))
-	if flags.completed and chapter == 4 and segment == 3:
+	if (flags.completed or flags.get("dragon_defeated",false)) and chapter == 4 and segment == 3:
 		mode = "epilogue"
 		for e in enemies:
 			if e.kind == "dragon":
 				e.hp = 0.0
 				e.animation = "death"
+	if flags.get("homecoming",false) and chapter == 4 and segment == 3: _load_homecoming()
 	story = "篝火仍然温暖。继续前进吧。"
 	story_timer = 4.0
 
 func tick(input: Dictionary, dt: float = STEP) -> void:
-	if mode != "play" and mode != "epilogue": return
+	if mode not in ["play","epilogue","homecoming"]: return
 	time += dt
+	if chapter == 0 and segment == 0 and time>7: flags["intro_seen"] = true
 	story_timer = maxf(0.0,story_timer-dt)
 	if story_timer <= 0: story = ""
-	for key in ["invuln","cooldown","combo_window","jump_buffer","coyote","drop"]:
+	for key in ["invuln","cooldown","combo_window","jump_buffer","coyote","drop","land_timer"]:
 		hero[key] = maxf(0.0,float(hero[key])-dt)
 	hero.anim_time += dt
 	if hero.grounded: hero.coyote = 0.12
@@ -116,7 +137,15 @@ func tick(input: Dictionary, dt: float = STEP) -> void:
 			hero.y = maxf(ladder.top,hero.y-170*dt)
 			hero.vy = 0.0
 			climbing = true
+	var was_grounded: bool = hero.grounded
+	var landing_speed: float = hero.vy
 	var prev_y: float = hero.y
+	if cart_active:
+		if input.get("jump_pressed",false) or hero.x>2750:
+			cart_active = false
+		else: hero.vx = 410.0
+	if level.get("wind",false) and not hero.grounded:
+		hero.vx += sin(time*0.8)*80.0
 	hero.x = clampf(hero.x+hero.vx*dt,25.0,level.width-25.0)
 	if chapter == 4 and segment == 2 and mechanism_progress<2:
 		hero.x = minf(hero.x,1260.0 if mechanism_progress == 0 else 2560.0)
@@ -130,6 +159,13 @@ func tick(input: Dictionary, dt: float = STEP) -> void:
 		if platform.kind == "moving": py += sin(time*1.3)*42
 		if platform.kind == "ground" and _over_pit(hero.x): continue
 		if platform.kind != "ground" and hero.drop>0: continue
+		if platform.kind != "ground" and not was_grounded and hero.vy>=0 and hero.y>py+5 and hero.y<py+36 and absf(axis)>0.1:
+			var edge: float = platform.x if axis>0 else platform.x+platform.w
+			if absf(hero.x-edge)<18:
+				hero.x = edge+8*signf(axis)
+				hero.y = py
+				prev_y = py
+				hero.vy = 0.0
 		if hero.x>=platform.x-8 and hero.x<=platform.x+platform.w+8 and prev_y<=py+3 and hero.y>=py and hero.vy>=0:
 			hero.y = py
 			hero.vy = 0.0
@@ -138,19 +174,24 @@ func tick(input: Dictionary, dt: float = STEP) -> void:
 			if platform.kind != "crumble":
 				hero.safe_x = hero.x
 				hero.safe_y = hero.y
+	if hero.grounded and not was_grounded and landing_speed>150: hero.land_timer = 0.16
 	if hero.y>850:
 		_damage_hero(10,0,true)
 		hero.x = hero.safe_x-35*hero.facing
 		hero.y = hero.safe_y
 		hero.vy = 0.0
 	for hazard in level.hazards:
-		if hazard.kind != "pit" and fmod(time, hazard.period)>1.7 and hero.x>hazard.x and hero.x<hazard.x+hazard.w and hero.y>560:
+		if hazard.kind == "pendulum":
+			var swing_x: float = hazard.x+hazard.w*0.5+sin(time*1.8)*95
+			if absf(hero.x-swing_x)<30 and hero.y>555: _damage_hero(14,swing_x,true)
+		elif hazard.kind == "flame" and fmod(time,hazard.period)>1.7 and hero.x>hazard.x and hero.x<hazard.x+hazard.w and hero.y>560:
 			_damage_hero(14,0,true)
+	if chapter == 4 and segment == 2: _step_princess(dt)
 	if mode == "play":
 		_step_enemies(dt)
 		_step_projectiles(dt)
 	if hero.action == "":
-		_set_anim("climb" if climbing else ("guard" if hero.guard else ("jump" if hero.vy<0 and not hero.grounded else ("fall" if not hero.grounded else ("run" if absf(hero.vx)>5 else "idle")))))
+		_set_anim("climb" if climbing else ("guard" if hero.guard else ("jump" if hero.vy<0 and not hero.grounded else ("fall" if not hero.grounded else ("run" if absf(hero.vx)>5 else ("land" if hero.land_timer>0 else "idle"))))))
 	if input.get("interact_pressed",false): _interact()
 	if hero.x>780 and hero.x<1000 and hero.y<435:
 		var memory: int = chapter
@@ -195,10 +236,12 @@ func _step_action(input: Dictionary, dt: float) -> void:
 					var damage: float = 52.0 if action == "dawn" else (28.0 if hero.combo == 3 else 18.0)
 					var blocked: bool = enemy.kind in ["shield","bridge_guard"] and enemy.state not in ["recover","stagger"] and (hero.x-enemy.x)*enemy.facing>0 and action != "dawn"
 					if blocked: damage = 3.0
+					if enemy.kind == "rock_lizard" and enemy.state != "stagger": damage *= 0.25
+					if enemy.kind == "dragon" and enemy.phase == 3 and enemy.state != "stagger": damage *= 0.6
 					enemy.hp = maxf(0,enemy.hp-damage)
 					hero.charge = minf(100,hero.charge+10)
 					enemy.stun = 0.16 if not enemy.boss else 0.0
-					if action == "dawn" and enemy.state == "windup":
+					if action == "dawn" and (enemy.state == "windup" or (enemy.state == "breath" and enemy.timer>1.1)):
 						enemy.state = "stagger"
 						enemy.timer = 2.0
 					effects.append({"x":enemy.x,"y":enemy.y-50,"life":0.18,"type":"hit"})
@@ -220,7 +263,7 @@ func _step_action(input: Dictionary, dt: float) -> void:
 			if absf(float(input.get("move",0)))>0.1: hero.facing = 1 if input.move>0 else -1
 			hero.combo = int(hero.combo)%3+1
 			hero.hit_ids = []
-			_action("attack"+str(hero.combo),0.64 if hero.combo == 3 else 0.48)
+			_action("attack"+str(hero.combo) if hero.grounded else "air_attack",0.64 if hero.combo == 3 else 0.48)
 
 func _damage_hero(amount: float, source_x: float, unblockable: bool = false) -> void:
 	if hero.invuln>0 or mode not in ["play","epilogue"]: return
@@ -229,6 +272,8 @@ func _damage_hero(amount: float, source_x: float, unblockable: bool = false) -> 
 		hero.x -= hero.facing*12
 		events.append({"type":"block"})
 		if hero.guard_time<0.16:
+			_set_anim("parry")
+			hero.invuln = 0.16
 			for e in enemies:
 				if absf(e.x-source_x)<5 and not e.boss:
 					e.state = "stagger"
@@ -259,6 +304,8 @@ func _step_enemies(dt: float) -> void:
 		if e.stun>0:
 			e.animation = "hurt"
 			continue
+		if e.kind == "bat":
+			e.y = 565.0+sin(time*3.2+e.id)*25.0 if e.state in ["idle","approach","recover"] else 610.0
 		var distance: float = absf(hero.x-e.x)
 		if distance>650 and e.state == "idle": continue
 		if e.state in ["idle","approach"]:
@@ -278,7 +325,7 @@ func _step_enemies(dt: float) -> void:
 			e.timer -= dt
 			if e.timer<=0:
 				e.state = "attack"
-				e.timer = 1.6 if e.kind == "rock_lizard" else 0.38
+				e.timer = 1.6 if e.kind == "rock_lizard" else (0.9 if e.kind == "dragon" and e.phase == 3 else 0.38)
 				e.animation = "attack"
 				e.anim_time = 0.0
 				if e.kind == "bridge_guard" and e.attack_count%2 == 0:
@@ -309,6 +356,13 @@ func _step_enemies(dt: float) -> void:
 				e.y = 620-sin((0.38-e.timer)/0.38*PI)*95
 			if e.kind in ["wolf","rock_lizard"] or (e.kind == "dragon" and e.phase == 3):
 				e.x = clampf(e.x+e.facing*370*dt,80,level.width-80)
+				if (e.kind == "rock_lizard" and (e.x<=85 or e.x>=level.width-85)) or (e.kind == "dragon" and e.phase == 3 and (e.x<=300 or e.x>=level.width-300)):
+					e.state = "stagger"
+					e.timer = 2.8
+					e.animation = "stagger"
+					events.append({"type":"block"})
+					_tell("撞击令它失去平衡！现在反击！",3)
+			if e.kind == "ash_knight" and e.phase == 2: e.x += e.facing*160*dt
 			if e.kind not in ["archer","slinger","mage","salamander"] and not e.hit and absf(hero.x-e.x)<e.reach+15 and absf(hero.y-e.y)<78:
 				e.hit = true
 				_damage_hero(e.damage,e.x,e.boss and e.attack_count%3 == 0)
@@ -317,6 +371,12 @@ func _step_enemies(dt: float) -> void:
 				e.state = "recover"
 				e.timer = (2.4 if e.kind == "rock_lizard" else 1.25) if e.boss else 0.85
 				e.animation = "idle"
+				if e.kind == "ash_knight" and e.phase == 2 and e.attack_count%2 == 1:
+					e.state = "windup"
+					e.timer = 0.45
+					e.attack_count += 1
+					e.animation = "windup"
+					e.hit = false
 		elif e.state == "breath":
 			e.timer -= dt
 			if e.timer<1.1 and hero.x>300 and hero.x<level.width-300 and hero.y>540:
@@ -358,16 +418,46 @@ func _enemy_defeated(e: Dictionary) -> void:
 		_tell("道路已经打开。走向金色路标，继续营救。",5)
 		if e.kind == "dragon":
 			flags["dragon_defeated"] = true
-			flags.completed = true
+			projectiles.clear()
 			mode = "epilogue"
 			_tell("格拉姆倒下了。艾琳：你真的来了。莱恩：我们回家吧。向右走，共迎黎明。",12)
 			events.append({"type":"checkpoint"})
 
 func _interact() -> void:
+	if chapter == 0 and segment == 0 and not flags.get("intro_seen",false):
+		flags["intro_seen"] = true
+		story = "艾琳被格拉姆带往龙塔。穿过街道，救助居民，踏上营救之路。"
 	if mode == "epilogue" and hero.x>level.exit_x-80:
+		_load_homecoming()
+		events.append({"type":"checkpoint"})
+		return
+	if mode == "homecoming" and hero.x>level.exit_x-80:
+		if not activated.get("home_welcome",false):
+			_tell("村民正在路旁迎接你们。先去报一声平安吧。",4)
+			return
 		mode = "ending"
+		flags.completed = true
+		events.append({"type":"checkpoint"})
 		events.append({"type":"ending"})
 		return
+	for mechanism in level.get("mechanisms",[]):
+		if absf(hero.x-mechanism.x)<85 and absf(hero.y-mechanism.y)<65 and not activated.get(mechanism.id,false):
+			for requirement in mechanism.get("requires",[]):
+				if not activated.get(requirement,false):
+					_tell("此机关还未连通。先沿线索完成前一道机关。",3)
+					return
+			if mechanism.kind == "rescue":
+				for e in enemies:
+					if e.hp>0 and absf(e.x-mechanism.x)<330:
+						_tell("先挡住附近的敌人，再救出居民。",3)
+						return
+			activated[mechanism.id] = true
+			if mechanism.kind == "cart": cart_active = true
+			if not flags.shortcuts.has(mechanism.id): flags.shortcuts.append(mechanism.id)
+			_apply_mechanism_effect(mechanism)
+			_tell(mechanism.message,6)
+			events.append({"type":"checkpoint"})
+			return
 	if absf(hero.x-level.checkpoint_x)<90:
 		hero.hp = hero.max_hp
 		hero.heals = 5 if difficulty == "story" else 3
@@ -377,11 +467,15 @@ func _interact() -> void:
 		return
 	if chapter == 4 and segment == 2:
 		var gate_x: float = 1200.0 if mechanism_progress == 0 else 2500.0
-		if absf(hero.x-gate_x)<100 and mechanism_progress<2:
-			mechanism_progress += 1
-			_tell("艾琳接住机关！第%d道防护门已打开。" % mechanism_progress,4)
+		if absf(hero.x-(gate_x-80))<55 and mechanism_progress<2:
+			cooperation = "crossing"
+			_tell("艾琳：请站在压力板上，我去转动对面的机关！",4)
 			return
 	if hero.x<level.exit_x-95: return
+	for mechanism in level.get("mechanisms",[]):
+		if not activated.get(mechanism.id,false):
+			_tell("此处尚需完成："+mechanism.label+"。查看路线上方的互动标记。",4)
+			return
 	if chapter == 4 and segment == 2 and mechanism_progress<2:
 		_tell("需要与艾琳开启两道机关。寻找沿途的金色双环标记。",4)
 		return
@@ -418,3 +512,71 @@ func retry() -> void:
 	load_level(checkpoint.chapter,checkpoint.segment)
 	story = "从篝火重新出发。观察前摇，留出反击的时间。"
 	story_timer = 4.0
+
+func _load_homecoming() -> void:
+	flags["homecoming"] = true
+	mode = "homecoming"
+	level = {"mechanisms":[{"id":"home_welcome","x":850.0,"y":620.0,"kind":"welcome","label":"向村民报平安","message":"村民：公主回来了！莱恩，艾琳……欢迎回家。"}],"name":"归乡的晨钟","chapter_name":"尾声","width":2000.0,"platforms":[{"x":0.0,"y":620.0,"w":2000.0,"kind":"ground"}],"hazards":[],"ladders":[],"enemies":[],"objective":"与艾琳走回村镇，在欢迎路标前互动完成旅程","exit_x":1840.0,"checkpoint_x":180.0,"collectible":Vector2(-1000,-1000),"boss":false}
+	enemies.clear()
+	projectiles.clear()
+	effects.clear()
+	activated.clear()
+	if flags.shortcuts.has("home_welcome"): activated["home_welcome"] = true
+	hero.x = 180.0
+	hero.y = 620.0
+	hero.vx = 0.0
+	hero.vy = 0.0
+	hero.action = ""
+	hero.animation = "idle"
+	hero.grounded = true
+	_tell("村镇的晨钟响起。艾琳：大家都平安……我们回家了。",9)
+
+func _apply_mechanism_effect(mechanism: Dictionary) -> void:
+	var effect: String = mechanism.get("effect","flames" if mechanism.kind == "lever" else "")
+	match effect:
+		"flames": level.hazards = level.hazards.filter(func(h): return h.kind == "pit")
+		"bridge":
+			for gap in level.hazards:
+				if gap.kind != "pit": continue
+				var exists: bool = false
+				for platform in level.platforms:
+					if platform.kind == "bridge" and platform.x == gap.x: exists = true
+				if not exists: level.platforms.append({"x":gap.x,"y":620.0,"w":gap.w,"kind":"bridge"})
+		"dawn":
+			flags.dawn = true
+			if hero: hero.charge = 100.0
+
+func _step_princess(dt: float) -> void:
+	princess.anim_time += dt
+	if mechanism_progress>=2:
+		princess.x = move_toward(princess.x,hero.x-65,160*dt)
+		princess.animation = "run"
+		return
+	var gate_x: float = 1200.0 if mechanism_progress == 0 else 2500.0
+	var plate_x: float = gate_x-80
+	if cooperation == "crossing":
+		if absf(hero.x-plate_x)>55 or not hero.grounded:
+			cooperation = "waiting"
+			_tell("艾琳：压力板松开了！请站稳，我再试一次。",3)
+			return
+		princess.x = move_toward(princess.x,gate_x+100,180*dt)
+		princess.animation = "run"
+		if absf(princess.x-(gate_x+100))<3:
+			princess.animation = "interact"
+			mechanism_progress += 1
+			cooperation = "waiting"
+			_tell("艾琳转动机关。第%d道防护门固定开启！" % mechanism_progress,4)
+			events.append({"type":"block"})
+	else:
+		var target: float = minf(hero.x-65,plate_x-50)
+		princess.x = move_toward(princess.x,target,180*dt)
+		princess.animation = "run" if absf(princess.x-target)>4 else "idle"
+
+func current_objective() -> String:
+	if mode == "homecoming" and activated.get("home_welcome",false): return "与艾琳走向村镇的欢迎路标，完成归乡。"
+	if chapter == 4 and segment == 2 and mechanism_progress<2:
+		return "站在第%d块压力板，互动请艾琳过门；保持站稳，等待她固定机关。" % (mechanism_progress+1)
+	for mechanism in level.get("mechanisms",[]):
+		if not activated.get(mechanism.id,false):
+			return mechanism.label+"  ·  "+("← 沿路返回" if mechanism.x<hero.x-90 else "向前寻找 →")
+	return level.objective

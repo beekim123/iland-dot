@@ -1,14 +1,18 @@
 extends RefCounted
 ## Deterministic, fixed-step simulation. All attacks require explicit input edges.
 const Build = preload("res://modules/apprentice_yokai_king/build_model.gd")
-const BOUNDS = Rect2(80, 164, 1120, 554)
-const BUDGETS = [[12,0,0,0,0,0,0],[12,4,0,0,0,0,0],[10,0,4,0,0,1,0],[10,4,0,4,0,0,0],[10,0,4,4,4,0,0],[0,0,0,0,0,0,1]]
-const KINDS = ["grunt","shield","spring","bubble","sleeper","elite","boss"]
+const WORLD_SIZE = Vector2(3200,2200)
+const BOUNDS = Rect2(80,100,3040,2000)
+const LIGHT_REACH = 168.0
+const SLAM_OFFSET = 92.0
+const SLAM_RADIUS = 128.0
+const BUDGETS = [[16,0,0,0,0,0,0,4,0,0,0],[14,5,0,0,0,0,0,4,3,0,0],[12,0,5,0,0,1,0,4,0,3,0],[12,4,0,4,0,0,0,3,3,0,1],[12,0,4,4,4,0,0,4,3,3,2],[0,0,0,0,0,0,1,0,0,0,0]]
+const KINDS = ["grunt","shield","spring","bubble","sleeper","elite","boss","dart","lobber","warder","caller"]
 var rng = RandomNumberGenerator.new()
 var build = Build.new()
 var phase = "title"
 var mode = "standard"
-var player = Vector2(640,440)
+var player = Vector2(1600,1100)
 var facing = Vector2.RIGHT
 var hp = 5
 var max_hp = 5
@@ -52,6 +56,8 @@ var boss_reinforcements = 0
 var attack_scheduler = 0.0
 var last_heal = ""
 var hurt_time = 0.0
+var hazards: Array = []
+var reserved_summons = 0
 
 func reset(seed_number: int, difficulty: String = "standard", practice: bool = true):
 	seed_value = seed_number
@@ -59,13 +65,13 @@ func reset(seed_number: int, difficulty: String = "standard", practice: bool = t
 	build.reset(seed_number ^ 8821)
 	mode = difficulty
 	phase = "practice" if practice else "countdown"
-	player = Vector2(640,440)
+	player = Vector2(1600,1100)
 	facing = Vector2.RIGHT
 	hp = 5; max_hp = 5; shield = false; wave = 0; elapsed = 0; wave_time = 0
 	practice_time = 20; countdown = 3; enemies.clear(); projectiles.clear(); effects.clear(); pending.clear(); seen.clear(); events.clear()
-	next_id = 0; attack_id = 0; launch_id = 0; charge = -1; cooldown = 0; dodge_cd = 0; dodge_time = 0; invulnerable = 0; hit_chain = 0; chain_timer = 0; light_hits = 0; attack = {}; spawned = 0; defeated = 0; total = 0; result_reason = ""; accumulator = 0; queued = {}; boss_reinforcements = 0; core_triggers = 0; attack_scheduler = 0; animation_time = 0; animation = "idle"; last_heal = ""; charged_notified = false; hurt_time = 0
+	next_id = 0; attack_id = 0; launch_id = 0; charge = -1; cooldown = 0; dodge_cd = 0; dodge_time = 0; invulnerable = 0; hit_chain = 0; chain_timer = 0; light_hits = 0; attack = {}; spawned = 0; defeated = 0; total = 0; result_reason = ""; accumulator = 0; queued = {}; boss_reinforcements = 0; core_triggers = 0; attack_scheduler = 0; animation_time = 0; animation = "idle"; last_heal = ""; charged_notified = false; hurt_time = 0; hazards.clear(); reserved_summons = 0
 	if not practice: begin_wave()
-	else: spawn_enemy("grunt",Vector2(865,420))
+	else: spawn_enemy("grunt",player+Vector2(225,-20))
 
 func limit() -> float:
 	return (180.0 if wave == 6 else 120.0) * (1.5 if mode == "assist" else 1.0)
@@ -84,28 +90,41 @@ func advance(delta: float, input: Dictionary):
 
 func begin_wave():
 	wave += 1; wave_time = 0; spawned = 0; defeated = 0; spawn_clock = 0; boss_reinforcements = 0
-	enemies.clear(); projectiles.clear(); pending.clear(); effects.clear(); attack = {}; charge = -1; cooldown = 0
+	enemies.clear(); projectiles.clear(); pending.clear(); effects.clear(); hazards.clear(); reserved_summons = 0; attack = {}; charge = -1; cooldown = 0
 	var budget = BUDGETS[wave-1]
 	total = 0
-	for k in range(7):
+	for k in range(KINDS.size()):
 		for n in range(budget[k]):
-			pending.append({"kind": KINDS[k], "at": 1.2 + floorf(total / 4.0) * 4.5, "pos": spawn_position()})
+			pending.append({"kind": KINDS[k], "at": 1.2 + floorf(total / 4.0) * 5.5, "pos": spawn_position(), "warned":false})
 			total += 1
+	reserved_summons = int(budget[10])*4
+	total += reserved_summons
 	phase = "countdown"; countdown = 3
 	events.append("wave")
 
+func camera_origin() -> Vector2:
+	return (player-Vector2(640,430)).clamp(Vector2.ZERO,WORLD_SIZE-Vector2(1280,800))
+
+func remaining() -> int:
+	return enemies.size()+pending.size()+reserved_summons
+
 func spawn_position() -> Vector2:
-	var side = rng.randi_range(0,3)
-	match side:
-		0: return Vector2(90,rng.randf_range(190,690))
-		1: return Vector2(1190,rng.randf_range(190,690))
-		2: return Vector2(rng.randf_range(100,1180),174)
-	return Vector2(rng.randf_range(100,1180),708)
+	var origin = camera_origin()
+	for attempt in range(12):
+		var side = rng.randi_range(0,3)
+		var point = origin+Vector2(55,rng.randf_range(180,700))
+		match side:
+			1: point = origin+Vector2(1225,rng.randf_range(180,700))
+			2: point = origin+Vector2(rng.randf_range(80,1200),150)
+			3: point = origin+Vector2(rng.randf_range(80,1200),710)
+		point = point.clamp(BOUNDS.position,BOUNDS.end)
+		if point.distance_to(player) > 250: return point
+	return (player+Vector2(520,0)).clamp(BOUNDS.position,BOUNDS.end)
 
 func spawn_enemy(kind: String, pos: Vector2):
 	next_id += 1
-	var health = {"grunt":3.0,"shield":5.0,"spring":4.0,"bubble":3.0,"sleeper":4.0,"elite":20.0,"boss":90.0}[kind]
-	enemies.append({"id":next_id,"kind":kind,"pos":pos,"hp":health,"max_hp":health,"face":(player-pos).normalized(),"timer":0.5,"state":"move","target":pos,"vel":Vector2.ZERO,"launch":0,"collided":[],"stagger":0.0,"resist":0.0,"slow":0.0,"move":0,"stage":0,"rings":0})
+	var health = {"grunt":3.0,"shield":5.0,"spring":4.0,"bubble":3.0,"sleeper":4.0,"elite":20.0,"boss":90.0,"dart":4.0,"lobber":4.0,"warder":6.0,"caller":7.0}[kind]
+	enemies.append({"id":next_id,"kind":kind,"pos":pos,"hp":health,"max_hp":health,"face":(player-pos).normalized(),"timer":0.5,"state":"move","target":pos,"vel":Vector2.ZERO,"launch":0,"collided":[],"stagger":0.0,"resist":0.0,"slow":0.0,"move":0,"stage":0,"rings":0,"summons_left":4 if kind == "caller" else 0,"orbit":1 if next_id%2 == 0 else -1,"last_attack":0})
 	if not kind in seen: seen.append(kind)
 	spawned += 1
 
@@ -158,14 +177,22 @@ func step(dt: float, input: Dictionary):
 	effects = effects.filter(func(e): return e.life > 0)
 	if phase == "practice":
 		for dummy in enemies:
-			if dummy.hp <= 0: dummy.hp = dummy.max_hp; dummy.pos = Vector2(865,420); events.append("hit")
+			if dummy.hp <= 0: dummy.hp = dummy.max_hp; dummy.pos = player+Vector2(225,-20); events.append("hit")
 		return
 	for p in pending:
+		if p.at-spawn_clock <= 1.2 and not p.get("warned",false):
+			p.pos = spawn_position(); p.warned = true; p.at = maxf(p.at,spawn_clock+1.0)
+		if p.at <= spawn_clock and (p.pos.distance_to(player) < 170 or p.pos.distance_to(player) > 950):
+			p.pos = spawn_position(); p.at = spawn_clock+1.2; p.warned = true
 		if p.at <= spawn_clock and enemies.size() < 24 and p.pos.distance_to(player) > 160:
 			spawn_enemy(p.kind,p.pos); p.at = INF
 	pending = pending.filter(func(p): return p.at != INF)
 	for e in enemies:
 		if e.hp > 0 or (e.state == "windup" and e.timer <= dt): step_enemy(e,dt)
+	for hazard in hazards:
+		hazard.age += dt; hazard.life -= dt
+		if hazard.age >= hazard.delay and hazard.life > 0 and player.distance_to(hazard.pos) < hazard.radius: damage_player()
+	hazards = hazards.filter(func(h): return h.life > 0)
 	for p in projectiles:
 		p.pos += p.vel * dt; p.life -= dt
 		if p.pos.distance_to(player) < 25: damage_player(); p.life = 0
@@ -173,6 +200,7 @@ func step(dt: float, input: Dictionary):
 	var boss_dead = false
 	for e in enemies:
 		if e.hp <= 0:
+			if e.kind == "caller": reserved_summons = maxi(0,reserved_summons-e.summons_left)
 			defeated += 1
 			if e.kind == "boss": boss_dead = true
 	enemies = enemies.filter(func(e): return e.hp > 0)
@@ -183,7 +211,7 @@ func step(dt: float, input: Dictionary):
 		var before = hp
 		hp = mini(max_hp,hp + (2 if wave == 3 else 1))
 		last_heal = "波间恢复 +%d 心%s" % [hp-before,"（含精英奖励）" if wave == 3 else ""]
-		phase = "choice"; charge = -1; attack.clear(); projectiles.clear(); events.append("wave")
+		phase = "choice"; charge = -1; attack.clear(); projectiles.clear(); hazards.clear(); events.append("wave")
 
 func perform_attack(held: float):
 	attack_id += 1
@@ -198,11 +226,12 @@ func resolve_attack():
 	var count = 0
 	var origin: Vector2 = attack.origin
 	var direction: Vector2 = attack.direction
-	var center = origin + direction * 62
+	var center = origin + direction * SLAM_OFFSET
 	for e in enemies:
 		var offset: Vector2 = e.pos - origin
-		var hit = e.pos.distance_to(center) <= 94 if attack.heavy else offset.length() <= 118 and (offset.length() < 1 or offset.normalized().dot(direction) >= cos(deg_to_rad(55)))
-		if not hit or e.hp <= 0: continue
+		var hit = e.pos.distance_to(center) <= SLAM_RADIUS if attack.heavy else offset.length() <= LIGHT_REACH and (offset.length() < 1 or offset.normalized().dot(direction) >= cos(deg_to_rad(55)))
+		if not hit or e.hp <= 0 or e.last_attack == attack.id: continue
+		e.last_attack = attack.id
 		count += 1
 		var damage = 1.0 + 2.0 * attack.power if attack.heavy else 1.0
 		if e.kind == "shield" and (origin-e.pos).normalized().dot(e.face) > 0.35: damage *= 0.3
@@ -219,8 +248,14 @@ func resolve_attack():
 		hit_chain = 0 if attack.heavy else hit_chain + 1; chain_timer = 1.5; events.append("hit")
 		if not attack.heavy: light_hits += 1
 		if attack.full: trigger_core(center,direction)
-	projectiles = projectiles.filter(func(p): return p.pos.distance_to(center) > 100)
-	add_effect({"kind":"slam" if attack.heavy else "swing","pos":center if attack.heavy else origin,"radius":94.0 if attack.heavy else 118.0,"life":0.22,"direction":direction})
+	projectiles = projectiles.filter(func(p): return not attack_contains(p.pos))
+	add_effect({"kind":"slam" if attack.heavy else "swing","pos":center if attack.heavy else origin,"radius":SLAM_RADIUS if attack.heavy else LIGHT_REACH,"life":0.22,"direction":direction})
+
+func attack_contains(point: Vector2) -> bool:
+	if attack.is_empty(): return false
+	var offset: Vector2 = point-attack.origin
+	if attack.heavy: return point.distance_to(attack.origin+attack.direction*SLAM_OFFSET) <= SLAM_RADIUS
+	return offset.length() <= LIGHT_REACH and (offset.length()<1 or offset.normalized().dot(attack.direction)>=cos(deg_to_rad(55)))
 
 func trigger_core(center: Vector2, direction: Vector2):
 	var core = build.core
@@ -230,7 +265,7 @@ func trigger_core(center: Vector2, direction: Vector2):
 	if core == "ayk_core_wind":
 		effect.cap = 3; effect.radius = 240
 		if build.level("ayk_wind_return") > 0:
-			var echo = effect.duplicate(); echo.delay = 0.5; echo.life = 0.8; echo.damage = 0.5 + 0.5 * build.level("ayk_wind_return"); add_effect(echo)
+			var echo = effect.duplicate(); echo.pos = center+direction*240; echo.direction = -direction; echo.delay = 0.5; echo.life = 0.8; echo.damage = 0.5 + 0.5 * build.level("ayk_wind_return"); add_effect(echo)
 	elif core == "ayk_core_thunder":
 		effect.cap = 3 + build.level("ayk_thunder_chain"); effect.radius = 115
 		var threshold = 2 if build.level("ayk_thunder_charge") == 2 else 3
@@ -241,15 +276,33 @@ func trigger_core(center: Vector2, direction: Vector2):
 
 func resolve_secondary(effect: Dictionary):
 	var hit = 0
+	var hit_ids: Array = []
+	var hit_positions: Array = []
+	var primary_cap = 3 if effect.kind == "ayk_core_thunder" else effect.cap
 	for e in enemies:
 		var offset: Vector2 = e.pos-effect.pos
 		var inside = offset.length() <= effect.radius
 		if effect.kind == "ayk_core_wind": inside = offset.dot(effect.direction) >= -25 and offset.dot(effect.direction) <= 240 and absf(offset.cross(effect.direction)) < 42
-		if inside and hit < effect.cap and e.hp > 0:
-			e.hp -= effect.damage; hit += 1
+		if inside and hit < primary_cap and e.hp > 0:
+			e.hp -= effect.damage; hit += 1; hit_ids.append(e.id); hit_positions.append(e.pos)
 			if effect.kind == "ayk_core_quake" and not e.kind in ["boss","elite"]:
 				e.vel = offset.normalized()*210; e.launch = 0
 				if build.level("ayk_quake_slow") > 0: e.slow = 1
+	# Chain upgrades extend spatial reach from struck enemies, not merely cap in
+	# the original circle. Each added target is unique; this never calls trigger_core.
+	if effect.kind == "ayk_core_thunder":
+		for n in range(effect.cap-3):
+			var nearest: Dictionary = {}
+			var distance = 125.0
+			var from = Vector2.ZERO
+			for e in enemies:
+				if e.hp <= 0 or e.id in hit_ids: continue
+				for anchor in hit_positions:
+					var d: float = e.pos.distance_to(anchor)
+					if d < distance: nearest = e; distance = d; from = anchor
+			if nearest.is_empty(): break
+			nearest.hp -= effect.damage; hit_ids.append(nearest.id); hit_positions.append(nearest.pos)
+			add_effect({"kind":"link","pos":from,"end":nearest.pos,"radius":0.0,"life":0.22})
 
 func add_effect(effect: Dictionary):
 	if effects.size() < 80: effects.append(effect)
@@ -292,6 +345,8 @@ func step_enemy(e: Dictionary, dt: float):
 	if e.state == "stunned":
 		if e.timer <= 0: e.state = "move"; e.timer = 1
 		return
+	if e.kind in ["dart","lobber","warder","caller"]:
+		step_special(e,dt,offset); return
 	if e.kind == "boss":
 		step_boss(e,dt,offset); return
 	if e.state == "windup":
@@ -366,4 +421,47 @@ func finish(won: bool, reason: String):
 	if phase in ["won","lost"]: return
 	animation_time = 0
 	phase = "won" if won else "lost"; result_reason = reason; charge = -1; attack.clear(); projectiles.clear(); events.append("result")
-	if won: enemies.clear(); pending.clear()
+	hazards.clear()
+	if won: enemies.clear(); pending.clear(); reserved_summons = 0
+
+func step_special(e: Dictionary, dt: float, offset: Vector2):
+	var distance = offset.length()
+	if e.state == "dash":
+		e.pos = (e.pos+e.face*680*dt).clamp(BOUNDS.position,BOUNDS.end)
+		if e.pos.distance_to(player) < 38: damage_player()
+		if e.timer <= 0: e.state = "recover"; e.timer = 0.9
+		return
+	if e.state == "recover":
+		if e.timer <= 0: e.state = "move"; e.timer = 1.2 if e.kind == "caller" else 0.5
+		return
+	if e.state == "windup":
+		if e.timer > 0: return
+		match e.kind:
+			"dart": e.state = "dash"; e.timer = 0.32; return
+			"lobber":
+				if hazards.size() < 16: hazards.append({"kind":"lob","pos":e.target,"from":e.pos,"radius":70.0,"delay":0.9,"life":1.08,"age":0.0})
+			"warder":
+				if hazards.size() < 16: hazards.append({"kind":"field","pos":e.target,"from":e.pos,"radius":88.0,"delay":1.0,"life":4.0,"age":0.0})
+			"caller":
+				var amount = mini(2,e.summons_left)
+				for n in range(amount): pending.append({"kind":"grunt","at":spawn_clock+1.2+n*0.4,"pos":spawn_position(),"warned":true})
+				e.summons_left -= amount; reserved_summons = maxi(0,reserved_summons-amount)
+		e.state = "recover"; e.timer = 5.0 if e.kind == "caller" else (2.5 if e.kind == "warder" else 1.2)
+		return
+	e.face = offset.normalized()
+	var reach = 235 if e.kind == "dart" else (430 if e.kind == "lobber" else 350)
+	if e.kind == "caller" and e.summons_left <= 0:
+		if distance < 65 and e.timer <= 0:
+			e.state = "recover"; e.timer = 1.5; return
+		e.pos = (e.pos+offset.normalized()*60*dt).clamp(BOUNDS.position,BOUNDS.end)
+		return
+	if distance <= reach and e.timer <= 0 and attack_scheduler <= 0 and absf(offset.y) < 340:
+		e.state = "windup"; e.timer = 1.1 if e.kind == "caller" else 0.9; e.target = player; e.face = offset.normalized(); attack_scheduler = 0.3
+		return
+	var direction = offset.normalized()
+	var speed = 68.0
+	if e.kind == "dart":
+		var flank = player-facing*155+facing.orthogonal()*e.orbit*90
+		direction = (flank-e.pos).normalized(); speed = 125
+	elif e.kind in ["lobber","warder"] and distance < 245: direction *= -1
+	e.pos = (e.pos+direction*speed*dt).clamp(BOUNDS.position,BOUNDS.end)

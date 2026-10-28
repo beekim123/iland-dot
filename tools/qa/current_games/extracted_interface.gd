@@ -14,8 +14,11 @@ func run() -> void:
 	game.start({"game_id": id, "save_root": "user://games/" + id + "/", "schema_version": 1})
 	for frame in 10: await process_frame
 	if game.has_method("request_exit"): game.request_exit()
+	elif game.has_method("exit_game"): game.exit_game()
 	else: game.leave_game()
-	for frame in 3: await process_frame
+	for attempt in 100:
+		if exits > 0: break
+		await create_timer(.02).timeout
 	assert(exits == 1, "Public exit emitted exactly once")
 	game.queue_free()
 	for frame in 3: await process_frame

@@ -6,9 +6,9 @@
   },
   "actors": {
     "hero": {
-      "file": "runtime/hero_atlas_v2.png",
+      "file": "runtime/hero_atlas_v4.png",
       "columns": 6,
-      "rows": 6,
+      "rows": 11,
       "frame_width": 512,
       "frame_height": 512,
       "height": 224,
@@ -28,9 +28,9 @@
           "loop": true
         },
         "run": {
-          "start": 2,
-          "frames": 4,
-          "fps": 12,
+          "start": 36,
+          "frames": 8,
+          "fps": 14,
           "loop": true
         },
         "jump": {
@@ -47,9 +47,16 @@
         },
         "attack1": {
           "start": 24,
-          "frames": 2,
+          "frames": 3,
           "fps": 9,
-          "loop": false
+          "loop": false,
+          "events": [
+            {
+              "frame": 1,
+              "event": "visual_strike_key",
+              "gameplay_authoritative": false
+            }
+          ]
         },
         "guard": {
           "start": 12,
@@ -79,29 +86,88 @@
           "start": 27,
           "frames": 3,
           "fps": 12,
-          "loop": false
+          "loop": false,
+          "events": [
+            {
+              "frame": 1,
+              "event": "visual_strike_key",
+              "gameplay_authoritative": false
+            }
+          ]
         },
         "attack3": {
           "start": 30,
           "frames": 3,
+          "fps": 12,
+          "loop": false,
+          "events": [
+            {
+              "frame": 1,
+              "event": "visual_strike_key",
+              "gameplay_authoritative": false
+            }
+          ]
+        },
+        "heal": {
+          "start": 44,
+          "frames": 3,
+          "fps": 5,
+          "loop": false
+        },
+        "dawn": {
+          "start": 47,
+          "frames": 3,
+          "fps": 10,
+          "loop": false,
+          "events": [
+            {
+              "frame": 1,
+              "event": "visual_strike_key",
+              "gameplay_authoritative": false
+            }
+          ]
+        },
+        "climb": {
+          "start": 50,
+          "frames": 3,
+          "fps": 7,
+          "loop": true
+        },
+        "interact": {
+          "start": 53,
+          "frames": 1,
+          "fps": 6,
+          "loop": false
+        },
+        "land": {
+          "start": 54,
+          "frames": 2,
+          "fps": 10,
+          "loop": false
+        },
+        "air_attack": {
+          "start": 56,
+          "frames": 3,
+          "fps": 12,
+          "loop": false
+        },
+        "parry": {
+          "start": 59,
+          "frames": 2,
           "fps": 12,
           "loop": false
         }
       },
       "status": "trial_needs_runtime_review",
       "pending": [
-        "air_attack",
-        "land",
-        "parry",
-        "heal",
-        "dawn",
-        "climb",
-        "interact"
+        "run_opposite_leg_cleanup",
+        "motion_and_scale_polish"
       ],
       "notes": [
-        "Attack1 final generated frame clipped at source canvas: excluded; 2-frame attack still needs recovery.",
         "Attack2, attack3 and death replaced with intact isolated components.",
-        "Run gait requires improvement; do not call animation set final."
+        "Run gait requires improvement; do not call animation set final.",
+        "v3 adds 8 distinct run drawings and heal/dawn/climb/interact/land; running near/far limb alternation still imperfect; support dawn glow extends source border, separated effect discarded when not connected.",
+        "v4 replaces clipped attack1 recovery with a freshly generated complete recovery drawing; adds full air attack and parry key sequences."
       ]
     },
     "princess": {
@@ -204,9 +270,9 @@
       ]
     },
     "bandit": {
-      "file": "runtime/bandit_atlas.png",
+      "file": "runtime/bandit_atlas_v2.png",
       "columns": 3,
-      "rows": 3,
+      "rows": 5,
       "frame_width": 512,
       "frame_height": 512,
       "height": 144,
@@ -234,8 +300,8 @@
           "loop": false
         },
         "attack": {
-          "start": 4,
-          "frames": 2,
+          "start": 9,
+          "frames": 3,
           "fps": 10,
           "loop": false
         },
@@ -246,16 +312,16 @@
           "loop": false
         },
         "death": {
-          "start": 7,
-          "frames": 2,
+          "start": 12,
+          "frames": 3,
           "fps": 6,
           "loop": false
         }
       },
-      "status": "trial_needs_motion_review",
+      "status": "motion_trial_needs_gait_and_timing_review",
       "pending": [
-        "full_cycles",
-        "transition_frames"
+        "opposite_leg_cleanup",
+        "full_run_cycle_refinement"
       ],
       "source_bounds": [
         [
@@ -312,12 +378,15 @@
           1245,
           1209
         ]
+      ],
+      "notes": [
+        "v2 adds distinct anticipation/strike/recovery and stagger/collapse/prone drawings."
       ]
     },
     "dragon": {
-      "file": "runtime/dragon_atlas.png",
+      "file": "runtime/dragon_atlas_v2.png",
       "columns": 3,
-      "rows": 3,
+      "rows": 8,
       "frame_width": 512,
       "frame_height": 512,
       "height": 330,
@@ -357,22 +426,53 @@
           "loop": false
         },
         "fly": {
-          "start": 6,
-          "frames": 2,
-          "fps": 6,
+          "start": 9,
+          "frames": 3,
+          "fps": 7,
           "loop": true
         },
         "breath": {
-          "start": 8,
+          "start": 12,
+          "frames": 3,
+          "fps": 6,
+          "loop": false
+        },
+        "stagger": {
+          "start": 15,
           "frames": 1,
+          "fps": 5,
+          "loop": false
+        },
+        "death": {
+          "start": 15,
+          "frames": 3,
+          "fps": 5,
+          "loop": false
+        },
+        "pounce": {
+          "start": 18,
+          "frames": 3,
+          "fps": 4,
+          "loop": false,
+          "events": [
+            {
+              "frame": 1,
+              "event": "special_visual_key",
+              "gameplay_authoritative": false
+            }
+          ]
+        },
+        "land": {
+          "start": 21,
+          "frames": 3,
           "fps": 9,
           "loop": false
         }
       },
       "status": "trial_needs_motion_review",
       "pending": [
-        "full_cycles",
-        "transition_frames"
+        "full_flight_cycle_refinement",
+        "bite_claw_transition_frames"
       ],
       "source_bounds": [
         [
@@ -429,12 +529,85 @@
           1254,
           1169
         ]
-      ]
+      ],
+      "notes": [
+        "Flight now includes genuinely different upstroke/mid/downstroke wing drawings.",
+        "Breath includes anticipation/fire/recovery; death includes stagger/collapse/prone. Still key-sequence trial, not final animation.",
+        "Post-M2 dedicated special-action drawings added; existing cycle/timing polish remains separate. Airborne foot position is intentional, grounded frames retain sole baseline464."
+      ],
+      "special_patch": {
+        "source": "source/dragon_special_v1.png",
+        "sequence": "pounce",
+        "frames": [
+          {
+            "source_bbox": [
+              14,
+              210,
+              539,
+              445
+            ],
+            "frame": 18,
+            "baseline": 464
+          },
+          {
+            "source_bbox": [
+              508,
+              104,
+              1042,
+              408
+            ],
+            "frame": 19,
+            "baseline": 400
+          },
+          {
+            "source_bbox": [
+              1055,
+              92,
+              1524,
+              458
+            ],
+            "frame": 20,
+            "baseline": 464
+          },
+          {
+            "source_bbox": [
+              3,
+              495,
+              552,
+              956
+            ],
+            "frame": 21,
+            "baseline": 464
+          },
+          {
+            "source_bbox": [
+              503,
+              557,
+              1030,
+              931
+            ],
+            "frame": 22,
+            "baseline": 464
+          },
+          {
+            "source_bbox": [
+              1037,
+              707,
+              1516,
+              923
+            ],
+            "frame": 23,
+            "baseline": 464
+          }
+        ],
+        "status": "drawings_reviewed_and_runtime_mapping_verified_not_final_motion_acceptance",
+        "scale": 0.8
+      }
     },
     "shield": {
-      "file": "runtime/shield_atlas.png",
+      "file": "runtime/shield_atlas_v2.png",
       "columns": 3,
-      "rows": 2,
+      "rows": 4,
       "frame_width": 512,
       "frame_height": 512,
       "height": 144,
@@ -462,9 +635,9 @@
           "loop": false
         },
         "attack": {
-          "start": 4,
-          "frames": 1,
-          "fps": 8,
+          "start": 6,
+          "frames": 3,
+          "fps": 10,
           "loop": false
         },
         "hurt": {
@@ -472,19 +645,27 @@
           "frames": 1,
           "fps": 8,
           "loop": false
+        },
+        "death": {
+          "start": 9,
+          "frames": 3,
+          "fps": 6,
+          "loop": false
         }
       },
-      "status": "trial_needs_motion_review",
+      "status": "motion_trial_needs_gait_and_timing_review",
       "pending": [
-        "death",
-        "attack_transitions",
-        "run_cycle_refinement"
+        "opposite_leg_cleanup",
+        "full_run_cycle_refinement"
+      ],
+      "notes": [
+        "v2 adds distinct anticipation/strike/recovery and stagger/collapse/prone drawings."
       ]
     },
     "archer": {
-      "file": "runtime/archer_atlas.png",
+      "file": "runtime/archer_atlas_v2.png",
       "columns": 3,
-      "rows": 2,
+      "rows": 4,
       "frame_width": 512,
       "frame_height": 512,
       "height": 144,
@@ -512,9 +693,9 @@
           "loop": false
         },
         "attack": {
-          "start": 4,
-          "frames": 1,
-          "fps": 8,
+          "start": 6,
+          "frames": 3,
+          "fps": 10,
           "loop": false
         },
         "hurt": {
@@ -522,19 +703,27 @@
           "frames": 1,
           "fps": 8,
           "loop": false
+        },
+        "death": {
+          "start": 9,
+          "frames": 3,
+          "fps": 6,
+          "loop": false
         }
       },
-      "status": "trial_needs_motion_review",
+      "status": "motion_trial_needs_gait_and_timing_review",
       "pending": [
-        "death",
-        "attack_transitions",
-        "run_cycle_refinement"
+        "opposite_leg_cleanup",
+        "full_run_cycle_refinement"
+      ],
+      "notes": [
+        "v2 adds distinct anticipation/strike/recovery and stagger/collapse/prone drawings."
       ]
     },
     "bat": {
-      "file": "runtime/bat_atlas.png",
+      "file": "runtime/bat_atlas_v2.png",
       "columns": 3,
-      "rows": 2,
+      "rows": 4,
       "frame_width": 512,
       "frame_height": 512,
       "height": 120,
@@ -562,9 +751,9 @@
           "loop": false
         },
         "attack": {
-          "start": 4,
-          "frames": 1,
-          "fps": 8,
+          "start": 6,
+          "frames": 3,
+          "fps": 10,
           "loop": false
         },
         "hurt": {
@@ -572,176 +761,860 @@
           "frames": 1,
           "fps": 8,
           "loop": false
+        },
+        "death": {
+          "start": 9,
+          "frames": 3,
+          "fps": 6,
+          "loop": false
         }
       },
-      "status": "trial_needs_motion_review",
+      "status": "motion_trial_needs_gait_and_timing_review",
       "pending": [
-        "death",
-        "attack_transitions",
-        "run_cycle_refinement"
+        "opposite_leg_cleanup",
+        "full_run_cycle_refinement"
+      ],
+      "notes": [
+        "v2 adds distinct anticipation/strike/recovery and stagger/collapse/prone drawings."
       ]
+    },
+    "wolf": {
+      "file": "runtime/wolf_atlas_v2.png",
+      "columns": 3,
+      "rows": 4,
+      "frame_width": 512,
+      "frame_height": 512,
+      "height": 118,
+      "anchor": [
+        0.5,
+        0.90625
+      ],
+      "animations": {
+        "idle": {
+          "start": 0,
+          "frames": 1,
+          "fps": 10,
+          "loop": false
+        },
+        "run": {
+          "start": 1,
+          "frames": 2,
+          "fps": 10,
+          "loop": true
+        },
+        "windup": {
+          "start": 3,
+          "frames": 1,
+          "fps": 10,
+          "loop": false
+        },
+        "attack": {
+          "start": 6,
+          "frames": 3,
+          "fps": 10,
+          "loop": false
+        },
+        "hurt": {
+          "start": 5,
+          "frames": 1,
+          "fps": 10,
+          "loop": false
+        },
+        "death": {
+          "start": 9,
+          "frames": 3,
+          "fps": 6,
+          "loop": false
+        }
+      },
+      "status": "motion_trial_needs_gait_and_timing_review",
+      "pending": [
+        "opposite_leg_cleanup",
+        "full_run_cycle_refinement"
+      ],
+      "notes": [
+        "v2 adds distinct anticipation/strike/recovery and stagger/collapse/prone drawings."
+      ]
+    },
+    "salamander": {
+      "file": "runtime/salamander_atlas_v2.png",
+      "columns": 3,
+      "rows": 4,
+      "frame_width": 512,
+      "frame_height": 512,
+      "height": 118,
+      "anchor": [
+        0.5,
+        0.90625
+      ],
+      "animations": {
+        "idle": {
+          "start": 0,
+          "frames": 1,
+          "fps": 10,
+          "loop": false
+        },
+        "run": {
+          "start": 1,
+          "frames": 2,
+          "fps": 10,
+          "loop": true
+        },
+        "windup": {
+          "start": 3,
+          "frames": 1,
+          "fps": 10,
+          "loop": false
+        },
+        "attack": {
+          "start": 6,
+          "frames": 3,
+          "fps": 10,
+          "loop": false
+        },
+        "hurt": {
+          "start": 5,
+          "frames": 1,
+          "fps": 10,
+          "loop": false
+        },
+        "death": {
+          "start": 9,
+          "frames": 3,
+          "fps": 6,
+          "loop": false
+        }
+      },
+      "status": "motion_trial_needs_gait_and_timing_review",
+      "pending": [
+        "opposite_leg_cleanup",
+        "full_run_cycle_refinement"
+      ],
+      "notes": [
+        "v2 adds distinct anticipation/strike/recovery and stagger/collapse/prone drawings."
+      ]
+    },
+    "slinger": {
+      "file": "runtime/slinger_atlas_v2.png",
+      "columns": 3,
+      "rows": 4,
+      "frame_width": 512,
+      "frame_height": 512,
+      "height": 144,
+      "anchor": [
+        0.5,
+        0.90625
+      ],
+      "animations": {
+        "idle": {
+          "start": 0,
+          "frames": 1,
+          "fps": 10,
+          "loop": false
+        },
+        "run": {
+          "start": 1,
+          "frames": 2,
+          "fps": 10,
+          "loop": true
+        },
+        "windup": {
+          "start": 3,
+          "frames": 1,
+          "fps": 10,
+          "loop": false
+        },
+        "attack": {
+          "start": 6,
+          "frames": 3,
+          "fps": 10,
+          "loop": false
+        },
+        "hurt": {
+          "start": 5,
+          "frames": 1,
+          "fps": 10,
+          "loop": false
+        },
+        "death": {
+          "start": 9,
+          "frames": 3,
+          "fps": 6,
+          "loop": false
+        }
+      },
+      "status": "motion_trial_needs_gait_and_timing_review",
+      "pending": [
+        "opposite_leg_cleanup",
+        "full_run_cycle_refinement"
+      ],
+      "notes": [
+        "v2 adds distinct anticipation/strike/recovery and stagger/collapse/prone drawings."
+      ]
+    },
+    "heavy": {
+      "file": "runtime/heavy_atlas_v2.png",
+      "columns": 3,
+      "rows": 4,
+      "frame_width": 512,
+      "frame_height": 512,
+      "height": 144,
+      "anchor": [
+        0.5,
+        0.90625
+      ],
+      "animations": {
+        "idle": {
+          "start": 0,
+          "frames": 1,
+          "fps": 10,
+          "loop": false
+        },
+        "run": {
+          "start": 1,
+          "frames": 2,
+          "fps": 10,
+          "loop": true
+        },
+        "windup": {
+          "start": 3,
+          "frames": 1,
+          "fps": 10,
+          "loop": false
+        },
+        "attack": {
+          "start": 6,
+          "frames": 3,
+          "fps": 10,
+          "loop": false
+        },
+        "hurt": {
+          "start": 5,
+          "frames": 1,
+          "fps": 10,
+          "loop": false
+        },
+        "death": {
+          "start": 9,
+          "frames": 3,
+          "fps": 6,
+          "loop": false
+        }
+      },
+      "status": "motion_trial_needs_gait_and_timing_review",
+      "pending": [
+        "opposite_leg_cleanup",
+        "full_run_cycle_refinement"
+      ],
+      "notes": [
+        "v2 adds distinct anticipation/strike/recovery and stagger/collapse/prone drawings."
+      ]
+    },
+    "mage": {
+      "file": "runtime/mage_atlas_v2.png",
+      "columns": 3,
+      "rows": 4,
+      "frame_width": 512,
+      "frame_height": 512,
+      "height": 144,
+      "anchor": [
+        0.5,
+        0.90625
+      ],
+      "animations": {
+        "idle": {
+          "start": 0,
+          "frames": 1,
+          "fps": 10,
+          "loop": false
+        },
+        "run": {
+          "start": 1,
+          "frames": 2,
+          "fps": 10,
+          "loop": true
+        },
+        "windup": {
+          "start": 3,
+          "frames": 1,
+          "fps": 10,
+          "loop": false
+        },
+        "attack": {
+          "start": 6,
+          "frames": 3,
+          "fps": 10,
+          "loop": false
+        },
+        "hurt": {
+          "start": 5,
+          "frames": 1,
+          "fps": 10,
+          "loop": false
+        },
+        "death": {
+          "start": 9,
+          "frames": 3,
+          "fps": 6,
+          "loop": false
+        }
+      },
+      "status": "motion_trial_needs_gait_and_timing_review",
+      "pending": [
+        "opposite_leg_cleanup",
+        "full_run_cycle_refinement"
+      ],
+      "notes": [
+        "v2 adds distinct anticipation/strike/recovery and stagger/collapse/prone drawings."
+      ]
+    },
+    "axe_lord": {
+      "file": "runtime/axe_lord_atlas_v2.png",
+      "columns": 3,
+      "rows": 5,
+      "frame_width": 512,
+      "frame_height": 512,
+      "height": 210,
+      "anchor": [
+        0.5,
+        0.90625
+      ],
+      "animations": {
+        "idle": {
+          "start": 0,
+          "frames": 1,
+          "fps": 10,
+          "loop": false
+        },
+        "run": {
+          "start": 6,
+          "frames": 3,
+          "fps": 8,
+          "loop": true
+        },
+        "windup": {
+          "start": 2,
+          "frames": 1,
+          "fps": 10,
+          "loop": false
+        },
+        "attack": {
+          "start": 9,
+          "frames": 3,
+          "fps": 10,
+          "loop": false
+        },
+        "hurt": {
+          "start": 4,
+          "frames": 1,
+          "fps": 10,
+          "loop": false
+        },
+        "death": {
+          "start": 5,
+          "frames": 1,
+          "fps": 10,
+          "loop": false
+        },
+        "jump_slam": {
+          "start": 12,
+          "frames": 3,
+          "fps": 8,
+          "loop": false,
+          "events": [
+            {
+              "frame": 1,
+              "event": "special_visual_key",
+              "gameplay_authoritative": false
+            }
+          ]
+        }
+      },
+      "status": "motion_trial_needs_gait_and_timing_review",
+      "pending": [
+        "opposite_leg_cleanup",
+        "death_transition_frames"
+      ],
+      "notes": [
+        "v2 adds three distinct locomotion drawings (contact/passing/contact) and three attack drawings; opposing-limb identity still needs cleanup.",
+        "Post-M2 dedicated special-action drawings added; existing cycle/timing polish remains separate. Airborne foot position is intentional, grounded frames retain sole baseline464."
+      ],
+      "special_patch": {
+        "source": "source/axe_lord_special_v1.png",
+        "sequence": "jump_slam",
+        "frames": [
+          {
+            "source_bbox": [
+              30,
+              222,
+              519,
+              856
+            ],
+            "frame": 12,
+            "baseline": 464
+          },
+          {
+            "source_bbox": [
+              496,
+              85,
+              966,
+              730
+            ],
+            "frame": 13,
+            "baseline": 410
+          },
+          {
+            "source_bbox": [
+              995,
+              363,
+              1520,
+              919
+            ],
+            "frame": 14,
+            "baseline": 464
+          }
+        ],
+        "status": "drawings_reviewed_and_runtime_mapping_verified_not_final_motion_acceptance",
+        "scale": 0.6201550387596899
+      }
+    },
+    "bridge_guard": {
+      "file": "runtime/bridge_guard_atlas_v2.png",
+      "columns": 3,
+      "rows": 5,
+      "frame_width": 512,
+      "frame_height": 512,
+      "height": 210,
+      "anchor": [
+        0.5,
+        0.90625
+      ],
+      "animations": {
+        "idle": {
+          "start": 0,
+          "frames": 1,
+          "fps": 10,
+          "loop": false
+        },
+        "run": {
+          "start": 6,
+          "frames": 3,
+          "fps": 8,
+          "loop": true
+        },
+        "windup": {
+          "start": 2,
+          "frames": 1,
+          "fps": 10,
+          "loop": false
+        },
+        "attack": {
+          "start": 9,
+          "frames": 3,
+          "fps": 10,
+          "loop": false
+        },
+        "hurt": {
+          "start": 4,
+          "frames": 1,
+          "fps": 10,
+          "loop": false
+        },
+        "death": {
+          "start": 5,
+          "frames": 1,
+          "fps": 10,
+          "loop": false
+        },
+        "shockwave": {
+          "start": 12,
+          "frames": 3,
+          "fps": 8,
+          "loop": false,
+          "events": [
+            {
+              "frame": 1,
+              "event": "special_visual_key",
+              "gameplay_authoritative": false
+            }
+          ]
+        }
+      },
+      "status": "motion_trial_needs_gait_and_timing_review",
+      "pending": [
+        "opposite_leg_cleanup",
+        "death_transition_frames"
+      ],
+      "notes": [
+        "v2 adds three distinct locomotion drawings (contact/passing/contact) and three attack drawings; opposing-limb identity still needs cleanup.",
+        "Post-M2 dedicated special-action drawings added; existing cycle/timing polish remains separate. Airborne foot position is intentional, grounded frames retain sole baseline464."
+      ],
+      "special_patch": {
+        "source": "source/bridge_guard_special_v1.png",
+        "sequence": "shockwave",
+        "frames": [
+          {
+            "source_bbox": [
+              18,
+              163,
+              517,
+              819
+            ],
+            "frame": 12,
+            "baseline": 464
+          },
+          {
+            "source_bbox": [
+              515,
+              410,
+              1073,
+              879
+            ],
+            "frame": 13,
+            "baseline": 464
+          },
+          {
+            "source_bbox": [
+              1065,
+              393,
+              1526,
+              838
+            ],
+            "frame": 14,
+            "baseline": 464
+          }
+        ],
+        "status": "drawings_reviewed_and_runtime_mapping_verified_not_final_motion_acceptance",
+        "scale": 0.6097560975609756
+      }
+    },
+    "rock_lizard": {
+      "file": "runtime/rock_lizard_atlas_v2.png",
+      "columns": 3,
+      "rows": 6,
+      "frame_width": 512,
+      "frame_height": 512,
+      "height": 210,
+      "anchor": [
+        0.5,
+        0.90625
+      ],
+      "animations": {
+        "idle": {
+          "start": 0,
+          "frames": 1,
+          "fps": 10,
+          "loop": false
+        },
+        "run": {
+          "start": 6,
+          "frames": 3,
+          "fps": 8,
+          "loop": true
+        },
+        "windup": {
+          "start": 2,
+          "frames": 1,
+          "fps": 10,
+          "loop": false
+        },
+        "attack": {
+          "start": 9,
+          "frames": 3,
+          "fps": 10,
+          "loop": false
+        },
+        "hurt": {
+          "start": 4,
+          "frames": 1,
+          "fps": 10,
+          "loop": false
+        },
+        "death": {
+          "start": 5,
+          "frames": 1,
+          "fps": 10,
+          "loop": false
+        },
+        "charge": {
+          "start": 12,
+          "frames": 3,
+          "fps": 9,
+          "loop": true,
+          "events": [
+            {
+              "frame": 1,
+              "event": "special_visual_key",
+              "gameplay_authoritative": false
+            }
+          ]
+        },
+        "stagger": {
+          "start": 15,
+          "frames": 1,
+          "fps": 1,
+          "loop": false
+        }
+      },
+      "status": "motion_trial_needs_gait_and_timing_review",
+      "pending": [
+        "opposite_leg_cleanup",
+        "death_transition_frames"
+      ],
+      "notes": [
+        "v2 adds three distinct locomotion drawings (contact/passing/contact) and three attack drawings; opposing-limb identity still needs cleanup.",
+        "Post-M2 dedicated special-action drawings added; existing cycle/timing polish remains separate. Airborne foot position is intentional, grounded frames retain sole baseline464."
+      ],
+      "special_patch": {
+        "source": "source/rock_lizard_special_v1.png",
+        "sequence": "charge",
+        "frames": [
+          {
+            "source_bbox": [
+              27,
+              144,
+              761,
+              464
+            ],
+            "frame": 12,
+            "baseline": 464
+          },
+          {
+            "source_bbox": [
+              794,
+              165,
+              1518,
+              437
+            ],
+            "frame": 13,
+            "baseline": 464
+          },
+          {
+            "source_bbox": [
+              30,
+              604,
+              838,
+              905
+            ],
+            "frame": 14,
+            "baseline": 464
+          },
+          {
+            "source_bbox": [
+              892,
+              555,
+              1497,
+              939
+            ],
+            "frame": 15,
+            "baseline": 464
+          }
+        ],
+        "status": "drawings_reviewed_and_runtime_mapping_verified_not_final_motion_acceptance",
+        "scale": 0.5445544554455446
+      }
+    },
+    "ash_knight": {
+      "file": "runtime/ash_knight_atlas_v2.png",
+      "columns": 3,
+      "rows": 5,
+      "frame_width": 512,
+      "frame_height": 512,
+      "height": 210,
+      "anchor": [
+        0.5,
+        0.90625
+      ],
+      "animations": {
+        "idle": {
+          "start": 0,
+          "frames": 1,
+          "fps": 10,
+          "loop": false
+        },
+        "run": {
+          "start": 6,
+          "frames": 3,
+          "fps": 8,
+          "loop": true
+        },
+        "windup": {
+          "start": 2,
+          "frames": 1,
+          "fps": 10,
+          "loop": false
+        },
+        "attack": {
+          "start": 9,
+          "frames": 3,
+          "fps": 10,
+          "loop": false
+        },
+        "hurt": {
+          "start": 4,
+          "frames": 1,
+          "fps": 10,
+          "loop": false
+        },
+        "death": {
+          "start": 5,
+          "frames": 1,
+          "fps": 10,
+          "loop": false
+        },
+        "heavy_slash": {
+          "start": 12,
+          "frames": 3,
+          "fps": 8,
+          "loop": false,
+          "events": [
+            {
+              "frame": 1,
+              "event": "special_visual_key",
+              "gameplay_authoritative": false
+            }
+          ]
+        }
+      },
+      "status": "motion_trial_needs_gait_and_timing_review",
+      "pending": [
+        "opposite_leg_cleanup",
+        "death_transition_frames"
+      ],
+      "notes": [
+        "v2 adds three distinct locomotion drawings (contact/passing/contact) and three attack drawings; opposing-limb identity still needs cleanup.",
+        "Post-M2 dedicated special-action drawings added; existing cycle/timing polish remains separate. Airborne foot position is intentional, grounded frames retain sole baseline464."
+      ],
+      "special_patch": {
+        "source": "source/ash_knight_special_v1.png",
+        "sequence": "heavy_slash",
+        "frames": [
+          {
+            "source_bbox": [
+              7,
+              186,
+              456,
+              740
+            ],
+            "frame": 12,
+            "baseline": 464
+          },
+          {
+            "source_bbox": [
+              435,
+              301,
+              1137,
+              738
+            ],
+            "frame": 13,
+            "baseline": 464
+          },
+          {
+            "source_bbox": [
+              1018,
+              363,
+              1535,
+              746
+            ],
+            "frame": 14,
+            "baseline": 464
+          }
+        ],
+        "status": "drawings_reviewed_and_runtime_mapping_verified_not_final_motion_acceptance",
+        "scale": 0.6267806267806267
+      }
+    },
+    "bridge_keeper": {
+      "file": "runtime/bridge_keeper_atlas.png",
+      "columns": 3,
+      "rows": 1,
+      "frame_width": 512,
+      "frame_height": 512,
+      "height": 144,
+      "anchor": [
+        0.5,
+        0.90625
+      ],
+      "animations": {
+        "idle": {
+          "start": 1,
+          "frames": 1,
+          "fps": 1,
+          "loop": false
+        },
+        "distress": {
+          "start": 0,
+          "frames": 1,
+          "fps": 1,
+          "loop": false
+        },
+        "interact": {
+          "start": 2,
+          "frames": 1,
+          "fps": 1,
+          "loop": false
+        }
+      },
+      "status": "static_story_poses_not_locomotion_animation",
+      "pending": []
+    },
+    "villager": {
+      "file": "runtime/villager_atlas.png",
+      "columns": 3,
+      "rows": 1,
+      "frame_width": 512,
+      "frame_height": 512,
+      "height": 144,
+      "anchor": [
+        0.5,
+        0.90625
+      ],
+      "animations": {
+        "idle": {
+          "start": 1,
+          "frames": 1,
+          "fps": 1,
+          "loop": false
+        },
+        "distress": {
+          "start": 0,
+          "frames": 1,
+          "fps": 1,
+          "loop": false
+        },
+        "interact": {
+          "start": 2,
+          "frames": 1,
+          "fps": 1,
+          "loop": false
+        }
+      },
+      "status": "static_story_poses_not_locomotion_animation",
+      "pending": []
     }
   },
   "backgrounds": [
     {
       "far": "runtime/chapter1_far.png",
-      "mid": "runtime/chapter1_mid.png",
-      "composite": "runtime/chapter1.png"
+      "mid": "runtime/chapter1_mid.png"
     },
-    "runtime/chapter2.png",
-    "runtime/chapter3.png",
-    "runtime/chapter4.png",
-    "runtime/chapter5.png"
+    {
+      "far": "runtime/chapter2_far.png",
+      "mid": "runtime/chapter2_mid.png"
+    },
+    {
+      "far": "runtime/chapter3_far.png",
+      "mid": "runtime/chapter3_mid.png"
+    },
+    {
+      "far": "runtime/chapter4_far.png",
+      "mid": "runtime/chapter4_mid.png"
+    },
+    {
+      "far": "runtime/chapter5_far.png",
+      "mid": "runtime/chapter5_mid.png"
+    }
   ],
-  "background_status": "Chapter 1 has separate far/mid layers; chapters 2-5 are composite illustrations, near layers pending.",
-  "extraction": {
-    "hero_source_bounds": [
-      [
-        45,
-        13,
-        193,
-        250
-      ],
-      [
-        32,
-        14,
-        186,
-        251
-      ],
-      [
-        5,
-        34,
-        223,
-        251
-      ],
-      [
-        14,
-        67,
-        224,
-        250
-      ],
-      [
-        23,
-        33,
-        256,
-        251
-      ],
-      [
-        0,
-        28,
-        246,
-        247
-      ],
-      [
-        11,
-        97,
-        213,
-        254
-      ],
-      [
-        4,
-        18,
-        233,
-        245
-      ],
-      [
-        1,
-        26,
-        242,
-        254
-      ],
-      [
-        17,
-        12,
-        256,
-        254
-      ],
-      [
-        0,
-        49,
-        256,
-        254
-      ],
-      [
-        0,
-        59,
-        251,
-        253
-      ],
-      [
-        19,
-        24,
-        224,
-        239
-      ],
-      [
-        17,
-        84,
-        216,
-        240
-      ],
-      [
-        41,
-        84,
-        220,
-        238
-      ],
-      [
-        12,
-        58,
-        256,
-        256
-      ],
-      [
-        0,
-        83,
-        237,
-        256
-      ],
-      [
-        26,
-        19,
-        242,
-        240
-      ],
-      [
-        20,
-        11,
-        247,
-        217
-      ],
-      [
-        23,
-        29,
-        256,
-        217
-      ],
-      [
-        0,
-        50,
-        256,
-        220
-      ],
-      [
-        0,
-        0,
-        243,
-        226
-      ],
-      [
-        1,
-        0,
-        256,
-        232
-      ],
-      [
-        0,
-        30,
-        222,
-        236
-      ]
-    ]
-  },
   "props": {
     "grass_platform": {
       "file": "runtime/grass_platform.png",
@@ -751,7 +1624,8 @@
         0.5,
         1.0
       ],
-      "tile_top": 0.2
+      "tile_top": 44,
+      "tile_top_ratio": 0.2
     },
     "stone_platform": {
       "file": "runtime/stone_platform.png",
@@ -761,7 +1635,8 @@
         0.5,
         1.0
       ],
-      "tile_top": 0.04
+      "tile_top": 6,
+      "tile_top_ratio": 0.04
     },
     "bridge": {
       "file": "runtime/bridge.png",
@@ -771,7 +1646,8 @@
         0.5,
         1.0
       ],
-      "tile_top": 0.32
+      "tile_top": 77,
+      "tile_top_ratio": 0.32
     },
     "ladder": {
       "file": "runtime/ladder.png",
@@ -813,6 +1689,60 @@
       "file": "runtime/parchment.png",
       "width": 378,
       "height": 341,
+      "anchor": [
+        0.5,
+        1.0
+      ]
+    },
+    "cart": {
+      "file": "runtime/cart.png",
+      "width": 494,
+      "height": 385,
+      "anchor": [
+        0.5,
+        1.0
+      ]
+    },
+    "counterweight": {
+      "file": "runtime/counterweight.png",
+      "width": 284,
+      "height": 488,
+      "anchor": [
+        0.5,
+        1.0
+      ]
+    },
+    "plate": {
+      "file": "runtime/plate.png",
+      "width": 542,
+      "height": 195,
+      "anchor": [
+        0.5,
+        1.0
+      ]
+    },
+    "seal": {
+      "file": "runtime/seal.png",
+      "width": 391,
+      "height": 523,
+      "anchor": [
+        0.5,
+        1.0
+      ]
+    },
+    "pillar": {
+      "file": "runtime/pillar.png",
+      "width": 438,
+      "height": 484,
+      "anchor": [
+        0.5,
+        1.0
+      ]
+    },
+    "winch": {
+      "file": "runtime/winch.png",
+      "width": 544,
+      "height": 496,
       "anchor": [
         0.5,
         1.0

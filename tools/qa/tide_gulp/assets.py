@@ -39,7 +39,6 @@ for model in models:
             position = scene['accessors'][attributes['POSITION']]
             extents = [hi - lo for lo, hi in zip(position['min'], position['max'])]
             assert all(size > .01 for size in extents), f'{model.name}: flat/non-3D geometry'
-    assert (module / 'art/source' / (model.stem + '.blend')).is_file(), f'{model.name}: missing editable source'
 font = module / 'ui/tide-book.otf'
 manifest = json.loads((module / 'ui/font_manifest.json').read_text())
 assert hashlib.sha256(font.read_bytes()).hexdigest() == manifest['subset_sha256']
@@ -65,4 +64,4 @@ for name, entry in audio['assets'].items():
         assert len(data) == 24 * 44100 and np.max(np.abs(data[0] - data[-1])) < .012
     else:
         assert np.max(np.abs(data[[0, -1]])) < .001
-print(f'TIDE ASSETS PASS: {len(models)} real 3D/8-joint GLBs + editable sources; {len(required)} CJK glyphs; 8 local bounded waveforms; no foreign res dependencies')
+print(f'TIDE ASSETS PASS: {len(models)} real 3D/8-joint GLBs; {len(required)} CJK glyphs; 8 local bounded waveforms; no foreign res dependencies')

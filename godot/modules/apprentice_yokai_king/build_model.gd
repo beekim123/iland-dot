@@ -2,13 +2,13 @@ extends RefCounted
 
 const CORES := ["ayk_core_wind", "ayk_core_thunder", "ayk_core_quake"]
 const CARDS := {
- "ayk_core_wind": ["核心 · 出手有风", "满蓄附带短风刃，最多穿透 3 敌。", "wind"],
+ "ayk_core_wind": ["核心 · 出手有风", "满蓄附带短风刃：伤害 1，最多穿透 3 敌。", "wind"],
  "ayk_wind_step": ["顺风步", "蓄力移速提高到 80% / 90%。", "wind"],
  "ayk_wind_return": ["回风", "风刃末端回返一次；二级回返伤害提高。", "wind"],
- "ayk_core_thunder": ["核心 · 闷雷落槌", "满蓄命中后预告落雷，最多命中 3 敌。", "thunder"],
+ "ayk_core_thunder": ["核心 · 闷雷落槌", "满蓄命中后预告落雷：伤害 1，最多命中 3 敌。", "thunder"],
  "ayk_thunder_chain": ["导雷角", "落雷额外连接邻近 1 / 2 敌，不重复命中。", "thunder"],
  "ayk_thunder_charge": ["蓄电", "轻击命中 3 / 2 次，强化下一次满蓄落雷。", "thunder"],
- "ayk_core_quake": ["核心 · 震荡地圈", "满蓄附带地圈击退，最多影响 6 敌。", "quake"],
+ "ayk_core_quake": ["核心 · 震荡地圈", "满蓄附带地圈击退：伤害 1，最多影响 6 敌。", "quake"],
  "ayk_quake_slow": ["软地回响", "地圈减速 20% / 30%，持续 1 秒。", "quake"],
  "ayk_quake_echo": ["余震", "首圈后追加一次 50% / 75% 伤害余震。", "quake"],
  "ayk_fast": ["短柄快挥", "轻击恢复缩短 10% / 18%，前摇不变。", "all"],
@@ -94,9 +94,9 @@ func card_description(id: String) -> String:
  var specific := ""
  match id:
   "ayk_wind_step": specific = "蓄力移动速度：80% → 90%。" if upgraded else "蓄力移动速度：65% → 80%。"
-  "ayk_wind_return": specific = "回返风刃伤害提高；仍只回返一次。" if upgraded else "风刃末端追加一次回返，不再产生风刃。"
+  "ayk_wind_return": specific = "回返伤害：1 → 1.5；仍只回返一次。" if upgraded else "风刃末端回返一次：伤害 1，最多 3 敌，不再生风刃。"
   "ayk_thunder_chain": specific = "落雷额外连接目标：1 → 2。" if upgraded else "落雷额外连接邻近 1 敌，每个目标只命中一次。"
-  "ayk_thunder_charge": specific = "强化所需轻击命中：3 → 2 次。" if upgraded else "轻击命中 3 次后，强化下一次满蓄落雷；不能叠层。"
+  "ayk_thunder_charge": specific = "强化所需轻击命中：3 → 2 次。" if upgraded else "轻击命中 3 次后，下次满蓄雷伤：1 → 3；不能叠层。"
   "ayk_quake_slow": specific = "地圈减速：20% → 30%，持续 1 秒。" if upgraded else "地圈使普通敌人减速 20%，持续 1 秒。"
   "ayk_quake_echo": specific = "余震伤害：首圈的 50% → 75%。" if upgraded else "首圈后追加一次 50% 伤害余震，不再产生余震。"
   "ayk_fast": specific = "轻击恢复缩短：10% → 18%，前摇不变。" if upgraded else "轻击恢复缩短 10%，前摇不变。"

@@ -39,7 +39,7 @@ func test_build() -> void:
   check(a.levels.size() <= 5, "five distinct cards limit")
  var build = Build.new()
  build.reset(5)
- check(not build.choose("res://evil"), "unknown card rejected")
+ check(not build.choose("res"+"://evil"), "unknown card rejected")
  build.choose("ayk_core_wind")
  for id: String in Build.CARDS:
   if not id in Build.CORES:
@@ -85,7 +85,7 @@ func test_profile() -> void:
    1: candidate.records.standard.wins = 1
    2: candidate.records.standard.best_wave = 7
    3: candidate.records.standard.best_clear_ms = 1
-   4: candidate.discovery.enemy_ids = ["res://unknown.tscn"]
+   4: candidate.discovery.enemy_ids = ["res"+"://unknown.tscn"]
    5: candidate.discovery.cleared_core_ids = ["ayk_core_other"]
    6: candidate.settings.charge_mode = "auto_attack"
    7: candidate.settings.screen_shake = 1

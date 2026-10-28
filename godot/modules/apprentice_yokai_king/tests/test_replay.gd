@@ -6,6 +6,7 @@ func _initialize():
 	var file = FileAccess.open(args[0],FileAccess.READ)
 	assert(file != null)
 	var header = JSON.parse_string(file.get_line())
+	if header.has("model_sha256"): assert(header.model_sha256 == FileAccess.get_sha256("res://modules/apprentice_yokai_king/run_model.gd"),"Replay belongs to another rules revision")
 	var m = Model.new(); m.reset(int(header.seed),header.mode,false)
 	var frames = 0
 	while not file.eof_reached():

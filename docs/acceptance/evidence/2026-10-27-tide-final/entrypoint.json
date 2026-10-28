@@ -1,8 +1,0 @@
-{
-  "repository_entrypoint": "/workspace/scratch/e3e9ec015b32/iland-dot/tools/test_all.sh",
-  "source_sha256": "75549712897b954c56526c1f24059cadab0e4d3e648871b6954cb971e50eb1be",
-  "immutable_entrypoint": "/tmp/tide-final-clean-aggregate.hqboLU/test-all-immutable.sh",
-  "immutable_sha256": "973dbc8799d32cca807aded88c3b53211fdfb4050640f9dc8bf19521a7107f39",
-  "only_transformation": "pin ROOT to existing repository, because copy is outside tools/",
-  "previous_failed_run": "/tmp/tide-frozen-aggregate.Sfgahj/result.log"
-}

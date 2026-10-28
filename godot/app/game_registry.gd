@@ -9,7 +9,9 @@ const GAMES := [
  {"id":"volcano_escape","title":"火山岛逃生","enabled":true,"scene_path":"res://modules/volcano_escape/main.tscn","color":Color("e65d72"),"description":"寻找避难处 · 抓住撤离窗口","category":"adventure","category_label":"冒险"},
  {"id":"pelican_pedal","title":"鹈鹕顺风车","enabled":true,"scene_path":"res://modules/pelican_pedal/main.tscn","color":Color("ff9b62"),"description":"第一人称海滨骑行与配送","category":"adventure","category_label":"冒险"},
  {"id":"fruit_gummy_snake","title":"海底软糖水蛇","enabled":true,"scene_path":"res://modules/fruit_gummy_snake/main.tscn","color":Color("b5e278"),"description":"WASD 游动 · Space 上浮 · C 下潜","category":"relax","category_label":"休闲"},
- {"id":"monkey_vine","title":"猴子荡荡","enabled":true,"scene_path":"res://modules/monkey_vine/main.tscn","color":Color("73b85d"),"description":"2.5D 丛林冒险 · 抓藤摆荡 · 松手飞跃","category":"adventure","category_label":"冒险"}
+ {"id":"monkey_vine","title":"猴子荡荡","enabled":true,"scene_path":"res://modules/monkey_vine/main.tscn","color":Color("73b85d"),"description":"2.5D 丛林冒险 · 抓藤摆荡 · 松手飞跃","category":"adventure","category_label":"冒险"},
+ {"id":"dawn_sword","title":"晨曦之剑","enabled":true,"scene_path":"res://modules/dawn_sword/main.tscn","color":Color("f6c66d"),"description":"横版勇者冒险 · 探索与剑技","category":"adventure","category_label":"冒险"},
+ {"id":"apprentice_yokai_king","title":"见习小妖王","enabled":true,"scene_path":"res://modules/apprentice_yokai_king/main.tscn","color":Color("9ad4bd"),"description":"大地图妖怪冒险 · 巨槌与流派","category":"action","category_label":"动作"}
 ]
 var _availability: Dictionary = {}
 

@@ -1,15 +1,5 @@
-# 海底软糖水蛇 · Underwater Gummy Snake
+# 海底软糖水蛇
 
-**开发中的真 XYZ 改版，尚未发布。** 2026-10-28 用户要求替代平面贪吃蛇；旧平面版的绿灯不代表新版验收。旧完整源码包在 `build/revisions/fruit-gummy-snake-planar-20261028.tar.gz`，不再启用。
+Godot 4.7.2；运行 `main.tscn`，操作见游戏内提示。可通过仓库 `tools/extract_game.py fruit_gummy_snake /absolute/new/project` 抽离独立工程。
 
-- ID仍为`fruit_gummy_snake`，入口`main.tscn`；可由host `start(context)`/`exit_requested`管理，亦可作为独立场景运行。
-- 第三人称透视，连续三维水域X/Z±24m，Y2..26m。不是二维棋盘换相机。
-- A/D（或左右）转向；Space/C（或上下）上浮下潜；W加速4.6m/s、S精细慢游1.7m/s（松开恢复3.9m/s）；Esc暂停。自动向前，不能瞬间反向。
-- 身体按游过路径弧长采样；避开近颈后检测真正3D头身距离。不同深度可交叉。
-- 所有正常新局均有一颗引导苹果：头前4m、上方0.4m，光圈优先指向它；仍须实际碰到才计分，没有吸附或送分。其余5果正常随机；引导果吃掉后所有补果均随机，不重复引导。
-- 水果软糖分布于三维空间。苹果10、橘瓣12、草莓15；葡萄24且长2节；限时西瓜40且长2节。连续三种不同水果额外30分。初始8节，120节胜利；撞身体或越界结束。
-- HUD显示当前深度、速度、最近水果高度差和目标环；接近水域边界有警告。暂停/失焦不继续游。
-- 新存档固定`user://games/fruit_gummy_snake/underwater_v2/profile.json`，schema2；从不读取或写入原平面`profile.json`。保留损坏/未知版本文件，拒绝并发覆盖。
-- 场景与水蛇采用原创程序化3D造型，水果软糖保留原设计，不使用第三方游戏资产。音乐/音效为本项目AI辅助数值合成，见audio/。
-
-详细规则与验收范围见`XYZ_CONTRACT.md`；新验收状态见`QA.md`。不把无头测试当作原生视觉验证或Web发布证明。
+模块接口 `start(context)` / `exit_requested`；固定私有存档 `user://games/fruit_gummy_snake/`，不共享其他游戏档案。代码、运行美术/音频、必要测试和许可证保留；原画、Blender制作源与过程记录不在runtime源码交付内。

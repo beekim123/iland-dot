@@ -23,6 +23,7 @@ func _initialize():
  test_input_and_pause()
  test_damage()
  test_budget_and_choice()
+ test_spatial_chain()
  print("AYK isolated combat rules: %d checks, %d failures (not gameplay-clear evidence)" % [checks,failures.size()])
  quit(0 if failures.is_empty() else 1)
 
@@ -44,7 +45,7 @@ func test_rates():
  waiting.invulnerable = 1000 # Deadline isolation; not a survival/playability claim.
  for i in range(126*30): waiting.advance(1.0/30.0,{})
  check(waiting.phase == "lost" and waiting.wave == 1 and waiting.result_reason == "本波时间用尽", "without attacks cannot progress; explicit deadline loses")
- check(waiting.attack_id == 0 and waiting.defeated == 0 and waiting.spawned == 12, "no auto attack and finite first wave budget")
+ check(waiting.attack_id == 0 and waiting.defeated == 0 and waiting.spawned == 20, "no auto attack and finite first wave budget")
 
 func test_input_and_pause():
  var m = fixture()
@@ -129,13 +130,13 @@ func test_damage():
  check(m.phase == "lost" and m.events.count("result") == result_events, "terminal settlement exactly once")
 
 func test_budget_and_choice():
- var totals := [12,16,15,18,22,1]
+ var totals := [20,26,25,31,44,1]
  for index in range(6):
   var m = Model.new()
   m.reset(10,"standard",false)
   m.wave = index
   m.begin_wave()
-  check(m.wave == index+1 and m.total == totals[index] and m.pending.size() == totals[index], "wave %d finite hand-authored budget" % (index+1))
+  check(m.wave == index+1 and m.total == totals[index] and m.pending.size()+m.reserved_summons == totals[index], "wave %d finite hand-authored budget" % (index+1))
  var model = fixture()
  model.pending = [{"kind":"grunt","at":30.0,"pos":Vector2(90,190)}]
  model.advance(0.1,{})
@@ -165,3 +166,12 @@ func test_budget_and_choice():
  check(assist.limit() == 180, "assist standard-wave deadline +50 percent")
  assist.wave = 6
  check(assist.limit() == 270, "assist boss deadline +50 percent")
+
+func test_spatial_chain():
+ var m = fixture()
+ var center = Vector2(300,400)
+ for x in [380,490,600,710]: m.spawn_enemy("grunt",Vector2(x,400))
+ var effect = {"kind":"ayk_core_thunder","pos":center,"direction":Vector2.RIGHT,"radius":115.0,"cap":5,"damage":1.0}
+ m.resolve_secondary(effect)
+ check(m.enemies[0].hp == 2 and m.enemies[1].hp == 2 and m.enemies[2].hp == 2, "thunder chain reaches two unique neighbors outside original circle")
+ check(m.enemies[3].hp == 3 and m.core_triggers == 0, "chain stops after two extras and never recursively triggers core")
