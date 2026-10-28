@@ -11,6 +11,7 @@ GAMES = {
     'tide_gulp': 'Tide Gulp Standalone',
     'beach_cleanup': 'Beach Cleanup Standalone',
     'volcano_escape': 'Volcano Escape Standalone',
+    'pelican_pedal': 'Pelican Pedal Standalone',
 }
 RESOURCE_TEXT_SUFFIXES = {'.gd', '.tscn', '.tres', '.gdshader', '.gdshaderinc'}
 

@@ -8,8 +8,8 @@ func run() -> void:
 	root.add_child(app)
 	await process_frame
 	check(app.hub.portals.size() == 4, "Four playable magic portals placed")
-	check(app.registry.playable_games().size() == 5, "Only five implemented games are available")
-	for planned_id in ["pelican_pedal","fruit_gummy_snake"]:
+	check(app.registry.playable_games().size() == 6, "Only six implemented games are available")
+	for planned_id in ["fruit_gummy_snake"]:
 		var planned: Dictionary = app.registry.find_game(planned_id)
 		check(not planned.enabled and planned.scene_path.is_empty(), "Planned games never enter pool")
 	for i in app.hub.portals.size():
@@ -53,15 +53,15 @@ func run() -> void:
 	var portal_positions: Array = []
 	for portal in app.hub.portals: portal_positions.append(portal.position)
 	var baseline := int(Performance.get_monitor(Performance.OBJECT_ORPHAN_NODE_COUNT))
-	for id in ["unknown", "snake", "reef_memory", "cloud_hop", "pelican_pedal", "fruit_gummy_snake"]:
+	for id in ["unknown", "snake", "reef_memory", "cloud_hop", "fruit_gummy_snake"]:
 		check(not app.launch_game(id), "Locked route rejected: " + id)
-	for cycle in 30:
+	for cycle in 36:
 		app.island.hud.visible = cycle % 2 == 0
 		var expected_hud: bool = app.island.hud.visible
 		var expected_audio_pause := cycle % 3 == 1
 		for player in app.island.audio_players: player.stream_paused = expected_audio_pause
 		app.island.dragging = true
-		var game_id: String = ["gummy_bomber", "bloom_skirmish", "tide_gulp", "beach_cleanup", "volcano_escape"][cycle % 5]
+		var game_id: String = ["gummy_bomber", "bloom_skirmish", "tide_gulp", "beach_cleanup", "volcano_escape", "pelican_pedal"][cycle % 6]
 		check(app.launch_game(game_id), "Launch " + game_id + " " + str(cycle))
 		if not is_instance_valid(app.active_game): continue
 		check(app.active_game.get_script().resource_path.begins_with("res://modules/" + game_id + "/"), "Requested module scene actually loaded")
@@ -89,7 +89,7 @@ func run() -> void:
 	# existing catalogue node and restoring its origin on exit.
 	var catalog_instance: int = app.catalog.get_instance_id()
 	var chosen: Array = app.rotation.selected.duplicate()
-	for game_id in ["gummy_bomber","bloom_skirmish","tide_gulp","beach_cleanup","volcano_escape"]:
+	for game_id in ["gummy_bomber","bloom_skirmish","tide_gulp","beach_cleanup","volcano_escape","pelican_pedal"]:
 		app.open_catalog()
 		check(app.catalog_open and app.hub.suspended and not app.hub_menu.visible, "Catalogue suspends island gestures")
 		check(not app.shuffle_portals(), "Hidden refresh cannot change offered games")
@@ -110,5 +110,5 @@ func run() -> void:
 	app.queue_free()
 	await process_frame
 	await process_frame
-	print("APP_LIFECYCLE_30_FIVE_GAMES: ", "PASS" if failures.is_empty() else JSON.stringify(failures))
+	print("APP_LIFECYCLE_36_SIX_GAMES: ", "PASS" if failures.is_empty() else JSON.stringify(failures))
 	quit(0 if failures.is_empty() else 1)

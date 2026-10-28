@@ -16,3 +16,7 @@ retained the same source face and all pre-existing glyphs.
 2026-10-28: retained the same face and all pre-existing glyphs; added the
 Beach/Volcano titles and four-door catalogue/rotation/save-status controls.
 Exact reproducible 210-codepoint set remains tools/font-codepoints.txt.
+
+2026-10-28: Pelican admission adds 鹈鹕顺风车 coverage without removing any
+existing glyphs. The current exact reproducible set is 215 codepoints in
+tools/font-codepoints.txt; same licensed upstream face and subset command.

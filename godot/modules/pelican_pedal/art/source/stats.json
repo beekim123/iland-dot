@@ -1,0 +1,26 @@
+{
+  "PelicanSkin": {
+    "vertices": 3906,
+    "triangles": 7624,
+    "materials": 8
+  },
+  "FirstPersonSkin": {
+    "vertices": 1846,
+    "triangles": 3600,
+    "materials": 8
+  },
+  "Bicycle": {
+    "vertices": 746,
+    "triangles": 1356,
+    "materials": 5
+  },
+  "bones": 16,
+  "clips": [
+    "idle",
+    "pedal",
+    "steer_left",
+    "steer_right",
+    "brake"
+  ],
+  "blended_vertices": 70
+}

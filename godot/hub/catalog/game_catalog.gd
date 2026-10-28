@@ -5,7 +5,7 @@ signal close_requested
 const Cover=preload("portal_cover.gd")
 const FACE=preload("catalog-sans.otf")
 const PAGE_SIZE:=6
-const COVERS:={"bloom_skirmish":"res://hub/catalog/covers/bloom_skirmish.png","tide_gulp":"res://hub/catalog/covers/tide_gulp.png","beach_cleanup":"res://hub/catalog/covers/beach_cleanup.png","volcano_escape":"res://hub/catalog/covers/volcano_escape.png"}
+const COVERS:={"gummy_bomber":"res://hub/catalog/covers/gummy_bomber.png","bloom_skirmish":"res://hub/catalog/covers/bloom_skirmish.png","tide_gulp":"res://hub/catalog/covers/tide_gulp.png","beach_cleanup":"res://hub/catalog/covers/beach_cleanup.png","volcano_escape":"res://hub/catalog/covers/volcano_escape.png"}
 var entries:Array=[]
 var portal_ids:Array=[]
 var current_filter:="all"
@@ -152,7 +152,7 @@ func _add_game(entry:Dictionary)->void:
  else:row.add_child(_label(str(entry.get("status_label","未开放")),12,Color("b7c8bf")))
  var caption:=str(entry.get("description",""))
  var desc:=_label(caption,12,Color("acd0c8"));desc.horizontal_alignment=HORIZONTAL_ALIGNMENT_CENTER;desc.text_overrun_behavior=TextServer.OVERRUN_TRIM_ELLIPSIS;card.add_child(desc)
- var provenance:=_label("模型预览" if COVERS.has(id) else "主题图标",9,Color(.7,.85,.81,.7));provenance.horizontal_alignment=HORIZONTAL_ALIGNMENT_CENTER;card.add_child(provenance)
+ var provenance:=_label("场景预览" if COVERS.has(id) else "主题图标",9,Color(.7,.85,.81,.7));provenance.horizontal_alignment=HORIZONTAL_ALIGNMENT_CENTER;card.add_child(provenance)
  button.tooltip_text=str(entry.get("title",id))+" · "+("开始游戏" if enabled else str(entry.get("status_label","未开放")))
  button.pressed.connect(_activate.bind(id))
 func _activate(id:String)->void:

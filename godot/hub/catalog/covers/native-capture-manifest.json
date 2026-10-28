@@ -1,0 +1,113 @@
+{
+  "audio": "Dummy driver: no subjective audio evaluation",
+  "captures": [
+    {
+      "camera_overrides": false,
+      "frames_waited": 49,
+      "game_id": "gummy_bomber",
+      "hidden_ui_only": [
+        "/root/GummyBomber/@CanvasLayer@18"
+      ],
+      "normal_runtime_wall_ms": 4693,
+      "path": "/workspace/scratch/e3e9ec015b32/iland-dot/build/catalog-capture/captures-20261028-040059/gummy_bomber.png",
+      "scripted_movement": false,
+      "seed": 71423,
+      "sha256": "e9375381d6df349ceb800e72ec9a361af4a58717dc890f038f745e1c944537db",
+      "size": [
+        1180,
+        737
+      ],
+      "source": "actual native Godot viewport after normal start; idle scene, not a gameplay performance claim",
+      "state_overrides": false
+    },
+    {
+      "camera_overrides": false,
+      "frames_waited": 48,
+      "game_id": "bloom_skirmish",
+      "hidden_ui_only": [
+        "/root/BloomSkirmish/@CanvasLayer@1537"
+      ],
+      "normal_runtime_wall_ms": 7896,
+      "path": "/workspace/scratch/e3e9ec015b32/iland-dot/build/catalog-capture/captures-20261028-040059/bloom_skirmish.png",
+      "scripted_movement": false,
+      "seed": 71423,
+      "sha256": "94c740905ef182febbfde531d68d7a6e760546229be8d43129762132f4cfc466",
+      "size": [
+        1180,
+        737
+      ],
+      "source": "actual native Godot viewport after normal start; idle scene, not a gameplay performance claim",
+      "state_overrides": false
+    },
+    {
+      "camera_overrides": false,
+      "frames_waited": 90,
+      "game_id": "tide_gulp",
+      "hidden_ui_only": [
+        "/root/TideGulp/@CanvasLayer@1688"
+      ],
+      "normal_runtime_wall_ms": 4819,
+      "path": "/workspace/scratch/e3e9ec015b32/iland-dot/build/catalog-capture/captures-20261028-040059/tide_gulp.png",
+      "scripted_movement": false,
+      "seed": 71423,
+      "sha256": "578958adddf00e9fd7b698a8ef0f0e567f0754e19d7b6e956b86442533f5515d",
+      "size": [
+        1180,
+        737
+      ],
+      "source": "actual native Godot viewport after normal start; idle scene, not a gameplay performance claim",
+      "state_overrides": false
+    },
+    {
+      "camera_overrides": false,
+      "frames_waited": 48,
+      "game_id": "beach_cleanup",
+      "hidden_ui_only": [
+        "/root/BeachCleanup/@CanvasLayer@1834/@Control@1835"
+      ],
+      "normal_runtime_wall_ms": 5084,
+      "path": "/workspace/scratch/e3e9ec015b32/iland-dot/build/catalog-capture/captures-20261028-040059/beach_cleanup.png",
+      "scripted_movement": false,
+      "seed": 71423,
+      "sha256": "3c0897bb35fecb5179443f3fcd5a18056d72e561766c12d0ad42bc595443da99",
+      "size": [
+        1180,
+        737
+      ],
+      "source": "actual native Godot viewport after normal start; idle scene, not a gameplay performance claim",
+      "state_overrides": false
+    },
+    {
+      "camera_overrides": false,
+      "frames_waited": 48,
+      "game_id": "volcano_escape",
+      "hidden_ui_only": [
+        "/root/VolcanoEscape/@CanvasLayer@2184/@Control@2185"
+      ],
+      "normal_runtime_wall_ms": 5798,
+      "path": "/workspace/scratch/e3e9ec015b32/iland-dot/build/catalog-capture/captures-20261028-040059/volcano_escape.png",
+      "scripted_movement": false,
+      "seed": 71423,
+      "sha256": "3743b6166262d0e2e790667153362a2193ab678b5f66fa8df917b5dacd140921",
+      "size": [
+        1180,
+        737
+      ],
+      "source": "actual native Godot viewport after normal start; idle scene, not a gameplay performance claim",
+      "state_overrides": false
+    }
+  ],
+  "engine": {
+    "build": "official",
+    "hash": "ed1daf0bf001b61586d9930840f2f1394092c079",
+    "hex": 263938,
+    "major": 4,
+    "minor": 7,
+    "patch": 2,
+    "status": "stable",
+    "string": "4.7.2-stable (official)",
+    "timestamp": 0
+  },
+  "passed": true,
+  "purpose": "real scene cover candidates; manually review before production replacement"
+}

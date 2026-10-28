@@ -1,0 +1,62 @@
+extends SceneTree
+## Temporary native capture tool: one real playable module at a time, no game-state overrides.
+const IDS:=["gummy_bomber","bloom_skirmish","tide_gulp","beach_cleanup","volcano_escape"]
+var destination:=""
+var records:Array=[]
+var failed:=false
+func _initialize()->void:call_deferred("run")
+func run()->void:
+ if DisplayServer.get_name()=="headless":
+  printerr("CAPTURE REFUSED: native rendering required, not headless");quit(2);return
+ for arg in OS.get_cmdline_user_args():
+  if arg.begins_with("--capture-output="):destination=arg.trim_prefix("--capture-output=")
+ if destination.is_empty():printerr("CAPTURE REFUSED: output directory required");quit(2);return
+ DirAccess.make_dir_recursive_absolute(destination)
+ root.title="Sunny Shell · Actual Scene Cover Capture"
+ for id in IDS:
+  var baseline_children:=root.get_child_count()
+  var scene:PackedScene=load("res://modules/%s/main.tscn"%id)
+  if not scene:
+   printerr("CAPTURE FAIL missing scene ",id);failed=true;break
+  var game:=scene.instantiate()
+  # Connected exit keeps module's regular host-exit path; current_scene is not the module.
+  if game.has_signal("exit_requested"):game.connect("exit_requested",func():pass)
+  root.add_child(game)
+  game.call("start",{"seed":71423})
+  var started:=Time.get_ticks_msec()
+  var frames:=0
+  # Wait normal runtime ticks, including Bloom's real three-second countdown.
+  while frames<48 or Time.get_ticks_msec()-started<4500:
+   await process_frame;frames+=1
+  # Hide only the dedicated HUD. No model/camera/simulation property is changed.
+  var hidden_ui:Array=[]
+  var hud=game.get("hud")
+  if is_instance_valid(hud) and (hud is CanvasLayer or hud is CanvasItem):
+   hidden_ui.append(str(hud.get_path()));hud.hide()
+  await process_frame
+  await RenderingServer.frame_post_draw
+  var picture:=root.get_texture().get_image()
+  if picture.is_empty():
+   printerr("CAPTURE FAIL empty viewport ",id);failed=true
+  else:
+   var path:=destination.path_join(id+".png")
+   var err:=picture.save_png(path)
+   if err!=OK:printerr("CAPTURE FAIL save ",id," code ",err);failed=true
+   else:
+    var entry:={"game_id":id,"path":path,"size":[picture.get_width(),picture.get_height()],"seed":71423,"frames_waited":frames,"normal_runtime_wall_ms":Time.get_ticks_msec()-started,"hidden_ui_only":hidden_ui,"state_overrides":false,"camera_overrides":false,"scripted_movement":false,"source":"actual native Godot viewport after normal start; idle scene, not a gameplay performance claim","sha256":FileAccess.get_sha256(path)}
+    records.append(entry);print("CAPTURE SAVED ",JSON.stringify(entry))
+  if game.has_method("leave_game"):game.call("leave_game")
+  game.queue_free()
+  await process_frame;await process_frame
+  # Retirement voices use their real wall-clock fade and self-free lifecycle.
+  var retirement_started:=Time.get_ticks_msec()
+  while root.get_child_count()>baseline_children and Time.get_ticks_msec()-retirement_started<5000:
+   await process_frame
+  if root.get_child_count()!=baseline_children:
+   printerr("CAPTURE FAIL: retained module/audio nodes after exit ",id," baseline=",baseline_children," actual=",root.get_child_count());failed=true;break
+  print("CAPTURE EXIT CLEAN ",id)
+ var manifest:={"purpose":"real scene cover candidates; manually review before production replacement","engine":Engine.get_version_info(),"audio":"Dummy driver: no subjective audio evaluation","captures":records,"passed":not failed and records.size()==IDS.size()}
+ var file:=FileAccess.open(destination.path_join("manifest.json"),FileAccess.WRITE)
+ if file:file.store_string(JSON.stringify(manifest,"  "));file.close()
+ print("CATALOG CAPTURE FINISHED ",records.size(),"/",IDS.size()," failed=",failed)
+ quit(0 if not failed and records.size()==IDS.size() else 1)

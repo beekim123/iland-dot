@@ -37,7 +37,7 @@ func run() -> void:
 	for voice in hub.voices: assert(not voice.playing)
 	hub.resume(); hub._activate(hub.portals[0]); assert(entries.size()==5)
 	var fixed: Array=hub.selected_layout.duplicate()
-	hub.set_portal_entries([{"id":"unimplemented","enabled":true},{"id":"pelican_pedal","enabled":true}])
+	hub.set_portal_entries([{"id":"unimplemented","enabled":true},{"id":"fruit_gummy_snake","enabled":true}])
 	assert(hub.portals.is_empty(),"Unknown/planned entries do not become fake doors")
 	hub.set_portal_entries([registry.find_game("volcano_escape")])
 	assert(hub.portals.size()==1 and hub.selected_layout==fixed,"Small pool uses only one unchanged slot")

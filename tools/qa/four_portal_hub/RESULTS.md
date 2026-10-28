@@ -40,3 +40,14 @@ bash tools/qa/four_portal_hub/run.sh rotation catalog_input host_lifecycle
 当前真实第2页只有未开放游戏，不能假称已从该页玩过游戏。为测试以后扩容后的返回页码，独立测试给App注入**继承真实Registry的元数据子类**，前置3个禁用未来条目，把真实Volcano排到第2页；真实游戏与路由未替换、未改sim时钟位置。用实际Tab/Enter进入真实Volcano，实际暂停/确认退出回目录，page/selected/filter/scroll完整恢复。首版测试子类曾错误继承RefCounted而不符合App推断类型，修正测试继承关系后执行，非生产缺陷。
 
 572个现有host、岛资源、已接入五模块、独立QA脚本前后SHA完全一致。快照及日志位于 `evidence/20261028-paged/`。未包含并行开发的新Pelican/Snake，也不声称跑完项目原有全部模块单元套件；那仍由root总聚合负责。正式视觉验收与GPU/Web性能仍单独验证。
+
+## Pelican 准入后的六游戏池 · 2026-10-28 03:54 UTC
+
+实际 Registry 为6可玩+1筹备Snake；四门仍最多4，目录仍7条/2页。独立QA不改生产代码。Godot **4.7.2.stable.official.ed1daf0bf**，隔离XDG，全五套同一命令退出0，无engine错误/资源泄漏警告：
+
+- rotation **27,957**：保留原0–9池/恢复/坏档保护；新增真实6个ID的60次固定seed轮换，变化、无重复、全员观察覆盖；增加Pelican私有存档哨兵保护。抽样覆盖不等于承诺绝对公平。
+- catalog_input **103**、pagination **120**：既有真实输入、禁用、分页、大小、文字可见性断言全保留；此处5可玩fixture是UI边界数据，不代表真实registry仍5池。
+- host_lifecycle **293**：6真实模块各两次实际Tab/Enter；Pelican两次用Escape打开暂停，再鼠标点击实际“回到海岛”按钮，返回原目录并保留导航。每模块退出检查mouse_mode、auto_accept_quit恢复，孤儿数量不增。18次实际“换一组”点击观察6款全覆盖，保留真实门遮挡/可点测试。随机首轮4门中的需额外存档检查模块数量不同可能使总检查数略变。
+- paged_host **20**：真实第2页Snake禁用，底层海岛输入隔离，以及元数据扩容fixture中的真实Volcano第2页启动/退出恢复均保留。
+
+证据 `evidence/20261028-six/`；原始 `/tmp/four-portal-independent.Ia2MXz`。639个既有host/岛资源/6模块/QA文件前后SHA完全一致。此结果覆盖该时点版本，后续Pelican货包/退出调整需重新跑；不替代root六模块完整单元聚合、原生截图与浏览器性能验收。

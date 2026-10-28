@@ -1,0 +1,1 @@
+Noto Sans CJK SC Regular, local installed NotoSansCJK-Regular.ttc index 2; SIL OFL 1.1. Subset with fontTools to visible source characters plus ASCII.

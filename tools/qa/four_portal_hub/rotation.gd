@@ -45,6 +45,17 @@ func run() -> void:
 			check(restored.restore(JSON.parse_string(JSON.stringify(rotation.snapshot()))), "serialized snapshot roundtrip accepted")
 			check(restored.reconcile(pool) == rotation.selected, "restart retains exact game/slot choices")
 	check(displayed.size() == 9, "all nine pool members appear across deterministic sample, not a universal fairness claim")
+	var six_pool:Array=["gummy_bomber","bloom_skirmish","tide_gulp","beach_cleanup","volcano_escape","pelican_pedal"]
+	var six_seen:Dictionary={}
+	var six=Rotation.new();six.rng.seed=20261028
+	six.reconcile(six_pool)
+	for refresh in 60:
+		var before:=set_of(six.selected)
+		var offers:Array=six.shuffle(six_pool)
+		valid_selection(offers,six_pool,"real six-pool rotation")
+		check(set_of(offers)!=before,"six-pool refresh changes actual membership")
+		for id in offers:six_seen[id]=true
+	check(six_seen.size()==6,"six real game IDs all appear in seeded sample, not guaranteed universal fairness")
 	var rotation = Rotation.new(); rotation.rng.seed = 5
 	var pool: Array = ["a","b","c","d","e"]
 	rotation.reconcile(pool)
@@ -82,7 +93,7 @@ func storage() -> void:
 	check(path=="user://hub/portal_rotation.json", "hub storage has fixed isolated path")
 	DirAccess.make_dir_recursive_absolute("user://hub")
 	var protected := {}
-	for id in ["gummy_bomber","bloom_skirmish","tide_gulp","beach_cleanup","volcano_escape"]:
+	for id in ["gummy_bomber","bloom_skirmish","tide_gulp","beach_cleanup","volcano_escape","pelican_pedal"]:
 		var other := "user://games/%s/profile.json" % id
 		write(other,"QA SENTINEL "+id); protected[other] = FileAccess.get_file_as_bytes(other)
 	DirAccess.remove_absolute(path)

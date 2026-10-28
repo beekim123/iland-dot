@@ -1,6 +1,6 @@
 extends SceneTree
 ## Real host, real modules, real Viewport input. No simulation position/time edits.
-const IDS := ["gummy_bomber","bloom_skirmish","tide_gulp","beach_cleanup","volcano_escape"]
+const IDS := ["gummy_bomber","bloom_skirmish","tide_gulp","beach_cleanup","volcano_escape","pelican_pedal"]
 var checks := 0
 var failures: Array[String] = []
 func _initialize() -> void: call_deferred("run")
@@ -31,15 +31,28 @@ func healthy_game(app: Node,id: String) -> void:
 	check(not app.catalog.is_open and not app.catalog_open,"catalog not left live behind game")
 	check(not app.launch_game(id) and not app.launch_game_from_catalog(id),"duplicate routes rejected while active")
 	check(not app.shuffle_portals(),"in-game cannot shuffle background offers")
+	if id=="pelican_pedal":
+		check(app.active_game.store.allowed,"Pelican canonical save namespace accepted")
+		check(app.active_game.profile.game_id==id,"Pelican profile belongs to its isolated namespace")
 	if id in ["beach_cleanup","volcano_escape"]:
 		check(app.active_game.context_valid,"canonical host save_root accepted: "+id)
 		check(app.active_game.save_write_allowed,"valid fresh host save is writable: "+id)
+func pelican_ui_exit(app: Node) -> void:
+	key(KEY_ESCAPE);key(KEY_ESCAPE,false);await frames()
+	check(app.active_game.paused and app.active_game.hud.menu_kind=="pause","Pelican Escape opens actual pause UI")
+	var home:Button=null
+	for child in app.active_game.hud.actions.get_children():
+		if child is Button and child.text=="回到海岛":home=child
+	check(home!=null,"Pelican pause offers genuine home button")
+	if home:
+		check(root.get_visible_rect().encloses(home.get_global_rect()),"Pelican exit button inside viewport")
+		click(home.get_global_rect().get_center())
 func run() -> void:
 	root.content_scale_size=Vector2i(1280,800);root.size=Vector2i(1280,800)
 	var app=load("res://app/main.tscn").instantiate();root.add_child(app);await frames(5)
-	check(app.registry.playable_games().size()==5,"five actually instantiated ABI-valid modules, no unfinished projects")
-	for id in ["unknown","cloud_hop","pelican_pedal","fruit_gummy_snake"]:check(not app.launch_game(id),"unknown/planned route rejected: "+id)
-	check(app.hub.portals.size()==4 and app.rotation.selected.size()==4,"exactly four actual offers in five-game pool")
+	check(app.registry.playable_games().size()==6,"six actually instantiated ABI-valid modules, no unfinished projects")
+	for id in ["unknown","cloud_hop","fruit_gummy_snake"]:check(not app.launch_game(id),"unknown/planned route rejected: "+id)
+	check(app.hub.portals.size()==4 and app.rotation.selected.size()==4,"exactly four actual offers in six-game pool")
 	for button in [app.hub_menu.catalog_button,app.hub_menu.shuffle_button]:
 		check(root.get_visible_rect().encloses(button.get_global_rect()),"shell menu button inside viewport and actually reachable")
 	var first: Array=names(app.hub)
@@ -48,6 +61,8 @@ func run() -> void:
 	var camera_transform:Transform3D=app.island.camera.transform
 	var island_id:int=app.island.get_instance_id()
 	var expected_mode:int=app.island.process_mode
+	var expected_mouse:int=Input.mouse_mode
+	var expected_quit:bool=auto_accept_quit
 	var baseline_orphans:=int(Performance.get_monitor(Performance.OBJECT_ORPHAN_NODE_COUNT))
 	# Every displayed door uses actual projected screen coordinates and actual input.
 	for slot in app.hub.portals.size():
@@ -74,12 +89,16 @@ func run() -> void:
 		check(app.island.process_mode==expected_mode and not app.hub.suspended,"island processing restored")
 		check(int(Performance.get_monitor(Performance.OBJECT_ORPHAN_NODE_COUNT))==baseline_orphans,"portal return has no orphan growth")
 	# Visible explicit shuffle button uses genuine GUI click, not direct model call.
-	for refresh in 6:
+	var sampled:Dictionary={}
+	for id in first:sampled[id]=true
+	for refresh in 18:
 		var previous:Array=names(app.hub);previous.sort()
 		click(app.hub_menu.shuffle_button.get_global_rect().get_center());await frames()
 		var current:Array=names(app.hub);current.sort()
+		for id in current:sampled[id]=true
 		check(current!=previous,"visible shuffle replaces at least one actual game")
 		check(positions(app.hub)==fixed_positions,"shuffle never moves world door anchors")
+	check(sampled.size()==6,"all six playable games observed in actual UI shuffle sample; not universal fairness proof")
 	first=names(app.hub)
 	# Enter the all-games screen through its actual shell button.
 	click(app.hub_menu.catalog_button.get_global_rect().get_center());await frames(5)
@@ -90,7 +109,7 @@ func run() -> void:
 		quit(1);return
 	check(not app.hub_menu.visible and not app.island.hud.visible,"catalog owns input without leftover shell buttons")
 	check(not app.launch_game(IDS[0]) and not app.shuffle_portals(),"hidden hub actions rejected while catalog owns focus")
-	for cycle in 10:
+	for cycle in IDS.size()*2:
 		var id:String=IDS[cycle%IDS.size()]
 		app.catalog.close_button.grab_focus()
 		var tabs:=0
@@ -100,9 +119,12 @@ func run() -> void:
 		var before:Dictionary=app.catalog.get_navigation_state()
 		key(KEY_ENTER);key(KEY_ENTER,false);await frames()
 		healthy_game(app,id)
-		if is_instance_valid(app.active_game):app.active_game.leave_game()
+		if is_instance_valid(app.active_game):
+			if id=="pelican_pedal":await pelican_ui_exit(app)
+			else:app.active_game.leave_game()
 		await frames(5);await create_timer(.65).timeout
 		check(app.active_game==null and app.catalog_open and app.catalog.is_open,"catalog-origin game returns to same catalogue")
+		check(Input.mouse_mode==expected_mouse and auto_accept_quit==expected_quit,"game return restores mouse and close policy: "+id)
 		check(app.catalog.get_navigation_state()==before,"catalog return preserves filter/selection/scroll exactly")
 		check(names(app.hub)==first and positions(app.hub)==fixed_positions,"catalog game return preserves offers/anchors")
 		check(int(Performance.get_monitor(Performance.OBJECT_ORPHAN_NODE_COUNT))==baseline_orphans,"catalog lifecycle no orphan growth")
