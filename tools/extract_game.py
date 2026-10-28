@@ -12,6 +12,7 @@ GAMES = {
     'beach_cleanup': 'Beach Cleanup Standalone',
     'volcano_escape': 'Volcano Escape Standalone',
     'pelican_pedal': 'Pelican Pedal Standalone',
+    'fruit_gummy_snake': 'Underwater Gummy Snake Standalone',
 }
 RESOURCE_TEXT_SUFFIXES = {'.gd', '.tscn', '.tres', '.gdshader', '.gdshaderinc'}
 

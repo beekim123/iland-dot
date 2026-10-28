@@ -8,7 +8,7 @@ const GAMES := [
  {"id":"beach_cleanup","title":"拾光海滩","enabled":true,"scene_path":"res://modules/beach_cleanup/main.tscn","color":Color("ffd36a"),"description":"驾驶清洁小车 · 让海滩重新闪亮","category":"relax","category_label":"休闲"},
  {"id":"volcano_escape","title":"火山岛逃生","enabled":true,"scene_path":"res://modules/volcano_escape/main.tscn","color":Color("e65d72"),"description":"寻找避难处 · 抓住撤离窗口","category":"adventure","category_label":"冒险"},
  {"id":"pelican_pedal","title":"鹈鹕顺风车","enabled":true,"scene_path":"res://modules/pelican_pedal/main.tscn","color":Color("ff9b62"),"description":"第一人称海滨骑行与配送","category":"adventure","category_label":"冒险"},
- {"id":"fruit_gummy_snake","title":"果园长长蛇","enabled":false,"scene_path":"","color":Color("b5e278"),"description":"水果软糖 · 越吃越长","category":"relax","category_label":"休闲","status_label":"筹备中"}
+ {"id":"fruit_gummy_snake","title":"海底软糖水蛇","enabled":true,"scene_path":"res://modules/fruit_gummy_snake/main.tscn","color":Color("b5e278"),"description":"WASD 游动 · Space 上浮 · C 下潜","category":"relax","category_label":"休闲"}
 ]
 var _availability: Dictionary = {}
 

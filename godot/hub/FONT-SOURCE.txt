@@ -20,3 +20,6 @@ Exact reproducible 210-codepoint set remains tools/font-codepoints.txt.
 2026-10-28: Pelican admission adds 鹈鹕顺风车 coverage without removing any
 existing glyphs. The current exact reproducible set is 215 codepoints in
 tools/font-codepoints.txt; same licensed upstream face and subset command.
+
+Seven-game staging: added only 海底软糖水蛇 title coverage, retaining the same
+face and all prior glyphs. Explicit set now contains 217 codepoints.

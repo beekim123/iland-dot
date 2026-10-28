@@ -1,0 +1,22 @@
+{
+  "end.wav": {
+    "sha256": "e7ffe23edf00d1f95d65613270f865a7093753da03054e6ae1c5eade0a5eb1ce",
+    "bytes": 25180
+  },
+  "salad.wav": {
+    "sha256": "3d29ded16c0b2a02c851fb033f6fe7ebc3166d4842fe04832c5fac88a8e6b4b1",
+    "bytes": 25180
+  },
+  "win.wav": {
+    "sha256": "2d7a6e9cd875a258420788277db4fbe4f8b2c6401e93a8c72ce6ecf8ebdb8bd4",
+    "bytes": 33118
+  },
+  "fruit_loop.wav": {
+    "sha256": "71c84f9eb7fac34292e21a1cfe35cee9acdcb6a52ae42f8c1e6c207b8f2652a7",
+    "bytes": 1411244
+  },
+  "bite.wav": {
+    "sha256": "9f5e5db8394e897402d3de6926e9aca3690c3557911b653915971875f620687a",
+    "bytes": 21212
+  }
+}
