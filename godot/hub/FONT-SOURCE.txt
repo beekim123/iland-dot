@@ -12,3 +12,7 @@ The exact glyph set is tools/font-codepoints.txt. Reproduce with fontTools:
 
 2026-10-27: added only 逐潮小鱼 glyph coverage for the third purple portal;
 retained the same source face and all pre-existing glyphs.
+
+2026-10-28: retained the same face and all pre-existing glyphs; added the
+Beach/Volcano titles and four-door catalogue/rotation/save-status controls.
+Exact reproducible 210-codepoint set remains tools/font-codepoints.txt.

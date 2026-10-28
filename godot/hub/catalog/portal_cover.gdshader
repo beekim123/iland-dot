@@ -1,0 +1,32 @@
+shader_type canvas_item;
+render_mode unshaded;
+uniform vec4 portal_color : source_color = vec4(0.2,0.85,0.85,1.0);
+uniform sampler2D portrait : source_color, filter_linear;
+uniform bool has_portrait = false;
+uniform float active = 1.0;
+uniform float emphasis = 0.0;
+uniform float phase = 0.0;
+uniform float aspect = 1.0;
+void fragment() {
+ vec2 q=(UV-vec2(.5,.49))/vec2(.29 / max(aspect,.1),.43);
+ float angle=atan(q.y,q.x);
+ float wobble=.022*sin(angle*5.0+TIME*.8+phase)+.012*sin(angle*11.0-TIME*1.4);
+ float d=length(q)-1.0-wobble;
+ float inside=1.0-smoothstep(-.025,.005,d);
+ vec3 ink=portal_color.rgb;
+ float brightness=.5+.5*sin(angle*3.0-TIME*1.9+phase);
+ float glow=exp(-abs(d)*19.0)*(.35+emphasis*.25);
+ float core=exp(-abs(d)*170.0);
+ float tracer=exp(-abs(d-.035*sin(angle*17.0+TIME*2.0))*150.0)*(.3+.7*brightness);
+ vec2 sample_uv=vec2((UV.x-.5)*.7+.5,(UV.y-.49)*1.08+.5);
+ vec3 inner=has_portrait ? texture(portrait,clamp(sample_uv,vec2(.0),vec2(1.0))).rgb : mix(ink*.16,ink*.42,UV.y);
+ float vignette=smoothstep(.2,1.0,length(q));
+ inner=mix(inner,ink*.18,vignette*.34);
+ float sheen=pow(max(0.0,sin(angle*2.0+length(q)*8.0-TIME*.55)),18.0)*.035;
+ inner+=ink*sheen;
+ vec3 rgb=inner*inside+ink*glow+mix(ink,vec3(1.0),.78)*core+ink*tracer;
+ float alpha=max(inside*.95,clamp(glow+core+tracer,0.0,1.0));
+ float gray=dot(rgb,vec3(.299,.587,.114));
+ rgb=mix(vec3(gray)*.82,rgb,active);
+ COLOR=vec4(rgb,alpha*(.65+.35*active));
+}

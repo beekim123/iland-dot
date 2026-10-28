@@ -1,7 +1,7 @@
 extends SceneTree
 ## Real island geometry, real camera rays and the actual press/release input
 ## route. No _activate bypass. Empty foliage AABBs must not obscure a portal;
-## real triangles in front still block it. Five poses x all 63 safe sites.
+## real triangles in front still block it. Six poses including the new default x all 63 safe sites.
 var failures: Array[String]=[]
 var checks:=0
 var requested: Array[String]=[]
@@ -51,7 +51,7 @@ func run()->void:
 	var peak_triangle_tests:=0
 	var peak_pick_us:=0
 	var total_pick_us:=0
-	var poses:Array=[[.38,.61,30.0],[.1,.64,23.0],[-.5,.61,30.0],[1.2,.61,30.0],[2.0,.61,30.0]]
+	var poses:Array=[[.38,.80,30.0],[.38,.61,30.0],[.1,.64,23.0],[-.5,.61,30.0],[1.2,.61,30.0],[2.0,.61,30.0]]
 	for pose_index in poses.size():
 		var pose:Array=poses[pose_index]
 		app.island.yaw=pose[0];app.island.pitch=pose[1];app.island.distance=pose[2];app.island._update_camera()
@@ -82,12 +82,12 @@ func run()->void:
 				click(app.hub,screen)
 				if expected==portal:
 					visible_samples+=1
-					check(requested.size()==before+1 and requested.back()=="tide_gulp","visible portal enters through actual press/release: "+label)
+					check(requested.size()==before+1 and requested.back()==portal.game_id,"visible portal enters through actual press/release: "+label)
 				else:
 					true_occluded+=1
 					if expected is MeshInstance3D and expected.skin!=null:skin_proxy_occlusions+=1
 					check(requested.size()==before,"static geometry or conservative animated proxy occludes portal: "+label)
-	check(samples==945 and visible_samples>850 and true_occluded>0 and phantom_boxes>100,"real-camera test covers all sites, empty AABBs and real occlusion")
+	check(samples==sites.size()*poses.size()*3 and visible_samples>850 and true_occluded>0 and phantom_boxes>100,"real-camera test covers all sites, empty AABBs and real occlusion")
 	check(app.hub.pick_triangles.size()<=app.hub.pickables.size(),"triangle cache bounded by active pickable meshes")
 	var skinned_count:=0
 	for mesh in app.hub.pickables:

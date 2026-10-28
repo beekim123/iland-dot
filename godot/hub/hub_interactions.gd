@@ -5,7 +5,9 @@ const PORTAL = preload("res://hub/portal.gd")
 const DRAG_THRESHOLD := 7.0
 const PICK_TRIANGLE_BUDGET := 16384
 # Keep unknown/planned games locked even when preview metadata incorrectly enables them.
-const IMPLEMENTED_GAME_IDS := ["gummy_bomber", "bloom_skirmish", "tide_gulp"]
+const IMPLEMENTED_GAME_IDS := ["gummy_bomber", "bloom_skirmish", "tide_gulp", "beach_cleanup", "volcano_escape"]
+const MAX_PORTALS := 4
+var _site_data: Dictionary = {}
 var world: Node3D
 var camera: Camera3D
 var portals: Array[Node3D] = []
@@ -44,30 +46,15 @@ func setup(p_world: Node3D, p_camera: Camera3D, registry = null) -> void:
 	elif registry is Array: entries = registry
 	elif registry is Dictionary and registry.has("games"): entries = registry.games
 	if session_seed == 0: session_seed = int(Time.get_unix_time_from_system()) ^ Time.get_ticks_usec()
-	var rng := RandomNumberGenerator.new(); rng.seed = session_seed
-	var site_data: Dictionary = JSON.parse_string(FileAccess.get_file_as_string("res://hub/portal_sites.json"))
-	var sites: Array = site_data.points
-	# Validate against the actual initial camera and imported island geometry
-	# before randomizing. World-space separation alone hides doors in trees or
-	# overlaps them on screen even when their terrain footprints are separate.
+	_site_data = JSON.parse_string(FileAccess.get_file_as_string("res://hub/portal_sites.json"))
+	var sites: Array = _site_data.points
+	# Geometry chooses one deterministic safe four-door arrangement. Changing
+	# recommendations never moves the doors or repositions approved island art.
 	_refresh_pickables()
 	visible_layout_sites = _visible_sites(sites)
 	valid_layouts = _enumerate_layouts(visible_layout_sites)
-	selected_layout = _select_layout(rng.randi_range(0,valid_layouts.size()-1) if not valid_layouts.is_empty() else -1)
-	# Rotate which color occupies each visible site, still seed-reproducibly.
-	for i in range(selected_layout.size()-1,0,-1):
-		var j := rng.randi_range(0,i)
-		var swap = selected_layout[i]; selected_layout[i] = selected_layout[j]; selected_layout[j] = swap
-	for slot in mini(3,entries.size()):
-		if slot >= selected_layout.size(): break
-		var entry: Dictionary = entries[slot]
-		var site: Array = sites[int(selected_layout[slot])]
-		var p := Vector3(site[0],site[1],site[2])
-		var portal := PORTAL.new(); add_child(portal); portal.position = p
-		# Planned/unknown entries remain locked regardless of incoming metadata.
-		var safe_entry: Dictionary = entry.duplicate(); safe_entry["enabled"] = str(entry.get("id","")) in IMPLEMENTED_GAME_IDS and bool(entry.get("enabled",true))
-		safe_entry["ground_patch"] = site_data.get("ground_patches",{}).get("%d:%d" % [roundi(p.x*1000),roundi(p.z*1000)],[])
-		portal.configure(safe_entry); portals.append(portal)
+	selected_layout = _select_layout(0)
+	set_portal_entries(entries)
 	_refresh_pickables()
 	for key in ["click","portal","bird","plant","water"]:
 		sounds[key] = load("res://hub/audio/"+key+".wav")
@@ -81,6 +68,27 @@ func setup(p_world: Node3D, p_camera: Camera3D, registry = null) -> void:
 	var svg := '<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32"><path d="M4 3 L5 25 L11 20 L16 29 L21 26 L16 18 L25 17 Z" fill="#fff5db" stroke="#715b89" stroke-width="2"/><circle cx="10" cy="12" r="2" fill="#ff8ebc"/></svg>'
 	var img := Image.new(); img.load_svg_from_string(svg); cursor = ImageTexture.create_from_image(img)
 	Input.set_custom_mouse_cursor(cursor,Input.CURSOR_ARROW,Vector2(4,3))
+
+func set_portal_entries(entries: Array) -> void:
+	# Called only by the shell with validated playable definitions. The allowlist
+	# is defense in depth for test/preview metadata; no fake locked door fills a slot.
+	pressed = false; dragged = false; hovered = null
+	for portal in portals:
+		remove_child(portal); portal.queue_free()
+	portals.clear()
+	var used: Array[String] = []
+	for entry in entries:
+		if not entry is Dictionary: continue
+		var id := str(entry.get("id",""))
+		if id not in IMPLEMENTED_GAME_IDS or not bool(entry.get("enabled",false)) or id in used: continue
+		if portals.size() >= mini(MAX_PORTALS,selected_layout.size()): break
+		var site: Array = _site_data.points[int(selected_layout[portals.size()])]
+		var p := Vector3(site[0],site[1],site[2])
+		var portal := PORTAL.new(); add_child(portal); portal.position = p
+		var safe_entry: Dictionary = entry.duplicate(true)
+		safe_entry["ground_patch"] = _site_data.get("ground_patches",{}).get("%d:%d" % [roundi(p.x*1000),roundi(p.z*1000)],[])
+		portal.configure(safe_entry); portals.append(portal); used.append(id)
+	_refresh_pickables()
 
 func _visible_sites(sites: Array) -> Array[Dictionary]:
 	var candidates: Array[Dictionary] = []
@@ -116,16 +124,18 @@ func _enumerate_layouts(candidates: Array[Dictionary]) -> Array:
 		for j in range(i+1,candidates.size()):
 			if not _layout_separated(candidates[i],candidates[j]): continue
 			for k in range(j+1,candidates.size()):
-				if _layout_separated(candidates[i],candidates[k]) and _layout_separated(candidates[j],candidates[k]):
-					layouts.append([candidates[i].index,candidates[j].index,candidates[k].index])
+				if not _layout_separated(candidates[i],candidates[k]) or not _layout_separated(candidates[j],candidates[k]): continue
+				for m in range(k+1,candidates.size()):
+					if _layout_separated(candidates[i],candidates[m]) and _layout_separated(candidates[j],candidates[m]) and _layout_separated(candidates[k],candidates[m]):
+						layouts.append([candidates[i].index,candidates[j].index,candidates[k].index,candidates[m].index])
 	return layouts
 
 func _select_layout(index: int) -> Array:
 	layout_fallback_used = index < 0 or index >= valid_layouts.size()
 	if valid_layouts.is_empty():
-		# Never silently choose three hidden doors. A geometry/camera regression
+		# Never silently choose four hidden doors. A geometry/camera regression
 		# fails loudly instead of pretending the initial entrances are usable.
-		push_error("No visible non-overlapping three-portal layout in authored sites")
+		push_error("No visible non-overlapping four-portal layout in authored sites")
 		return []
 	# Deterministic safe fallback is the FIRST geometry-validated combination,
 	# not an unverified hard-coded point or freshly generated terrain.

@@ -3,7 +3,7 @@ extends Node3D
 const MODEL_DIR := "res://resources/models/"
 var camera: Camera3D
 var yaw := 0.38
-var pitch := 0.61
+var pitch := 0.80
 var distance := 30.0
 var target := Vector3(0, 1.8, 2.4)
 var dragging := false
@@ -134,7 +134,7 @@ func _update_camera() -> void:
 
 func reset_view() -> void:
 	yaw = 0.38
-	pitch = 0.61
+	pitch = 0.80
 	distance = 30.0
 	target = Vector3(0, 1.8, 2.4)
 	_update_camera()

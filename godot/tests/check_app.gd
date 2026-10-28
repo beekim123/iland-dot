@@ -7,16 +7,15 @@ func run() -> void:
 	var app = load("res://app/main.tscn").instantiate()
 	root.add_child(app)
 	await process_frame
-	check(app.hub.portals.size() == 3, "Three magic portals placed")
-	check(app.hub.portals[1].game_id == "bloom_skirmish", "Second slot routes to bloom, not retired snake")
-	check(app.hub.portals[2].game_id == "tide_gulp", "Third purple slot routes to tide, not retired memory")
-	var fourth: Dictionary = app.registry.find_game("cloud_hop")
-	check(not fourth.enabled and fourth.scene_path.is_empty(), "Fourth catalog slot remains only a locked placeholder")
-	var expected_colors := [Color("ff439c"), Color("23dcca"), Color("9864ff")]
+	check(app.hub.portals.size() == 4, "Four playable magic portals placed")
+	check(app.registry.playable_games().size() == 5, "Only five implemented games are available")
+	for planned_id in ["pelican_pedal","fruit_gummy_snake"]:
+		var planned: Dictionary = app.registry.find_game(planned_id)
+		check(not planned.enabled and planned.scene_path.is_empty(), "Planned games never enter pool")
 	for i in app.hub.portals.size():
 		var portal = app.hub.portals[i]
-		check(portal.tint.is_equal_approx(expected_colors[i]), "Approved magic-rift palette")
-		check(portal.enabled, "All three implemented portals enabled")
+		check(portal.tint.is_equal_approx(app.registry.find_game(portal.game_id).color), "Approved magic-rift palette")
+		check(portal.enabled, "All four recommendations enabled")
 		check(is_instance_valid(portal.effect) and portal.effect.surfaces.size() == 3, "Magic rift layers instantiated")
 		var energy_count := 0
 		var shadow_count := 0
@@ -54,20 +53,16 @@ func run() -> void:
 	var portal_positions: Array = []
 	for portal in app.hub.portals: portal_positions.append(portal.position)
 	var baseline := int(Performance.get_monitor(Performance.OBJECT_ORPHAN_NODE_COUNT))
-	for id in ["unknown", "snake", "reef_memory", "cloud_hop"]:
+	for id in ["unknown", "snake", "reef_memory", "cloud_hop", "pelican_pedal", "fruit_gummy_snake"]:
 		check(not app.launch_game(id), "Locked route rejected: " + id)
-	for cycle in 24:
+	for cycle in 30:
 		app.island.hud.visible = cycle % 2 == 0
 		var expected_hud: bool = app.island.hud.visible
 		var expected_audio_pause := cycle % 3 == 1
 		for player in app.island.audio_players: player.stream_paused = expected_audio_pause
 		app.island.dragging = true
-		var game_id: String = ["gummy_bomber", "bloom_skirmish", "tide_gulp"][cycle % 3]
-		if game_id != "gummy_bomber":
-			app.hub._activate(app.hub.portals[cycle % 3])
-			check(is_instance_valid(app.active_game), "Actual portal launches " + game_id + " " + str(cycle))
-		else:
-			check(app.launch_game(game_id), "Launch " + game_id + " " + str(cycle))
+		var game_id: String = ["gummy_bomber", "bloom_skirmish", "tide_gulp", "beach_cleanup", "volcano_escape"][cycle % 5]
+		check(app.launch_game(game_id), "Launch " + game_id + " " + str(cycle))
 		if not is_instance_valid(app.active_game): continue
 		check(app.active_game.get_script().resource_path.begins_with("res://modules/" + game_id + "/"), "Requested module scene actually loaded")
 		check(not app.launch_game("gummy_bomber"), "Duplicate or cross-game candy launch rejected")
@@ -82,7 +77,7 @@ func run() -> void:
 		app.active_game.exit_requested.emit()
 		await process_frame
 		await process_frame
-		check(app.active_game == null and app.get_child_count() == 1, "Game detached on exit")
+		check(app.active_game == null and app.get_child_count() == 3, "Game detached on exit")
 		check(app.island.get_instance_id() == original, "Same island instance retained")
 		check(app.island.visible and app.island.hud.visible == expected_hud, "Original HUD visibility restored")
 		check(app.island.camera.current and app.island.camera.transform.is_equal_approx(camera_transform), "Original camera restored")
@@ -90,6 +85,23 @@ func run() -> void:
 		for i in app.hub.portals.size(): check(app.hub.portals[i].position == portal_positions[i], "Portal placement retained")
 		for player in app.island.audio_players: check(player.stream_paused == expected_audio_pause, "Island music prior pause state restored")
 		check(int(Performance.get_monitor(Performance.OBJECT_ORPHAN_NODE_COUNT)) == baseline, "No orphan growth cycle " + str(cycle))
+	# Each catalogue entry uses the same real module while preserving the
+	# existing catalogue node and restoring its origin on exit.
+	var catalog_instance: int = app.catalog.get_instance_id()
+	var chosen: Array = app.rotation.selected.duplicate()
+	for game_id in ["gummy_bomber","bloom_skirmish","tide_gulp","beach_cleanup","volcano_escape"]:
+		app.open_catalog()
+		check(app.catalog_open and app.hub.suspended and not app.hub_menu.visible, "Catalogue suspends island gestures")
+		check(not app.shuffle_portals(), "Hidden refresh cannot change offered games")
+		check(app.launch_game_from_catalog(game_id), "Catalogue launch " + game_id)
+		await process_frame
+		check(not app.catalog_open and not app.catalog.visible, "Catalogue hidden during game")
+		app.active_game.exit_requested.emit()
+		await process_frame; await process_frame
+		check(app.catalog_open and app.catalog.visible and app.catalog.get_instance_id()==catalog_instance, "Returns to same catalogue instance")
+		check(app.rotation.selected==chosen, "Entering and returning never reshuffles")
+		app.close_catalog()
+		check(not app.catalog_open and app.hub_menu.visible and not app.hub.suspended, "Close catalogue restores island")
 	app.hub.suspend()
 	for player in app.island.audio_players:
 		player.stop()
@@ -98,5 +110,5 @@ func run() -> void:
 	app.queue_free()
 	await process_frame
 	await process_frame
-	print("APP_LIFECYCLE_24_THREE_GAMES: ", "PASS" if failures.is_empty() else JSON.stringify(failures))
+	print("APP_LIFECYCLE_30_FIVE_GAMES: ", "PASS" if failures.is_empty() else JSON.stringify(failures))
 	quit(0 if failures.is_empty() else 1)

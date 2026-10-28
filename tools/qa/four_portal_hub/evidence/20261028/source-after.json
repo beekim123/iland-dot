@@ -1,0 +1,14 @@
+{
+  "godot/app/portal_rotation.gd": "f527af62556047932f4952694d2d6d88343b8905e9eed6d6464a28b811ee70dc",
+  "godot/app/app.gd": "60b50bf35e213e5c94827acdfaf06bd5d75f0ffac32918feae48a31be58b2439",
+  "godot/app/game_registry.gd": "35067ff90eedcbb6b6ffbb04145bf1e883dbdee423faa0ed4fe37d631db4b721",
+  "godot/hub/hub_interactions.gd": "c817e804bf269fc110f0be24bbb14bb856359ebab55658cef84a6798a4eb4db0",
+  "godot/hub/ui/hub_menu.gd": "fbc181dc0a245a5ac6bdfb1a2768ba5df58b89896ed3da8e890dc7b48df833b1",
+  "godot/hub/catalog/game_catalog.gd": "b3dfc7061052efead615fdff9b38f3432d9cba7886669a0e4a57e5f7b04b8e12",
+  "tools/qa/four_portal_hub/host_lifecycle.gd": "5af58dcc01f5836a35e2a80f685a079ec570d9d3a2c0a7b22ebeef1a90ca2a8e",
+  "tools/qa/four_portal_hub/run.sh": "b6228a7462563f97d7048b5f3d813c438884532ca19a10442ec89824dc380419",
+  "tools/qa/four_portal_hub/diagnose_host.gd": "e057bac53b095196b272df77e5af682fa2fc14fbc0b7048dcc5add02c238647f",
+  "tools/qa/four_portal_hub/catalog_input.gd": "1b465ddf812e6d013b56cacd3efae70eacea9218187dd6b720f2d89a6618d7bd",
+  "tools/qa/four_portal_hub/rotation.gd": "192f388ba03237176ff269a5e9270231e7c8c8cf57eef78450db2e6b48359c64",
+  "tools/qa/four_portal_hub/README.md": "c754c7d6f8581c30b1c29044c7f428d912789498f18dc735fb63b8c0a34dac3f"
+}
