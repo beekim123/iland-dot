@@ -1,0 +1,146 @@
+{
+  "baseline": "7b16265a990a1e3c342315fb0ab0ce94e5774601",
+  "engine": "4.7.2.stable.official.ed1daf0bf",
+  "deleted_files": 52,
+  "deleted_bytes": 84743734,
+  "current_smoke": {
+    "passed": true,
+    "steps": 25,
+    "source_unchanged": true
+  },
+  "standalone": {
+    "passed": true,
+    "checks": 46,
+    "modules": [
+      {
+        "id": "gummy_bomber",
+        "checks": 7,
+        "passed": true
+      },
+      {
+        "id": "bloom_skirmish",
+        "checks": 5,
+        "passed": true
+      },
+      {
+        "id": "tide_gulp",
+        "checks": 5,
+        "passed": true
+      },
+      {
+        "id": "beach_cleanup",
+        "checks": 5,
+        "passed": true
+      },
+      {
+        "id": "volcano_escape",
+        "checks": 5,
+        "passed": true
+      },
+      {
+        "id": "pelican_pedal",
+        "checks": 6,
+        "passed": true
+      },
+      {
+        "id": "fruit_gummy_snake",
+        "checks": 8,
+        "passed": true
+      },
+      {
+        "id": "monkey_vine",
+        "checks": 5,
+        "passed": true
+      }
+    ]
+  },
+  "extractor_unit": {
+    "passed": 10
+  },
+  "sync_unit": {
+    "passed": 16
+  },
+  "runtime_files_byte_identical": [
+    {
+      "path": "godot/resources/models/environment.glb",
+      "sha256": "786fe43ce980aed33f2b0f9deb61a28dda458ed58178c00ae8a5f26b5f0dc593"
+    },
+    {
+      "path": "godot/resources/models/turtle.glb",
+      "sha256": "6e3e1edb42cebc9f460068293f5838b10d89bbc48102ddc7e5698f805f16358b"
+    },
+    {
+      "path": "godot/resources/models/crab.glb",
+      "sha256": "5a475969583f50fad05f0a7f20a129fac89d58c9dce8a67628d0583b907c4add"
+    },
+    {
+      "path": "godot/resources/models/seagull.glb",
+      "sha256": "47b6acd1e3f465a412df5dfa1c81a13c9e978a39e1c0035edfa83e6beffc6de3"
+    },
+    {
+      "path": "godot/resources/models/fish.glb",
+      "sha256": "0b40238b21a744c6286ade9d7c7cc395e39f0b8a8291b86ba1e159212a2bcf13"
+    },
+    {
+      "path": "godot/resources/audio/sunny_shell_island_loop.wav",
+      "sha256": "3ed4989d296b068bd653869eabed9a0596a8c077cb37219cf960abb71bab6854"
+    },
+    {
+      "path": "godot/resources/audio/ocean_ambience_loop.wav",
+      "sha256": "37b89f3f6da7e957031fb87a33cf15cbcd3df6bd30975e840526ff36f4ee6301"
+    },
+    {
+      "path": "godot/resources/models/tern.glb",
+      "sha256": "1235b627db0d3fcd5a62f7a8cee2dd7f2ef42f36590aedb51603dabd61793a19"
+    },
+    {
+      "path": "godot/resources/models/dolphin.glb",
+      "sha256": "357f302a750e787896e931a23685651567e69d24c835a9bcaa2250c35fe34af8"
+    },
+    {
+      "path": "godot/modules/bloom_skirmish/art/models/animals/rigged/raccoon/raccoon_orange_rigged.glb",
+      "sha256": "ec52c08e0c1e91b0a89a28b07f8ee3003979fb66f19d09817bd128aefaf42ab6"
+    },
+    {
+      "path": "godot/modules/bloom_skirmish/art/models/animals/rigged/raccoon/raccoon_blue_rigged.glb",
+      "sha256": "6b66205b9747c1a5ae1e098f705342776067a8e0b196a0af2ebf7147b11898f5"
+    },
+    {
+      "path": "godot/modules/bloom_skirmish/art/models/animals/rigged/otter/otter_blue_rigged.glb",
+      "sha256": "e5ce863e4f833bebcc4128cb36f6ced74e38f3b1676aa430ab1b093b69849eeb"
+    },
+    {
+      "path": "godot/modules/bloom_skirmish/art/models/animals/rigged/otter/otter_orange_rigged.glb",
+      "sha256": "48535e03ec87c5eb5ab7f41587d882178941b6abb7c2311f3932b47dfc75ef15"
+    },
+    {
+      "path": "godot/modules/bloom_skirmish/art/models/animals/rigged/rabbit/rabbit_orange_rigged.glb",
+      "sha256": "3e5e743d3f5d66266c5b2162c6940cafd410f63e874208e4b224ce93fd244260"
+    },
+    {
+      "path": "godot/modules/bloom_skirmish/art/models/animals/rigged/rabbit/rabbit_blue_rigged.glb",
+      "sha256": "0340a10ea7cc78fb115f61ac66de97c02677b9ac3949ae635b65fb38df359a31"
+    },
+    {
+      "path": "godot/modules/bloom_skirmish/art/models/animals/rigged/fox/fox_orange_rigged.glb",
+      "sha256": "4812fa45ae83c5a0f2d545e1c1cf3e7ab55038bcefd715096d063e5d3c7c95e6"
+    },
+    {
+      "path": "godot/modules/bloom_skirmish/art/models/animals/rigged/fox/fox_blue_rigged.glb",
+      "sha256": "1944fa44a7f3e02c3c54147b1f2a120d0f5f78bf79078cae1f1212afaa64a736"
+    }
+  ],
+  "bloom_independent_extraction": {
+    "passed": true,
+    "rules_checks": 41395264,
+    "perspective_checks": 120066,
+    "hud_checks": 354,
+    "rig_checks": 149332,
+    "game_checks": 1088
+  },
+  "limitations": [
+    "Not a new visual/audio review",
+    "No Web or user-device benchmark",
+    "No history rewrite or .git size reduction"
+  ]
+}

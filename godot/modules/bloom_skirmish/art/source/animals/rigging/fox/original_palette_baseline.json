@@ -1,0 +1,231 @@
+{
+  "schema": 1,
+  "algorithm": "skin_palette.histogram: world-space opaque non-weapon triangle area, 8-bit linear RGB bins; frozen modeling-stage baseline, not derived from current rigged assets",
+  "source_commit": "7b16265",
+  "assets": {
+    "blue": {
+      "source_path": "godot/modules/bloom_skirmish/art/models/animals/fox/fox_blue.glb",
+      "source_sha256": "5ba5c7adde8f189939881a0d0e86115df20d1869f400f490e7dac6e9043d68c1",
+      "total_area": 7.660553941491709,
+      "triangles": 32616,
+      "shares": [
+        {
+          "linear_rgb8": [
+            2,
+            6,
+            6
+          ],
+          "share": 0.0026505319637516725
+        },
+        {
+          "linear_rgb8": [
+            4,
+            3,
+            3
+          ],
+          "share": 0.0008773381484085766
+        },
+        {
+          "linear_rgb8": [
+            5,
+            9,
+            18
+          ],
+          "share": 0.13389352583349232
+        },
+        {
+          "linear_rgb8": [
+            8,
+            36,
+            220
+          ],
+          "share": 0.08922492535874423
+        },
+        {
+          "linear_rgb8": [
+            10,
+            7,
+            6
+          ],
+          "share": 0.14083421748100156
+        },
+        {
+          "linear_rgb8": [
+            21,
+            68,
+            45
+          ],
+          "share": 0.00602201648791264
+        },
+        {
+          "linear_rgb8": [
+            72,
+            99,
+            108
+          ],
+          "share": 0.0012991449781197188
+        },
+        {
+          "linear_rgb8": [
+            175,
+            66,
+            44
+          ],
+          "share": 0.0037879038504959627
+        },
+        {
+          "linear_rgb8": [
+            183,
+            36,
+            6
+          ],
+          "share": 0.42328087447086504
+        },
+        {
+          "linear_rgb8": [
+            204,
+            212,
+            186
+          ],
+          "share": 0.013161519014423929
+        },
+        {
+          "linear_rgb8": [
+            218,
+            65,
+            11
+          ],
+          "share": 0.03937671112189558
+        },
+        {
+          "linear_rgb8": [
+            255,
+            222,
+            161
+          ],
+          "share": 0.13001157685288667
+        },
+        {
+          "linear_rgb8": [
+            255,
+            244,
+            214
+          ],
+          "share": 0.015579714438002164
+        }
+      ]
+    },
+    "orange": {
+      "source_path": "godot/modules/bloom_skirmish/art/models/animals/fox/fox_orange.glb",
+      "source_sha256": "4a06b2e98504e847a4ce2d493b84663c3b6aae2e324de7d3231119a73cd4c427",
+      "total_area": 7.660553941491709,
+      "triangles": 32616,
+      "shares": [
+        {
+          "linear_rgb8": [
+            2,
+            6,
+            6
+          ],
+          "share": 0.0026505319637516725
+        },
+        {
+          "linear_rgb8": [
+            4,
+            3,
+            3
+          ],
+          "share": 0.0008773381484085766
+        },
+        {
+          "linear_rgb8": [
+            5,
+            9,
+            18
+          ],
+          "share": 0.13389352583349232
+        },
+        {
+          "linear_rgb8": [
+            10,
+            7,
+            6
+          ],
+          "share": 0.14083421748100156
+        },
+        {
+          "linear_rgb8": [
+            21,
+            68,
+            45
+          ],
+          "share": 0.00602201648791264
+        },
+        {
+          "linear_rgb8": [
+            72,
+            99,
+            108
+          ],
+          "share": 0.0012991449781197188
+        },
+        {
+          "linear_rgb8": [
+            175,
+            66,
+            44
+          ],
+          "share": 0.0037879038504959627
+        },
+        {
+          "linear_rgb8": [
+            183,
+            36,
+            6
+          ],
+          "share": 0.42328087447086504
+        },
+        {
+          "linear_rgb8": [
+            204,
+            212,
+            186
+          ],
+          "share": 0.013161519014423929
+        },
+        {
+          "linear_rgb8": [
+            218,
+            65,
+            11
+          ],
+          "share": 0.03937671112189558
+        },
+        {
+          "linear_rgb8": [
+            255,
+            59,
+            5
+          ],
+          "share": 0.08922492535874423
+        },
+        {
+          "linear_rgb8": [
+            255,
+            222,
+            161
+          ],
+          "share": 0.13001157685288667
+        },
+        {
+          "linear_rgb8": [
+            255,
+            244,
+            214
+          ],
+          "share": 0.015579714438002164
+        }
+      ]
+    }
+  }
+}

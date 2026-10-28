@@ -40,3 +40,7 @@ The right forepaw is specifically shaped to envelop the fixed grip in the public
 ## Validation
 
 `verify_fox.py` confirms GLB v2 integrity, fully embedded buffers, absence of external images, hierarchy, fixed weapon/muzzle, triangle/mesh budget, exact ground contact, ear-height limit, and identical geometry hashes across blue/orange variants. Runtime material and animation checks belong to the shared Godot integration; no shared runtime files are owned or modified by this source package.
+
+## Repository cleanup (2026-10-28)
+
+Unskinned GLB paths listed above are local generator outputs, not tracked runtime deliverables. Historical exports remain recoverable at Git commit `7b16265`; builders and editable `.blend` inputs remain tracked. Current game and Godot previews use `models/animals/rigged/`. Run the species builder before modeling-stage GLB validation.

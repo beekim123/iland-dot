@@ -66,3 +66,7 @@ material colors across teams.
 
 The studio proof is a local modeling QA image, not a claim of a tested runtime
 animation or a replacement for the lead's Godot close-up acceptance capture.
+
+## Repository cleanup (2026-10-28)
+
+Unskinned GLB paths listed above are local generator outputs, not tracked runtime deliverables. Historical exports remain recoverable at Git commit `7b16265`; builders and editable `.blend` inputs remain tracked. Current game and Godot previews use `models/animals/rigged/`. Run the species builder before modeling-stage GLB validation.

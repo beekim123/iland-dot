@@ -1,7 +1,7 @@
 # Original jungle monkey — rigged visual asset
 
 Entry: `monkey.tscn`, root `Visual`, `set_pose(snapshot: Dictionary)`.
-Standalone visual review: `preview.tscn` cycles all 7 clips. Review PNGs are **Blender model renders, not gameplay screenshots**.
+Standalone visual review: `preview.tscn` cycles all 7 clips. Review PNGs are **locally regenerated Blender model renders, not gameplay screenshots**; the generated `previews/` directory is not tracked.
 
 ## Contract
 

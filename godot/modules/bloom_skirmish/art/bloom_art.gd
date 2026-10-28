@@ -13,7 +13,6 @@ const SOIL := Color("846450")
 const WOOD := Color("d9a270")
 static var _cache: Dictionary = {}
 static var _materials: Dictionary = {}
-static var _compatibility_color_meshes: Dictionary = {}
 static var _animal_scenes: Dictionary = {}
 
 static func team_color(team: int) -> Color:
@@ -276,12 +275,10 @@ static func make_gardener(team: int, variant: int = 0) -> Node3D:
 	var species: String=["rabbit","fox","otter","raccoon"][posmod(variant,4)]
 	return make_animal(species,team,variant)
 
-static func make_animal(species: String, team: int, variant: int = 0, prefer_skinned: bool = true) -> Node3D:
+static func make_animal(species: String, team: int, variant: int = 0) -> Node3D:
 	assert(species in ["rabbit","fox","otter","raccoon"],"Unknown animal species")
 	var color_name := "blue" if team == 0 else "orange"
-	var path := "res://modules/bloom_skirmish/art/models/animals/%s/%s_%s.glb" % [species,species,color_name]
-	if prefer_skinned:
-		path = "res://modules/bloom_skirmish/art/models/animals/rigged/%s/%s_%s_rigged.glb" % [species,species,color_name]
+	var path := "res://modules/bloom_skirmish/art/models/animals/rigged/%s/%s_%s_rigged.glb" % [species,species,color_name]
 	if not ResourceLoader.exists(path):
 		push_error("Requested animal asset is not ready/imported (no fallback): " + path)
 		return null
@@ -290,51 +287,34 @@ static func make_animal(species: String, team: int, variant: int = 0, prefer_ski
 	if scene == null: return null
 	var imported := scene.instantiate() as Node3D
 	var rig: Node3D = imported
-	if prefer_skinned:
-		# Preserve the imported scene/animation track hierarchy. Only the independent,
-		# unanimated weapon is exposed directly at the public actor root.
-		var skeletons := imported.find_children("*","Skeleton3D",true,false)
-		var players := imported.find_children("*","AnimationPlayer",true,false)
-		if skeletons.is_empty() or players.is_empty():
-			push_error("Rigged animal must contain a real Skeleton3D and bone animation: " + path)
-			imported.free()
-			return null
-		var skeleton := skeletons[0] as Skeleton3D
-		var player := players[0] as AnimationPlayer
-		var weapon := imported.find_child("Weapon",true,false) as Node3D
-		assert(weapon != null and weapon.has_node("Muzzle"),"Rigged animal weapon anchors missing")
-		if weapon.get_parent() != rig:
-			var rest := _transform_relative_to(weapon,rig)
-			_clear_scene_owner(weapon)
-			weapon.get_parent().remove_child(weapon)
-			rig.add_child(weapon)
-			weapon.transform = rest
-		weapon.set_meta("rest",weapon.position)
-		player.callback_mode_process = AnimationMixer.ANIMATION_CALLBACK_MODE_PROCESS_MANUAL
-		player.set_process(false)
-		player.set_physics_process(false)
-		player.stop()
-		rig.set_meta("skeleton",skeleton)
-		rig.set_meta("animation_player",player)
-		rig.set_meta("skinned",true)
-		rig.set_meta("visual_generation","cartoon-animal-skinned-v1")
-	else:
-		# Explicit modeling-preview mode only; gameplay never silently uses this.
-		var body := imported.find_child("Body",true,false) as Node3D
-		assert(body != null,"Animal GLB must have Body pivot")
-		rig = body.get_parent() as Node3D
-		if rig != imported:
-			rig.get_parent().remove_child(rig)
-			imported.free()
-		for part_name: String in ["Body","Head","ArmL","ArmR","LegL","LegR","Weapon"]:
-			var part := rig.get_node(part_name) as Node3D
-			part.set_meta("rest",part.position)
-			for child in part.get_children():
-				if str(child.name).begins_with("Forearm"): child.name = "Forearm"
-				elif str(child.name).begins_with("Shin"): child.name = "Shin"
-		rig.set_meta("skinned",false)
-		rig.set_meta("visual_generation","cartoon-animal-model-v1")
-	_enable_imported_vertex_colors(rig,species == "fox" and not prefer_skinned)
+	# Preserve the imported scene/animation track hierarchy. Only the independent,
+	# unanimated weapon is exposed directly at the public actor root.
+	var skeletons := imported.find_children("*","Skeleton3D",true,false)
+	var players := imported.find_children("*","AnimationPlayer",true,false)
+	if skeletons.is_empty() or players.is_empty():
+		push_error("Rigged animal must contain a real Skeleton3D and bone animation: " + path)
+		imported.free()
+		return null
+	var skeleton := skeletons[0] as Skeleton3D
+	var player := players[0] as AnimationPlayer
+	var weapon := imported.find_child("Weapon",true,false) as Node3D
+	assert(weapon != null and weapon.has_node("Muzzle"),"Rigged animal weapon anchors missing")
+	if weapon.get_parent() != rig:
+		var rest := _transform_relative_to(weapon,rig)
+		_clear_scene_owner(weapon)
+		weapon.get_parent().remove_child(weapon)
+		rig.add_child(weapon)
+		weapon.transform = rest
+	weapon.set_meta("rest",weapon.position)
+	player.callback_mode_process = AnimationMixer.ANIMATION_CALLBACK_MODE_PROCESS_MANUAL
+	player.set_process(false)
+	player.set_physics_process(false)
+	player.stop()
+	rig.set_meta("skeleton",skeleton)
+	rig.set_meta("animation_player",player)
+	rig.set_meta("skinned",true)
+	rig.set_meta("visual_generation","cartoon-animal-skinned-v1")
+	_enable_imported_vertex_colors(rig)
 	rig.name = "Bloom_%s_%s" % [species,color_name]
 	rig.set_meta("team",team)
 	rig.set_meta("variant",variant)
@@ -425,30 +405,10 @@ static func _animate_skinned(rig: Node3D, time: float, speed: float, shooting: b
 	rig.set_meta("nozzle_recoil",-absf(sin(time * 38.0)) * 0.035 if shooting else 0.0)
 	apply_gardener_aim_pitch(rig,float(rig.get_meta("aim_pitch",0.0)))
 
-static func _compatibility_linear_colors(source: Mesh) -> Mesh:
-	if source.has_meta("bloom_color_linear_to_srgb"):return source
-	var key:=source.get_instance_id()
-	if _compatibility_color_meshes.has(key):return _compatibility_color_meshes[key]
-	var converted:=ArrayMesh.new()
-	for surface in source.get_surface_count():
-		var arrays:Array=source.surface_get_arrays(surface)
-		if arrays[Mesh.ARRAY_COLOR]!=null:
-			var colors:PackedColorArray=arrays[Mesh.ARRAY_COLOR]
-			for i in colors.size():colors[i]=colors[i].linear_to_srgb()
-			arrays[Mesh.ARRAY_COLOR]=colors
-		var flags: int = source.surface_get_format(surface) & Mesh.ARRAY_FLAG_USE_8_BONE_WEIGHTS
-		converted.add_surface_from_arrays(source.surface_get_primitive_type(surface),arrays,[],{},flags)
-		converted.surface_set_material(surface,source.surface_get_material(surface))
-	converted.set_meta("bloom_color_linear_to_srgb",true)
-	_compatibility_color_meshes[key]=converted
-	return converted
-
-static func _enable_imported_vertex_colors(node: Node, known_linear_gltf_colors: bool = false) -> void:
+static func _enable_imported_vertex_colors(node: Node) -> void:
 	# Godot 4.7.2 GLB import can retain COLOR_0 but leave material usage disabled.
 	# glTF vertex colors are already linear: do not apply a second sRGB decode.
 	if node is MeshInstance3D:
-		if known_linear_gltf_colors and RenderingServer.get_current_rendering_method()=="gl_compatibility":
-			node.mesh=_compatibility_linear_colors(node.mesh)
 		for surface in node.mesh.get_surface_count():
 			var arrays:Array=node.mesh.surface_get_arrays(surface)
 			if arrays[Mesh.ARRAY_COLOR]!=null and not arrays[Mesh.ARRAY_COLOR].is_empty():
@@ -456,10 +416,10 @@ static func _enable_imported_vertex_colors(node: Node, known_linear_gltf_colors:
 				if mat:
 					mat.vertex_color_use_as_albedo=true
 					mat.vertex_color_is_srgb=false
-	for child in node.get_children():_enable_imported_vertex_colors(child,known_linear_gltf_colors)
+	for child in node.get_children():_enable_imported_vertex_colors(child)
 
 static func react_gardener(rig: Node3D, kind: String, strength: float = 1.0) -> void:
-	if kind in ["clear","reset"] or (kind == "respawn" and not bool(rig.get_meta("skinned",false))):
+	if kind in ["clear","reset"]:
 		if rig.has_meta("reaction"): rig.remove_meta("reaction")
 		return
 	var duration := .34 if kind == "hit" else (.58 if kind == "pod" else 2.2)
@@ -467,65 +427,7 @@ static func react_gardener(rig: Node3D, kind: String, strength: float = 1.0) -> 
 
 static func animate_gardener(rig: Node3D, time: float, speed: float, shooting: bool = false, dash: bool = false) -> void:
 	rig.set_meta("animation_clock",time)
-	if bool(rig.get_meta("skinned",false)):
-		_animate_skinned(rig,time,speed,shooting,dash)
-		return
-	var run:=clampf(speed,0,1);var phase:=time*(17.0 if dash else 10.4)
-	var gait:=sin(phase)*run;var bob:=absf(cos(phase))*.026*run+sin(time*2.2)*.004*(1-run)
-	for name: String in ["Body","Head","ArmL","ArmR","LegL","LegR","Weapon"]:
-		var p:=rig.get_node_or_null(name) as Node3D
-		if p==null: continue
-		p.position=p.get_meta("rest",p.position);p.rotation=Vector3.ZERO
-		if name.begins_with("Leg"):
-			var side:=1.0 if name=="LegL" else -1.0
-			p.rotation.x=gait*.65*side
-			p.rotation.z=side*-.035
-			p.position.y+=maxf(0,gait*side)*.045
-			var shin:=p.get_node_or_null("Shin") as Node3D
-			if shin: shin.rotation.x=-maxf(0,-gait*side)*.85
-		else:
-			p.position.y+=bob
-			if name=="Body": p.rotation=Vector3(-.20 if dash else -.035*run,0,-gait*.035)
-			elif name=="Head": p.rotation=Vector3(-.10 if dash else 0,0,gait*.018)
-			elif name=="ArmR":
-				p.rotation.x=(0.0 if rig.get_meta("species","")=="raccoon" else .50)+gait*.05+(absf(sin(time*38))*.04 if shooting else 0)
-				p.get_node("Forearm").rotation.x=0.0 if rig.get_meta("species","")=="raccoon" else .70
-			elif name=="ArmL":
-				p.rotation.x=.20-gait*.47
-				p.rotation.z=.09
-				p.get_node("Forearm").rotation.x=.35
-			elif name=="Weapon":
-				p.rotation.x=-absf(sin(time*38))*.065 if shooting else sin(time*3.2)*.012
-				var tip:=Vector3(0,.04,-.51)
-				var rest:Vector3=p.get_meta("rest")
-				p.position=rest+tip-p.basis*tip
-
-	# These reaction envelopes use only supplied game time, so pause freezes them.
-	if rig.has_meta("reaction"):
-		var reaction:Dictionary=rig.get_meta("reaction")
-		var age:=maxf(0,time-float(reaction.start))
-		var amount:=sin(clampf(age/float(reaction.duration),0,1)*PI)*float(reaction.strength)
-		if age>=float(reaction.duration):
-			rig.remove_meta("reaction")
-		else:
-			match str(reaction.kind):
-				"hit":
-					rig.get_node("Body").rotation.x+=amount*.18
-					rig.get_node("Head").rotation.x+=amount*.12
-				"pod", "pod_placed":
-					rig.get_node("ArmL").rotation.x+=amount*1.0
-					rig.get_node("ArmL/Forearm").rotation.x+=amount*.4
-					body_reaction(rig,amount*-.08)
-				"victory":
-					rig.get_node("ArmL").rotation.z-=amount*2.3
-					rig.get_node("ArmL/Forearm").rotation.x+=amount*.3
-					rig.get_node("Head").rotation.z+=sin(age*8)*amount*.08
-				"defeat":
-					body_reaction(rig,amount*-.12)
-					rig.get_node("Head").rotation.x-=amount*.20
-
-static func body_reaction(rig:Node3D, lean:float)->void:
-	rig.get_node("Body").rotation.x+=lean
+	_animate_skinned(rig,time,speed,shooting,dash)
 
 static func _flower(st: SurfaceTool, center: Vector3, radius: float, col: Color, petals: int = 5) -> void:
 	# A flower is sub-pixel-sized at gameplay zoom: smooth shaded low-poly petals,

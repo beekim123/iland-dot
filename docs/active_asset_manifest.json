@@ -37,5 +37,7 @@
       "source": "art/v5/dolphin/dolphin_rigged.glb",
       "destination": "godot/resources/models/dolphin.glb"
     }
-  ]
+  ],
+  "storage_policy": "runtime-single-copy-v1",
+  "source_policy": "source paths are optional ignored local exports; destination paths and resource_manifest hashes are the committed runtime artifacts"
 }

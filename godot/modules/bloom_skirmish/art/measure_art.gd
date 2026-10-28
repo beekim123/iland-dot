@@ -16,7 +16,7 @@ func measure(n: Node) -> Dictionary:
 		for k in result: result[k] += c[k]
 	return result
 func _initialize() -> void:
-	var data := {"authorship":"Original authored cartoon animals, Blender skinning and legacy procedural staging environment; no third-party model assets", "generator":"source/animals/<species>/build_<species>.py + source/animals/rigging/build_rigs.py + bloom_art.gd", "renderer":"Godot 4.7.2 GL Compatibility", "material_pipeline":"rigged animals PBR (fox palette converted in authoring); only legacy unrigged fox linear COLOR_0 gets cached Compatibility conversion", "status":"Animal skin integration; no claim of completed environment redesign or Web performance acceptance", "geometry":{}}
+	var data := {"authorship":"Original authored cartoon animals, Blender skinning and legacy procedural staging environment; no third-party model assets", "generator":"source/animals/<species>/build_<species>.py + source/animals/rigging/build_rigs.py + bloom_art.gd", "renderer":"Godot 4.7.2 GL Compatibility", "material_pipeline":"rigged animals PBR (fox palette converted in authoring); obsolete unrigged preview conversion removed", "status":"Animal skin integration; no claim of completed environment redesign or Web performance acceptance", "geometry":{}}
 	for species: String in ["otter","rabbit","fox","raccoon"]:
 		for team in 2:
 			var n := Art.make_animal(species,team)

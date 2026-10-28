@@ -1,6 +1,7 @@
 import bpy, math, json, os
 from mathutils import Vector, Matrix
 ROOT=os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+os.makedirs(ROOT+'/previews',exist_ok=True)
 bpy.ops.object.select_all(action='SELECT');bpy.ops.object.delete(use_global=False)
 P=lambda p:Vector((p[0],-p[2],p[1]))
 M={}

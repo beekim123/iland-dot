@@ -1,7 +1,9 @@
 #!/usr/bin/env python3
 """Area-weighted fox palette preservation, not material/mesh-count assertions.
 
-Compare original colored GLB faces with rigged PBR faces in neutral geometry.
+Compare a frozen original-GLB area histogram with rigged PBR faces.
+The baseline records original source hashes and was captured before removing
+obsolete unskinned exports; it must never be refreshed from the current rig.
 The deliberately rebuilt weapon and translucent glass are excluded from both.
 """
 import argparse
@@ -94,11 +96,17 @@ def main():
     parser.add_argument("--module", type=Path, default=ROOT / "godot/modules/bloom_skirmish")
     parser.add_argument("--json", type=Path)
     args = parser.parse_args()
+    baseline_path = args.module / "art/source/animals/rigging/fox/original_palette_baseline.json"
+    baseline = json.loads(baseline_path.read_text())
+    require(baseline["schema"] == 1, "Unsupported original palette baseline")
     reports = []
     for team in ("blue", "orange"):
-        source = args.module / f"art/models/animals/fox/fox_{team}.glb"
+        frozen = baseline["assets"][team]
+        original = {"total_area": frozen["total_area"], "triangles": frozen["triangles"],
+                    "shares": {tuple(row["linear_rgb8"]): row["share"] for row in frozen["shares"]}}
+        require(original["total_area"] > 0 and len(original["shares"]) >= 4, "Invalid original palette baseline")
         rigged = args.module / f"art/models/animals/rigged/fox/fox_{team}_rigged.glb"
-        original, current = histogram(source), histogram(rigged)
+        current = histogram(rigged)
         differences = {key: current["shares"].get(key, 0) - original["shares"].get(key, 0) for key in original["shares"].keys() | current["shares"].keys()}
         maximum = max(map(abs, differences.values()))
         total_variation = sum(map(abs, differences.values())) * .5

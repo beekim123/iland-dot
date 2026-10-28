@@ -197,7 +197,7 @@
 			"published": false
 		}
 	],
-	"material_pipeline": "rigged animals PBR (fox palette converted in authoring); only legacy unrigged fox linear COLOR_0 gets cached Compatibility conversion",
+	"material_pipeline": "rigged animals PBR (fox palette converted in authoring); obsolete unrigged preview conversion removed",
 	"renderer": "Godot 4.7.2 GL Compatibility",
 	"status": "Animal skin integration; no claim of completed environment redesign or Web performance acceptance",
 	"historical_asset_policy": {

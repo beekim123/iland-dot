@@ -1,9 +1,9 @@
 {
   "models/monkey.glb": "a3b0eccefd3523b24269f649d514929dc7c417f84927bfd428834cc1839e418a",
   "source/monkey.blend": "34bd01086846cbb3914d3b3b416e117761afada83ba75ad7e5fd7a0d4f6bb994",
-  "source/build_monkey.py": "0eebb84871da0329b81413edfb3b01f1579bdd0822f46adae45c57a8d1b0f43c",
+  "source/build_monkey.py": "e31748ab921e7446e10af4cf20c8d673fe914a54ff0bfe23494e157cc0425a3c",
   "source/verify_skin.py": "ed7e3b3676e2e8cb5fba331cfc8879e10adc202bcba4d9ac828b3018515e579b",
-  "source/render_actions.py": "bcc4cec05ab30eef40ccc8767f76508ebb22ef161c3439e293c9ad5b0cd0d663",
+  "source/render_actions.py": "ad5cd8827e3619281834f1b0f4ee2f9e528282ab40b18e688d86b01273b8de3c",
   "monkey.gd": "a466a07583116edb9ecd11d08999dc333289f52b926e2777468dc1c76e67c8c9",
   "monkey.tscn": "8d46aefad96ace9a326a478b6ab53b8230b3835f91a8bed1a2667d6b62b222af"
 }

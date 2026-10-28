@@ -62,3 +62,7 @@ The GLB validator checks palm/grip coincidence, nozzle, hierarchy, embedded buff
 ## Additional contact QA
 
 `check_grip_envelope.py` samples the shared idle/run/dash/shooting equations over 30 seconds at 5 ms intervals (72,012 parameter/time samples). The largest sampled paw-center to grip-center distance is **0.04376 m**, less than the compact paw's conservative **0.083 m** radius. This only establishes analytical contact tolerance; the art lead owns actual Godot import/runtime checks.
+
+## Repository cleanup (2026-10-28)
+
+Unskinned GLB paths listed above are local generator outputs, not tracked runtime deliverables. Historical exports remain recoverable at Git commit `7b16265`; builders and editable `.blend` inputs remain tracked. Current game and Godot previews use `models/animals/rigged/`. Run the species builder before modeling-stage GLB validation.

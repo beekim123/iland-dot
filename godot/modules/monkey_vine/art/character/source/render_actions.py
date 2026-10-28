@@ -1,6 +1,7 @@
 import bpy,os
 from mathutils import Vector
 root=os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+os.makedirs(root+'/previews',exist_ok=True)
 bpy.ops.wm.open_mainfile(filepath=root+'/source/monkey.blend');rig=bpy.data.objects['MonkeyRig']
 for tr in rig.animation_data.nla_tracks:tr.mute=True
 P=lambda p:Vector((p[0],-p[2],p[1]))

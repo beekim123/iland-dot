@@ -5,12 +5,11 @@ var actors: Array[Node3D] = []
 var elapsed := 0.0
 var captured := false
 var species := "rabbit"
-var skinned := false
 var action := "idle"
 func _ready() -> void:
 	for arg in OS.get_cmdline_user_args():
 		if arg.begins_with("--bloom-animal="): species=arg.trim_prefix("--bloom-animal=")
-		if arg == "--bloom-skinned": skinned=true
+		# Legacy --bloom-skinned is accepted implicitly; previews always use current rigs.
 		if arg.begins_with("--bloom-action="): action=arg.trim_prefix("--bloom-action=")
 	var env:=WorldEnvironment.new();var world:=Environment.new()
 	world.background_mode=Environment.BG_COLOR;world.background_color=Color("aebfcd")
@@ -27,7 +26,7 @@ func _ready() -> void:
 		var material:=StandardMaterial3D.new();material.albedo_color=Color("dce1e1") if tier==0 else Color("252e38")
 		material.roughness=.85;n.material_override=material;add_child(n)
 	for i in 3:
-		var actor:=Art.make_animal(species,0 if i<2 else 1,i%2,skinned)
+		var actor:=Art.make_animal(species,0 if i<2 else 1,i%2)
 		if actor==null:
 			push_error("Requested animal unavailable; no human fallback")
 			get_tree().quit(2)
@@ -42,7 +41,7 @@ func _process(delta:float) -> void:
 	elapsed+=delta
 	for i in actors.size():
 		Art.animate_gardener(actors[i],elapsed+i*.7,1.0 if action in ["run","dash"] else 0.0,action == "spray",action == "dash")
-		if skinned: Art.apply_gardener_aim_pitch(actors[i],sin(elapsed)*.25 if action == "spray" else 0.0)
+		Art.apply_gardener_aim_pitch(actors[i],sin(elapsed)*.25 if action == "spray" else 0.0)
 	if elapsed>1.5 and not captured and "--bloom-art-shot" in OS.get_cmdline_user_args():
 		captured=true
 		await RenderingServer.frame_post_draw

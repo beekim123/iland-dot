@@ -7,7 +7,7 @@
 - `godot/scenes/`、`godot/scripts/`、`godot/resources/`：海岛环境、动物、镜头及海岛音频。
 - `godot/hub/`：传送门、鼠标、物体点击反馈，与游戏实现解耦。
 - `godot/modules/<game_id>/`：每个游戏的场景、脚本、美术、声音、字体许可证与测试。禁止引用其他模块或岛屿。
-- `art/v3/`、`art/rigged/`、`art/v5/`：可编辑建模源文件、生成器、导出模型与审计。
+- `art/v3/`、`art/rigged/`、`art/v5/`：当前可编辑建模源文件、生成器与审计；作者目录导出属于可再生本地输出，海岛运行成品仅在 godot/resources 保留一份。
 - `docs/project/`：长期计划、接口、验收与维护记录。
 
 ## 每个小游戏独立设计视觉语言

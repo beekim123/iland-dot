@@ -71,3 +71,7 @@ scripts from Godot asset imports. No source from other species is modified.
 GLBs contain one embedded binary buffer each, no external images/materials,
 no cameras/lights, and no animation dependency. Front and rear studio images
 are inspection aids only, not an environment or UI redesign.
+
+## Repository cleanup (2026-10-28)
+
+Unskinned GLB paths listed above are local generator outputs, not tracked runtime deliverables. Historical exports remain recoverable at Git commit `7b16265`; builders and editable `.blend` inputs remain tracked. Current game and Godot previews use `models/animals/rigged/`. Run the species builder before modeling-stage GLB validation.

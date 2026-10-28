@@ -1,3 +1,11 @@
+# 当前运行入口（2026-10-28）
+
+当前为八款模块化游戏及海岛大厅。用 Godot 4.7.2 打开 `godot/project.godot`；玩法、四门随机推荐和分页目录以根 README 为准。海岛运行成品由 `docs/active_asset_manifest.json` 显式列出，统一保留在 Godot 目录；作者目录中的重复导出可缺省。同步/哈希校验见 `docs/project/ASSET_POLICY.md`，不扫描旧导出目录覆盖当前资源。
+
+以下 v2/v4 内容全部是历史记录，不是当前操作/资产清单；其中旧截图、试听和模型路径可从整理前提交 `7b16265` 恢复。保留历史测试结论不代表本次重新进行图形/声音验收。
+
+---
+
 # Current runtime: approved art + actual skeletal animation v4
 User-approved v3 environment and true-armature animals are now integrated. Current implementation, rollback, exact asset manifest, clip timing, terrain COLOR_0 conversion and capture steps are documented in [revisions/godot-approved-rigged-v4.md](revisions/godot-approved-rigged-v4.md). The following v2 notes are retained as historical evidence and are **not the active mesh-pivot animation implementation**.
 

@@ -50,5 +50,6 @@
       "unchanged": true
     }
   ],
-  "note": "All eight worker-frozen original GLBs and all eight pre-rig source blend hashes verified unchanged."
+  "note": "All eight worker-frozen original GLBs and all eight pre-rig source blend hashes verified unchanged.",
+  "historical_note": "This report records pre-cleanup modeling exports at commit 7b16265. Unskinned GLB binaries are no longer tracked; regenerate with species builders when required. Current palette regression uses fox/original_palette_baseline.json derived from these original exports."
 }
