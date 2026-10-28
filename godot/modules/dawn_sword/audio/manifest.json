@@ -1,0 +1,150 @@
+{
+  "original": true,
+  "method": "Python additive synthesis; original composed notes, no external samples",
+  "subjective_listening_verified": false,
+  "files": [
+    {
+      "file": "theme.wav",
+      "sha256": "355224d78f8c8d16481999c9909ba642b4287af4c31076f24deb6535a0cc3219",
+      "frames": 960000,
+      "seconds": 40.0,
+      "sample_rate": 24000,
+      "peak": 0.72,
+      "rms": 0.2010212675218644,
+      "boundary_step": 0.00875405186615652,
+      "loop": true
+    },
+    {
+      "file": "boss.wav",
+      "sha256": "454599687e8011ada52132bc3f515e2d30b48f6a91204a6ec6c6b8d5115b6e1e",
+      "frames": 360000,
+      "seconds": 15.0,
+      "sample_rate": 24000,
+      "peak": 0.72,
+      "rms": 0.23280585827484662,
+      "boundary_step": 0.006355753129783544,
+      "loop": true
+    },
+    {
+      "file": "swing.wav",
+      "sha256": "af5c0aba0406850bfd85b0f9b2ff8ac4e5f43bf8af2ea77094ce3609cfb1d0fa",
+      "frames": 6720,
+      "seconds": 0.28,
+      "sample_rate": 24000,
+      "peak": 0.72,
+      "rms": 0.0931570011901317,
+      "boundary_step": 5.841776745841299e-19,
+      "loop": false
+    },
+    {
+      "file": "hit.wav",
+      "sha256": "10fa21fd15f5e8ab2d1ecb748191ec3db634bd4ecb4d98db9b01ad96820c8972",
+      "frames": 6720,
+      "seconds": 0.28,
+      "sample_rate": 24000,
+      "peak": 0.72,
+      "rms": 0.10503151730404653,
+      "boundary_step": 0.02852305620408832,
+      "loop": false
+    },
+    {
+      "file": "block.wav",
+      "sha256": "e6501b3dbadec82e04ae1395c33ebe58ebeeddcd05b4c3262af580981ce9b434",
+      "frames": 6720,
+      "seconds": 0.28,
+      "sample_rate": 24000,
+      "peak": 0.72,
+      "rms": 0.1186211693272887,
+      "boundary_step": 0.10220347471472226,
+      "loop": false
+    },
+    {
+      "file": "hurt.wav",
+      "sha256": "34c20c9118e67c95c185ab7134aca90153bb6505cdf73cac7499f74ad02bd031",
+      "frames": 6720,
+      "seconds": 0.28,
+      "sample_rate": 24000,
+      "peak": 0.72,
+      "rms": 0.1328862903243944,
+      "boundary_step": 0.24329818448120888,
+      "loop": false
+    },
+    {
+      "file": "jump.wav",
+      "sha256": "751462508997d5e12d128cf833f8734d0923e3fdb3fd1c3a935baf281e139bc0",
+      "frames": 6720,
+      "seconds": 0.28,
+      "sample_rate": 24000,
+      "peak": 0.72,
+      "rms": 0.24632332194803752,
+      "boundary_step": 0.00019656751560202579,
+      "loop": false
+    },
+    {
+      "file": "roll.wav",
+      "sha256": "300ea00d5b487c83872b197a1b54db4bf204868e23d73fa8ef39d608cc9486df",
+      "frames": 6720,
+      "seconds": 0.28,
+      "sample_rate": 24000,
+      "peak": 0.72,
+      "rms": 0.09989194608008801,
+      "boundary_step": 1.72828944989724e-19,
+      "loop": false
+    },
+    {
+      "file": "heal.wav",
+      "sha256": "e671268494bc5fe914b5c501caa889fb724fdb6f236e3469e01c3b766e693c19",
+      "frames": 19200,
+      "seconds": 0.8,
+      "sample_rate": 24000,
+      "peak": 0.72,
+      "rms": 0.2331923247784896,
+      "boundary_step": 5.573609329558257e-05,
+      "loop": false
+    },
+    {
+      "file": "fire.wav",
+      "sha256": "aade896ba674744cefe60064ffee584bac2b4fc057ae9e9bc886b5b51897e781",
+      "frames": 20400,
+      "seconds": 0.85,
+      "sample_rate": 24000,
+      "peak": 0.72,
+      "rms": 0.09466864507879111,
+      "boundary_step": 0.003920944644162429,
+      "loop": false
+    },
+    {
+      "file": "warning.wav",
+      "sha256": "32d1c4fd3d58a5aa11ed0caf92a2fc6148c6bf90fe28e9f7c2ef17168dad0147",
+      "frames": 15600,
+      "seconds": 0.65,
+      "sample_rate": 24000,
+      "peak": 0.72,
+      "rms": 0.23732565845977588,
+      "boundary_step": 1.532719552142185e-06,
+      "loop": false
+    },
+    {
+      "file": "defeat.wav",
+      "sha256": "7831579020f6534f72e7f5042102310ec676e909f1ca84ffad146c3eda65bbc6",
+      "frames": 28800,
+      "seconds": 1.2,
+      "sample_rate": 24000,
+      "peak": 0.72,
+      "rms": 0.24198690732240727,
+      "boundary_step": 0.0,
+      "loop": false
+    },
+    {
+      "file": "victory.wav",
+      "sha256": "d94af77f2c09d0be0ba53280ae256ee9ba7a108f80eb531673cd6cec3626be5b",
+      "frames": 40800,
+      "seconds": 1.7,
+      "sample_rate": 24000,
+      "peak": 0.7199999999999999,
+      "rms": 0.22121740332350873,
+      "boundary_step": 0.0,
+      "loop": false
+    }
+  ]
+}

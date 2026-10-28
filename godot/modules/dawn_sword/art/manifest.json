@@ -1,0 +1,822 @@
+{
+  "version": 1,
+  "provenance": {
+    "method": "OpenAI built-in image_gen AI-assisted 2D illustration; not a claim of human hand drawing",
+    "date": "2026-10-28"
+  },
+  "actors": {
+    "hero": {
+      "file": "runtime/hero_atlas_v2.png",
+      "columns": 6,
+      "rows": 6,
+      "frame_width": 512,
+      "frame_height": 512,
+      "height": 224,
+      "anchor": [
+        0.5,
+        0.90625
+      ],
+      "pivot": [
+        256,
+        464
+      ],
+      "animations": {
+        "idle": {
+          "start": 0,
+          "frames": 2,
+          "fps": 5,
+          "loop": true
+        },
+        "run": {
+          "start": 2,
+          "frames": 4,
+          "fps": 12,
+          "loop": true
+        },
+        "jump": {
+          "start": 6,
+          "frames": 2,
+          "fps": 9,
+          "loop": false
+        },
+        "fall": {
+          "start": 8,
+          "frames": 1,
+          "fps": 8,
+          "loop": false
+        },
+        "attack1": {
+          "start": 24,
+          "frames": 2,
+          "fps": 9,
+          "loop": false
+        },
+        "guard": {
+          "start": 12,
+          "frames": 2,
+          "fps": 8,
+          "loop": false
+        },
+        "roll": {
+          "start": 14,
+          "frames": 3,
+          "fps": 12,
+          "loop": false
+        },
+        "hurt": {
+          "start": 17,
+          "frames": 2,
+          "fps": 10,
+          "loop": false
+        },
+        "death": {
+          "start": 33,
+          "frames": 3,
+          "fps": 6,
+          "loop": false
+        },
+        "attack2": {
+          "start": 27,
+          "frames": 3,
+          "fps": 12,
+          "loop": false
+        },
+        "attack3": {
+          "start": 30,
+          "frames": 3,
+          "fps": 12,
+          "loop": false
+        }
+      },
+      "status": "trial_needs_runtime_review",
+      "pending": [
+        "air_attack",
+        "land",
+        "parry",
+        "heal",
+        "dawn",
+        "climb",
+        "interact"
+      ],
+      "notes": [
+        "Attack1 final generated frame clipped at source canvas: excluded; 2-frame attack still needs recovery.",
+        "Attack2, attack3 and death replaced with intact isolated components.",
+        "Run gait requires improvement; do not call animation set final."
+      ]
+    },
+    "princess": {
+      "file": "runtime/princess_atlas.png",
+      "columns": 3,
+      "rows": 3,
+      "frame_width": 512,
+      "frame_height": 512,
+      "height": 144,
+      "anchor": [
+        0.5,
+        0.90625
+      ],
+      "animations": {
+        "idle": {
+          "start": 0,
+          "frames": 2,
+          "fps": 4,
+          "loop": true
+        },
+        "interact": {
+          "start": 2,
+          "frames": 1,
+          "fps": 9,
+          "loop": false
+        },
+        "run": {
+          "start": 3,
+          "frames": 3,
+          "fps": 10,
+          "loop": true
+        },
+        "rescued": {
+          "start": 6,
+          "frames": 2,
+          "fps": 6,
+          "loop": false
+        }
+      },
+      "status": "trial_needs_motion_review",
+      "pending": [
+        "full_cycles",
+        "transition_frames"
+      ],
+      "source_bounds": [
+        [
+          128,
+          6,
+          290,
+          421
+        ],
+        [
+          487,
+          14,
+          742,
+          417
+        ],
+        [
+          882,
+          17,
+          1249,
+          417
+        ],
+        [
+          23,
+          431,
+          420,
+          821
+        ],
+        [
+          450,
+          432,
+          807,
+          822
+        ],
+        [
+          875,
+          448,
+          1233,
+          827
+        ],
+        [
+          112,
+          822,
+          304,
+          1243
+        ],
+        [
+          434,
+          824,
+          821,
+          1241
+        ],
+        [
+          878,
+          914,
+          1228,
+          1212
+        ]
+      ]
+    },
+    "bandit": {
+      "file": "runtime/bandit_atlas.png",
+      "columns": 3,
+      "rows": 3,
+      "frame_width": 512,
+      "frame_height": 512,
+      "height": 144,
+      "anchor": [
+        0.5,
+        0.90625
+      ],
+      "animations": {
+        "idle": {
+          "start": 0,
+          "frames": 1,
+          "fps": 9,
+          "loop": false
+        },
+        "run": {
+          "start": 1,
+          "frames": 2,
+          "fps": 10,
+          "loop": true
+        },
+        "windup": {
+          "start": 3,
+          "frames": 1,
+          "fps": 9,
+          "loop": false
+        },
+        "attack": {
+          "start": 4,
+          "frames": 2,
+          "fps": 10,
+          "loop": false
+        },
+        "hurt": {
+          "start": 6,
+          "frames": 1,
+          "fps": 9,
+          "loop": false
+        },
+        "death": {
+          "start": 7,
+          "frames": 2,
+          "fps": 6,
+          "loop": false
+        }
+      },
+      "status": "trial_needs_motion_review",
+      "pending": [
+        "full_cycles",
+        "transition_frames"
+      ],
+      "source_bounds": [
+        [
+          87,
+          13,
+          325,
+          400
+        ],
+        [
+          455,
+          26,
+          770,
+          399
+        ],
+        [
+          876,
+          27,
+          1198,
+          399
+        ],
+        [
+          64,
+          418,
+          369,
+          840
+        ],
+        [
+          433,
+          470,
+          848,
+          839
+        ],
+        [
+          866,
+          471,
+          1239,
+          839
+        ],
+        [
+          70,
+          852,
+          345,
+          1194
+        ],
+        [
+          429,
+          927,
+          777,
+          1226
+        ],
+        [
+          786,
+          1044,
+          1245,
+          1209
+        ]
+      ]
+    },
+    "dragon": {
+      "file": "runtime/dragon_atlas.png",
+      "columns": 3,
+      "rows": 3,
+      "frame_width": 512,
+      "frame_height": 512,
+      "height": 330,
+      "anchor": [
+        0.5,
+        0.90625
+      ],
+      "animations": {
+        "idle": {
+          "start": 0,
+          "frames": 1,
+          "fps": 9,
+          "loop": false
+        },
+        "windup": {
+          "start": 1,
+          "frames": 1,
+          "fps": 9,
+          "loop": false
+        },
+        "attack": {
+          "start": 2,
+          "frames": 1,
+          "fps": 9,
+          "loop": false
+        },
+        "claw": {
+          "start": 3,
+          "frames": 2,
+          "fps": 9,
+          "loop": false
+        },
+        "hurt": {
+          "start": 5,
+          "frames": 1,
+          "fps": 9,
+          "loop": false
+        },
+        "fly": {
+          "start": 6,
+          "frames": 2,
+          "fps": 6,
+          "loop": true
+        },
+        "breath": {
+          "start": 8,
+          "frames": 1,
+          "fps": 9,
+          "loop": false
+        }
+      },
+      "status": "trial_needs_motion_review",
+      "pending": [
+        "full_cycles",
+        "transition_frames"
+      ],
+      "source_bounds": [
+        [
+          20,
+          32,
+          429,
+          377
+        ],
+        [
+          422,
+          75,
+          811,
+          373
+        ],
+        [
+          821,
+          142,
+          1247,
+          377
+        ],
+        [
+          12,
+          420,
+          427,
+          772
+        ],
+        [
+          422,
+          464,
+          869,
+          766
+        ],
+        [
+          841,
+          425,
+          1227,
+          765
+        ],
+        [
+          12,
+          795,
+          433,
+          1180
+        ],
+        [
+          404,
+          833,
+          826,
+          1183
+        ],
+        [
+          820,
+          844,
+          1254,
+          1169
+        ]
+      ]
+    },
+    "shield": {
+      "file": "runtime/shield_atlas.png",
+      "columns": 3,
+      "rows": 2,
+      "frame_width": 512,
+      "frame_height": 512,
+      "height": 144,
+      "anchor": [
+        0.5,
+        0.90625
+      ],
+      "animations": {
+        "idle": {
+          "start": 0,
+          "frames": 1,
+          "fps": 5,
+          "loop": false
+        },
+        "run": {
+          "start": 1,
+          "frames": 2,
+          "fps": 10,
+          "loop": true
+        },
+        "windup": {
+          "start": 3,
+          "frames": 1,
+          "fps": 8,
+          "loop": false
+        },
+        "attack": {
+          "start": 4,
+          "frames": 1,
+          "fps": 8,
+          "loop": false
+        },
+        "hurt": {
+          "start": 5,
+          "frames": 1,
+          "fps": 8,
+          "loop": false
+        }
+      },
+      "status": "trial_needs_motion_review",
+      "pending": [
+        "death",
+        "attack_transitions",
+        "run_cycle_refinement"
+      ]
+    },
+    "archer": {
+      "file": "runtime/archer_atlas.png",
+      "columns": 3,
+      "rows": 2,
+      "frame_width": 512,
+      "frame_height": 512,
+      "height": 144,
+      "anchor": [
+        0.5,
+        0.90625
+      ],
+      "animations": {
+        "idle": {
+          "start": 0,
+          "frames": 1,
+          "fps": 5,
+          "loop": false
+        },
+        "run": {
+          "start": 1,
+          "frames": 2,
+          "fps": 10,
+          "loop": true
+        },
+        "windup": {
+          "start": 3,
+          "frames": 1,
+          "fps": 8,
+          "loop": false
+        },
+        "attack": {
+          "start": 4,
+          "frames": 1,
+          "fps": 8,
+          "loop": false
+        },
+        "hurt": {
+          "start": 5,
+          "frames": 1,
+          "fps": 8,
+          "loop": false
+        }
+      },
+      "status": "trial_needs_motion_review",
+      "pending": [
+        "death",
+        "attack_transitions",
+        "run_cycle_refinement"
+      ]
+    },
+    "bat": {
+      "file": "runtime/bat_atlas.png",
+      "columns": 3,
+      "rows": 2,
+      "frame_width": 512,
+      "frame_height": 512,
+      "height": 120,
+      "anchor": [
+        0.5,
+        0.90625
+      ],
+      "animations": {
+        "idle": {
+          "start": 0,
+          "frames": 1,
+          "fps": 5,
+          "loop": false
+        },
+        "run": {
+          "start": 1,
+          "frames": 2,
+          "fps": 10,
+          "loop": true
+        },
+        "windup": {
+          "start": 3,
+          "frames": 1,
+          "fps": 8,
+          "loop": false
+        },
+        "attack": {
+          "start": 4,
+          "frames": 1,
+          "fps": 8,
+          "loop": false
+        },
+        "hurt": {
+          "start": 5,
+          "frames": 1,
+          "fps": 8,
+          "loop": false
+        }
+      },
+      "status": "trial_needs_motion_review",
+      "pending": [
+        "death",
+        "attack_transitions",
+        "run_cycle_refinement"
+      ]
+    }
+  },
+  "backgrounds": [
+    {
+      "far": "runtime/chapter1_far.png",
+      "mid": "runtime/chapter1_mid.png",
+      "composite": "runtime/chapter1.png"
+    },
+    "runtime/chapter2.png",
+    "runtime/chapter3.png",
+    "runtime/chapter4.png",
+    "runtime/chapter5.png"
+  ],
+  "background_status": "Chapter 1 has separate far/mid layers; chapters 2-5 are composite illustrations, near layers pending.",
+  "extraction": {
+    "hero_source_bounds": [
+      [
+        45,
+        13,
+        193,
+        250
+      ],
+      [
+        32,
+        14,
+        186,
+        251
+      ],
+      [
+        5,
+        34,
+        223,
+        251
+      ],
+      [
+        14,
+        67,
+        224,
+        250
+      ],
+      [
+        23,
+        33,
+        256,
+        251
+      ],
+      [
+        0,
+        28,
+        246,
+        247
+      ],
+      [
+        11,
+        97,
+        213,
+        254
+      ],
+      [
+        4,
+        18,
+        233,
+        245
+      ],
+      [
+        1,
+        26,
+        242,
+        254
+      ],
+      [
+        17,
+        12,
+        256,
+        254
+      ],
+      [
+        0,
+        49,
+        256,
+        254
+      ],
+      [
+        0,
+        59,
+        251,
+        253
+      ],
+      [
+        19,
+        24,
+        224,
+        239
+      ],
+      [
+        17,
+        84,
+        216,
+        240
+      ],
+      [
+        41,
+        84,
+        220,
+        238
+      ],
+      [
+        12,
+        58,
+        256,
+        256
+      ],
+      [
+        0,
+        83,
+        237,
+        256
+      ],
+      [
+        26,
+        19,
+        242,
+        240
+      ],
+      [
+        20,
+        11,
+        247,
+        217
+      ],
+      [
+        23,
+        29,
+        256,
+        217
+      ],
+      [
+        0,
+        50,
+        256,
+        220
+      ],
+      [
+        0,
+        0,
+        243,
+        226
+      ],
+      [
+        1,
+        0,
+        256,
+        232
+      ],
+      [
+        0,
+        30,
+        222,
+        236
+      ]
+    ]
+  },
+  "props": {
+    "grass_platform": {
+      "file": "runtime/grass_platform.png",
+      "width": 492,
+      "height": 218,
+      "anchor": [
+        0.5,
+        1.0
+      ],
+      "tile_top": 0.2
+    },
+    "stone_platform": {
+      "file": "runtime/stone_platform.png",
+      "width": 413,
+      "height": 156,
+      "anchor": [
+        0.5,
+        1.0
+      ],
+      "tile_top": 0.04
+    },
+    "bridge": {
+      "file": "runtime/bridge.png",
+      "width": 407,
+      "height": 241,
+      "anchor": [
+        0.5,
+        1.0
+      ],
+      "tile_top": 0.32
+    },
+    "ladder": {
+      "file": "runtime/ladder.png",
+      "width": 133,
+      "height": 375,
+      "anchor": [
+        0.5,
+        1.0
+      ]
+    },
+    "campfire": {
+      "file": "runtime/campfire.png",
+      "width": 367,
+      "height": 348,
+      "anchor": [
+        0.5,
+        1.0
+      ]
+    },
+    "signpost": {
+      "file": "runtime/signpost.png",
+      "width": 264,
+      "height": 392,
+      "anchor": [
+        0.5,
+        1.0
+      ]
+    },
+    "lever": {
+      "file": "runtime/lever.png",
+      "width": 347,
+      "height": 377,
+      "anchor": [
+        0.5,
+        1.0
+      ]
+    },
+    "parchment": {
+      "file": "runtime/parchment.png",
+      "width": 378,
+      "height": 341,
+      "anchor": [
+        0.5,
+        1.0
+      ]
+    }
+  }
+}

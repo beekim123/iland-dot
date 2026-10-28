@@ -1,0 +1,191 @@
+{
+  "arena.png": {
+    "size": [
+      1280,
+      800
+    ],
+    "mode": "RGB",
+    "alpha_range": null,
+    "sha256": "9b550850739707eef8eec050c206479121e55cbb27ed06f8e95f293a61d83048"
+  },
+  "boss-strip.png": {
+    "size": [
+      1024,
+      256
+    ],
+    "mode": "RGBA",
+    "alpha_range": [
+      0,
+      255
+    ],
+    "sha256": "b4910effd0f4617523e55a7a6313a824810f551589daee413338c89cc82b138d"
+  },
+  "boss.png": {
+    "size": [
+      256,
+      256
+    ],
+    "mode": "RGBA",
+    "alpha_range": [
+      0,
+      255
+    ],
+    "sha256": "b8e8a0daaf86427d394fdffd0934703828c12221e180ea8a1ee2435b965f2cce"
+  },
+  "bubble-strip.png": {
+    "size": [
+      1024,
+      256
+    ],
+    "mode": "RGBA",
+    "alpha_range": [
+      0,
+      255
+    ],
+    "sha256": "4fcc050bf9454adb456f6e3338779b56e246b677023e8bf28ee07c2a999c3a22"
+  },
+  "bubble.png": {
+    "size": [
+      256,
+      256
+    ],
+    "mode": "RGBA",
+    "alpha_range": [
+      0,
+      255
+    ],
+    "sha256": "88e7e5b8479811a4581c8a77a9f8ea8158ecd5be03d3f0493188e52a5c4cf981"
+  },
+  "elite.png": {
+    "size": [
+      256,
+      256
+    ],
+    "mode": "RGBA",
+    "alpha_range": [
+      0,
+      255
+    ],
+    "sha256": "9c42783a23d4f9fc3ea63c4a61ac9ab2f60512968c3aa4f1a1fd301f9b231693"
+  },
+  "enemies-preview.png": {
+    "size": [
+      1024,
+      1536
+    ],
+    "mode": "RGBA",
+    "alpha_range": [
+      0,
+      255
+    ],
+    "sha256": "e617d78cf986d057edd8b85765abe2a47c99d0b1f5bbd80f824ae3c5192dbd4a"
+  },
+  "grunt-strip.png": {
+    "size": [
+      1024,
+      256
+    ],
+    "mode": "RGBA",
+    "alpha_range": [
+      0,
+      255
+    ],
+    "sha256": "efb00e8baaea5134de678b02a594653c7bdc67fe8ab9181ac6e23f40ae557c5b"
+  },
+  "grunt.png": {
+    "size": [
+      256,
+      256
+    ],
+    "mode": "RGBA",
+    "alpha_range": [
+      0,
+      255
+    ],
+    "sha256": "9c42783a23d4f9fc3ea63c4a61ac9ab2f60512968c3aa4f1a1fd301f9b231693"
+  },
+  "hero.png": {
+    "size": [
+      1024,
+      2048
+    ],
+    "mode": "RGBA",
+    "alpha_range": [
+      0,
+      255
+    ],
+    "sha256": "1c01c59437d1d39fe2e6ed1cb9031137b8de328a9a0ca5f29a3a644d8f78af04"
+  },
+  "shield-strip.png": {
+    "size": [
+      1024,
+      256
+    ],
+    "mode": "RGBA",
+    "alpha_range": [
+      0,
+      255
+    ],
+    "sha256": "8fda3a58ff54f216245e446a3b900d7ba6e5c6e6ccc185852ade11a136c642e7"
+  },
+  "shield.png": {
+    "size": [
+      256,
+      256
+    ],
+    "mode": "RGBA",
+    "alpha_range": [
+      0,
+      255
+    ],
+    "sha256": "a77ec9f2c204a27b7145f9a8a72d95c4a9b982963b401fa115b66d8aea6d8f25"
+  },
+  "sleeper-strip.png": {
+    "size": [
+      1024,
+      256
+    ],
+    "mode": "RGBA",
+    "alpha_range": [
+      0,
+      255
+    ],
+    "sha256": "1c11c08d94dc66497fb17bf5a334ccd7cca2e1f83d505835fcbb0b9e808dc154"
+  },
+  "sleeper.png": {
+    "size": [
+      256,
+      256
+    ],
+    "mode": "RGBA",
+    "alpha_range": [
+      0,
+      255
+    ],
+    "sha256": "830b81c67a774e0e5f661664066cc44ddb0b51cf918ab4545e01f86dbc14e7ea"
+  },
+  "spring-strip.png": {
+    "size": [
+      1024,
+      256
+    ],
+    "mode": "RGBA",
+    "alpha_range": [
+      0,
+      255
+    ],
+    "sha256": "1d545bd5331229ff47353f76418cf284e35ea876b4909184cdae6ec9841dc5b3"
+  },
+  "spring.png": {
+    "size": [
+      256,
+      256
+    ],
+    "mode": "RGBA",
+    "alpha_range": [
+      0,
+      255
+    ],
+    "sha256": "b0ea2a14da763b6288f919a2b3f3c3bf92e01d1a1584e013c1f093919c851de2"
+  }
+}

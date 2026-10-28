@@ -77,3 +77,8 @@ godot/modules/bloom_skirmish/art/source/athlete_*.blend
 /godot/modules/monkey_vine/art/character/previews/monkey_idle.png
 /godot/modules/monkey_vine/art/character/previews/monkey_run.png
 /godot/modules/monkey_vine/art/character/previews/
+
+# New-game review captures are regenerated locally, not runtime/source assets.
+/godot/modules/apprentice_yokai_king/art/hero-actions-preview.gif
+/godot/modules/apprentice_yokai_king/art/enemies-preview.png
+/godot/modules/dawn_sword/art/previews/
