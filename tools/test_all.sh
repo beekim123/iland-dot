@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
-# Exact-engine, source-frozen regression for the six admitted modules.
-# In-progress fruit_gummy_snake is intentionally excluded; see --list coverage.
+# Current eight-game integration/extraction smoke, not a full rules regression.
+# Use --list for exact coverage. Historical admission runners remain under tools/qa/.
 set -euo pipefail
 ROOT="$(cd "$(dirname "$0")/.." && pwd)"
-exec python3 "$ROOT/tools/qa/six_games/aggregate.py" "$@"
+exec python3 "$ROOT/tools/qa/current_games/run.py" "$@"

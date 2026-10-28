@@ -1,53 +1,62 @@
 # 晴贝小岛 · Sunny Shell
 
-Godot **4.7.2 stable** 的独立 Q 版海岛大厅和模块化小游戏工程。仓库：<https://github.com/beekim123/iland-dot>。不改动 Valley Deck 项目。
+Godot **4.7.2 stable** 的 Q 版海岛大厅和八款可独立抽离的小游戏工程。仓库：<https://github.com/beekim123/iland-dot>。不改动 Valley Deck 项目。
 
-> **绒芽争园动物版源码已发布**：[cc7bed6](https://github.com/beekim123/iland-dot/commit/cc7bed614ff010737ca0761c4bd86c960330382d)，完整原生回合、宿主与真正抽离验证通过；新动物 Web 包、用户设备性能及整场环境美术改版不冒称完成。第三款「逐潮小鱼」已完成实现与原生/完整聚合/独立抽离验收，进入本次源码发布候选（[验收](docs/acceptance/tide-gulp.md)）；准确发布交付后按 [开发队列](docs/project/DEVELOPMENT-QUEUE.md) 依次制作鹈鹕急送、拾光海滩、火山岛逃生。旧俯视/人类版和旧 Web 包仅作历史，不继续交付。
+## 当前入口
 
-## 运行
-用 Godot 导入 `godot/project.godot`，资源导入完成后按 F5。运行资源已包含，不需要安装 Blender。Linux 可用 `GODOT_BIN=/path/to/godot tools/run.sh`；云端脚本默认使用同级 tools 目录内的 4.7.2。
+导入 `godot/project.godot`，完成资源导入后按 F5。运行资源已包含，无需安装 Blender。
 
-岛屿：拖动旋转、滚轮缩放，R 复位，2/3/4 切换观景。点击物体触发声音和反馈，点击粉色传送门开始软糖迷宫，第二扇青色门进入「绒芽争园」2 对 2 三分钟花园争地；第三扇紫色门进入「逐潮小鱼」水彩侧视吞食成长。第四槽仍是未开放计划。小游戏操作与暂停/退出见屏幕提示，退出回岛保留镜头。
-
-### 直接运行绒芽争园
 ```bash
-GODOT_BIN=/path/to/Godot tools/run.sh res://modules/bloom_skirmish/main.tscn
+GODOT_BIN=/path/to/Godot tools/run.sh
 ```
-当前动物版为第三人称肩后追随、鼠标环视/中心准星、相机相对移动与粘稠花露喷射。准确按键与鼠标捕获以模块 README 和屏幕提示为准；旧俯视操作说明已失效。直接启动与海岛第二扇青色门使用同一模块。
 
-### 直接运行逐潮小鱼
+大厅保留四个固定安全传送门位置，从八款游戏中选择推荐；可刷新推荐，或打开分页的全部游戏目录。回岛恢复原镜头与入口页面。拖动旋转、滚轮缩放，R 复位，2/3/4 切换观景。
+
+| 游戏 | 模块 ID |
+| --- | --- |
+| 软糖爆爆岛 | `gummy_bomber` |
+| 绒芽争园（动物版） | `bloom_skirmish` |
+| 逐潮小鱼 | `tide_gulp` |
+| 拾光海滩 | `beach_cleanup` |
+| 火山岛逃生 | `volcano_escape` |
+| 鹈鹕顺风车 | `pelican_pedal` |
+| 海底软糖水蛇 | `fruit_gummy_snake` |
+| 猴子荡荡 | `monkey_vine` |
+
+操作以各模块说明及游戏内提示为准。当前八款已在注册表启用，不等于所有平台、视觉、性能均已验收；历史六/七/八款验收有各自源码基线和范围，不可互相替代。
+
+## 直接运行与独立抽离
+
 ```bash
-GODOT_BIN=/path/to/Godot tools/run.sh res://modules/tide_gulp/main.tscn
+GODOT_BIN=/path/to/Godot tools/run.sh res://modules/monkey_vine/main.tscn
+python3 tools/extract_game.py monkey_vine /tmp/monkey-standalone
+# 用 Godot 打开 /tmp/monkey-standalone/project.godot
 ```
-鼠标指向游动、左键冲刺；WASD/方向键与空格为等效备选。Esc暂停，失焦自动暂停。六阶段吞食成长、带预警的天敌、35+5+20秒潮汐与三生态连续海域；结算可重开或回岛。具体规则与隔离存档见[模块说明](godot/modules/tide_gulp/README.md)。
 
-## 项目边界
-- `godot/app/`：宿主注册表与路由。
-- `godot/hub/`：彩色传送门与交互。
-- `godot/modules/gummy_bomber/`：自包含软糖炸弹迷宫，美术/音频/规则/测试一起管理。
-- `godot/modules/bloom_skirmish/`：自包含「绒芽争园」，玩家与机器人争地；动物版第三人称完整单局、结果、重开、回岛已验证，非联网对战。
-- `godot/modules/tide_gulp/`：独立水彩绘本鱼、真实3D骨骼/XY玩法、六成长/死亡/重开/回岛与独立纪录；不引用宿主或其他模块。
-- `art/`：Blender 源模型、生成器与骨骼审计。
-- `docs/project/`：架构、任务板、路线图、素材策略。
-- `docs/acceptance/`：实际验收记录，未通过项不会只凭计划标完成。
+将 ID 替换为表中任意一项即可。抽离保留模块目录结构、素材、制作记录和许可证，不带宿主或其他游戏；拒绝已有目标目录、符号链接和模块外资源依赖。详见[独立抽离指南](docs/modules/standalone-guide.md)。
 
-当前开发版增加双鸟与海豚，保留真实骨骼/蒙皮；海龟和螃蟹缩小约30%。第二门原贪吃蛇计划由用户批准的[绒芽争园完整玩法](docs/design/bloom-skirmish.md)替代；后续四款见[开发队列](docs/project/DEVELOPMENT-QUEUE.md)，第三款已验收待本次源码发布交付，第四及后续仍待开发。最新动物版验收见[原生记录](docs/acceptance/bloom-animal-native.md)与[独立 QA](docs/acceptance/bloom-skirmish-independent.md)，旧俯视通过记录不能替代当前结果。声音试听、浏览器和用户 Mac 等限制见[任务板](docs/project/TASKBOARD.md)。每个游戏存档隔离到 `user://games/<id>/`，海岛预留 `user://hub/`。
-
-## 独立抽离游戏
-```bash
-python3 tools/extract_game.py gummy_bomber /tmp/gummy-standalone
-python3 tools/extract_game.py bloom_skirmish /tmp/bloom-standalone
-python3 tools/extract_game.py tide_gulp /tmp/tide-standalone
-# 再以 Godot 打开对应目录内的 project.godot
-```
-抽离工具拒绝已有目标目录、符号链接和模块外 res 依赖（含路径穿越），保留模块内素材、制作记录与许可证；不带走岛屿或其他模块。详细接口见 [架构](docs/project/ARCHITECTURE.md)。
+模块使用 `start(context)` / `exit_requested` 接口，存档位于各自 `user://games/<id>/`；抽离工程另有独立应用名，不会自动迁移大厅存档。无需把相似的存档、UI、音频代码强行合并为宿主依赖。
 
 ## 验证与复现
+
 ```bash
 tools/run.sh --import
-tools/run.sh --test
-tools/test_all.sh        # 隔离存档的全项目聚合，含真实模块抽离
-tools/qa/tide_gulp/run.sh # 第三作独立QA、宿主与真实抽离
-tools/run.sh --sync
+tools/test_all.sh --list  # 先查看准确覆盖
+tools/test_all.sh         # 当前八款集成/抽离冒烟，不是完整规则全量
+tools/run.sh --test       # 海岛场景检查；不是八款验收
+tools/run.sh --sync       # 根据 active_asset_manifest 同步已批准素材
 ```
-单模块测试与生命周期测试见模块 README 和 docs/acceptance。截图必须由实际图形 Godot 视口采集；无头测试不能替代视觉验收。历史 v4 说明位于 docs/revisions/README-v4.md。字体许可证与资源一起保留；素材/原始建模文件策略见 docs/project/ASSET_POLICY.md。
+
+`test_all.sh` 使用准确的 Godot 4.7.2、临时项目副本和隔离 XDG 存档：检查当前八款覆盖，运行宿主生命周期/传送门/目录测试，逐款真实抽离、导入、调用启动/退出接口并比对源码。日志与 `RESULT.json` 写入打印出的临时目录；不依赖未发布的历史日志。范围及限制见[当前验证入口](tools/qa/current_games/README.md)。
+
+完整规则、长时模拟、真正独立进程退出、图形/人工输入、主观音频、Web 和用户设备性能是不同检查，不以此次冒烟代替。六款全量及七/八款增量历史脚本与证据保留在 `tools/qa/`；六款旧脚本排除水蛇，不能用于当前八款宿主。
+
+## 项目边界与保留策略
+
+- `godot/app/`：注册表、宿主生命周期与路由。
+- `godot/hub/`：传送门、交互和游戏目录。`portal_v2/` 是当前运行依赖，不是待删旧版。
+- `godot/modules/<id>/`：每款游戏的入口、规则、美术、音频、UI、测试与制作资料。
+- `art/`、`audio/`：海岛素材源、生成器和审计记录；批准清单维护运行资源副本。
+- `docs/project/`：架构和管理；`docs/acceptance/`：按源码基线保留的历史验收。
+
+字体许可证、动态加载资源、源模型/生成器与复现证据不能仅因“未搜到静态引用”删除。旧人类版绒芽与旧 Web 构建不是当前交付；历史结论保留，不冒充当前版本。详见[架构](docs/project/ARCHITECTURE.md)与[素材策略](docs/project/ASSET_POLICY.md)。

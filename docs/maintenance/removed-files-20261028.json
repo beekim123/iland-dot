@@ -1,0 +1,17 @@
+[
+  {
+    "path": "godot/resources/models/sunny_shell_island.glb",
+    "bytes": 1900820,
+    "sha256": "26f40628ae9bbf9e0305ea0aa7c8903e473d0f768a1baac6693e1b8177b6ced4"
+  },
+  {
+    "path": "godot/resources/fonts/island-ui.otf",
+    "bytes": 37176,
+    "sha256": "e72599e7d540441c37d762e632456b7f43ffe990149316130467d20914ac1869"
+  },
+  {
+    "path": "godot/modules/gummy_bomber/fonts/gummy-ui.otf",
+    "bytes": 39112,
+    "sha256": "88a773a25ba34878f9595b4f5600048f936280542910bab91ad31825f623951c"
+  }
+]

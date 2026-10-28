@@ -1,0 +1,444 @@
+{
+  "date": "2026-10-28",
+  "baseline": "66784124bb2bdf771f79f9897f04c63b107a8739",
+  "engine": "4.7.2.stable.official.ed1daf0bf",
+  "current_integration_smoke": {
+    "passed": true,
+    "source_unchanged": true,
+    "steps": 25,
+    "checks": [
+      {
+        "name": "engine-version",
+        "passed": true
+      },
+      {
+        "name": "extractor-policy",
+        "passed": true
+      },
+      {
+        "name": "host-import",
+        "passed": true
+      },
+      {
+        "name": "host-check_app",
+        "passed": true
+      },
+      {
+        "name": "host-test_portal_rotation",
+        "passed": true
+      },
+      {
+        "name": "host-test_hub",
+        "passed": true
+      },
+      {
+        "name": "host-test_portal_picking",
+        "passed": true
+      },
+      {
+        "name": "host-test_portal_layout",
+        "passed": true
+      },
+      {
+        "name": "host-test_catalog",
+        "passed": true
+      },
+      {
+        "name": "gummy_bomber-import",
+        "passed": true
+      },
+      {
+        "name": "gummy_bomber-interface",
+        "passed": true
+      },
+      {
+        "name": "bloom_skirmish-import",
+        "passed": true
+      },
+      {
+        "name": "bloom_skirmish-interface",
+        "passed": true
+      },
+      {
+        "name": "tide_gulp-import",
+        "passed": true
+      },
+      {
+        "name": "tide_gulp-interface",
+        "passed": true
+      },
+      {
+        "name": "beach_cleanup-import",
+        "passed": true
+      },
+      {
+        "name": "beach_cleanup-interface",
+        "passed": true
+      },
+      {
+        "name": "volcano_escape-import",
+        "passed": true
+      },
+      {
+        "name": "volcano_escape-interface",
+        "passed": true
+      },
+      {
+        "name": "pelican_pedal-import",
+        "passed": true
+      },
+      {
+        "name": "pelican_pedal-interface",
+        "passed": true
+      },
+      {
+        "name": "fruit_gummy_snake-import",
+        "passed": true
+      },
+      {
+        "name": "fruit_gummy_snake-interface",
+        "passed": true
+      },
+      {
+        "name": "monkey_vine-import",
+        "passed": true
+      },
+      {
+        "name": "monkey_vine-interface",
+        "passed": true
+      }
+    ]
+  },
+  "extractor_unit_tests": {
+    "passed": 10,
+    "total": 10
+  },
+  "standalone": {
+    "modules": 8,
+    "checks": 46,
+    "matrix": [
+      {
+        "game": "gummy_bomber",
+        "checks": [
+          {
+            "step": "import",
+            "returncode": 0,
+            "passed": true,
+            "issues": []
+          },
+          {
+            "step": "startup_exit",
+            "returncode": 0,
+            "passed": true,
+            "issues": []
+          },
+          {
+            "step": "test_runtime",
+            "returncode": 0,
+            "passed": true,
+            "issues": []
+          },
+          {
+            "step": "test_sim",
+            "returncode": 0,
+            "passed": true,
+            "issues": []
+          },
+          {
+            "step": "test_save_schema",
+            "returncode": 0,
+            "passed": true,
+            "issues": []
+          },
+          {
+            "step": "test_exit",
+            "returncode": 0,
+            "passed": true,
+            "issues": []
+          },
+          {
+            "step": "test_exit_standalone",
+            "returncode": 0,
+            "passed": true,
+            "issues": []
+          }
+        ]
+      },
+      {
+        "game": "bloom_skirmish",
+        "checks": [
+          {
+            "step": "import",
+            "returncode": 0,
+            "passed": true,
+            "issues": []
+          },
+          {
+            "step": "startup_exit",
+            "returncode": 0,
+            "passed": true,
+            "issues": []
+          },
+          {
+            "step": "test_runtime",
+            "returncode": 0,
+            "passed": true,
+            "issues": []
+          },
+          {
+            "step": "test_storage",
+            "returncode": 0,
+            "passed": true,
+            "issues": []
+          },
+          {
+            "step": "test_sim",
+            "returncode": 0,
+            "passed": true,
+            "issues": []
+          }
+        ]
+      },
+      {
+        "game": "tide_gulp",
+        "checks": [
+          {
+            "step": "import",
+            "returncode": 0,
+            "passed": true,
+            "issues": []
+          },
+          {
+            "step": "startup_exit",
+            "returncode": 0,
+            "passed": true,
+            "issues": []
+          },
+          {
+            "step": "test_runtime",
+            "returncode": 0,
+            "passed": true,
+            "issues": []
+          },
+          {
+            "step": "test_storage",
+            "returncode": 0,
+            "passed": true,
+            "issues": []
+          },
+          {
+            "step": "test_sim",
+            "returncode": 0,
+            "passed": true,
+            "issues": []
+          }
+        ]
+      },
+      {
+        "game": "beach_cleanup",
+        "checks": [
+          {
+            "step": "import",
+            "returncode": 0,
+            "passed": true,
+            "issues": []
+          },
+          {
+            "step": "startup_exit",
+            "returncode": 0,
+            "passed": true,
+            "issues": []
+          },
+          {
+            "step": "test_runtime",
+            "returncode": 0,
+            "passed": true,
+            "issues": []
+          },
+          {
+            "step": "test_storage",
+            "returncode": 0,
+            "passed": true,
+            "issues": []
+          },
+          {
+            "step": "test_sim",
+            "returncode": 0,
+            "passed": true,
+            "issues": []
+          }
+        ]
+      },
+      {
+        "game": "volcano_escape",
+        "checks": [
+          {
+            "step": "import",
+            "returncode": 0,
+            "passed": true,
+            "issues": []
+          },
+          {
+            "step": "startup_exit",
+            "returncode": 0,
+            "passed": true,
+            "issues": []
+          },
+          {
+            "step": "test_runtime",
+            "returncode": 0,
+            "passed": true,
+            "issues": []
+          },
+          {
+            "step": "test_storage",
+            "returncode": 0,
+            "passed": true,
+            "issues": []
+          },
+          {
+            "step": "test_sim",
+            "returncode": 0,
+            "passed": true,
+            "issues": []
+          }
+        ]
+      },
+      {
+        "game": "pelican_pedal",
+        "checks": [
+          {
+            "step": "import",
+            "returncode": 0,
+            "passed": true,
+            "issues": []
+          },
+          {
+            "step": "startup_exit",
+            "returncode": 0,
+            "passed": true,
+            "issues": []
+          },
+          {
+            "step": "test_runtime",
+            "returncode": 0,
+            "passed": true,
+            "issues": []
+          },
+          {
+            "step": "test_storage",
+            "returncode": 0,
+            "passed": true,
+            "issues": []
+          },
+          {
+            "step": "test_sim",
+            "returncode": 0,
+            "passed": true,
+            "issues": []
+          },
+          {
+            "step": "test_standalone_exit",
+            "returncode": 0,
+            "passed": true,
+            "issues": []
+          }
+        ]
+      },
+      {
+        "game": "fruit_gummy_snake",
+        "checks": [
+          {
+            "step": "import",
+            "returncode": 0,
+            "passed": true,
+            "issues": []
+          },
+          {
+            "step": "startup_exit",
+            "returncode": 0,
+            "passed": true,
+            "issues": []
+          },
+          {
+            "step": "test_runtime",
+            "returncode": 0,
+            "passed": true,
+            "issues": []
+          },
+          {
+            "step": "test_storage",
+            "returncode": 0,
+            "passed": true,
+            "issues": []
+          },
+          {
+            "step": "test_xyz",
+            "returncode": 0,
+            "passed": true,
+            "issues": []
+          },
+          {
+            "step": "test_camera",
+            "returncode": 0,
+            "passed": true,
+            "issues": []
+          },
+          {
+            "step": "test_interface",
+            "returncode": 0,
+            "passed": true,
+            "issues": []
+          },
+          {
+            "step": "test_detach",
+            "returncode": 0,
+            "passed": true,
+            "issues": []
+          }
+        ]
+      },
+      {
+        "game": "monkey_vine",
+        "checks": [
+          {
+            "step": "import",
+            "returncode": 0,
+            "passed": true,
+            "issues": []
+          },
+          {
+            "step": "startup_exit",
+            "returncode": 0,
+            "passed": true,
+            "issues": []
+          },
+          {
+            "step": "test_rules_route",
+            "returncode": 0,
+            "passed": true,
+            "issues": []
+          },
+          {
+            "step": "test_rules_bonus",
+            "returncode": 0,
+            "passed": true,
+            "issues": []
+          },
+          {
+            "step": "test_rules_invariants",
+            "returncode": 0,
+            "passed": true,
+            "issues": []
+          }
+        ]
+      }
+    ]
+  },
+  "excluded": [
+    "Full gameplay completion",
+    "Native graphical and sound judgement",
+    "Web and target device performance",
+    "bonus_search witness generator"
+  ]
+}

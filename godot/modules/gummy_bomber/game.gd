@@ -105,7 +105,12 @@ func leave_game() -> void:
 	if hud:
 		hud.hide(); hud.set_process(false)
 	set_process(false); set_process_unhandled_input(false)
-	exit_requested.emit()
+	if get_tree().current_scene == self and exit_requested.get_connections().is_empty():
+		# Let stopped audio retire before destroying the standalone scene.
+		var tree := get_tree()
+		tree.create_timer(0.5).timeout.connect(tree.quit)
+	else:
+		exit_requested.emit()
 
 func _unhandled_input(event: InputEvent) -> void:
 	if not running: return

@@ -87,6 +87,28 @@ class ExtractionTests(unittest.TestCase):
         self.assertFalse((dest / 'modules/bloom_skirmish/.godot').exists())
         self.assertFalse((dest / 'modules/bloom_skirmish/fake.png.import').exists())
 
+    def test_relative_external_loads_rejected_before_copy(self):
+        for reference in ['preload("../../gummy_bomber/main.tscn")',
+                          'load("../../app/private.gd")',
+                          '[ext_resource path="../../other/main.tscn"]',
+                          '#include "../../other/common.gdshaderinc"']:
+            with self.subTest(reference=reference):
+                (self.module() / 'invalid.gd').write_text(reference)
+                with self.assertRaisesRegex(ValueError, 'External dependency'):
+                    self.extract()
+                self.assertFalse((self.root / 'standalone').exists())
+
+    def test_relative_internal_load_allowed(self):
+        (self.module() / 'art/probe.gd').write_text('const Main = preload("../main.tscn")')
+        self.assertTrue((self.extract() / 'modules/bloom_skirmish/art/probe.gd').is_file())
+
+    def test_dangling_destination_link_rejected(self):
+        destination = self.root / 'link'
+        destination.symlink_to(self.root / 'missing', target_is_directory=True)
+        with self.assertRaisesRegex(ValueError, 'Destination must not be a symlink'):
+            self.extract(destination=destination)
+        self.assertFalse((self.root / 'missing').exists())
+
     def test_symbolic_links_rejected(self):
         (self.module() / 'outside').symlink_to(self.repo / 'godot/app', target_is_directory=True)
         with self.assertRaisesRegex(ValueError, 'symlink'):

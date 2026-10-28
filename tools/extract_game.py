@@ -28,6 +28,8 @@ def extract_game(game_id: str, destination: Path, repository: Path | None = None
         raise ValueError('Module source must not be a symlink.')
     if not (source / 'main.tscn').is_file():
         raise ValueError('Module entry main.tscn is missing.')
+    if destination.is_symlink():
+        raise ValueError('Destination must not be a symlink.')
     dest = destination.resolve()
     if dest.exists():
         raise ValueError('Destination must not exist; extraction will not overwrite another project.')
@@ -40,9 +42,21 @@ def extract_game(game_id: str, destination: Path, repository: Path | None = None
             raise ValueError(f'Module contains a symlink: {resource.relative_to(source)}')
         if not resource.is_file() or resource.suffix not in RESOURCE_TEXT_SUFFIXES:
             continue
-        for path in re.findall(r'''res://[^"'\s\)]+''', resource.read_text(encoding='utf-8')):
+        content = resource.read_text(encoding='utf-8')
+        for path in re.findall(r'''res://[^"'\s\)]+''', content):
             normalized = (root / 'godot' / path.removeprefix('res://')).resolve()
             if not path.startswith(module_prefix) or not normalized.is_relative_to(source.resolve()):
+                raise ValueError(f'External dependency in {resource.name}: {path}')
+        # Godot also resolves literal relative loads against the referring resource.
+        # A res://-only scan misses preload("../../other_game/sim.gd").
+        relative_references = re.findall(
+            r"""(?:\b(?:preload|load)\s*\(\s*|\bpath\s*=\s*|#include\s+)["']([^"']+)["']""",
+            content)
+        for path in relative_references:
+            if "://" in path:
+                continue  # res:// is checked above; UID/dynamic resolution needs fresh import.
+            normalized = (resource.parent / path).resolve()
+            if not normalized.is_relative_to(source.resolve()):
                 raise ValueError(f'External dependency in {resource.name}: {path}')
     # Copy all module assets and their license/source records, not only runtime extensions.
     shutil.copytree(source, dest / 'modules' / game_id,
