@@ -1,0 +1,5 @@
+# Beach Cleanup sound
+
+All recordings are newly synthesized original AI-assisted deterministic DSP, not human-performed recordings; no samples, libraries, previous game music, or external melodies used. `generate_audio.py` (Python + numpy) reproduces every PCM WAV; seed 267031. The 40-second theme is a quiet triple-meter sandwood-mallet composition with low plucked fifths and soft synthesized sea breath. Seven separate short cues distinguish pickup, clamp lift, unload, ecology, completion, capacity and UI click. Metadata in audio_manifest.json records levels and duration.
+
+Playback uses one looping music voice and eight preallocated effect voices with rate limits and bounded deterministic voice stealing. Shutdown is idempotent, fades 180 ms using ALWAYS process mode (including paused trees), and queues deletion without captured timer/tween references. Parent deletion stops every voice immediately. Audio must still be listened to on an actual output device before subjective listening claims.

@@ -1,0 +1,92 @@
+{
+  "dispatch_loop": {
+    "seconds": 60.0,
+    "peak": 0.26614638153435083,
+    "rms": 0.04839352126330299,
+    "dc": -1.9000039630609174e-06,
+    "clipped_samples": 0,
+    "sha256": "c51060c8d1677dca39182f47f4f802348c421aba81a6b18e9384782e3df4c263",
+    "loop": true
+  },
+  "alert": {
+    "seconds": 0.48,
+    "peak": 0.21775478852089242,
+    "rms": 0.07370414400347622,
+    "dc": 6.210800806521179e-07,
+    "clipped_samples": 0,
+    "sha256": "43b87db7101c2c7371e6ca024aa895bb9e67b28b509e5a9e58cf1b4f279fcce3",
+    "loop": false
+  },
+  "interact": {
+    "seconds": 0.1799546485260771,
+    "peak": 0.19220406333117787,
+    "rms": 0.06724011742080535,
+    "dc": 2.498767978055127e-06,
+    "clipped_samples": 0,
+    "sha256": "f832783c0e530035678b219103480d1551c42b646b23b24391289b1dd96ac29c",
+    "loop": false
+  },
+  "rock": {
+    "seconds": 0.36,
+    "peak": 0.2978408521694496,
+    "rms": 0.09967577110120303,
+    "dc": 0.00010342698207870141,
+    "clipped_samples": 0,
+    "sha256": "10a25575de3a9dddd445da784b223be1f77cc2e153618fd093d7e51ecfef7693",
+    "loop": false
+  },
+  "shelter": {
+    "seconds": 0.42,
+    "peak": 0.2140345418426374,
+    "rms": 0.07248897727080064,
+    "dc": 7.233927918643653e-06,
+    "clipped_samples": 0,
+    "sha256": "0fb4567169fec4b320029c6c426adaebff78a43ebcad0a5623ac7a23c3f79d0e",
+    "loop": false
+  },
+  "evac": {
+    "seconds": 0.72,
+    "peak": 0.22380503917941993,
+    "rms": 0.07466527197864235,
+    "dc": 1.7361989188439905e-06,
+    "clipped_samples": 0,
+    "sha256": "39248cf9bb78fdbcb6e5bb9ea3f7d861adf064db58de963275f959a30111d1f4",
+    "loop": false
+  },
+  "click": {
+    "seconds": 0.054965986394557825,
+    "peak": 0.15677970387314707,
+    "rms": 0.05816807619241058,
+    "dc": -1.5862643821793058e-06,
+    "clipped_samples": 0,
+    "sha256": "1f22c96f115850955e10da3f90c89b01895576b81b03f00efcfa27517157f6b3",
+    "loop": false
+  },
+  "beacon": {
+    "seconds": 0.36,
+    "peak": 0.20774457321239762,
+    "rms": 0.07088467330928233,
+    "dc": 2.0474561384853467e-06,
+    "clipped_samples": 0,
+    "sha256": "c9e354698873418997c9c54eac38048dfbc1193ba00c6c32a085394bb7944449",
+    "loop": false
+  },
+  "damage": {
+    "seconds": 0.24,
+    "peak": 0.2046725720406595,
+    "rms": 0.07085243596441194,
+    "dc": -3.121010358957863e-05,
+    "clipped_samples": 0,
+    "sha256": "768adc6462769f9d1bc60df770f021ab664c6e80da7c144ca66f6df679dfd359",
+    "loop": false
+  },
+  "rescue": {
+    "seconds": 0.6899319727891157,
+    "peak": 0.23088297793355525,
+    "rms": 0.07636181268435266,
+    "dc": 6.31105105543596e-06,
+    "clipped_samples": 0,
+    "sha256": "0a637fdc1f6aee79a1aef4a5b3531eda75e35f4e1679cfa66a0b75502173ca02",
+    "loop": false
+  }
+}

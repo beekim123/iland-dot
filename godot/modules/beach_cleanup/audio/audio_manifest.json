@@ -1,0 +1,55 @@
+{
+  "authoring": "Original AI-assisted deterministic DSP, new melody and synthesis for Beach Cleanup. No external samples.",
+  "sample_rate": 24000,
+  "seed": 267031,
+  "files": [
+    {
+      "file": "shore_theme.wav",
+      "seconds": 40.0,
+      "peak": 0.1826886866758551,
+      "loop": true
+    },
+    {
+      "file": "pickup.wav",
+      "seconds": 0.23,
+      "peak": 0.35668044298684787,
+      "loop": false
+    },
+    {
+      "file": "clamp_lift.wav",
+      "seconds": 0.28,
+      "peak": 0.3298449294660409,
+      "loop": false
+    },
+    {
+      "file": "unload.wav",
+      "seconds": 0.65,
+      "peak": 0.3520478826355233,
+      "loop": false
+    },
+    {
+      "file": "ecology.wav",
+      "seconds": 1.0,
+      "peak": 0.3252580919396243,
+      "loop": false
+    },
+    {
+      "file": "complete.wav",
+      "seconds": 2.1,
+      "peak": 0.29827176891319973,
+      "loop": false
+    },
+    {
+      "file": "capacity.wav",
+      "seconds": 0.42,
+      "peak": 0.33912153862568406,
+      "loop": false
+    },
+    {
+      "file": "click.wav",
+      "seconds": 0.08,
+      "peak": 0.08735039517771251,
+      "loop": false
+    }
+  ]
+}

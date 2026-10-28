@@ -1,0 +1,29 @@
+{
+  "triangles": 5706,
+  "surfaces": 7,
+  "bones": 14,
+  "weighted_vertices": 2935,
+  "blended_vertices": 382,
+  "zero_area": 0,
+  "wrong_winding": 0,
+  "bounds": [
+    [
+      -0.34299448132514954,
+      0.0020115873776376247,
+      -0.32462018728256226
+    ],
+    [
+      0.3479999899864197,
+      1.2879797220230103,
+      0.699999988079071
+    ]
+  ],
+  "animations": [
+    "hurt",
+    "idle",
+    "interact",
+    "shelter",
+    "victory",
+    "walk"
+  ]
+}

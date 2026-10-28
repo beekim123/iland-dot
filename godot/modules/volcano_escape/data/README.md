@@ -1,0 +1,20 @@
+# Volcano Escape authoritative data and witnesses
+
+`island.gd` is the single source of world XZ metre coordinates, visible road/hub footprints, interaction locations, and scripted hazard schedules. Y=0 is the gameplay plane. Renderer consumers must not invent walkable slopes or hidden shortcuts.
+
+- 12 nodes, 18 roads (3.6 m), 6 artificial shelters, 3 exits, 3 optional beacons, 18 fixed rockfall events per script.
+- Normal movement 2.8 m/s; actor radius .33 m; 48-sided hubs approximate radius 3 m. Collision tests the raw union of authored footprint polygons directly. Source edges are partitioned at all intersections; segments whose two sides have different union occupancy (strict ray-crossing, not the engine's near-edge-tolerant point test) form the exact exposed boundary (including open cycles and holes). Actor disks and swept movement capsules must stay at least .33 m from every exposed boundary. No approximate polygon-offset round joins or transient-hole merge contours are used. This rejects independently discovered acute EI-junction body leaks and a phantom gap after JK closes, without weakening the raw-geometry oracle. The seven finite topologies for the selected script are prewarmed/cached at start; road closure switches cached contours instead of doing expensive geometry construction in a live frame.
+- Permanent safe backbone: DE EF GH HI AD GJ BE EH HK CF FI IL. Each script closes the six other edges in a different order at 115/140/165/190/215/240 seconds, with 20-second warnings.
+- Shelter expiries 165–280 seconds, permuted by script; 30-second warnings; entering/leaving never resets lifetime. D/G/F/L node rockfalls make shelter protection mechanically useful.
+- Rockfall radius .95 m plus actor radius, 4-second warning, 1.2-second impact. Road-centre strikes can be avoided by a visible 1.4 m sidestep within the road. One rock event can damage only once; global damage invulnerability is 2 seconds. Lava contact uses the actor front edge, resets to an actually visited hub checkpoint, and can damage again after cooldown on a later contact. A closing road also checks the full body footprint: if the center remains in a hub but the body projects into the removed road, the actor returns to its already visited checkpoint rather than becoming stuck or unsupported.
+- Boat windows 120–155 / 240–280; balloon 135–175 / 250–310 (6 continuous seconds); airship 145–185 / 265–330 (1-second call, then 12-second arrival). Timeout at 330 means rescue, never a passive shelter win.
+
+## Input semantics
+
+E rising edge stops and acts even if movement is simultaneously held. While E and that same movement direction remain held, the actor stays parked and a continuous operation progresses. Changing/releasing direction cancels and unlocks movement; releasing E cancels progress. Holding E cannot retrigger shelter entry/exit, call/boarding, or beacons. A new direction leaves a shelter. Pause freezes time, danger schedules, windows and interaction progress. Non-finite time deltas are ignored; accumulated rounding at the exact 330-second boundary is normalized to a terminal time of 330.
+
+## Proof method
+
+`witness.gd` drives only public `command` + `tick`; it never teleports or writes rule state. `tests/test_sim.gd` covers each script × each exit × both windows, 9 alternate routes, and 9 late departures at t=224 through already closed-road maps. All escape witnesses require 3 health and no beacon prerequisite. Additional tests cover actual warning transitions, continuous collision/hole preservation, live rock damage and sidestep avoidance, shelter protection/expiry, three-hit rescue, repeated lava contacts, moving-E operation/cancellation, missed-window recovery, airship arrival, paused operation, optional earned score and immutable terminal results.
+
+Headless test: `godot --headless --path godot --script modules/volcano_escape/tests/test_sim.gd`. Native viewport/render/character/input-device acceptance belongs to runtime QA; this suite is not a substitute.

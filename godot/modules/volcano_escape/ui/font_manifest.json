@@ -1,0 +1,8 @@
+{
+  "source": "/usr/share/fonts/opentype/noto/NotoSansCJK-Regular.ttc",
+  "collection_face": 2,
+  "license": "SIL Open Font License 1.1",
+  "subset_sha256": "1c3040c91c41b0e7dbb3d92c475ffaf2ff77957cd9989cf04011d11e07147d61",
+  "glyph_count": 324,
+  "missing_source_characters": []
+}

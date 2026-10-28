@@ -1,0 +1,9 @@
+{
+  "original": true,
+  "triangles": 248,
+  "mesh_count": 1,
+  "materials": [
+    "matte sand sculpture vertex palette"
+  ],
+  "finite_vertices": true
+}
