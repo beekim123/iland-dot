@@ -1,4 +1,4 @@
-# Current ten-game integration/extraction smoke
+# Current eleven-game integration/extraction smoke
 
 Run `tools/test_all.sh --list` for the declared matrix, then `tools/test_all.sh`.
 Set `GODOT_BIN` if the exact `4.7.2.stable.official.ed1daf0bf` executable is not in
@@ -6,8 +6,8 @@ the default sibling tools directory. Every subprocess uses separate XDG data,
 config and cache directories; Godot imports operate on temporary copies.
 
 Coverage:
-- Registry and production extractor IDs match all ten declared modules.
-- Host lifecycle (60 island exits plus 10 catalogue exits, ten games, both entry routes), portal
+- Registry and production extractor IDs match all eleven declared modules.
+- Host lifecycle (66 island exits plus 11 catalogue exits, eleven games, both entry routes), portal
   rotation/picking/layout and catalogue tests.
 - Production extraction of every module, no sibling/host files, byte comparison,
   resource import, explicit `start(context)` and exactly one public exit signal.
@@ -29,11 +29,11 @@ nonzero exits, timeouts or source changes fail the run. It does not reuse old
 passing logs, baseline hashes or acceptance claims. Do not edit source during a
 run; a concurrent edit deliberately invalidates the frozen-source result.
 
-Historical `six_games`, `seven_games`, `eight_games` and portal admission runners
-remain unchanged. In particular the six-game runner removes the snake while the
-current host requires ten games: run it only with its historical source
+Historical `six_games`, `seven_games`, `eight_games`, the ten-entry admission test
+and portal admission runners remain unchanged. In particular the six-game runner removes the snake while the
+current host requires eleven games: run it only with its historical source
 baseline, never as current acceptance. Historical acceptance documents retain
-their original scope rather than being rewritten as ten-game results.
+their original scope rather than being rewritten as eleven-game results.
 
 For the separate process-level standalone autostart/normal-quit layer, run
 `python tools/qa/test_standalone_games.py --godot /absolute/path/to/godot --lifecycle-only`.

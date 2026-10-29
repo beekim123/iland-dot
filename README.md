@@ -1,6 +1,6 @@
 # 晴贝小岛 · Sunny Shell
 
-Godot **4.7.2 stable** 海岛大厅与十款可独立运行的小游戏。此目录仅保留游戏代码、实际运行素材、配置、许可证及必要测试，不包含原画/Blender 制作源、制作过程归档或预览视频。
+Godot **4.7.2 stable** 海岛大厅与十一款可独立运行的小游戏。此目录仅保留游戏代码、实际运行素材、配置、许可证及必要测试，不包含原画/Blender 制作源、制作过程归档或预览视频。
 
 ## 运行
 
@@ -10,7 +10,7 @@ Godot **4.7.2 stable** 海岛大厅与十款可独立运行的小游戏。此目
 GODOT_BIN=/absolute/path/to/Godot_v4.7.2-stable_linux.x86_64 tools/run.sh
 ```
 
-海岛最多四扇不同游戏推荐门，可刷新推荐；全部游戏目录每页六款，第二页四款。由目录进入后退出会恢复页码与选中。
+海岛最多四扇不同游戏推荐门，可刷新推荐；全部游戏目录每页六款，第二页五款。由目录进入后退出会恢复页码与选中。
 
 | 游戏 | 模块 ID |
 |---|---|
@@ -24,13 +24,14 @@ GODOT_BIN=/absolute/path/to/Godot_v4.7.2-stable_linux.x86_64 tools/run.sh
 | 猴子荡荡 | `monkey_vine` |
 | 晨曦之剑 | `dawn_sword` |
 | 见习小妖王 | `apprentice_yokai_king` |
+| 林间牌局 | `woodland_duel` |
 
 操作以游戏内提示为准。各模块独立保存至 `user://games/<id>/`，不共享档案。晨曦之剑仍有动画/视觉润色事项；设计通关时长不是玩家实测承诺。
 
 ## 独立抽离
 
 ```bash
-python3 tools/extract_game.py dawn_sword /absolute/new/standalone
+python3 tools/extract_game.py woodland_duel /absolute/new/standalone
 # 用 Godot 打开生成的 project.godot；可换用表中任意 ID。
 ```
 
@@ -44,4 +45,4 @@ TMPDIR=/absolute/external/qa GODOT_BIN=/absolute/path/to/Godot tools/test_all.sh
 python3 tools/qa/test_standalone_games.py --godot /absolute/path/to/Godot --lifecycle-only
 ```
 
-`tools/test_all.sh --list` 列出准确范围：当前十款宿主/目录/传送门、抽离及公共启动退出接口。独立进程退出另测；均不等于完整玩法、原生输入、主观视觉/声音或所有设备性能验收。模块规则测试仍在各 `tests/` 下。
+`tools/test_all.sh --list` 列出准确范围：当前十一款宿主/目录/传送门、抽离及公共启动退出接口。独立进程退出另测；均不等于完整玩法、原生输入、主观视觉/声音或所有设备性能验收。模块规则测试仍在各 `tests/` 下。

@@ -32,6 +32,15 @@ func _draw() -> void:
   draw_colored_polygon(PackedVector2Array([c+Vector2(0,-62)*k,c+Vector2(12,-42)*k,c+Vector2(8,21)*k,c+Vector2(-8,21)*k,c+Vector2(-12,-42)*k]),Color("e4f5ef"))
   draw_line(c+Vector2(-26,23)*k,c+Vector2(26,23)*k,Color("b27c49"),8*k,true)
   draw_line(c+Vector2(0,24)*k,c+Vector2(0,53)*k,Color("56546a"),9*k,true)
+ elif game_id == "woodland_duel":
+  # Original card-and-leaf symbol; an illustration, not a gameplay screenshot.
+  draw_style_box(_box(Color("6b9478"),8),Rect2(c+Vector2(-55,-38)*k,Vector2(62,83)*k))
+  draw_style_box(_box(Color("ead9b2"),8),Rect2(c+Vector2(-25,-51)*k,Vector2(70,94)*k))
+  draw_style_box(_box(Color("f8f0dc"),5),Rect2(c+Vector2(-18,-43)*k,Vector2(56,76)*k))
+  draw_colored_polygon(PackedVector2Array([c+Vector2(-9,9)*k,c+Vector2(-9,-13)*k,c+Vector2(4,-28)*k,c+Vector2(27,-29)*k,c+Vector2(27,-7)*k,c+Vector2(13,8)*k]),Color("6c9f6e"))
+  draw_line(c+Vector2(-10,12)*k,c+Vector2(21,-23)*k,Color("e5e8be"),3*k,true)
+  draw_circle(c+Vector2(42,33)*k,17*k,Color("e2b460"))
+  draw_circle(c+Vector2(42,33)*k,10*k,Color("f7df9e"))
  elif game_id == "apprentice_yokai_king":
   # Original horned yokai and oversized hammer theme symbol.
   draw_circle(c+Vector2(-13,5)*k,35*k,Color("9ad4bd"))

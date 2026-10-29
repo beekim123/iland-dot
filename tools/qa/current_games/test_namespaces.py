@@ -21,4 +21,4 @@ for game in extractor.GAMES:
             literals.append(path)
     assert literals, f'No literal private save path found: {game}'
     checked[game] = sorted(set(literals))
-print('TEN_PRIVATE_LITERAL_NAMESPACES_PASS:', checked)
+print('ELEVEN_PRIVATE_LITERAL_NAMESPACES_PASS:', checked)

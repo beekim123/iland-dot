@@ -11,7 +11,8 @@ const GAMES := [
  {"id":"fruit_gummy_snake","title":"海底软糖水蛇","enabled":true,"scene_path":"res://modules/fruit_gummy_snake/main.tscn","color":Color("b5e278"),"description":"WASD 游动 · Space 上浮 · C 下潜","category":"relax","category_label":"休闲"},
  {"id":"monkey_vine","title":"猴子荡荡","enabled":true,"scene_path":"res://modules/monkey_vine/main.tscn","color":Color("73b85d"),"description":"2.5D 丛林冒险 · 抓藤摆荡 · 松手飞跃","category":"adventure","category_label":"冒险"},
  {"id":"dawn_sword","title":"晨曦之剑","enabled":true,"scene_path":"res://modules/dawn_sword/main.tscn","color":Color("f6c66d"),"description":"横版勇者冒险 · 探索与剑技","category":"adventure","category_label":"冒险"},
- {"id":"apprentice_yokai_king","title":"见习小妖王","enabled":true,"scene_path":"res://modules/apprentice_yokai_king/main.tscn","color":Color("9ad4bd"),"description":"大地图妖怪冒险 · 巨槌与流派","category":"action","category_label":"动作"}
+ {"id":"apprentice_yokai_king","title":"见习小妖王","enabled":true,"scene_path":"res://modules/apprentice_yokai_king/main.tscn","color":Color("9ad4bd"),"description":"大地图妖怪冒险 · 巨槌与流派","category":"action","category_label":"动作"},
+ {"id":"woodland_duel","title":"林间牌局","enabled":true,"scene_path":"res://modules/woodland_duel/main.tscn","color":Color("a9ce8b"),"description":"森林卡牌对战 · 召唤伙伴与法术","category":"strategy","category_label":"策略"}
 ]
 var _availability: Dictionary = {}
 

@@ -25,6 +25,7 @@ TESTS = {
     'monkey_vine': ['test_rules_route', 'test_rules_bonus', 'test_rules_invariants'],
     'dawn_sword': ['test_runtime', 'test_storage', 'test_standalone_exit'],
     'apprentice_yokai_king': ['test_lifecycle', 'test_inputs', 'test_window_close'],
+    'woodland_duel': ['test_runtime', 'test_storage', 'test_rules', 'test_ai'],
 }
 ERRORS = re.compile(r'SCRIPT ERROR:|Parse Error:|^ERROR:|ObjectDB.*leaked|resources still in use|^FAIL', re.M)
 
@@ -33,8 +34,17 @@ def check_game(game_id, output, godot, lifecycle_only=False):
     work = output / game_id
     work.mkdir()
     project = EXTRACTOR.extract_game(game_id, work / 'project', ROOT)
-    leave = 'exit_game' if game_id == 'apprentice_yokai_king' else ('request_exit' if game_id in ('monkey_vine', 'dawn_sword') else 'leave_game')
-    started = 'started' if game_id in ('monkey_vine', 'dawn_sword', 'apprentice_yokai_king') else 'has_started'
+    leave = 'request_exit(true)' if game_id == 'woodland_duel' else ('exit_game()' if game_id == 'apprentice_yokai_king' else ('request_exit()' if game_id in ('monkey_vine', 'dawn_sword') else 'leave_game()'))
+    started = 'started' if game_id in ('monkey_vine', 'dawn_sword', 'apprentice_yokai_king', 'woodland_duel') else 'has_started'
+    confirmation_probe = '''    game.request_exit()
+    if game.modal != "exit" or not game.running:
+        printerr("FAIL standalone exit did not ask for confirmation"); quit(1); return
+    game.cancel_exit()
+    for frame in 3: await process_frame
+    if not game.running or game.modal != "":
+        printerr("FAIL cancelling standalone exit did not resume"); quit(1); return
+    print("STANDALONE EXIT CANCEL PASS")
+''' if game_id == 'woodland_duel' else ''
     # This probe is test-only, written to the extracted copy, never the source module.
     (project / 'standalone_probe.gd').write_text(f'''extends SceneTree
 func _initialize() -> void: call_deferred("run")
@@ -44,8 +54,8 @@ func run() -> void:
     for frame in 120: await process_frame
     if not game.{started}:
         printerr("FAIL standalone did not start"); quit(1); return
-    print("STANDALONE START PASS; requesting normal exit")
-    game.{leave}()
+{confirmation_probe}    print("STANDALONE START PASS; requesting normal exit")
+    game.{leave}
     await create_timer(4).timeout
     printerr("FAIL standalone did not close itself"); quit(1)
 ''')

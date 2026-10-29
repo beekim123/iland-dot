@@ -21,6 +21,19 @@ func _initialize() -> void:
 		check(unique.size()==4,"without replacement")
 		check(selection.any(func(id):return id not in previous),"refresh includes a new recommendation")
 	check(seen.size()==7,"every game appears")
+	# Adding a title must not reshuffle an existing four-door profile on entry.
+	var migration = Rotation.new(); migration.rng.seed = 107
+	var ten: Array = []
+	for i in 10: ten.append("existing_%d" % i)
+	var saved: Array = migration.reconcile(ten)
+	var eleven: Array = ten.duplicate(); eleven.append("woodland_duel")
+	check(migration.reconcile(eleven)==saved,"new eleventh title keeps saved door selection")
+	var eleven_seen: Dictionary = {}
+	for cycle in 160:
+		var offered: Array = migration.shuffle(eleven)
+		check(offered.size()==4,"eleven-title pool still offers only four doors")
+		for id in offered: eleven_seen[id]=true
+	check(eleven_seen.size()==11 and eleven_seen.has("woodland_duel"),"all eleven titles participate in refresh")
 	var before: Array = model.selected.duplicate()
 	pool.erase(before[1])
 	selection=model.reconcile(pool)

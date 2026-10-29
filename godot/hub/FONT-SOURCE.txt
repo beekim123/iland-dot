@@ -26,3 +26,6 @@ face and all prior glyphs. Explicit set now contains 217 codepoints.
 
 Eight-game staging: added 猴子荡荡 title glyphs using the same upstream face;
 all prior required codepoints retained. Rebuild with the existing subset tool.
+
+Eleven-game admission: added 林间牌局 title coverage using the same upstream
+face, preserving every prior required codepoint. Rebuild with the same tool.

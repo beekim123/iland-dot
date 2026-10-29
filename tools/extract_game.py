@@ -16,6 +16,7 @@ GAMES = {
     'monkey_vine': 'Monkey Vine Standalone',
     'dawn_sword': 'Dawn Sword Standalone',
     'apprentice_yokai_king': 'Apprentice Yokai King Standalone',
+    'woodland_duel': 'Woodland Duel Standalone',
 }
 RESOURCE_TEXT_SUFFIXES = {'.gd', '.tscn', '.tres', '.gdshader', '.gdshaderinc'}
 

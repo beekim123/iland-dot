@@ -13,7 +13,8 @@ func run() -> void:
 	var id: String = path.split("/")[3]
 	game.start({"game_id": id, "save_root": "user://games/" + id + "/", "schema_version": 1})
 	for frame in 10: await process_frame
-	if game.has_method("request_exit"): game.request_exit()
+	if id == "woodland_duel": game.request_exit(true)
+	elif game.has_method("request_exit"): game.request_exit()
 	elif game.has_method("exit_game"): game.exit_game()
 	else: game.leave_game()
 	for attempt in 100:

@@ -1,0 +1,6 @@
+woodland-font.otf is a glyph subset of Noto Sans CJK SC Regular (face 2).
+Source: /usr/share/fonts/opentype/noto/NotoSansCJK-Regular.ttc
+Upstream: https://github.com/notofonts/noto-cjk
+License: SIL Open Font License 1.1, complete text in OFL.txt.
+Modified 2026-10-29 with fontTools to retain module UI and card glyphs plus ASCII.
+Kept local to the module so standalone extraction does not depend on host fonts.
