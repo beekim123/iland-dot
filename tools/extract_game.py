@@ -17,6 +17,9 @@ GAMES = {
     'dawn_sword': 'Dawn Sword Standalone',
     'apprentice_yokai_king': 'Apprentice Yokai King Standalone',
     'woodland_duel': 'Woodland Duel Standalone',
+    'tide_lantern': 'Tide Lantern Standalone',
+    'moon_post': 'Moon Post Standalone',
+    'whale_bento': 'Whale Bento Standalone',
 }
 RESOURCE_TEXT_SUFFIXES = {'.gd', '.tscn', '.tres', '.gdshader', '.gdshaderinc'}
 

@@ -29,3 +29,6 @@ all prior required codepoints retained. Rebuild with the existing subset tool.
 
 Eleven-game admission: added 林间牌局 title coverage using the same upstream
 face, preserving every prior required codepoint. Rebuild with the same tool.
+
+Fourteen-game admission: added 灯塔净潮、月影邮差、云鲸便当铺 title glyphs,
+retaining every prior codepoint, same source face and subset command.

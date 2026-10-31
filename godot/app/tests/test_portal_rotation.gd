@@ -34,6 +34,16 @@ func _initialize() -> void:
 		check(offered.size()==4,"eleven-title pool still offers only four doors")
 		for id in offered: eleven_seen[id]=true
 	check(eleven_seen.size()==11 and eleven_seen.has("woodland_duel"),"all eleven titles participate in refresh")
+	var fourteen: Array = eleven.duplicate()
+	fourteen.append_array(["tide_lantern", "moon_post", "whale_bento"])
+	var current_saved: Array = migration.selected.duplicate()
+	check(migration.reconcile(fourteen)==current_saved,"three-demo admission preserves saved four doors")
+	var current_seen: Dictionary = {}
+	for cycle in 160:
+		var offered: Array = migration.shuffle(fourteen)
+		check(offered.size()==4,"expanded pool still offers only four doors")
+		for id in offered: current_seen[id]=true
+	check(current_seen.size()==fourteen.size(),"every expanded-pool title participates")
 	var before: Array = model.selected.duplicate()
 	pool.erase(before[1])
 	selection=model.reconcile(pool)

@@ -19,6 +19,29 @@ func _draw() -> void:
   draw_circle(c,23*k,Color("ff658f"))
   draw_circle(c+Vector2(-7,-4)*k,3*k,Color("293f50"));draw_circle(c+Vector2(7,-4)*k,3*k,Color("293f50"))
   draw_arc(c+Vector2(21,-18)*k,15*k,PI,PI*1.7,16,Color("fff1a2"),4*k,true)
+ elif game_id == "tide_lantern":
+  # Original lighthouse and tide symbol, not a gameplay screenshot.
+  draw_colored_polygon(PackedVector2Array([c+Vector2(-26,48)*k,c+Vector2(-16,-29)*k,c+Vector2(16,-29)*k,c+Vector2(26,48)*k]),Color("fff0d1"))
+  draw_style_box(_box(Color("62cbbd"),4),Rect2(c+Vector2(-22,-46)*k,Vector2(44,27)*k))
+  draw_circle(c+Vector2(0,-33)*k,8*k,Color("ffe49b"))
+  for y in [34,49,64]:draw_arc(c+Vector2(0,y)*k,63*k,PI*.1,PI*.9,25,Color("79ddca"),4*k,true)
+ elif game_id == "moon_post":
+  # Paired paper couriers under a crescent moon.
+  draw_circle(c+Vector2(34,-34)*k,29*k,Color("fff1bb"))
+  draw_circle(c+Vector2(47,-44)*k,26*k,Color("696692"))
+  for x in [-38,26]:
+   draw_style_box(_box(Color("eee9ff"),4),Rect2(c+Vector2(x-23,-8)*k,Vector2(46,35)*k))
+   draw_polyline(PackedVector2Array([c+Vector2(x-23,-8)*k,c+Vector2(x,10)*k,c+Vector2(x+23,-8)*k]),Color("a58ad9"),3*k,true)
+   draw_line(c+Vector2(x-9,29)*k,c+Vector2(x-13,45)*k,Color("bba6fa"),4*k,true)
+   draw_line(c+Vector2(x+9,29)*k,c+Vector2(x+13,45)*k,Color("bba6fa"),4*k,true)
+ elif game_id == "whale_bento":
+  # Bento tray sailing on an original cloud whale.
+  draw_style_box(_box(Color("699fc3"),22),Rect2(c+Vector2(-67,3)*k,Vector2(124,49)*k))
+  draw_colored_polygon(PackedVector2Array([c+Vector2(44,23)*k,c+Vector2(78,-1)*k,c+Vector2(77,39)*k]),Color("699fc3"))
+  draw_circle(c+Vector2(-46,24)*k,4*k,Color("233a57"))
+  draw_style_box(_box(Color("fff0cc"),8),Rect2(c+Vector2(-44,-44)*k,Vector2(86,51)*k))
+  for i in 3:
+   draw_style_box(_box([Color("ed8c7f"),Color("83bd8f"),Color("ecc15b")][i],5),Rect2(c+Vector2(-35+i*25,-35)*k,Vector2(20,32)*k))
  elif game_id == "fruit_gummy_snake":
   for i in 6:
    draw_circle(c+Vector2((i-2.5)*21,sin(i*.9)*17)*k,(15+i*.7)*k,Color("9bd58f"))

@@ -5,7 +5,7 @@ const PORTAL = preload("res://hub/portal.gd")
 const DRAG_THRESHOLD := 7.0
 const PICK_TRIANGLE_BUDGET := 16384
 # Keep unknown/planned games locked even when preview metadata incorrectly enables them.
-const IMPLEMENTED_GAME_IDS := ["gummy_bomber", "bloom_skirmish", "tide_gulp", "beach_cleanup", "volcano_escape", "pelican_pedal", "fruit_gummy_snake", "monkey_vine", "dawn_sword", "apprentice_yokai_king", "woodland_duel"]
+const IMPLEMENTED_GAME_IDS := ["gummy_bomber", "bloom_skirmish", "tide_gulp", "beach_cleanup", "volcano_escape", "pelican_pedal", "fruit_gummy_snake", "monkey_vine", "dawn_sword", "apprentice_yokai_king", "woodland_duel", "tide_lantern", "moon_post", "whale_bento"]
 const MAX_PORTALS := 4
 var _site_data: Dictionary = {}
 var world: Node3D

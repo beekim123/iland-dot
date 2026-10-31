@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Current eleven-game integration/extraction smoke, NOT full rules or visual acceptance."""
+"""Current registered-game integration/extraction smoke, NOT full rules or visual acceptance."""
 import argparse
 import hashlib
 import importlib.util
@@ -15,20 +15,21 @@ import tempfile
 ROOT = Path(__file__).resolve().parents[3]
 MODULES = ('gummy_bomber', 'bloom_skirmish', 'tide_gulp', 'beach_cleanup',
            'volcano_escape', 'pelican_pedal', 'fruit_gummy_snake', 'monkey_vine',
-           'dawn_sword', 'apprentice_yokai_king', 'woodland_duel')
+           'dawn_sword', 'apprentice_yokai_king', 'woodland_duel',
+           'tide_lantern', 'moon_post', 'whale_bento')
 HOST = ('tests/check_app.gd', 'app/tests/test_portal_rotation.gd',
         'hub/tests/test_hub.gd', 'hub/tests/test_portal_picking.gd',
         'hub/tests/test_portal_layout.gd', 'hub/catalog/tests/test_catalog.gd',
-        'app/tests/test_eleven_game_admission.gd')
+        'app/tests/test_current_game_admission.gd')
 SCOPE = {
     'scope': 'current integration and extraction smoke; NOT full rules regression',
     'modules': MODULES, 'host': HOST,
-    'host_window_close': 'three latest modules: process-level propagated WM close notification, not native UI',
+    'host_window_close': 'six newest modules: process-level propagated WM close notification, not native UI',
     'save_namespace': 'production literal user:// paths confined to own game; not dynamic-write proof',
-    'extracted': 'all eleven: production extraction, exact source bytes, import, start(context), exit signal',
+    'extracted': 'all declared modules: production extraction, exact source bytes, import, start(context), exit signal',
     'exclusions': ['full module rules/long simulations', 'process-level standalone quit',
                    'graphical/native-input/audio judgement', 'Web/user-device performance'],
-    'history': 'six/seven/eight runners and ten-entry admission test remain historical; not reused here',
+    'history': 'six/seven/eight runners and ten/eleven-entry admission tests remain historical; not reused here',
 }
 BAD = re.compile(r'SCRIPT ERROR:|Parse Error:|^ERROR:|ObjectDB.*leaked|resources still in use|^FAIL', re.M)
 
@@ -93,11 +94,11 @@ def main():
         frozen = qa / 'frozen'
         frozen.mkdir()
         shutil.copytree(host, frozen / 'godot')
-        run('literal-save-namespaces', [sys.executable, qa / 'tools/qa/current_games/test_namespaces.py', frozen], 'ELEVEN_PRIVATE_LITERAL_NAMESPACES_PASS')
+        run('literal-save-namespaces', [sys.executable, qa / 'tools/qa/current_games/test_namespaces.py', frozen], 'CURRENT_PRIVATE_LITERAL_NAMESPACES_PASS')
         run('host-import', [engine, '--headless', '--path', host, '--editor', '--import', '--quit'])
         for script in HOST:
             run('host-' + Path(script).stem, [engine, '--headless', '--path', host, '--script', 'res://' + script])
-        for module in ('dawn_sword', 'apprentice_yokai_king', 'woodland_duel'):
+        for module in MODULES[8:]:
             run(module + '-host-window-close', [engine, '--headless', '--path', host, '--script', 'res://app/tests/test_host_window_close.gd', '--', module], 'HOST_WM_CLOSE_ACCEPTED: ' + module)
         for module in MODULES:
             dest = qa / 'extracted' / module

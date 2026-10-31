@@ -1,0 +1,35 @@
+extends SceneTree
+func _initialize() -> void: call_deferred("run")
+func run() -> void:
+	var Store=load("res://modules/tide_lantern/store.gd")
+	var Rules=load("res://modules/tide_lantern/rules.gd")
+	var state=Rules.new_run()
+	var previous=state.duplicate(true)
+	Rules.act(state,1,6)
+	Store.save_run(state,previous,false)
+	var restored=Store.load_run()
+	assert(restored.state.exact==1 and restored.undo.exact==0)
+	assert(restored.state.wear==state.wear and restored.state.board==state.board)
+	var broken=state.duplicate(true); broken.board[0].kind="unexpected"
+	assert(not Store.valid(broken))
+	broken=state.duplicate(true); broken.hp=999
+	assert(not Store.valid(broken))
+	var corrupt=FileAccess.open(Store.PATH,FileAccess.WRITE); corrupt.store_string("not json"); corrupt.close()
+	assert(Store.load_run().is_empty())
+	Store.save_run(state,previous,true)
+	assert(Store.load_run().undo_used)
+	state.status="lost"; Store.save_run(state,{},false)
+	assert(not FileAccess.file_exists(Store.PATH))
+	var node=load("res://modules/tide_lantern/main.tscn").instantiate()
+	root.add_child(node); node.start({})
+	var old_wins=node.profile.wins
+	node.state.status="won"; node.state.exact=42; node.save_result(); node.save_result()
+	assert(node.profile.wins==old_wins+1,"result written only once")
+	var f=FileAccess.open("user://games/tide_lantern/profile.json",FileAccess.READ)
+	assert(f!=null)
+	var saved=JSON.parse_string(f.get_as_text()); f.close()
+	assert(saved.best_exact>=42 and saved.wins==old_wins+1)
+	node.profile.wins=0; node.load_profile(); assert(node.profile.wins==saved.wins)
+	node.queue_free(); await process_frame
+	print("Tide Lantern storage: namespaced persistence, run/undo restoration, corrupt fallback, terminal cleanup and idempotent result passed")
+	quit()
